@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio Muhammad Ad Dairabiy - Siswa SMA Negeri 70 Jakarta Kelas X-D. Minat dalam bidang Teknologi, Komputer, dan Pemrograman.">
+  <meta name="keywords" content="Muhammad Ad Dairabiy, SMAN 70 Jakarta, Portofolio Siswa, Teknologi, Pemrograman">
+  <meta name="author" content="Muhammad Ad Dairabiy">
+  <title>Muhammad Ad Dairabiy | Portofolio Siswa SMA</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Design Token Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+
+  <!-- Navigation Bar -->
+  <header class="header" id="header">
+    <div class="container nav-wrapper">
+      <a href="#hero" class="brand-logo" id="brand-easter-logo" title="Muhammad Ad Dairabiy">
+        <span class="brand-badge">X-D</span>
+        <span class="brand-name">Muhammad Ad Dairabiy</span>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">Beranda</a></li>
+          <li><a href="#insights" class="nav-link">Insights</a></li>
+          <li><a href="#about" class="nav-link">Profil</a></li>
+          <li><a href="#journey" class="nav-link">Journey</a></li>
+          <li><a href="#skills" class="nav-link">Keahlian</a></li>
+          <li><a href="#projects" class="nav-link">Proyek</a></li>
+          <li><a href="#activities" class="nav-link">Aktivitas</a></li>
+          <li><a href="#contact" class="nav-link">Kontak</a></li>
+        </ul>
+        <button class="nav-close" id="nav-close" aria-label="Tutup menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary btn-sm" id="quiz-nav-btn" title="Kuis Portofolio">
+          <i class="fa-solid fa-lightbulb"></i>
+          <span>Kuis</span>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm">
+          <span>Hubungi</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Buka navigasi">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section section-reveal" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-text-block">
+          <div class="status-pill">
+            <span class="status-indicator"></span>
+            <span>Siswa Kelas X-D • SMA Negeri 70 Jakarta</span>
+          </div>
+          
+          <h1 class="hero-heading">
+            Muhammad <br>
+            <span class="highlight-text">Ad Dairabiy</span>
+          </h1>
+          
+          <p class="hero-subheading">
+            Fokus & Minat: <span class="typing-role" id="typing-role"></span><span class="cursor-bar">|</span>
+          </p>
+          
+          <p class="hero-bio">
+            Siswa aktif di SMA Negeri 70 Jakarta dengan antusiasme tinggi dalam bidang teknologi informasi, eksplorasi komputer, pembuatan konten digital, dan pembelajaran dasar pemrograman perangkat lunak.
+          </p>
+          
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <span>Lihat Proyek Saya</span>
+              <i class="fa-solid fa-folder-open"></i>
+            </a>
+            <a href="#about" class="btn btn-secondary">
+              <span>Jelajahi Profil</span>
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </div>
+
+          <div class="quick-meta-list">
+            <div class="meta-item">
+              <span class="meta-label">Sekolah</span>
+              <strong class="meta-val">SMAN 70 Jakarta</strong>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-item">
+              <span class="meta-label">Domisili</span>
+              <strong class="meta-val">Jakarta, Indonesia</strong>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-item">
+              <span class="meta-label">Alumni</span>
+              <strong class="meta-val">SMPN 68 Jaksel</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Profile Card Graphic -->
+        <div class="hero-card-block">
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <div class="avatar-box">
+                <i class="fa-solid fa-user-graduate"></i>
+              </div>
+              <div class="avatar-title">
+                <h3>Muhammad Ad Dairabiy</h3>
+                <p>Kelas X-D | SMAN 70 Jakarta</p>
+              </div>
+            </div>
+
+            <div class="profile-card-body">
+              <div class="info-row">
+                <span class="info-label"><i class="fa-solid fa-bullseye"></i> Cita-Cita</span>
+                <span class="info-value">Ahli Teknologi & Pemrograman</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label"><i class="fa-solid fa-book-open"></i> Minat</span>
+                <span class="info-value">Komputer, IT, Konten Digital</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label"><i class="fa-solid fa-language"></i> Bahasa</span>
+                <span class="info-value">Indonesia (Aktif), Inggris (Menengah)</span>
+              </div>
+            </div>
+
+            <div class="profile-card-footer">
+              <div class="badge-capsule"><i class="fa-solid fa-laptop-code"></i> Tech Enthusiast</div>
+              <div class="badge-capsule"><i class="fa-solid fa-users"></i> Team Player</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Portfolio Insights Section -->
+    <section class="section-block section-reveal" id="insights">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="token-pill">Dashboard Overview</span>
+          <h2 class="section-title">Portfolio Insights</h2>
+          <p class="section-desc">Ringkasan profil, fokus pengembangan diri, dan orientasi pembelajaran masa depan.</p>
+        </div>
+
+        <div class="insights-dashboard-grid">
+          <!-- Card 1: Student -->
+          <div class="insight-dash-card">
+            <div class="insight-dash-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="insight-dash-header">
+              <span class="insight-badge">Pendidikan</span>
+              <h4>Student</h4>
+            </div>
+            <p class="insight-dash-text">Currently studying at <strong>SMA Negeri 70 Jakarta</strong> (Class X-D).</p>
+          </div>
+
+          <!-- Card 2: Tech Enthusiast -->
+          <div class="insight-dash-card">
+            <div class="insight-dash-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <div class="insight-dash-header">
+              <span class="insight-badge">Ketertarikan</span>
+              <h4>Tech Enthusiast</h4>
+            </div>
+            <p class="insight-dash-text">Interested in <strong>computers, digital tools</strong>, and technology exploration.</p>
+          </div>
+
+          <!-- Card 3: Continuous Learner -->
+          <div class="insight-dash-card">
+            <div class="insight-dash-icon"><i class="fa-solid fa-brain"></i></div>
+            <div class="insight-dash-header">
+              <span class="insight-badge">Mindset</span>
+              <h4>Continuous Learner</h4>
+            </div>
+            <p class="insight-dash-text">Always developing practical skills and exploring <strong>computational thinking</strong>.</p>
+          </div>
+
+          <!-- Card 4: Future-Oriented -->
+          <div class="insight-dash-card">
+            <div class="insight-dash-icon"><i class="fa-solid fa-rocket"></i></div>
+            <div class="insight-dash-header">
+              <span class="insight-badge">Aspirasi</span>
+              <h4>Future-Oriented</h4>
+            </div>
+            <p class="insight-dash-text">Focused on building a solid foundation for a <strong>future career in technology</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Interactive About Me Section -->
+    <section class="section-block section-reveal" id="about">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="token-pill">Data Diri & Eksplorasi</span>
+          <h2 class="section-title">Tentang Saya</h2>
+          <p class="section-desc">Pilih kategori di bawah untuk melihat rincian profil, minat, dan tujuan belajar secara interaktif.</p>
+        </div>
+
+        <!-- Interactive Tabs -->
+        <div class="about-interactive-box">
+          <div class="about-nav-tabs" role="tablist">
+            <button class="about-tab-btn active" data-tab="who-i-am" role="tab" aria-selected="true">
+              <i class="fa-solid fa-user-check"></i>
+              <span>Who I Am</span>
+            </button>
+            <button class="about-tab-btn" data-tab="my-interests" role="tab" aria-selected="false">
+              <i class="fa-solid fa-heart"></i>
+              <span>My Interests</span>
+            </button>
+            <button class="about-tab-btn" data-tab="what-im-learning" role="tab" aria-selected="false">
+              <i class="fa-solid fa-book-bookmark"></i>
+              <span>What I'm Learning</span>
+            </button>
+            <button class="about-tab-btn" data-tab="my-goals" role="tab" aria-selected="false">
+              <i class="fa-solid fa-flag-checkered"></i>
+              <span>My Goals</span>
+            </button>
+          </div>
+
+          <!-- Tab Content Display Panel -->
+          <div class="about-display-panel">
+            <div class="about-tab-pane active" id="pane-who-i-am">
+              <div class="pane-header">
+                <span class="pane-tag">Identitas & Status</span>
+                <h3>Siswa Pembelajar yang Berdedikasi</h3>
+              </div>
+              <p class="pane-body-text">
+                Siswa di <strong>SMA Negeri 70 Jakarta</strong> yang memiliki ketertarikan mendalam pada bidang teknologi dan pengembangan keterampilan digital. Aktif mengikuti pembelajaran sekolah serta berkolaborasi dalam berbagai proyek tugas kelompok.
+              </p>
+              <div class="pane-meta-grid">
+                <div class="pane-meta-item">
+                  <span class="meta-t">Sekolah Sekarang</span>
+                  <span class="meta-v">SMA Negeri 70 Jakarta (Kelas X-D)</span>
+                </div>
+                <div class="pane-meta-item">
+                  <span class="meta-t">Pendidikan Sebelumnya</span>
+                  <span class="meta-v">SMP Negeri 68 Jakarta Selatan</span>
+                </div>
+                <div class="pane-meta-item">
+                  <span class="meta-t">Domisili</span>
+                  <span class="meta-v">Jakarta, Indonesia</span>
+                </div>
+                <div class="pane-meta-item">
+                  <span class="meta-t">Kemampuan Bahasa</span>
+                  <span class="meta-v">Indonesia (Aktif), Inggris (Menengah)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-tab-pane" id="pane-my-interests">
+              <div class="pane-header">
+                <span class="pane-tag">Eksplorasi Minat</span>
+                <h3>Bidang yang Menarik Antusiasme Saya</h3>
+              </div>
+              <p class="pane-body-text">
+                Saya sangat tertarik pada perkembangan teknologi informasi modern, komputer, pembuatan konten visual digital, serta dinamika pemecahan masalah melalui logika komputasi dan gaming.
+              </p>
+              <div class="interests-chips-grid">
+                <div class="interest-chip-card">
+                  <i class="fa-solid fa-microchip text-blue"></i>
+                  <strong>Technology</strong>
+                  <small>Tren inovasi & perkakas AI</small>
+                </div>
+                <div class="interest-chip-card">
+                  <i class="fa-solid fa-desktop text-blue"></i>
+                  <strong>Computer</strong>
+                  <small>Sistem operasi & fungsionalitas</small>
+                </div>
+                <div class="interest-chip-card">
+                  <i class="fa-solid fa-code text-blue"></i>
+                  <strong>Programming</strong>
+                  <small>Logika dasar & kode pemula</small>
+                </div>
+                <div class="interest-chip-card">
+                  <i class="fa-solid fa-photo-film text-blue"></i>
+                  <strong>Digital Content</strong>
+                  <small>Desain infografis & video</small>
+                </div>
+                <div class="interest-chip-card">
+                  <i class="fa-solid fa-gamepad text-blue"></i>
+                  <strong>Gaming</strong>
+                  <small>Refleks, strategi & kerjasama</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-tab-pane" id="pane-what-im-learning">
+              <div class="pane-header">
+                <span class="pane-tag">Proses Belajar</span>
+                <h3>Fokus Pengembangan Keterampilan Saat Ini</h3>
+              </div>
+              <p class="pane-body-text">
+                Terus mengembangkan kemampuan digital, optimalisasi penggunaan komputer, pengolahan presentasi efektif, dan mulai mendalami dasar-dasar logika pemrograman secara mandiri.
+              </p>
+              <div class="learning-focus-list">
+                <div class="focus-item">
+                  <div class="focus-dot"></div>
+                  <div>
+                    <strong>Peningkatan Literasi Digital & Software</strong>
+                    <p>Memaksimalkan Microsoft Word, PowerPoint, dan Canva untuk kebutuhan tugas akademik terstruktur.</p>
+                  </div>
+                </div>
+                <div class="focus-item">
+                  <div class="focus-dot"></div>
+                  <div>
+                    <strong>Dasar-Dasar Logika Komputasi & Pemrograman</strong>
+                    <p>Mempelajari alur logika algoritma dan sintaks dasar dalam pengembangan aplikasi sederhana.</p>
+                  </div>
+                </div>
+                <div class="focus-item">
+                  <div class="focus-dot"></div>
+                  <div>
+                    <strong>Pemanfaatan AI untuk Produktivitas Pelajar</strong>
+                    <p>Eksplorasi perkakas modern seperti Notion AI untuk membantu merangkum materi dan mengelola jadwal.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-tab-pane" id="pane-my-goals">
+              <div class="pane-header">
+                <span class="pane-tag">Visi Masa Depan</span>
+                <h3>Aspirasi & Tujuan Karier</h3>
+              </div>
+              <p class="pane-body-text">
+                Mengembangkan kemampuan teknologi secara bertahap dan berkelanjutan, menyelesaikan pendidikan dengan prestasi membanggakan, serta membangun berbagai proyek digital yang bermanfaat di masa depan.
+              </p>
+              <div class="goals-pathway-cards">
+                <div class="goal-path-card">
+                  <span class="goal-time">Jangka Pendek (Masa SMA)</span>
+                  <h4>Penguatan Dasar IT & Akademik</h4>
+                  <p>Memperdalam keterampilan komputer, aktif berkolaborasi dalam proyek sekolah, dan mengeksplorasi materi pemrograman dasar.</p>
+                </div>
+                <div class="goal-path-card">
+                  <span class="goal-time">Jangka Panjang (Karier Masa Depan)</span>
+                  <h4>Menjadi Ahli di Bidang Teknologi Informasi</h4>
+                  <p>Melanjutkan studi di bidang komputer/IT serta berkarier sebagai profesional di industri teknologi dan rekayasa perangkat lunak.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. "My Learning Journey" Section -->
+    <section class="section-block section-reveal" id="journey">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="token-pill">Growth Mindset</span>
+          <h2 class="section-title">My Learning Journey</h2>
+          <p class="section-desc">Klik setiap tahapan di bawah untuk melihat proses dan perjalanan belajar saya sebagai seorang pelajar.</p>
+        </div>
+
+        <!-- Interactive Journey Timeline -->
+        <div class="journey-interactive-wrap">
+          <div class="journey-stepper" role="tablist">
+            <button class="journey-node active" data-step="1">
+              <span class="node-number">01</span>
+              <div class="node-text">
+                <strong>SMP</strong>
+                <small>Exploring Science</small>
+              </div>
+            </button>
+            <div class="journey-connector"></div>
+
+            <button class="journey-node" data-step="2">
+              <span class="node-number">02</span>
+              <div class="node-text">
+                <strong>SMA (SMAN 70)</strong>
+                <small>Developing Skills</small>
+              </div>
+            </button>
+            <div class="journey-connector"></div>
+
+            <button class="journey-node" data-step="3">
+              <span class="node-number">03</span>
+              <div class="node-text">
+                <strong>Programming</strong>
+                <small>Exploring Logic</small>
+              </div>
+            </button>
+            <div class="journey-connector"></div>
+
+            <button class="journey-node" data-step="4">
+              <span class="node-number">04</span>
+              <div class="node-text">
+                <strong>Building Projects</strong>
+                <small>Collaborative Works</small>
+              </div>
+            </button>
+            <div class="journey-connector"></div>
+
+            <button class="journey-node" data-step="5">
+              <span class="node-number">05</span>
+              <div class="node-text">
+                <strong>Future in Tech</strong>
+                <small>Continuous Growth</small>
+              </div>
+            </button>
+          </div>
+
+          <!-- Journey Dynamic Detail Box -->
+          <div class="journey-detail-card" id="journey-detail-card">
+            <div class="journey-badge-tag" id="journey-badge">Tahapan: SMP</div>
+            <h3 class="journey-title" id="journey-title">Exploring Science & Technology</h3>
+            <p class="journey-desc" id="journey-desc">
+              Memulai ketertarikan pada metode ilmiah dan observasi fenomena alam melalui kegiatan ekstrakurikuler Klub IPA di SMPN 68 Jakarta Selatan. Melatih rasa ingin tahu, cara berpikir kritis, dan eksplorasi awal penggunaan komputer.
+            </p>
+            <div class="journey-key-takeaway">
+              <span class="takeaway-label">Fokus Pembelajaran:</span>
+              <span class="takeaway-val" id="journey-takeaway">Observasi Ilmiah • Klub IPA SMPN 68 Jaksel • Dasar Eksplorasi Komputer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Interactive Skills Visualization Section -->
+    <section class="section-block section-reveal" id="skills">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="token-pill">Kompetensi & Minat</span>
+          <h2 class="section-title">Interactive Skills Visualization</h2>
+          <p class="section-desc">Kombinasi keahlian perangkat digital, kemampuan non-teknis, dan ketertarikan teknologi. Arahkan kursor atau klik keahlian untuk melihat penjelasan.</p>
+        </div>
+
+        <div class="skills-category-layout">
+          <!-- Category 1: Digital Tools -->
+          <div class="skill-category-box">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon"><i class="fa-solid fa-desktop"></i></div>
+              <div>
+                <h3>Digital Tools</h3>
+                <small>Aplikasi Penunjang Produktivitas & Kreativitas</small>
+              </div>
+            </div>
+            
+            <div class="skill-interactive-list">
+              <div class="skill-card-item" data-desc="Digunakan secara teratur untuk menyusun makalah akademik, laporan tugas terstruktur, dan artikel sekolah dengan format rapi.">
+                <div class="skill-main-info">
+                  <i class="fa-solid fa-file-word text-blue"></i>
+                  <strong>Microsoft Word</strong>
+                </div>
+                <span class="qualitative-badge intermediate">Intermediate</span>
+              </div>
+
+              <div class="skill-card-item" data-desc="Merancang slide presentasi interaktif dengan struktur visual yang runtut untuk mendukung penyampaian materi di depan kelas.">
+                <div class="skill-main-info">
+                  <i class="fa-solid fa-file-powerpoint text-blue"></i>
+                  <strong>PowerPoint</strong>
+                </div>
+                <span class="qualitative-badge intermediate">Intermediate</span>
+              </div>
+
+              <div class="skill-card-item" data-desc="Mendesain infografis informatif, banner, poster tugas sekolah, dan konten visual kreatif dengan layout seimbang.">
+                <div class="skill-main-info">
+                  <i class="fa-solid fa-palette text-blue"></i>
+                  <strong>Canva</strong>
+                </div>
+                <span class="qualitative-badge intermediate">Intermediate</span>
+              </div>
+
+              <div class="skill-card-item" data-desc="Mengedit video tugas edukatif (seperti Proyek Video Monas) serta penyesuaian visual grafis untuk kebutuhan multimedia.">
+                <div class="skill-main-info">
+                  <i class="fa-solid fa-photo-film text-blue"></i>
+                  <strong>Photo & Video Editing</strong>
+                </div>
+                <span class="qualitative-badge developing">Developing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Soft Skills -->
+          <div class="skill-category-box">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon"><i class="fa-solid fa-users-gear"></i></div>
+              <div>
+                <h3>Soft Skills</h3>
+                <small>Keterampilan Komunikasi & Kerja Sama</small>
+              </div>
+            </div>
+
+            <div class="skill-interactive-list">
+              <div class="skill-card-item" data-desc="Menyampaikan ide, berdiskusi dalam kelompok, dan merespons pertanyaan rekan sekelas secara jelas dan terbuka.">
+                <div class="skill-main-info">
+                  <i class="fa-solid fa-comments text-blue"></i>
+                  <strong>Communication</strong>
+                </div>
+                <span class="qualitative-badge intermediate">Intermediate</span>
+              </div>
+
+              <div class="skill-card-item" data-desc="Berkontribusi aktif dalam pembagian tugas kelompok, saling menghargai pendapat, dan menyelesaikan proyek bersama tepat waktu.">
+                <div class="skill-main-info">
+                  <i class="fa-solid fa-handshake text-blue"></i>
+                  <strong>Teamwork</strong>
+                </div>
+                <span class="qualitative-badge intermediate">Intermediate</span>
+              </div>
+
+              <div class="skill-card-item" data-desc="Membawakan materi tugas di depan kelas secara percaya diri, seperti presentasi sosiologi dan pemaparan teknologi Notion AI.">
+                <div class="skill-main-info">
+                  <i class="fa-solid fa-person-chalkboard text-blue"></i>
+                  <strong>Presentation</strong>
+                </div>
+                <span class="qualitative-badge intermediate">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Technology Interest -->
+          <div class="skill-category-box">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon"><i class="fa-solid fa-microchip"></i></div>
+              <div>
+                <h3>Technology Interest</h3>
+                <small>Area Minat Eksplorasi Komputasi</small>
+              </div>
+            </div>
+
+            <div class="skill-interactive-list">
+              <div class="skill-card-item" data-desc="Memahami pengoperasian komputer, manajemen file, hardware dasar, dan penyesuaian sistem operasi sehari-hari.">
+                <div class="skill-main-info">
+                  <i class="fa-solid fa-computer text-blue"></i>
+                  <strong>Computer</strong>
+                </div>
+                <span class="qualitative-badge intermediate">Intermediate</span>
+              </div>
+
+              <div class="skill-card-item" data-desc="Mempelajari logika pemrograman pemula, algoritma dasar, dan alur pemecahan masalah secara terstruktur.">
+                <div class="skill-main-info">
+                  <i class="fa-solid fa-code text-blue"></i>
+                  <strong>Programming</strong>
+                </div>
+                <span class="qualitative-badge exploring">Exploring</span>
+              </div>
+
+              <div class="skill-card-item" data-desc="Mengeksplorasi perkembangan inovasi kecerdasan buatan (Notion AI), aplikasi web, dan masa depan industri digital.">
+                <div class="skill-main-info">
+                  <i class="fa-solid fa-network-wired text-blue"></i>
+                  <strong>Digital Technology</strong>
+                </div>
+                <span class="qualitative-badge developing">Developing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill Description Box Indicator -->
+        <div class="skill-detail-callout" id="skill-detail-callout">
+          <i class="fa-solid fa-circle-info text-blue"></i>
+          <span id="skill-detail-text">Arahkan kursor atau klik pada salah satu kartu keahlian di atas untuk membaca rincian penggunaannya.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Interactive Projects Section -->
+    <section class="section-block section-reveal" id="projects">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="token-pill">Karya Nyata Sekolah</span>
+          <h2 class="section-title">Interactive Project Showcase</h2>
+          <p class="section-desc">Pilihan proyek tugas sekolah yang telah saya selesaikan. Klik pada setiap proyek untuk membuka panel rincian komprehensif.</p>
+        </div>
+
+        <!-- Filter Tokens: All, School, Technology, Creative -->
+        <div class="filter-token-group">
+          <button class="filter-pill active" data-filter="all">All (5)</button>
+          <button class="filter-pill" data-filter="school">School</button>
+          <button class="filter-pill" data-filter="technology">Technology</button>
+          <button class="filter-pill" data-filter="creative">Creative</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-token-card" data-category="school creative" data-id="1">
+            <div class="card-top-tag">
+              <span class="category-badge">School • Creative</span>
+              <span class="project-num">#01</span>
+            </div>
+            <h3 class="project-title">Proyek Biografi Émile Durkheim</h3>
+            <p class="project-summary">
+              Pembuatan media presentasi dan infografis mengenai teori sosiologi dan riwayat hidup tokoh Émile Durkheim.
+            </p>
+            <div class="project-tag-chips">
+              <span class="chip">Canva</span>
+              <span class="chip">PowerPoint</span>
+              <span class="chip">Riset Sosiologi</span>
+            </div>
+            <button class="btn-detail view-project-btn" data-id="1">
+              <span>Buka Detail Proyek</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-token-card" data-category="school creative" data-id="2">
+            <div class="card-top-tag">
+              <span class="category-badge">School • Creative</span>
+              <span class="project-num">#02</span>
+            </div>
+            <h3 class="project-title">Proyek Video Edukatif Monas</h3>
+            <p class="project-summary">
+              Kolaborasi video edukasi kelompok mengenai nilai sejarah, arsitektur, dan filosofi Monumen Nasional Jakarta.
+            </p>
+            <div class="project-tag-chips">
+              <span class="chip">Video Editing</span>
+              <span class="chip">Kerja Sama Tim</span>
+              <span class="chip">Edukasi</span>
+            </div>
+            <button class="btn-detail view-project-btn" data-id="2">
+              <span>Buka Detail Proyek</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-token-card" data-category="school creative" data-id="3">
+            <div class="card-top-tag">
+              <span class="category-badge">School • Creative</span>
+              <span class="project-num">#03</span>
+            </div>
+            <h3 class="project-title">Infografis Pencemaran Lingkungan</h3>
+            <p class="project-summary">
+              Visualisasi data jenis polusi lingkungan, dampak kesehatan bagi masyarakat, serta aksi nyata pelestarian alam.
+            </p>
+            <div class="project-tag-chips">
+              <span class="chip">Desain Infografis</span>
+              <span class="chip">Sains Lingkungan</span>
+              <span class="chip">Canva</span>
+            </div>
+            <button class="btn-detail view-project-btn" data-id="3">
+              <span>Buka Detail Proyek</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-token-card" data-category="school creative" data-id="4">
+            <div class="card-top-tag">
+              <span class="category-badge">School • Creative</span>
+              <span class="project-num">#04</span>
+            </div>
+            <h3 class="project-title">Proyek Kerajinan Daur Ulang</h3>
+            <p class="project-summary">
+              Karya produk bernilai guna dan estetis yang dibuat bersama kelompok dari pemanfaatan material bahan bekas ramah lingkungan.
+            </p>
+            <div class="project-tag-chips">
+              <span class="chip">Eco Project</span>
+              <span class="chip">Kerajinan Tangan</span>
+              <span class="chip">Teamwork</span>
+            </div>
+            <button class="btn-detail view-project-btn" data-id="4">
+              <span>Buka Detail Proyek</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-token-card" data-category="school technology" data-id="5">
+            <div class="card-top-tag">
+              <span class="category-badge">School • Technology</span>
+              <span class="project-num">#05</span>
+            </div>
+            <h3 class="project-title">Presentasi Teknologi Notion AI</h3>
+            <p class="project-summary">
+              Penyusunan dan penyampaian presentasi mengenai cara kerja kecerdasan buatan (Notion AI) untuk meningkatkan efisiensi belajar.
+            </p>
+            <div class="project-tag-chips">
+              <span class="chip">Notion AI</span>
+              <span class="chip">Kecerdasan Buatan</span>
+              <span class="chip">Public Speaking</span>
+            </div>
+            <button class="btn-detail view-project-btn" data-id="5">
+              <span>Buka Detail Proyek</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activities & Extracurricular Section -->
+    <section class="section-block section-reveal" id="activities">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="token-pill">Minat & Kebiasaan Positif</span>
+          <h2 class="section-title">Ekstrakurikuler & Hobi</h2>
+          <p class="section-desc">Aktivitas produktif dan eksplorasi bakat di luar kegiatan belajar formal di kelas.</p>
+        </div>
+
+        <div class="activities-grid">
+          <!-- Extracurricular Card -->
+          <div class="content-card">
+            <div class="card-icon-header">
+              <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+              <h3>Ekstrakurikuler</h3>
+            </div>
+            <div class="activity-box">
+              <div class="act-header">
+                <h4>Klub IPA (Ilmu Pengetahuan Alam)</h4>
+                <span class="act-place">SMPN 68 Jakarta Selatan</span>
+              </div>
+              <p class="act-desc">
+                Mengikuti kegiatan eksperimen sains, observasi ilmiah, dan diskusi fenomena alam yang melatih daya kritis, rasa ingin tahu, dan analisis logis sejak jenjang SMP.
+              </p>
+            </div>
+          </div>
+
+          <!-- Hobbies Card -->
+          <div class="content-card">
+            <div class="card-icon-header">
+              <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+              <h3>Hobi & Eksplorasi</h3>
+            </div>
+            <div class="hobbies-list">
+              <div class="hobby-item">
+                <i class="fa-solid fa-gamepad hobby-ico"></i>
+                <div>
+                  <strong>Bermain Game</strong>
+                  <p>Melatih fokus, refleks, pengambilan keputusan cepat, dan komunikasi tim.</p>
+                </div>
+              </div>
+              <div class="hobby-item">
+                <i class="fa-solid fa-microchip hobby-ico"></i>
+                <div>
+                  <strong>Mengeksplorasi Teknologi</strong>
+                  <p>Mengikuti tren perangkat keras terbaru, fitur sistem operasi, dan inovasi software.</p>
+                </div>
+              </div>
+              <div class="hobby-item">
+                <i class="fa-solid fa-wand-magic-sparkles hobby-ico"></i>
+                <div>
+                  <strong>Membuat Konten Digital</strong>
+                  <p>Merancang visual presentasi, poster infografis, dan mengedit klip video edukatif.</p>
+                </div>
+              </div>
+              <div class="hobby-item">
+                <i class="fa-solid fa-code hobby-ico"></i>
+                <div>
+                  <strong>Mempelajari Hal Seputar Komputer</strong>
+                  <p>Mendalami fungsi komponen komputer, software produktivitas, dan logika coding dasar.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-block section-reveal" id="contact">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="token-pill">Komunikasi Terbuka</span>
+          <h2 class="section-title">Kontak & Terhubung</h2>
+          <p class="section-desc">Silakan hubungi saya untuk keperluan akademik, kolaborasi proyek sekolah, atau diskusi seputar dunia teknologi.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Direct Info Panel -->
+          <div class="contact-info-panel">
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-data">
+                <span class="contact-type">Alamat Email</span>
+                <a href="mailto:dairabih2@gmail.com" class="contact-val">dairabih2@gmail.com</a>
+                <span class="contact-hint">Kirim pesan langsung ke email saya</span>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fa-brands fa-instagram"></i></div>
+              <div class="contact-data">
+                <span class="contact-type">Instagram</span>
+                <span class="contact-val">Muhammad Ad Dairabiy</span>
+                <span class="contact-hint">Akun media sosial pribadi</span>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fa-solid fa-school"></i></div>
+              <div class="contact-data">
+                <span class="contact-type">Sekolah Saat Ini</span>
+                <span class="contact-val">SMA Negeri 70 Jakarta</span>
+                <span class="contact-hint">Kelas X-D • Jakarta Selatan, Indonesia</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Panel -->
+          <div class="contact-form-panel">
+            <form id="contact-form" class="student-form">
+              <div class="form-field">
+                <label for="sender-name">Nama Lengkap <span class="req">*</span></label>
+                <input type="text" id="sender-name" name="name" placeholder="Tuliskan nama Anda" required>
+              </div>
+
+              <div class="form-field">
+                <label for="sender-email">Email Anda <span class="req">*</span></label>
+                <input type="email" id="sender-email" name="email" placeholder="nama@email.com" required>
+              </div>
+
+              <div class="form-field">
+                <label for="sender-subject">Subjek Pesan <span class="req">*</span></label>
+                <input type="text" id="sender-subject" name="subject" placeholder="Tujuan pesan / diskusi" required>
+              </div>
+
+              <div class="form-field">
+                <label for="sender-message">Isi Pesan <span class="req">*</span></label>
+                <textarea id="sender-message" name="message" rows="4" placeholder="Tuliskan pesan Anda..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+                <span>Kirim Pesan</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <strong>Muhammad Ad Dairabiy</strong>
+        <p>Siswa Kelas X-D — SMA Negeri 70 Jakarta | Portofolio Akademik & Minat Teknologi</p>
+      </div>
+      <div class="footer-right">
+        <p>&copy; <span id="current-year"></span> Muhammad Ad Dairabiy. Seluruh hak cipta dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal 1: Project Details (Rich Structured View) -->
+  <div class="modal" id="project-modal">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Tutup popup">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-inner" id="modal-inner">
+        <!-- Injected dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Mini Portfolio Quiz ("Test Your Knowledge") -->
+  <div class="modal" id="quiz-modal">
+    <div class="modal-backdrop" id="quiz-modal-backdrop"></div>
+    <div class="modal-box quiz-modal-box">
+      <button class="modal-close-btn" id="quiz-modal-close" aria-label="Tutup kuis">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="quiz-container" id="quiz-container">
+        <!-- Injected dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-wrapper" id="toast-wrapper"></div>
+
+  <!-- Back to Top Button -->
+  <a href="#hero" class="back-top-btn" id="back-top-btn" aria-label="Kembali ke atas">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

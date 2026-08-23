@@ -1,77 +1,102 @@
 /**
  * Enhanced JavaScript Interactive Script
  * Portfolio of Muhammad Ad Dairabiy (Siswa SMAN 70 Jakarta Kelas X-D)
+ * FINAL STABLE REVISION
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   // -------------------------------------------------------------------------
-  // 1. DATA STORE: Projects Information (Structured Academic Data)
+  // 1. DATA STORE: Projects Information (Structured Academic Data & Authentic Outputs)
   // -------------------------------------------------------------------------
   const studentProjects = {
     1: {
-      title: 'Proyek Biografi Émile Durkheim',
+      id: 1,
+      title: 'Proyek Video Edukatif Monas',
       category: 'School • Creative',
-      tags: ['Canva', 'PowerPoint', 'Riset Sosiologi', 'Infografis'],
-      objective: 'Menyusun media edukatif dan infografis mengenai pemikiran, teori fakta sosial, dan riwayat hidup tokoh sosiologi klasik Émile Durkheim.',
-      role: 'Riset konten tokoh, perancangan tata letak visual infografis di Canva, dan penyusunan slide presentasi PowerPoint.',
-      learnings: [
-        'Memahami metode riset kepustakaan dan sintesis gagasan sosiologi yang padat.',
-        'Meningkatkan keterampilan tata letak grafis dan pemilihan warna kontras pada infografis.',
-        'Mengasah teknik penyampaian materi secara runtut dan percaya diri di hadapan audiens.'
-      ],
-      output: 'Lembar infografis digital resolusi tinggi & set slide presentasi PowerPoint terstruktur.'
-    },
-    2: {
-      title: 'Proyek Video Edukatif Monas (Monumen Nasional)',
-      category: 'School • Creative',
-      tags: ['Video Editing', 'Kerja Sama Tim', 'Sejarah Edukatif', 'Multimedia'],
-      objective: 'Membuat video dokumenter edukatif yang mengulas sejarah perjuangan, arsitektur cawan dan lidah api emas, serta nilai filosofis Monumen Nasional.',
-      role: 'Penyusunan naskah video bersama tim, proses editing potongan video, pemilihan audio latar bebas royalti, dan penyelarasan transisi visual.',
+      tags: ['Video Edukasi', 'Video Editing', 'Edukasi Sejarah', 'Multimedia'],
+      summary: 'Kolaborasi video edukasi dokumenter mengenai nilai sejarah perjuangan kemerdekaan, arsitektur cawan dan lidah api emas, serta nilai filosofis Monumen Nasional Jakarta.',
+      role: 'Penyusunan naskah video bersama tim, proses editing potongan klip video, pemilihan audio latar bebas royalti, dan penyelarasan transisi visual.',
       learnings: [
         'Melatih manajemen kerja sama kelompok dan pembagian tanggung jawab yang jelas.',
         'Menguasai dasar editing video: pemotongan klip (trimming), audio syncing, dan teks narasi.',
         'Mengemas informasi sejarah menjadi tayangan audiovisual yang menarik dan mudah dicerna.'
       ],
-      output: 'Video dokumenter edukatif berdurasi ringkas siap tayang untuk tugas sekolah.'
+      image: 'assets/projects/monas/monas-video-preview.jpg',
+      imageCaption: 'Dokumentasi Video Edukatif Monas',
+      imageAlt: 'Dokumentasi Video Edukatif Monumen Nasional Jakarta',
+      secondaryLink: {
+        url: 'https://youtu.be/DpoM_Qq4wT0',
+        label: '▶ Tonton Video di YouTube'
+      },
+      quizKey: 'monas'
     },
-    3: {
+    2: {
+      id: 2,
       title: 'Infografis Pencemaran Lingkungan',
       category: 'School • Creative',
-      tags: ['Desain Informasi', 'Sains Lingkungan', 'Canva', 'Visual Data'],
-      objective: 'Memetakan permasalahan pencemaran lingkungan (udara, air, tanah) beserta dampak bagi kesehatan dan memberikan solusi preventif bagi pelajar.',
-      role: 'Pengumpulan data fakta polusi perkotaan, visualisasi hierarki informasi, dan pemilihan elemen visual informatif di Canva.',
+      tags: ['Infografis Visual', 'Desain Grafis', 'Sains Lingkungan', 'Visual Data'],
+      summary: 'Visualisasi infografis tipe pencemaran lingkungan (udara, air, tanah), dampak bagi ekosistem dan kesehatan, serta aksi nyata preventif pelestarian alam melalui prinsip 3R.',
+      role: 'Pengumpulan data fakta polusi perkotaan, visualisasi hierarki informasi, dan pemilihan elemen grafis informatif di Canva.',
       learnings: [
         'Mengubah informasi sains dan data statistik menjadi grafik visual yang mudah dipahami.',
         'Memahami pentingnya edukasi prinsip 3R (Reduce, Reuse, Recycle) dalam kehidupan sehari-hari.',
         'Meningkatkan efisiensi kerja desain grafis menggunakan perkakas digital Canva.'
       ],
-      output: 'Poster infografis edukasi lingkungan siap cetak dan publikasi digital.'
+      image: 'assets/projects/pollution/pollution-infographic.jpg',
+      imageCaption: 'Infografis Pencemaran Lingkungan',
+      imageAlt: 'Infografis Keanekaragaman Hayati dan Ancaman Pencemaran Lingkungan',
+      quizKey: 'pollution'
     },
-    4: {
-      title: 'Proyek Kerajinan Daur Ulang',
-      category: 'School • Creative',
-      tags: ['Eco Project', 'Kerajinan Tangan', 'Upcycling', 'Teamwork'],
-      objective: 'Mewujudkan karya nyata ramah lingkungan dengan mengolah barang bekas tidak terpakai menjadi produk kerajinan yang fungsional dan estetis.',
-      role: 'Brainstorming ide produk, pemilihan material daur ulang yang aman, perakitan produk bersama kelompok, dan penyusunan laporan efisiensi.',
-      learnings: [
-        'Mengembangkan daya kreativitas dalam melihat potensi nilai guna dari barang bekas.',
-        'Mengasah kerja sama tim dalam mengatasi tantangan teknis saat proses perakitan.',
-        'Menyadari pentingnya aksi nyata pelestarian lingkungan melalui konsep upcycling.'
-      ],
-      output: 'Produk fisik kerajinan fungsional ramah lingkungan dan laporan proyek singkat.'
-    },
-    5: {
+    3: {
+      id: 3,
       title: 'Presentasi Teknologi Notion AI',
       category: 'School • Technology',
       tags: ['Notion AI', 'Kecerdasan Buatan', 'Public Speaking', 'Digital Skills'],
-      objective: 'Mengedukasi rekan sekelas mengenai pemanfaatan kecerdasan buatan (Notion AI) untuk meningkatkan efisiensi mencatat materi, merangkum, dan produktivitas belajar.',
+      summary: 'Penyusunan dan presentasi materi pemanfaatan kecerdasan buatan (Notion AI) untuk produktivitas mencatat materi, merangkum, dan efisiensi manajemen belajar siswa.',
       role: 'Eksplorasi fitur Notion AI, penyusunan materi presentasi berbasis studi kasus pelajar, serta memimpin sesi pemaparan dan tanya jawab di kelas.',
       learnings: [
         'Memahami kapabilitas teknologi AI generatif dan implementasi praktisnya untuk kebutuhan edukasi.',
         'Meningkatkan kemampuan public speaking dalam menjelaskan konsep teknologi kompleks dengan bahasa sederhana.',
         'Menumbuhkan kesadaran etika pemanfaatan kecerdasan buatan yang bertanggung jawab di kalangan siswa.'
       ],
-      output: 'Slide presentasi materi Notion AI & panduan praktis pemanfaatan AI untuk pelajar.'
+      image: 'assets/projects/notion-ai/notion-slide-preview.jpg',
+      imageCaption: 'Presentasi Teknologi Notion AI',
+      imageAlt: 'Slide Presentasi Edukasi Memahami Notion AI',
+      quizKey: 'notion_ai'
+    },
+    4: {
+      id: 4,
+      title: 'Proyek Biografi Émile Durkheim',
+      category: 'School • Creative',
+      tags: ['Media Biografi', 'Riset Sosiologi', 'Fakta Sosial', 'PowerPoint'],
+      summary: 'Penyusunan media biografi dan infografis mengenai riwayat hidup tokoh, metodologi ilmiah sosiologi, dan teori fakta sosial Émile Durkheim.',
+      role: 'Riset konten tokoh kepustakaan, perancangan tata letak visual infografis di Canva, dan penyusunan slide presentasi PowerPoint.',
+      learnings: [
+        'Memahami metode riset kepustakaan dan sintesis gagasan sosiologi yang padat.',
+        'Meningkatkan keterampilan tata letak grafis dan pemilihan warna kontras pada infografis.',
+        'Mengasah teknik penyampaian materi secara runtut dan percaya diri di hadapan audiens.'
+      ],
+      image: 'assets/projects/durkheim/durkheim-biography.jpg',
+      imageCaption: 'Media Biografi Émile Durkheim',
+      imageAlt: 'Lembar Biografi dan Teori Sosiologi Émile Durkheim',
+      quizKey: 'durkheim'
+    },
+    5: {
+      id: 5,
+      title: 'Proyek Kerajinan Daur Ulang',
+      category: 'School • Creative',
+      tags: ['Kerajinan Daur Ulang', 'Eco Project', 'Pilah Sampah', 'Teamwork'],
+      summary: 'Karya produk bernilai guna dan estetis yang dibuat bersama kelompok dari pemanfaatan material bahan limbah bekas ramah lingkungan.',
+      role: 'Brainstorming ide produk, pemilihan material daur ulang yang aman, perakitan produk bersama kelompok, dan penyusunan laporan proyek.',
+      learnings: [
+        'Mengembangkan daya kreativitas dalam melihat potensi nilai guna dari barang bekas.',
+        'Mengasah kerja sama tim dalam mengatasi tantangan teknis saat proses perakitan.',
+        'Menyadari pentingnya aksi nyata pelestarian lingkungan melalui konsep upcycling.'
+      ],
+      image: 'assets/projects/recycling/recycling-project.jpg',
+      imageCaption: 'Dokumentasi Proyek Kerajinan Daur Ulang',
+      imageAlt: 'Dokumentasi Edukasi dan Pemilahan Sampah Proyek Daur Ulang',
+      quizKey: 'recycling'
     }
   };
 
@@ -112,60 +137,293 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // -------------------------------------------------------------------------
-  // 3. DATA STORE: Mini Portfolio Quiz Questions
+  // 3. DATA STORE: Dedicated Project Quizzes (5 Questions Each)
   // -------------------------------------------------------------------------
-  const quizQuestions = [
-    {
-      q: 'Di sekolah manakah Muhammad Ad Dairabiy bersekolah saat ini?',
-      options: [
-        'SMA Negeri 70 Jakarta (Kelas X-D)',
-        'SMA Negeri 8 Jakarta',
-        'SMP Negeri 68 Jakarta Selatan'
-      ],
-      correct: 0,
-      feedback: 'Tepat! Muhammad adalah siswa aktif di SMA Negeri 70 Jakarta Kelas X-D.'
+  const projectQuizzes = {
+    monas: {
+      title: 'Quick Quiz — Monas',
+      subtitle: 'Kuis seputar pengetahuan umum Monumen Nasional (Monas)',
+      questions: [
+        {
+          q: 'Berapa tinggi Monas?',
+          options: ['77 meter', '100 meter', '132 meter', '150 meter'],
+          correct: 2, // C
+          feedback: 'Tepat! Monumen Nasional (Monas) memiliki tinggi 132 meter.'
+        },
+        {
+          q: 'Monas berada di kota mana?',
+          options: ['Bandung', 'Jakarta', 'Surabaya', 'Yogyakarta'],
+          correct: 1, // B
+          feedback: 'Benar! Monas terletak di pusat kota Jakarta, Indonesia.'
+        },
+        {
+          q: 'Apa nama bagian Monas yang berada di paling atas?',
+          options: ['Cawan', 'Lidah Api', 'Museum', 'Pelataran'],
+          correct: 1, // B
+          feedback: 'Tepat! Bagian paling atas Monas adalah Lidah Api.'
+        },
+        {
+          q: 'Monas dibangun untuk mengenang...',
+          options: [
+            'Perjuangan kemerdekaan Indonesia',
+            'Pembangunan Jakarta',
+            'Berdirinya ASEAN',
+            'Sumpah Pemuda'
+          ],
+          correct: 0, // A
+          feedback: 'Benar! Monas dibangun untuk mengenang perjuangan kemerdekaan Indonesia.'
+        },
+        {
+          q: 'Apa yang melapisi bagian lidah api Monas?',
+          options: ['Emas', 'Perak', 'Tembaga', 'Aluminium'],
+          correct: 0, // A
+          feedback: 'Tepat! Bagian lidah api Monas dilapisi oleh emas murni.'
+        }
+      ]
     },
-    {
-      q: 'Apa minat utama dan aspirasi masa depan yang ditekuni oleh Muhammad?',
-      options: [
-        'Seni Musik Tradisional',
-        'Teknologi, Komputer & Pemrograman',
-        'Kedokteran Hewan'
-      ],
-      correct: 1,
-      feedback: 'Benar! Muhammad memiliki antusiasme tinggi di bidang komputer dan pemrograman.'
+    pollution: {
+      title: 'Quick Quiz — Pencemaran Lingkungan',
+      subtitle: 'Kuis seputar isu pencemaran lingkungan & prinsip 3R',
+      questions: [
+        {
+          q: 'Apa yang dimaksud dengan pencemaran lingkungan?',
+          options: [
+            'Perubahan lingkungan menjadi lebih bersih',
+            'Masuknya zat atau bahan yang mengganggu lingkungan',
+            'Penanaman pohon',
+            'Penghematan energi'
+          ],
+          correct: 1, // B
+          feedback: 'Benar! Pencemaran lingkungan adalah masuknya zat atau bahan yang mengganggu lingkungan.'
+        },
+        {
+          q: 'Contoh pencemaran udara adalah...',
+          options: ['Asap kendaraan', 'Menanam pohon', 'Mendaur ulang sampah', 'Membersihkan sungai'],
+          correct: 0, // A
+          feedback: 'Tepat! Asap kendaraan bermotor merupakan contoh nyata pencemaran udara.'
+        },
+        {
+          q: 'Sampah plastik yang dibuang sembarangan dapat mencemari...',
+          options: ['Udara saja', 'Air dan tanah', 'Cahaya', 'Suara'],
+          correct: 1, // B
+          feedback: 'Benar! Sampah plastik anorganik mencemari air dan tanah karena sulit terurai.'
+        },
+        {
+          q: 'Salah satu cara mengurangi sampah adalah...',
+          options: ['3R', '3S', '5W', '4P'],
+          correct: 0, // A
+          feedback: 'Tepat! Prinsip 3R merupakan salah satu cara utama dalam mengurangi timbulan sampah.'
+        },
+        {
+          q: '3R adalah...',
+          options: [
+            'Reduce, Reuse, Recycle',
+            'Remove, Repair, Return',
+            'Reduce, Repair, Return',
+            'Reuse, Remove, Recycle'
+          ],
+          correct: 0, // A
+          feedback: 'Benar! 3R adalah Reduce, Reuse, dan Recycle.'
+        }
+      ]
     },
-    {
-      q: 'Proyek sekolah manakah yang membahas isu lingkungan dan prinsip 3R?',
-      options: [
-        'Proyek Video Monas',
-        'Infografis Pencemaran Lingkungan',
-        'Biografi Émile Durkheim'
-      ],
-      correct: 1,
-      feedback: 'Tepat sekali! Proyek tersebut memetakan solusi pencemaran lingkungan.'
+    notion_ai: {
+      title: 'Quick Quiz — Notion AI',
+      subtitle: 'Kuis seputar teknologi kecerdasan buatan & Notion AI',
+      questions: [
+        {
+          q: 'Notion AI merupakan...',
+          options: ['Alat bantu berbasis AI', 'Mesin pencari', 'Game', 'Sistem operasi'],
+          correct: 0, // A
+          feedback: 'Tepat! Notion AI merupakan alat bantu produktivitas berbasis kecerdasan buatan.'
+        },
+        {
+          q: 'Salah satu manfaat Notion AI adalah membantu...',
+          options: ['Mencatat dan mengembangkan ide', 'Memperbaiki kendaraan', 'Memasak', 'Mengukur suhu'],
+          correct: 0, // A
+          feedback: 'Benar! Salah satu manfaat Notion AI adalah membantu mencatat dan mengembangkan ide belajar.'
+        },
+        {
+          q: 'AI merupakan singkatan dari...',
+          options: ['Automatic Internet', 'Artificial Intelligence', 'Advanced Information', 'Automated Interface'],
+          correct: 1, // B
+          feedback: 'Tepat! AI merupakan singkatan dari Artificial Intelligence.'
+        },
+        {
+          q: 'Mengapa hasil dari AI sebaiknya diperiksa kembali?',
+          options: [
+            'Karena AI selalu salah',
+            'Karena informasi dari AI tetap perlu diverifikasi',
+            'Karena AI tidak bisa menulis',
+            'Karena AI tidak bisa digunakan untuk belajar'
+          ],
+          correct: 1, // B
+          feedback: 'Benar! Informasi dari AI tetap perlu diverifikasi kebenarannya oleh manusia.'
+        },
+        {
+          q: 'Notion AI dapat digunakan sebagai...',
+          options: ['Alat bantu produktivitas', 'Alat olahraga', 'Kamera', 'Alat musik'],
+          correct: 0, // A
+          feedback: 'Tepat! Notion AI dapat digunakan sebagai alat bantu produktivitas.'
+        }
+      ]
     },
-    {
-      q: 'Ekstrakurikuler apa yang pernah diikuti Muhammad saat di bangku SMP?',
-      options: [
-        'Klub IPA (SMPN 68 Jakarta Selatan)',
-        'Klub Robotik Nasional',
-        'Klub Basket Pelajar'
-      ],
-      correct: 0,
-      feedback: 'Tepat! Muhammad aktif di Klub IPA SMPN 68 Jakarta Selatan.'
+    durkheim: {
+      title: 'Quick Quiz — Émile Durkheim',
+      subtitle: 'Kuis seputar tokoh sosiologi Émile Durkheim & teorinya',
+      questions: [
+        {
+          q: 'Siapakah Émile Durkheim?',
+          options: ['Tokoh sosiologi', 'Tokoh olahraga', 'Seniman', 'Astronaut'],
+          correct: 0, // A
+          feedback: 'Tepat! Émile Durkheim adalah salah satu tokoh pendiri utama sosiologi.'
+        },
+        {
+          q: 'Émile Durkheim berasal dari...',
+          options: ['Prancis', 'Inggris', 'Jerman', 'Italia'],
+          correct: 0, // A
+          feedback: 'Benar! Émile Durkheim merupakan tokoh yang berasal dari Prancis.'
+        },
+        {
+          q: 'Durkheim dikenal sebagai tokoh penting dalam perkembangan...',
+          options: ['Biologi', 'Sosiologi', 'Astronomi', 'Geografi'],
+          correct: 1, // B
+          feedback: 'Tepat! Durkheim dikenal sebagai tokoh penting dalam perkembangan ilmu sosiologi.'
+        },
+        {
+          q: 'Salah satu konsep terkenal Durkheim adalah...',
+          options: ['Fakta sosial', 'Relativitas', 'Seleksi alam', 'Evolusi'],
+          correct: 0, // A
+          feedback: 'Benar! Konsep fakta sosial (social facts) merupakan salah satu teori terkenal dari Durkheim.'
+        },
+        {
+          q: 'Salah satu karya terkenal Durkheim adalah...',
+          options: [
+            'The Division of Labour in Society',
+            'The Wealth of Nations',
+            'Das Kapital',
+            'The Republic'
+          ],
+          correct: 0, // A
+          feedback: 'Tepat! The Division of Labour in Society adalah salah satu karya paling terkenal dari Durkheim.'
+        }
+      ]
     },
-    {
-      q: 'Alat bantu kecerdasan buatan (AI) apa yang pernah dipresentasikan oleh Muhammad di kelas?',
-      options: [
-        'Autonomous Flight AI',
-        'Notion AI',
-        'Self-Driving Vehicle System'
-      ],
-      correct: 1,
-      feedback: 'Benar! Presentasi Notion AI membahas efisiensi belajar dan produktivitas siswa.'
+    recycling: {
+      title: 'Quick Quiz — Daur Ulang',
+      subtitle: 'Kuis seputar daur ulang & pemanfaatan material ramah lingkungan',
+      questions: [
+        {
+          q: 'Apa tujuan utama daur ulang?',
+          options: ['Mengurangi limbah', 'Menambah sampah', 'Membakar semua sampah', 'Membuang sampah ke sungai'],
+          correct: 0, // A
+          feedback: 'Tepat! Tujuan utama daur ulang adalah mengurangi limbah lingkungan.'
+        },
+        {
+          q: 'Apa yang dimaksud dengan Recycle?',
+          options: [
+            'Menggunakan kembali barang tanpa perubahan',
+            'Mengolah kembali barang menjadi sesuatu yang dapat digunakan',
+            'Membuang barang',
+            'Membakar barang'
+          ],
+          correct: 1, // B
+          feedback: 'Benar! Recycle adalah mengolah kembali barang menjadi sesuatu yang dapat digunakan kembali.'
+        },
+        {
+          q: 'Salah satu contoh bahan yang dapat didaur ulang adalah...',
+          options: ['Botol plastik', 'Asap', 'Cahaya', 'Suara'],
+          correct: 0, // A
+          feedback: 'Tepat! Botol plastik merupakan contoh bahan anorganik yang dapat didaur ulang.'
+        },
+        {
+          q: 'Salah satu manfaat daur ulang adalah...',
+          options: [
+            'Mengurangi jumlah sampah',
+            'Menambah pencemaran',
+            'Menghabiskan sumber daya',
+            'Menambah limbah'
+          ],
+          correct: 0, // A
+          feedback: 'Benar! Manfaat utama daur ulang adalah mengurangi jumlah sampah yang menumpuk.'
+        },
+        {
+          q: 'Prinsip 3R terdiri dari...',
+          options: [
+            'Reduce, Reuse, Recycle',
+            'Read, Run, Rest',
+            'Repair, Remove, Return',
+            'Reduce, Replace, Return'
+          ],
+          correct: 0, // A
+          feedback: 'Tepat! Prinsip 3R terdiri dari Reduce, Reuse, dan Recycle.'
+        }
+      ]
     }
-  ];
+  };
+
+  // General Portfolio Quiz (Triggered via Header Navigation)
+  const generalQuizData = {
+    title: 'Portfolio Knowledge Quiz',
+    subtitle: 'Uji pemahaman Anda mengenai profil dan karya Muhammad Ad Dairabiy.',
+    questions: [
+      {
+        q: 'Di sekolah manakah Muhammad Ad Dairabiy bersekolah saat ini?',
+        options: [
+          'SMA Negeri 70 Jakarta (Kelas X-D)',
+          'SMA Negeri 8 Jakarta',
+          'SMP Negeri 68 Jakarta Selatan',
+          'SMA Negeri 28 Jakarta'
+        ],
+        correct: 0,
+        feedback: 'Tepat! Muhammad adalah siswa aktif di SMA Negeri 70 Jakarta Kelas X-D.'
+      },
+      {
+        q: 'Apa minat utama dan aspirasi masa depan yang ditekuni oleh Muhammad?',
+        options: [
+          'Seni Musik Tradisional',
+          'Teknologi, Komputer & Pemrograman',
+          'Kedokteran Hewan',
+          'Desain Busana'
+        ],
+        correct: 1,
+        feedback: 'Benar! Muhammad memiliki antusiasme tinggi di bidang komputer dan pemrograman.'
+      },
+      {
+        q: 'Proyek sekolah manakah yang mengulas arsitektur dan sejarah kemerdekaan?',
+        options: [
+          'Proyek Video Edukatif Monas',
+          'Infografis Pencemaran Lingkungan',
+          'Proyek Biografi Émile Durkheim',
+          'Presentasi Teknologi Notion AI'
+        ],
+        correct: 0,
+        feedback: 'Tepat! Proyek Video Monas mengulas sejarah kemerdekaan dan arsitektur Monas.'
+      },
+      {
+        q: 'Ekstrakurikuler apa yang pernah diikuti Muhammad saat di bangku SMP?',
+        options: [
+          'Klub IPA (SMPN 68 Jakarta Selatan)',
+          'Klub Robotik Nasional',
+          'Klub Basket Pelajar',
+          'PMR Unit Madya'
+        ],
+        correct: 0,
+        feedback: 'Tepat! Muhammad aktif di Klub IPA SMPN 68 Jakarta Selatan.'
+      },
+      {
+        q: 'Alat bantu kecerdasan buatan (AI) apa yang pernah dipresentasikan oleh Muhammad di kelas?',
+        options: [
+          'Autonomous Flight AI',
+          'Notion AI',
+          'Self-Driving Vehicle System',
+          'Voice Synthesizer Studio'
+        ],
+        correct: 1,
+        feedback: 'Benar! Presentasi Notion AI membahas efisiensi belajar dan produktivitas siswa.'
+      }
+    ]
+  };
 
   // -------------------------------------------------------------------------
   // 4. SCROLL PROGRESS INDICATOR
@@ -333,15 +591,56 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Project Modal
+  // Project Modal Elements
+  // Project Modal Elements
   const projectModal = document.getElementById('project-modal');
   const projectModalInner = document.getElementById('modal-inner');
   const projectModalClose = document.getElementById('modal-close-btn');
   const projectModalBackdrop = document.getElementById('modal-backdrop');
 
+  // Lightbox / Image Viewer Elements
+  const lightboxModal = document.getElementById('image-lightbox-modal');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxClose = document.getElementById('lightbox-close-btn');
+  const lightboxBackdrop = document.getElementById('lightbox-backdrop');
+
+  function openLightbox(src, caption, alt) {
+    if (!lightboxModal || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || caption || 'Pratinjau Karya';
+    if (lightboxCaption) {
+      lightboxCaption.innerHTML = `<i class="fa-solid fa-image"></i> ${caption || ''}`;
+    }
+    lightboxModal.classList.add('active');
+    lightboxModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeLightbox() {
+    if (!lightboxModal) return;
+    lightboxModal.classList.remove('active');
+    lightboxModal.setAttribute('aria-hidden', 'true');
+  }
+
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+
   function openProjectDetail(id) {
     const proj = studentProjects[id];
     if (!proj || !projectModalInner) return;
+
+    let secondaryActionHTML = '';
+    if (proj.secondaryLink) {
+      secondaryActionHTML = `
+        <div class="project-secondary-action">
+          <a href="${proj.secondaryLink.url}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block" title="Buka video dokumentasi Monas di YouTube">
+            <i class="fa-brands fa-youtube text-red" style="color: #ef4444;"></i>
+            <span>${proj.secondaryLink.label}</span>
+            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 11px; opacity: 0.7;"></i>
+          </a>
+        </div>
+      `;
+    }
 
     projectModalInner.innerHTML = `
       <div class="project-modal-header">
@@ -352,45 +651,86 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
 
+      <p class="p-summary-desc">${proj.summary}</p>
+
       <div class="project-meta-grid">
         <div class="p-meta-box">
-          <span class="p-meta-title">Peran Siswa</span>
+          <span class="p-meta-title"><i class="fa-solid fa-user-gear text-blue"></i> My Role</span>
           <span class="p-meta-value">${proj.role}</span>
-        </div>
-        <div class="p-meta-box">
-          <span class="p-meta-title">Tujuan Proyek</span>
-          <span class="p-meta-value">${proj.objective}</span>
         </div>
       </div>
 
-      <h4 class="p-section-heading"><i class="fa-solid fa-graduation-cap text-blue"></i> Apa yang Dipelajari:</h4>
+      <h4 class="p-section-heading"><i class="fa-solid fa-graduation-cap text-blue"></i> What I Learned</h4>
       <ul class="p-takeaways-list">
         ${proj.learnings.map(item => `<li>${item}</li>`).join('')}
       </ul>
 
-      <h4 class="p-section-heading"><i class="fa-solid fa-box-archive text-blue"></i> Hasil / Output Proyek:</h4>
-      <div class="p-output-box">
-        <i class="fa-solid fa-circle-check text-blue" style="font-size: 16px;"></i>
-        <span>${proj.output}</span>
+      <div class="p-section-divider"></div>
+
+      <!-- HASIL KARYA SECTION (Direct Visual Output & Lightbox Viewer) -->
+      <h4 class="p-section-heading p-out-heading"><i class="fa-solid fa-folder-open text-blue"></i> 📁 Hasil Karya</h4>
+      
+      <div class="project-visual-output">
+        <div class="project-output-preview-card">
+          <div class="project-output-img-wrap" id="project-preview-trigger" title="Klik untuk melihat dalam ukuran penuh">
+            <img src="${proj.image}" alt="${proj.imageAlt}" class="project-output-img" loading="lazy">
+            <div class="zoom-hint-badge">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+              <span>Klik untuk perbesar</span>
+            </div>
+          </div>
+          <div class="project-output-caption">
+            <i class="fa-solid fa-image"></i>
+            <span>${proj.imageCaption}</span>
+          </div>
+        </div>
+        ${secondaryActionHTML}
       </div>
 
-      <button class="btn btn-secondary btn-block" id="modal-inner-close-btn">
-        <i class="fa-solid fa-check"></i>
-        <span>Tutup Rincian</span>
-      </button>
+      <div class="p-section-divider"></div>
+
+      <!-- QUICK QUIZ SECTION -->
+      <div class="project-quiz-trigger-card">
+        <div class="quiz-trigger-info">
+          <h4 class="quiz-trigger-title"><i class="fa-solid fa-brain text-blue"></i> 🧠 Quick Quiz</h4>
+          <p class="quiz-trigger-desc">Uji pemahaman Anda seputar materi <strong>${proj.title}</strong> melalui 5 pertanyaan interaktif.</p>
+        </div>
+        <button class="btn btn-secondary btn-block start-project-quiz-btn" data-quiz="${proj.quizKey}" data-id="${proj.id}" title="Mulai kuis interaktif 5 soal">
+          <i class="fa-solid fa-brain text-blue"></i>
+          <span>🧠 Take Quick Quiz</span>
+        </button>
+      </div>
     `;
 
     projectModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 
-    const innerClose = document.getElementById('modal-inner-close-btn');
-    if (innerClose) {
-      innerClose.addEventListener('click', closeProjectDetail);
+    // Hook image click to open lightbox
+    const previewTrigger = projectModalInner.querySelector('#project-preview-trigger');
+    if (previewTrigger) {
+      previewTrigger.addEventListener('click', () => {
+        openLightbox(proj.image, proj.imageCaption, proj.imageAlt);
+      });
+    }
+
+    // Hook quiz trigger inside modal
+    const quizBtn = projectModalInner.querySelector('.start-project-quiz-btn');
+    if (quizBtn) {
+      quizBtn.addEventListener('click', () => {
+        const quizKey = quizBtn.getAttribute('data-quiz');
+        const projId = parseInt(quizBtn.getAttribute('data-id'), 10);
+        openProjectQuiz(quizKey, projId);
+      });
     }
   }
 
   function closeProjectDetail() {
-    if (projectModal) projectModal.classList.remove('active');
+    if (projectModal) {
+      projectModal.classList.remove('active');
+      if (projectModalInner) {
+        projectModalInner.innerHTML = '';
+      }
+    }
     document.body.style.overflow = '';
   }
 
@@ -407,7 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (projectModalBackdrop) projectModalBackdrop.addEventListener('click', closeProjectDetail);
 
   // -------------------------------------------------------------------------
-  // 10. MINI "PORTFOLIO QUIZ" ("Test Your Knowledge")
+  // 10. INTERACTIVE QUIZ SYSTEM (Dedicated & General Knowledge)
   // -------------------------------------------------------------------------
   const quizModal = document.getElementById('quiz-modal');
   const quizModalClose = document.getElementById('quiz-modal-close');
@@ -415,43 +755,85 @@ document.addEventListener('DOMContentLoaded', () => {
   const quizNavBtn = document.getElementById('quiz-nav-btn');
   const quizContainer = document.getElementById('quiz-container');
 
+  let activeQuizData = null;
+  let activeProjectId = null;
   let currentQuizIdx = 0;
   let quizScore = 0;
   let quizAnswered = false;
 
+  function openProjectQuiz(quizKey, projectId) {
+    const qGroup = projectQuizzes[quizKey];
+    if (!qGroup) return;
+
+    activeQuizData = qGroup;
+    activeProjectId = projectId;
+    currentQuizIdx = 0;
+    quizScore = 0;
+
+    // Close project modal smoothly without removing body lock
+    if (projectModal) {
+      projectModal.classList.remove('active');
+      if (projectModalInner) projectModalInner.innerHTML = '';
+    }
+
+    renderQuizQuestion();
+
+    if (quizModal) {
+      quizModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function openGeneralQuiz() {
+    activeQuizData = generalQuizData;
+    activeProjectId = null;
+    currentQuizIdx = 0;
+    quizScore = 0;
+
+    renderQuizQuestion();
+
+    if (quizModal) {
+      quizModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
   function renderQuizQuestion() {
-    if (!quizContainer) return;
-    const qData = quizQuestions[currentQuizIdx];
-    const totalQ = quizQuestions.length;
+    if (!quizContainer || !activeQuizData) return;
+    const questions = activeQuizData.questions;
+    const totalQ = questions.length;
+    const qData = questions[currentQuizIdx];
     const progressPercent = ((currentQuizIdx + 1) / totalQ) * 100;
     quizAnswered = false;
 
     quizContainer.innerHTML = `
-      <span class="quiz-header-badge">Test Your Knowledge</span>
-      <h3 class="quiz-title">Portfolio Knowledge Quiz</h3>
-      <p class="quiz-sub">Uji pemahaman Anda mengenai informasi di portofolio ini.</p>
+      <div class="quiz-header-top">
+        <span class="quiz-header-badge">🧠 Quick Quiz</span>
+        <span class="quiz-step-tag">Question ${currentQuizIdx + 1}/${totalQ}</span>
+      </div>
+      <h3 class="quiz-title">${activeQuizData.title}</h3>
+      <p class="quiz-sub">${activeQuizData.subtitle}</p>
 
-      <div class="quiz-progress-track">
+      <div class="quiz-progress-track" aria-label="Progress kuis: ${Math.round(progressPercent)}%">
         <div class="quiz-progress-fill" style="width: ${progressPercent}%;"></div>
       </div>
 
       <div class="quiz-card">
-        <span class="quiz-q-num">Pertanyaan ${currentQuizIdx + 1} dari ${totalQ}</span>
-        <h4 class="quiz-q-text">${qData.q}</h4>
+        <h4 class="quiz-q-text">${currentQuizIdx + 1}. ${qData.q.replace(/^\d+\.\s*/, '')}</h4>
 
         <div class="quiz-opts-group">
           ${qData.options.map((opt, i) => `
             <button class="quiz-opt-btn" data-opt="${i}">
               <span class="node-number">${String.fromCharCode(65 + i)}</span>
-              <span>${opt}</span>
+              <span class="quiz-opt-text">${opt}</span>
             </button>
           `).join('')}
         </div>
 
         <div class="quiz-feedback-strip" id="quiz-feedback-strip"></div>
 
-        <button class="btn btn-primary btn-block" id="quiz-next-btn" style="display: none; margin-top: 10px;">
-          <span>${currentQuizIdx + 1 === totalQ ? 'Lihat Skor Akhir' : 'Lanjut ke Pertanyaan Berikutnya'}</span>
+        <button class="btn btn-primary btn-block" id="quiz-next-btn" style="display: none; margin-top: 12px;">
+          <span>${currentQuizIdx + 1 === totalQ ? 'Lihat Hasil Quiz' : 'Next'}</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
@@ -482,7 +864,10 @@ document.addEventListener('DOMContentLoaded', () => {
           feedbackBox.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> ${qData.feedback}`;
         }
 
-        if (nextBtn) nextBtn.style.display = 'inline-flex';
+        if (nextBtn) {
+          nextBtn.style.display = 'inline-flex';
+          nextBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
       });
     });
 
@@ -499,41 +884,53 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderQuizResult() {
-    if (!quizContainer) return;
-    const totalQ = quizQuestions.length;
-    let message = '';
+    if (!quizContainer || !activeQuizData) return;
+    const totalQ = activeQuizData.questions.length;
+    let scoreFeedback = '';
 
-    if (quizScore === totalQ) {
-      message = 'Luar biasa! Anda adalah Portfolio Explorer sejati yang menjelajahi setiap detail dengan sangat cermat.';
-    } else if (quizScore >= 3) {
-      message = 'Bagus sekali! Anda telah membaca sebagian besar informasi penting di portofolio ini.';
+    // Exact score feedback messages matching user specification
+    if (quizScore === 5) {
+      scoreFeedback = 'Excellent! You really know this topic! 🏆';
+    } else if (quizScore === 4) {
+      scoreFeedback = 'Great job! 🚀';
+    } else if (quizScore === 3) {
+      scoreFeedback = 'Nice! You got the basics! 👍';
     } else {
-      message = 'Terima kasih telah mencoba! Anda dapat menjelajahi bagian lain dari portofolio untuk mengenal Muhammad lebih dalam.';
+      scoreFeedback = 'Good start! Explore the project again! 🔎';
     }
 
     quizContainer.innerHTML = `
       <div class="quiz-result-box">
         <div class="quiz-trophy-icon">
-          <i class="fa-solid fa-award"></i>
+          <i class="fa-solid ${quizScore >= 4 ? 'fa-award' : quizScore === 3 ? 'fa-circle-check' : 'fa-lightbulb'}"></i>
         </div>
-        <span class="quiz-score-badge">Portfolio Explorer — ${quizScore}/${totalQ}</span>
+        <span class="quiz-header-badge">Quiz Complete!</span>
         <h3 class="quiz-title" style="margin-top: 5px;">Hasil Kuis Anda</h3>
-        <p class="quiz-result-msg">${message}</p>
+        <div class="quiz-score-badge">Your Score: ${quizScore}/5</div>
+        <p class="quiz-result-msg">${scoreFeedback}</p>
         
-        <div style="display: flex; gap: 10px; width: 100%; margin-top: 15px;">
-          <button class="btn btn-secondary btn-block" id="quiz-retake-btn">
+        <div class="quiz-result-actions">
+          <button class="btn btn-secondary" id="quiz-retake-btn">
             <i class="fa-solid fa-rotate-left"></i>
-            <span>Ulangi Kuis</span>
+            <span>Try Again</span>
           </button>
-          <button class="btn btn-primary btn-block" id="quiz-finish-btn">
-            <i class="fa-solid fa-check"></i>
-            <span>Selesai</span>
-          </button>
+          ${activeProjectId ? `
+            <button class="btn btn-primary" id="quiz-back-project-btn">
+              <i class="fa-solid fa-arrow-left"></i>
+              <span>Back to Project</span>
+            </button>
+          ` : `
+            <button class="btn btn-primary" id="quiz-finish-btn">
+              <i class="fa-solid fa-check"></i>
+              <span>Selesai</span>
+            </button>
+          `}
         </div>
       </div>
     `;
 
     const retakeBtn = document.getElementById('quiz-retake-btn');
+    const backProjectBtn = document.getElementById('quiz-back-project-btn');
     const finishBtn = document.getElementById('quiz-finish-btn');
 
     if (retakeBtn) {
@@ -544,18 +941,18 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    if (backProjectBtn) {
+      backProjectBtn.addEventListener('click', () => {
+        const pId = activeProjectId;
+        closeQuizModal();
+        if (pId) {
+          setTimeout(() => openProjectDetail(pId), 150);
+        }
+      });
+    }
+
     if (finishBtn) {
       finishBtn.addEventListener('click', closeQuizModal);
-    }
-  }
-
-  function openQuizModal() {
-    currentQuizIdx = 0;
-    quizScore = 0;
-    renderQuizQuestion();
-    if (quizModal) {
-      quizModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
     }
   }
 
@@ -564,7 +961,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  if (quizNavBtn) quizNavBtn.addEventListener('click', openQuizModal);
+  if (quizNavBtn) quizNavBtn.addEventListener('click', openGeneralQuiz);
   if (quizModalClose) quizModalClose.addEventListener('click', closeQuizModal);
   if (quizModalBackdrop) quizModalBackdrop.addEventListener('click', closeQuizModal);
 
@@ -723,8 +1120,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeProjectDetail();
-      closeQuizModal();
+      if (lightboxModal && lightboxModal.classList.contains('active')) {
+        closeLightbox();
+      } else {
+        closeProjectDetail();
+        closeQuizModal();
+      }
     }
   });
 

@@ -1,1107 +1,1535 @@
 /**
- * JavaScript Interactive Script
- * Portfolio of Muhammad Ad Dairabiy (Siswa SMAN 70 Jakarta Kelas X-D)
- * Modern, Authentic, Responsive & Anti AI-Slop
+ * ==========================================================================
+ * MUHAMMAD AD DAIRABIY // PIXEL ART INTERACTIVE DIGITAL REALM
+ * Complete Game Engine, HUD, Audio Synth, Modals & Quick View Manager
+ * Inspired by Peter Oravec (peteroravec.com)
+ * ==========================================================================
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-  // -------------------------------------------------------------------------
-  // 1. DATA STORE: Projects Information (100% Authentic Student Data)
-  // -------------------------------------------------------------------------
-  const studentProjects = {
-    1: {
-      id: 1,
-      title: 'Proyek Video Edukatif Monas',
-      category: 'School • Creative',
-      tags: ['Video Edukasi', 'Sejarah', 'Kerja Sama Tim'],
-      summary: 'Proyek video dokumenter dan edukasi sejarah mengenai Monumen Nasional (Monas) Jakarta yang dikerjakan bersama teman sekelompok.',
-      about: 'Proyek ini bertujuan mengenalkan sejarah perjuangan bangsa, arsitektur cawan, dan simbol lidah api Monas melalui tayangan video yang informatif.',
-      role: 'Mencari informasi materi sejarah, menyusun poin naskah materi, dan membantu menentukan konsep alur video bersama kelompok.',
-      whatIDid: 'Mengumpulkan bahan riset sejarah Monas, berdiskusi mengenai urutan scene video, dan membantu rekan satu tim saat proses pengambilan dan penyusunan materi.',
-      tools: 'Materi riset sejarah, smartphone, dan aplikasi video editor dasar.',
-      learnings: [
-        'Belajar pentingnya kerja sama kelompok dan pembagian tugas yang adil.',
-        'Belajar menyederhanakan informasi sejarah agar mudah dipahami penonton.',
-        'Mengenal dasar-dasar alur pembuatan video edukasi.'
-      ],
-      image: 'assets/projects/monas/monas-video-preview.jpg',
-      imageCaption: 'Dokumentasi Video Edukatif Monas',
-      imageAlt: 'Dokumentasi Video Edukatif Monumen Nasional Jakarta',
-      secondaryLink: {
-        url: 'https://youtu.be/DpoM_Qq4wT0',
-        label: 'Tonton Video di YouTube'
-      },
-      quizKey: 'monas'
-    },
-    2: {
-      id: 2,
-      title: 'Infografis Pencemaran Lingkungan',
-      category: 'School • Creative',
-      tags: ['Infografis', 'Canva', 'Sains Lingkungan', 'Prinsip 3R'],
-      summary: 'Desain infografis visual mengenai berbagai jenis pencemaran lingkungan (udara, air, tanah), dampaknya bagi kehidupan, dan solusi nyata 3R.',
-      about: 'Tugas mata pelajaran sains/lingkungan untuk menyampaikan bahaya polusi dan mengajak teman-teman memilah sampah melalui media visual yang menarik.',
-      role: 'Membantu proyek secara keseluruhan, terutama mengerjakan bagian solusi ramah lingkungan dan membantu membawakan presentasi di depan kelas.',
-      whatIDid: 'Mendesain bagian solusi dan pemilahan sampah di Canva, memilih ikon yang sesuai, dan menyusun poin presentasi bersama anggota kelompok.',
-      tools: 'Canva (aplikasi desain grafis).',
-      learnings: [
-        'Melatih kemampuan presentasi dan berbicara di hadapan teman sekelas.',
-        'Memahami penerapan prinsip 3R (Reduce, Reuse, Recycle) untuk mengurangi sampah.',
-        'Belajar membuat tata letak visual infografis yang seimbang dan nyaman dibaca.'
-      ],
-      image: 'assets/projects/pollution/pollution-infographic.jpg',
-      imageCaption: 'Infografis Keanekaragaman Hayati & Pencemaran Lingkungan',
-      imageAlt: 'Infografis Keanekaragaman Hayati dan Ancaman Pencemaran Lingkungan',
-      quizKey: 'pollution'
-    },
-    3: {
-      id: 3,
-      title: 'Presentasi Teknologi Notion AI',
-      category: 'School • Technology',
-      tags: ['Notion AI', 'Kecerdasan Buatan', 'Slide Presentasi', 'Teknologi'],
-      summary: 'Presentasi mengenai pemanfaatan alat bantu Notion AI untuk meningkatkan produktivitas belajar siswa, seperti mencatat dan merangkum materi.',
-      about: 'Di proyek ini saya membuat presentasi tentang Notion AI dan belajar bagaimana AI bisa digunakan untuk membantu kegiatan belajar sehari-hari.',
-      role: 'Menyusun materi presentasi tentang fitur Notion AI, menyiapkan slide, dan mempresentasikan materi tersebut di hadapan kelas.',
-      whatIDid: 'Mengeksplorasi fitur-fitur Notion AI untuk mencatat dan merangkum, membuat materi penjelasan yang mudah dipahami, serta menjawab pertanyaan teman-teman saat sesi tanya jawab.',
-      tools: 'Notion AI dan aplikasi slide presentasi.',
-      learnings: [
-        'Belajar bagaimana teknologi AI dapat dimanfaatkan secara bijak untuk mendukung aktivitas belajar.',
-        'Menyadari bahwa informasi dari AI harus tetap diperiksa dan diverifikasi kebenarannya oleh manusia.',
-        'Meningkatkan rasa percaya diri saat menjelaskan topik teknologi di depan kelas.'
-      ],
-      image: 'assets/projects/notion-ai/notion-slide-preview.jpg',
-      imageCaption: 'Slide Presentasi Edukasi Memahami Notion AI',
-      imageAlt: 'Slide Presentasi Edukasi Memahami Notion AI',
-      quizKey: 'notion_ai'
-    },
-    4: {
-      id: 4,
-      title: 'Biografi Émile Durkheim',
-      category: 'School • Creative',
-      tags: ['Sosiologi', 'Karton & Fisik', 'Tokoh Klasik', 'Kerja Sama'],
-      summary: 'Penyusunan media biografi tokoh sosiologi klasik Émile Durkheim dan teori fakta sosial yang ditulis dan dihias langsung di media karton fisik.',
-      about: 'Tugas sosiologi untuk mempelajari riwayat hidup, konsep fakta sosial, dan pengaruh pemikiran Émile Durkheim terhadap masyarakat modern.',
-      role: 'Mencari informasi materi, menyusun ringkasan, menuliskan bagian materi di atas karton, membuat dekorasi karton, dan melakukan presentasi kelompok.',
-      whatIDid: 'Membaca referensi biografi Durkheim, menulis materi dengan spidol di atas lembaran karton, menghias layout visual karton secara manual, dan mempresentasikan hasilnya bersama tim.',
-      tools: 'Karton, alat tulis (spidol, pena, penggaris), dan perlengkapan fisik pendukung tugas.',
-      learnings: [
-        'Memahami konsep dasar sosiologi dan pemikiran tokoh Émile Durkheim.',
-        'Melatih kerja sama kelompok dalam mengerjakan media fisik bersama.',
-        'Mengasah kreativitas penyusunan layout manual di atas media kertas/karton.'
-      ],
-      image: 'assets/projects/durkheim/durkheim-biography.jpg',
-      imageCaption: 'Lembar Karton Biografi & Teori Émile Durkheim',
-      imageAlt: 'Lembar Biografi dan Teori Sosiologi Émile Durkheim',
-      quizKey: 'durkheim'
-    },
-    5: {
-      id: 5,
-      title: 'Kerajinan Daur Ulang',
-      category: 'School • Creative',
-      tags: ['Daur Ulang', 'Karton & Koran', 'Upcycling', 'Kreativitas'],
-      summary: 'Karya produk bernilai guna dan estetis dari barang bekas yang dirakit bersama kelompok untuk memanfaatkan kembali limbah kertas/karton.',
-      about: 'Proyek prakarya dan lingkungan hidup untuk mengubah barang bekas di sekitar menjadi produk yang bermanfaat serta mengedukasi pentingnya pemilahan sampah.',
-      role: 'Mencari ide desain produk kerajinan, membuat produk bersama, memotong dan merakit bahan, serta melakukan presentasi hasil kerajinan.',
-      whatIDid: 'Mengumpulkan bahan bekas yang bersih, memotong karton dan koran sesuai pola, merekatkan dengan lem, menyusun komponen hingga jadi produk utuh, dan memamerkannya di kelas.',
-      tools: 'Karton bekas, koran bekas, gunting, dan lem.',
-      learnings: [
-        'Belajar cara memanfaatkan barang bekas di sekitar menjadi barang yang bernilai guna.',
-        'Mengasah kreativitas dan ketelitian dalam merakit bahan secara manual.',
-        'Melatih kekompakan kerja sama kelompok dalam menyelesaikan produk tepat waktu.'
-      ],
-      image: 'assets/projects/recycling/recycling-project.jpg',
-      imageCaption: 'Dokumentasi Proyek Kerajinan Daur Ulang & Pilah Sampah',
-      imageAlt: 'Dokumentasi Edukasi dan Pemilahan Sampah Proyek Daur Ulang',
-      quizKey: 'recycling'
-    }
-  };
+(function () {
+  'use strict';
 
-  // -------------------------------------------------------------------------
-  // 2. DATA STORE: Learning Journey (5 Authentic Steps)
-  // -------------------------------------------------------------------------
-  const journeyData = {
-    1: {
-      stepBadge: 'Tahap 1: SMP',
-      stepIndicator: 'Langkah 1 dari 5',
-      title: 'Awal Mula Tertarik pada Sains & Komputer di SMP',
-      desc: 'Di bangku SMPN 68 Jakarta Selatan, rasa penasaran saya mulai tumbuh melalui kegiatan ekstrakurikuler Klub IPA. Di sana saya belajar mengamati fenomena sekitar, melatih logika berpikir ilmiah, dan mulai sering menggunakan komputer untuk mengerjakan tugas sekolah.',
-      takeaway: 'Klub IPA SMPN 68 Jaksel • Melatih rasa ingin tahu • Awal mula memakai komputer'
+  // --------------------------------------------------------------------------
+  // 1. DATA STORE (100% Authentic Student Information)
+  // --------------------------------------------------------------------------
+  const REALM_DATA = {
+    profile: {
+      name: 'Muhammad Ad Dairabiy',
+      nickname: 'Abiy',
+      role: 'Siswa · Desainer · Editor Video',
+      school: 'SMAN 70 Jakarta (Kelas X-D)',
+      tagline: 'Menciptakan pengalaman digital dan konten visual.',
+      aboutP1: 'Saya adalah seorang siswa yang tertarik pada teknologi, desain, dan kreativitas digital.',
+      aboutP2: 'Saya senang mengeksplorasi berbagai hal baru, mulai dari membuat situs web dan mengembangkan desain visual hingga mengedit video serta bereksperimen dengan teknologi baru dan alat AI.',
+      aboutP3: 'Saya suka membuat desain, mengedit video, mengeksplorasi situs web, bereksperimen dengan teknologi baru, mendengarkan musik, dan mengembangkan proyek digital.',
+      futureGoal: 'Saya ingin terus meningkatkan kemampuan di bidang teknologi, desain, dan pengembangan digital sambil membangun proyek yang melampaui tugas sekolah dan menjadi bagian dari portofolio pribadi saya.',
+      email: 'dairabih2@gmail.com',
+      instagram: '@abiyxd',
+      instagramUrl: 'https://instagram.com/abiyxd'
     },
-    2: {
-      stepBadge: 'Tahap 2: Masuk SMAN 70 Jakarta',
-      stepIndicator: 'Langkah 2 dari 5',
-      title: 'Memasuki Jenjang SMA Negeri 70 Jakarta (Kelas X-D)',
-      desc: 'Memulai masa SMA di kelas X-D dengan lingkungan baru. Saya mulai aktif beradaptasi dengan tugas-tugas akademik, belajar bekerja sama dalam kelompok, serta mengeksplorasi penggunaan software seperti Canva dan presentasi untuk tugas kelas.',
-      takeaway: 'Kelas X-D SMAN 70 Jakarta • Adaptasi akademik • Kolaborasi tugas kelompok'
-    },
-    3: {
-      stepBadge: 'Tahap 3: Eksplorasi Teknologi',
-      stepIndicator: 'Langkah 3 dari 5',
-      title: 'Mulai Tertarik pada AI & Perkakas Digital',
-      desc: 'Perkembangan AI yang pesat membuat saya sangat penasaran. Saya mulai mencoba berbagai alat bantu seperti Notion AI untuk membantu mengorganisir catatan belajar, merangkum materi pelajaran, dan mencari ide untuk tugas kreatif.',
-      takeaway: 'Eksplorasi Notion AI • Pemanfaatan AI untuk belajar • Meningkatkan efisiensi'
-    },
-    4: {
-      stepBadge: 'Tahap 4: Proyek Sekolah Nyata',
-      stepIndicator: 'Langkah 4 dari 5',
-      title: 'Mengerjakan Berbagai Proyek Tugas Sekolah',
-      desc: 'Mempraktikkan apa yang dipelajari ke dalam karya nyata: mulai dari video edukasi Monas, infografis pencemaran lingkungan, presentasi Notion AI, biografi karton sosiologi, hingga kerajinan daur ulang dari barang bekas.',
-      takeaway: '5 Proyek Sekolah Tuntas • Melatih presentasi & desain • Pengalaman kerja kelompok'
-    },
-    5: {
-      stepBadge: 'Tahap 5: Belajar Coding & Masa Depan',
-      stepIndicator: 'Langkah 5 dari 5',
-      title: 'Mulai Belajar Dasar Coding & Mengeksplorasi Minat',
-      desc: 'Terpacu oleh tugas ekstrakurikuler Klub Robotik, saya mulai belajar dasar-dasar coding dan pembuatan website. Saya ingin terus mengeksplorasi bidang teknologi untuk mempersiapkan diri sebelum melanjutkan ke bangku kuliah nanti.',
-      takeaway: 'Tugas Klub Robotik • Mulai belajar dasar coding • Eksplorasi bidang teknologi masa depan'
-    }
-  };
 
-  // -------------------------------------------------------------------------
-  // 3. DATA STORE: Dedicated Project Quizzes (Tepat 3 Soal Tiap Proyek)
-  // -------------------------------------------------------------------------
-  const projectQuizzes = {
-    monas: {
-      title: 'Kuis Singkat — Proyek Video Monas',
-      subtitle: '3 pertanyaan berdasarkan isi materi dan proyek video edukatif Monas',
-      questions: [
-        {
-          q: 'Berapa tinggi Monumen Nasional (Monas) Jakarta?',
-          options: ['77 meter', '100 meter', '132 meter', '150 meter'],
-          correct: 2,
-          feedback: 'Tepat! Monumen Nasional (Monas) memiliki tinggi 132 meter.'
-        },
-        {
-          q: 'Monas dibangun untuk mengenang peristiwa apa?',
-          options: [
-            'Perjuangan kemerdekaan Indonesia',
-            'Pembangunan kota Jakarta',
-            'Deklarasi ASEAN',
-            'Hari Sumpah Pemuda'
-          ],
-          correct: 0,
-          feedback: 'Benar! Monas dibangun untuk mengenang perjuangan kemerdekaan bangsa Indonesia.'
-        },
-        {
-          q: 'Bagian lidah api pada puncak Monas dilapisi oleh material apa?',
-          options: ['Emas murni', 'Perak', 'Tembaga', 'Aluminium'],
-          correct: 0,
-          feedback: 'Tepat! Bagian lidah api kemerdekaan di puncak Monas dilapisi oleh emas murni.'
-        }
-      ]
-    },
-    pollution: {
-      title: 'Kuis Singkat — Pencemaran Lingkungan',
-      subtitle: '3 pertanyaan berdasarkan materi infografis lingkungan & solusi 3R',
-      questions: [
-        {
-          q: 'Apa kepanjangan dari prinsip 3R dalam pengelolaan sampah?',
-          options: [
-            'Reduce, Reuse, Recycle',
-            'Remove, Repair, Return',
-            'Reduce, Repair, Replace',
-            'Reuse, Remove, Recycle'
-          ],
-          correct: 0,
-          feedback: 'Benar! 3R adalah singkatan dari Reduce, Reuse, dan Recycle.'
-        },
-        {
-          q: 'Asap dari kendaraan bermotor dan pabrik merupakan contoh dari pencemaran...',
-          options: ['Udara', 'Air', 'Tanah', 'Suara'],
-          correct: 0,
-          feedback: 'Tepat! Asap knalpot kendaraan dan cerobong pabrik merupakan pencemaran udara.'
-        },
-        {
-          q: 'Mengapa sampah anorganik seperti plastik berbahaya jika dibuang sembarangan?',
-          options: [
-            'Karena cepat hilang dengan sendirinya',
-            'Karena sangat sulit terurai secara alami dan mencemari tanah serta air',
-            'Karena membuat tanah menjadi terlalu subur',
-            'Karena menghasilkan oksigen berlebihan'
-          ],
-          correct: 1,
-          feedback: 'Benar! Sampah plastik membutuhkan puluhan hingga ratusan tahun untuk terurai.'
-        }
-      ]
-    },
-    notion_ai: {
-      title: 'Kuis Singkat — Presentasi Notion AI',
-      subtitle: '3 pertanyaan seputar presentasi kecerdasan buatan & Notion AI',
-      questions: [
-        {
-          q: 'Notion AI merupakan alat bantu produktivitas yang berbasis pada teknologi apa?',
-          options: ['Artificial Intelligence (AI)', 'Mesin pencari web', 'Game edukasi', 'Sistem operasi komputer'],
-          correct: 0,
-          feedback: 'Tepat! Notion AI adalah fitur produktivitas berbasis Artificial Intelligence (Kecerdasan Buatan).'
-        },
-        {
-          q: 'Salah satu manfaat utama Notion AI bagi kegiatan belajar siswa adalah...',
-          options: [
-            'Membantu mencatat, merangkum, dan mengorganisir ide',
-            'Menggantikan seluruh kehadiran siswa di kelas',
-            'Memperbaiki perangkat keras komputer yang rusak',
-            'Mengirimkan surat fisik secara otomatis'
-          ],
-          correct: 0,
-          feedback: 'Benar! Notion AI sangat berguna untuk membantu mencatat, merangkum materi, dan mengelola tugas.'
-        },
-        {
-          q: 'Mengapa informasi atau teks yang dihasilkan oleh AI tetap perlu diperiksa kembali oleh manusia?',
-          options: [
-            'Karena AI selalu 100% salah',
-            'Karena informasi dari AI tetap perlu diverifikasi kebenarannya oleh manusia',
-            'Karena AI tidak bisa menulis dalam bahasa Indonesia',
-            'Karena AI hanya bisa digunakan oleh orang dewasa'
-          ],
-          correct: 1,
-          feedback: 'Tepat! AI adalah alat bantu, sehingga manusia tetap perlu memverifikasi dan memeriksa hasilnya.'
-        }
-      ]
-    },
-    durkheim: {
-      title: 'Kuis Singkat — Biografi Émile Durkheim',
-      subtitle: '3 pertanyaan seputar tokoh sosiologi Émile Durkheim & tugas fisik karton',
-      questions: [
-        {
-          q: 'Émile Durkheim dikenal sebagai salah satu tokoh penting dalam perkembangan ilmu apa?',
-          options: ['Sosiologi', 'Biologi Molekuler', 'Astronomi', 'Teknik Mesin'],
-          correct: 0,
-          feedback: 'Tepat! Émile Durkheim adalah salah satu tokoh pendiri utama ilmu sosiologi.'
-        },
-        {
-          q: 'Salah satu konsep teori sosiologi yang sangat terkenal dari Émile Durkheim adalah...',
-          options: ['Fakta Sosial (Social Facts)', 'Hukum Gravitasi', 'Teori Relativitas', 'Hukum Termodinamika'],
-          correct: 0,
-          feedback: 'Benar! Konsep fakta sosial (social facts) merupakan sumbangsih pemikiran besar Durkheim.'
-        },
-        {
-          q: 'Media apa yang digunakan untuk membuat tugas biografi Émile Durkheim ini?',
-          options: [
-            'Karton, alat tulis, dan perlengkapan fisik',
-            'Aplikasi 3D Modeling Virtual Reality',
-            'Aplikasi Pemrograman Database',
-            'Kamera Drone Profesional'
-          ],
-          correct: 0,
-          feedback: 'Tepat! Proyek ini dibuat secara manual menggunakan karton, spidol/alat tulis, dan dekorasi fisik.'
-        }
-      ]
-    },
-    recycling: {
-      title: 'Kuis Singkat — Kerajinan Daur Ulang',
-      subtitle: '3 pertanyaan seputar kerajinan dari barang bekas & pemanfaatan limbah',
-      questions: [
-        {
-          q: 'Bahan utama apa yang digunakan dalam proyek kerajinan daur ulang ini?',
-          options: [
-            'Karton bekas dan koran bekas',
-            'Besi baja dan semen',
-            'Kaca kristal impor',
-            'Kayu gelondongan utuh'
-          ],
-          correct: 0,
-          feedback: 'Benar! Proyek ini memanfaatkan bahan bekas ramah lingkungan yaitu karton dan koran bekas.'
-        },
-        {
-          q: 'Apa tujuan utama dari kegiatan daur ulang (recycling)?',
-          options: [
-            'Mengurangi jumlah sampah dan memanfaatkan kembali barang bekas',
-            'Menambah timbunan limbah di tempat pembuangan',
-            'Membakar semua sampah di ruang terbuka',
-            'Membuang limbah ke sungai'
-          ],
-          correct: 0,
-          feedback: 'Tepat! Daur ulang bertujuan mengurangi limbah dan memberi nilai guna baru pada barang bekas.'
-        },
-        {
-          q: 'Apa hal utama yang dipelajari selama proses perakitan kerajinan bersama teman sekelompok?',
-          options: [
-            'Kreativitas dan kerja sama tim dalam menyelesaikan produk',
-            'Cara merakit roket luar angkasa',
-            'Cara membeli barang baru yang mahal',
-            'Cara menghindari kerja kelompok'
-          ],
-          correct: 0,
-          feedback: 'Benar! Proyek ini melatih kreativitas pemanfaatan barang bekas dan kerja sama tim.'
-        }
-      ]
-    }
-  };
+    skills: [
+      {
+        num: '01',
+        title: 'EDITING VIDEO',
+        desc: 'Membuat dan mengedit konten video dengan memperhatikan alur cerita, visual, transisi, dan penyampaian informasi.'
+      },
+      {
+        num: '02',
+        title: 'DESAIN GRAFIS',
+        desc: 'Membuat poster, infografis, presentasi, dan konten visual digital.'
+      },
+      {
+        num: '03',
+        title: 'DESAIN UI/UX',
+        desc: 'Mengeksplorasi desain antarmuka dan pengalaman pengguna dengan fokus pada pengalaman digital yang modern, menarik, dan mudah digunakan.'
+      },
+      {
+        num: '04',
+        title: 'PENGEMBANGAN WEB',
+        desc: 'Mengeksplorasi pengembangan situs web dan mempelajari bagaimana desain dapat menjadi pengalaman digital yang interaktif.'
+      },
+      {
+        num: '05',
+        title: 'AI & ALAT DIGITAL',
+        desc: 'Mengeksplorasi alat AI dan teknologi digital untuk mendukung pembelajaran, kreativitas, desain, dan pengembangan proyek.'
+      }
+    ],
 
-  // -------------------------------------------------------------------------
-  // 4. DATA STORE: General Quiz Tentang Saya (Tepat 5 Soal Nyata)
-  // -------------------------------------------------------------------------
-  const generalQuizData = {
-    title: 'Kuis Tentang Saya (5 Soal)',
-    subtitle: 'Uji seberapa kenal Anda dengan profil dan cerita Muhammad Ad Dairabiy!',
-    questions: [
+    toolsPrimary: ['Canva', 'CapCut', 'Visual Studio Code', 'GitHub', 'Alat AI'],
+    toolsSecondary: ['Figma', 'Adobe Photoshop', 'Notion', 'Notion AI'],
+
+    projects: {
+      1: {
+        id: 1,
+        title: 'Mengeksplorasi Monumen Nasional',
+        year: '2026',
+        category: 'Proyek Sekolah · Sejarah · Presentasi Visual',
+        role: 'Riset · Konten · Presentasi',
+        tools: 'Canva · CapCut · Alat AI',
+        image: 'assets/projects/monas/monas-video-preview.jpg',
+        caption: 'Dokumentasi Visual Riset & Video Monumen Nasional',
+        overview: 'Proyek kelompok yang membahas dan mengeksplorasi Monumen Nasional (Monas) sebagai salah satu ikon penting Jakarta dan Indonesia. Informasi mengenai sejarah, fungsi, serta hal-hal menarik tentang Monas dikumpulkan dan dikemas menjadi materi visual dan video yang mudah dipahami.',
+        process: 'Proses dimulai dengan mencari dan mengumpulkan informasi mengenai Monas, menentukan informasi yang paling relevan, kemudian menyusun materi agar memiliki alur yang jelas. Setelah itu, informasi dikembangkan menjadi materi visual dan video untuk kebutuhan presentasi kelompok.',
+        challenge: 'Tantangan utamanya adalah memilih informasi yang benar-benar penting dari berbagai sumber dan menyampaikannya secara singkat tanpa membuat materi terlalu padat atau membosankan.',
+        solution: 'Informasi dipilih berdasarkan relevansinya dengan topik, kemudian disusun secara terstruktur dan dikombinasikan dengan elemen visual agar materi lebih mudah dipahami dan menarik untuk dilihat.',
+        result: 'Menghasilkan materi presentasi dan video mengenai Monumen Nasional yang dapat digunakan untuk menyampaikan informasi sejarah dan fakta mengenai Monas dengan cara yang lebih visual dan menarik.',
+        learnings: 'Belajar bagaimana melakukan riset informasi, menyusun materi secara terstruktur, bekerja dalam kelompok, serta mengubah informasi menjadi konten visual yang lebih mudah dipahami.'
+      },
+      2: {
+        id: 2,
+        title: 'Biografi Émile Durkheim',
+        year: '2026',
+        category: 'Proyek Sekolah · Sosiologi · Desain Visual',
+        role: 'Riset · Pengorganisasian Konten · Desain Visual',
+        tools: 'Canva · Alat AI',
+        image: 'assets/projects/durkheim/durkheim-biography.jpg',
+        caption: 'Mind Map Visual Biografi & Pemikiran Émile Durkheim (Media Karton A3)',
+        overview: 'Proyek kelompok yang membahas biografi dan pemikiran Émile Durkheim, salah satu tokoh penting dalam perkembangan ilmu sosiologi. Informasi mengenai kehidupan, pemikiran, dan kontribusinya disusun dalam bentuk visual agar lebih mudah dipahami.',
+        process: 'Proses dimulai dengan mencari informasi mengenai Émile Durkheim, kemudian memilih informasi penting seperti latar belakang, kehidupan, pemikiran, dan kontribusinya terhadap sosiologi. Informasi tersebut kemudian diringkas dan disusun menggunakan konsep mind map pada media karton A3.',
+        challenge: 'Tantangannya adalah mengubah informasi yang cukup banyak mengenai seorang tokoh menjadi materi yang singkat, jelas, dan tetap mudah dibaca pada media yang terbatas.',
+        solution: 'Informasi dikelompokkan berdasarkan topik utama dan disusun menggunakan struktur mind map. Elemen visual juga digunakan untuk membedakan setiap bagian sehingga pembaca dapat memahami hubungan antar-informasi dengan lebih mudah.',
+        result: 'Menghasilkan media visual berbentuk mind map mengenai Émile Durkheim yang merangkum informasi penting tentang kehidupan, pemikiran, dan kontribusinya dalam sosiologi.',
+        learnings: 'Belajar merangkum informasi yang kompleks, mengatur informasi berdasarkan prioritas, membuat struktur visual, serta bekerja sama dalam mengembangkan sebuah proyek kelompok.'
+      },
+      3: {
+        id: 3,
+        title: 'Infografis Pencemaran Lingkungan',
+        year: '2026',
+        category: 'Proyek Sekolah · Infografis · Kesadaran Lingkungan',
+        role: 'Riset · Konten · Desain Grafis',
+        tools: 'Canva · Alat AI',
+        image: 'assets/projects/pollution/pollution-infographic.jpg',
+        caption: 'Desain Infografis Keanekaragaman Hayati & Solusi 3R',
+        overview: 'Proyek infografis yang membahas permasalahan pencemaran lingkungan dan berbagai solusi yang dapat dilakukan untuk menguranginya. Proyek ini dibuat untuk menyampaikan informasi mengenai pencemaran lingkungan dengan cara yang singkat, visual, dan mudah dipahami.',
+        process: 'Proses dimulai dengan mengidentifikasi informasi mengenai pencemaran lingkungan, kemudian menentukan poin-poin utama yang perlu dimasukkan ke dalam infografis. Setelah materi tersusun, informasi dikombinasikan dengan elemen desain seperti tipografi, ilustrasi, ikon, dan tata letak agar lebih mudah dibaca.',
+        challenge: 'Tantangan utamanya adalah menyampaikan informasi yang cukup luas dalam ruang yang terbatas tanpa membuat infografis terlalu penuh dengan tulisan.',
+        solution: 'Informasi disederhanakan menjadi poin-poin penting dan dikelompokkan berdasarkan topik. Bagian solusi difokuskan pada tindakan yang dapat dilakukan, seperti memilah sampah, menerapkan prinsip 3R, dan meningkatkan kesadaran terhadap lingkungan.',
+        result: 'Menghasilkan infografis mengenai pencemaran lingkungan yang menyajikan permasalahan dan solusi secara ringkas serta visual sehingga informasi dapat dipahami dengan lebih cepat.',
+        learnings: 'Belajar bagaimana menyederhanakan informasi menjadi konten visual, mengatur hierarki dalam desain, memilih informasi yang paling penting, dan membuat infografis yang komunikatif.'
+      }
+    },
+
+    // Realm Landmark Points
+    landmarks: [
       {
-        q: 'Di manakah Muhammad Ad Dairabiy bersekolah saat ini?',
-        options: [
-          'SMA Negeri 70 Jakarta (Kelas X-D)',
-          'SMA Negeri 8 Jakarta',
-          'SMP Negeri 68 Jakarta Selatan',
-          'SMA Negeri 28 Jakarta'
-        ],
-        correct: 0,
-        feedback: 'Tepat! Dairabiy adalah siswa kelas X-D di SMA Negeri 70 Jakarta.'
+        id: 'spawn',
+        name: 'SPAWN PLAZA',
+        icon: '🏛️',
+        x: 0,
+        y: 0,
+        radius: 80,
+        color: '#ffd166',
+        actionText: 'INTRODUKSI ABIY',
+        targetModal: 'modal-about',
+        visited: true
       },
       {
-        q: 'Apa alasan awal dibuatnya website portfolio ini?',
-        options: [
-          'Tugas dari ekstrakurikuler Klub Robotik SMAN 70',
-          'Tugas akhir kelulusan sekolah',
-          'Mengikuti turnamen esports',
-          'Melamar pekerjaan profesional'
-        ],
-        correct: 0,
-        feedback: 'Benar! Awalnya tugas ekskul Klub Robotik, lalu dikembangkan untuk persiapan kuliah dan masa depan.'
+        id: 'about',
+        name: 'CODEX SANCTUM',
+        icon: '📜',
+        x: -280,
+        y: -240,
+        radius: 75,
+        color: '#4ecca3',
+        actionText: 'BACA TENTANG SAYA',
+        targetModal: 'modal-about',
+        visited: false
       },
       {
-        q: 'Apa fokus minat teknologi terbesar yang paling menarik perhatian Dairabiy?',
-        options: [
-          'Kecerdasan Buatan (AI) dan Teknologi',
-          'Perbaikan Mesin Truk Berat',
-          'Pertanian Tradisional',
-          'Manajemen Saham Perbankan'
-        ],
-        correct: 0,
-        feedback: 'Tepat! Dairabiy sangat tertarik pada perkembangan AI dan dunia teknologi digital.'
+        id: 'skills',
+        name: 'TECH FORGE',
+        icon: '⚡',
+        x: 280,
+        y: -240,
+        radius: 75,
+        color: '#54a0ff',
+        actionText: 'LIHAT KEAHLIAN & ALAT',
+        targetModal: 'modal-skills',
+        visited: false
       },
       {
-        q: 'Manakah di antara aktivitas berikut yang menjadi salah satu hobi santai Dairabiy?',
-        options: [
-          'Mendengarkan musik, desain, dan video editing',
-          'Balap mobil sirkuit internasional',
-          'Menyelam gua bawah tanah',
-          'Terjun payung ekstrem'
-        ],
-        correct: 0,
-        feedback: 'Benar! Selain suka desain dan video editing, Dairabiy suka mendengarkan musik saat santai.'
+        id: 'monas',
+        name: 'MONAS OBELISK',
+        icon: '🗼',
+        x: -380,
+        y: 160,
+        radius: 75,
+        color: '#ffd166',
+        actionText: 'PROYEK 01: MONUMEN NASIONAL',
+        targetModal: 'modal-project',
+        projectId: 1,
+        visited: false
       },
       {
-        q: 'Bagaimana status atau tingkat kemampuan coding Dairabiy saat ini?',
-        options: [
-          'Masih pemula dan sedang belajar dasar-dasar coding',
-          'Senior Software Architect 10 tahun pengalaman',
-          'Expert AI Specialist internasional',
-          'Master Developer Silicon Valley'
-        ],
-        correct: 0,
-        feedback: 'Tepat! Dairabiy adalah siswa yang masih pemula dalam coding dan terus belajar hal-hal baru.'
+        id: 'durkheim',
+        name: 'DURKHEIM ARCHIVE',
+        icon: '📚',
+        x: 380,
+        y: 160,
+        radius: 75,
+        color: '#ff9ff3',
+        actionText: 'PROYEK 02: ÉMILE DURKHEIM',
+        targetModal: 'modal-project',
+        projectId: 2,
+        visited: false
+      },
+      {
+        id: 'pollution',
+        name: 'ECO SANCTUM',
+        icon: '🌿',
+        x: 180,
+        y: 380,
+        radius: 75,
+        color: '#4ecca3',
+        actionText: 'PROYEK 03: INFOGRAFIS LINGKUNGAN',
+        targetModal: 'modal-project',
+        projectId: 3,
+        visited: false
+      },
+      {
+        id: 'contact',
+        name: 'COMM BEACON',
+        icon: '📡',
+        x: -180,
+        y: 380,
+        radius: 75,
+        color: '#ef476f',
+        actionText: 'HUBUNGI ABIY',
+        targetModal: 'modal-contact',
+        visited: false
       }
     ]
   };
 
-  // -------------------------------------------------------------------------
-  // 5. SCROLL PROGRESS INDICATOR
-  // -------------------------------------------------------------------------
-  const progressBar = document.getElementById('scroll-progress-bar');
-  window.addEventListener('scroll', () => {
-    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-    if (progressBar) {
-      progressBar.style.width = scrolled + '%';
-    }
-  });
-
-  // -------------------------------------------------------------------------
-  // 6. HERO DYNAMIC TYPING EFFECT
-  // -------------------------------------------------------------------------
-  const typingRole = document.getElementById('typing-role');
-  const studentPhases = [
-    'Siswa Kelas X-D SMAN 70 Jakarta',
-    'Masih belajar coding & pemrograman',
-    'Tertarik eksplorasi AI & teknologi',
-    'Suka desain grafis & video editing'
-  ];
-
-  let currentPhaseIdx = 0;
-  let charIdx = 0;
-  let isBackspacing = false;
-  const typeSpeed = 75;
-  const backSpeed = 40;
-  const holdTime = 2200;
-
-  function handleTyping() {
-    if (!typingRole) return;
-    const text = studentPhases[currentPhaseIdx];
-
-    if (isBackspacing) {
-      typingRole.textContent = text.substring(0, charIdx - 1);
-      charIdx--;
-    } else {
-      typingRole.textContent = text.substring(0, charIdx + 1);
-      charIdx++;
+  // --------------------------------------------------------------------------
+  // 2. RETRO 8-BIT SOUND SYNTHESIZER (WEB AUDIO API)
+  // --------------------------------------------------------------------------
+  class SoundSynth {
+    constructor() {
+      this.ctx = null;
+      this.muted = localStorage.getItem('abiy_sfx_muted') === 'true';
     }
 
-    let delay = isBackspacing ? backSpeed : typeSpeed;
-
-    if (!isBackspacing && charIdx === text.length) {
-      delay = holdTime;
-      isBackspacing = true;
-    } else if (isBackspacing && charIdx === 0) {
-      isBackspacing = false;
-      currentPhaseIdx = (currentPhaseIdx + 1) % studentPhases.length;
-      delay = 300;
+    init() {
+      if (!this.ctx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) {
+          this.ctx = new AudioContext();
+        }
+      }
+      if (this.ctx && this.ctx.state === 'suspended') {
+        this.ctx.resume();
+      }
     }
 
-    setTimeout(handleTyping, delay);
+    toggleMute() {
+      this.muted = !this.muted;
+      localStorage.setItem('abiy_sfx_muted', this.muted);
+      return !this.muted;
+    }
+
+    playTone(freq, type = 'square', duration = 0.08, gainVal = 0.05) {
+      if (this.muted) return;
+      this.init();
+      if (!this.ctx) return;
+
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+        gain.gain.setValueAtTime(gainVal, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + duration);
+      } catch (e) {
+        // Audio policy ignore
+      }
+    }
+
+    step() {
+      this.playTone(180, 'triangle', 0.04, 0.02);
+    }
+
+    click() {
+      this.playTone(480, 'square', 0.03, 0.03);
+    }
+
+    interact() {
+      this.init();
+      if (this.muted || !this.ctx) return;
+      // Arpeggio chime
+      const notes = [330, 440, 660, 880];
+      notes.forEach((freq, idx) => {
+        setTimeout(() => this.playTone(freq, 'square', 0.09, 0.05), idx * 60);
+      });
+    }
+
+    modalClose() {
+      this.init();
+      if (this.muted || !this.ctx) return;
+      const notes = [660, 440, 220];
+      notes.forEach((freq, idx) => {
+        setTimeout(() => this.playTone(freq, 'triangle', 0.07, 0.04), idx * 50);
+      });
+    }
+
+    teleport() {
+      this.init();
+      if (this.muted || !this.ctx) return;
+      for (let i = 0; i < 6; i++) {
+        setTimeout(() => this.playTone(200 + i * 150, 'sawtooth', 0.06, 0.04), i * 35);
+      }
+    }
   }
 
-  handleTyping();
+  const sfx = new SoundSynth();
 
-  // -------------------------------------------------------------------------
-  // 7. LEARNING JOURNEY STEPPER INTERACTION
-  // -------------------------------------------------------------------------
-  const journeyNodes = document.querySelectorAll('.j-node');
-  const jBadgeStep = document.getElementById('j-badge-step');
-  const jStepIndicator = document.getElementById('j-step-indicator');
-  const jDisplayTitle = document.getElementById('j-display-title');
-  const jDisplayText = document.getElementById('j-display-text');
-  const jTakeawayVal = document.getElementById('j-takeaway-val');
-  const jDisplayCard = document.getElementById('journey-display-card');
+  // --------------------------------------------------------------------------
+  // 3. PIXEL ART DRAWING HELPERS
+  // --------------------------------------------------------------------------
+  function drawPixelAvatar(ctx, size = 64) {
+    const scale = size / 16;
+    ctx.imageSmoothingEnabled = false;
 
-  journeyNodes.forEach(node => {
-    node.addEventListener('click', () => {
-      const step = node.getAttribute('data-step');
-      const data = journeyData[step];
-      if (!data) return;
+    // Palette
+    const skin = '#ffd3a5';
+    const hair = '#2c1e19';
+    const shirt = '#268bd2';
+    const jacket = '#1a365d';
+    const pants = '#1f2937';
+    const eyes = '#111827';
+    const shoes = '#e2e8f0';
 
-      journeyNodes.forEach(n => {
-        n.classList.remove('active');
-        n.setAttribute('aria-selected', 'false');
-      });
-      node.classList.add('active');
-      node.setAttribute('aria-selected', 'true');
+    ctx.clearRect(0, 0, size, size);
 
-      if (jDisplayCard) {
-        jDisplayCard.style.animation = 'none';
-        void jDisplayCard.offsetWidth; // trigger reflow
-        jDisplayCard.style.animation = 'journey-fade 0.35s ease-out';
+    // Hair Top
+    ctx.fillStyle = hair;
+    ctx.fillRect(4 * scale, 1 * scale, 8 * scale, 3 * scale);
+    ctx.fillRect(3 * scale, 2 * scale, 10 * scale, 3 * scale);
+
+    // Face / Skin
+    ctx.fillStyle = skin;
+    ctx.fillRect(4 * scale, 4 * scale, 8 * scale, 5 * scale);
+
+    // Eyes
+    ctx.fillStyle = eyes;
+    ctx.fillRect(5 * scale, 6 * scale, 2 * scale, 2 * scale);
+    ctx.fillRect(9 * scale, 6 * scale, 2 * scale, 2 * scale);
+
+    // Glasses / Rim
+    ctx.fillStyle = '#4ecca3';
+    ctx.fillRect(4 * scale, 5 * scale, 3 * scale, 1 * scale);
+    ctx.fillRect(9 * scale, 5 * scale, 3 * scale, 1 * scale);
+    ctx.fillRect(7 * scale, 6 * scale, 2 * scale, 1 * scale);
+
+    // Shirt & Jacket
+    ctx.fillStyle = jacket;
+    ctx.fillRect(3 * scale, 9 * scale, 10 * scale, 4 * scale);
+    ctx.fillStyle = shirt;
+    ctx.fillRect(6 * scale, 9 * scale, 4 * scale, 4 * scale);
+
+    // Pants
+    ctx.fillStyle = pants;
+    ctx.fillRect(4 * scale, 13 * scale, 3 * scale, 2 * scale);
+    ctx.fillRect(9 * scale, 13 * scale, 3 * scale, 2 * scale);
+
+    // Shoes
+    ctx.fillStyle = shoes;
+    ctx.fillRect(3 * scale, 15 * scale, 4 * scale, 1 * scale);
+    ctx.fillRect(9 * scale, 15 * scale, 4 * scale, 1 * scale);
+  }
+
+  // --------------------------------------------------------------------------
+  // 4. GAME ENGINE (CANVAS 2D 60FPS)
+  // --------------------------------------------------------------------------
+  class GameRealm {
+    constructor() {
+      this.canvas = document.getElementById('realm-canvas');
+      this.ctx = this.canvas.getContext('2d');
+      
+      this.minimapCanvas = document.getElementById('minimap-canvas');
+      this.minimapCtx = this.minimapCanvas.getContext('2d');
+
+      this.bigMapCanvas = document.getElementById('big-map-canvas');
+      this.bigMapCtx = this.bigMapCanvas.getContext('2d');
+
+      // World Settings
+      this.worldSize = 2000;
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+
+      // Player State
+      this.player = {
+        x: 0,
+        y: 0,
+        targetX: null,
+        targetY: null,
+        speed: 3.5,
+        vx: 0,
+        vy: 0,
+        facing: 'down', // 'down', 'up', 'left', 'right'
+        walkCycle: 0,
+        isMoving: false,
+        stepTimer: 0
+      };
+
+      // Camera
+      this.camera = {
+        x: 0,
+        y: 0,
+        targetX: 0,
+        targetY: 0,
+        lerp: 0.1
+      };
+
+      // Input State
+      this.keys = {
+        w: false, a: false, s: false, d: false,
+        up: false, left: false, down: false, right: false,
+        e: false, space: false
+      };
+
+      this.joystickVector = { x: 0, y: 0 };
+      this.isTouchActive = false;
+
+      // Environment Particles (Floating Dust / Star particles)
+      this.particles = [];
+      this.initParticles();
+
+      // Landmarks Reference
+      this.landmarks = REALM_DATA.landmarks;
+      this.nearestLandmark = null;
+      this.currentZoneName = 'SPAWN PLAZA';
+
+      // Timers & Loops
+      this.lastFrameTime = performance.now();
+      this.activeModal = null;
+      this.isGameRunning = false;
+
+      this.bindEvents();
+    }
+
+    initParticles() {
+      this.particles = [];
+      for (let i = 0; i < 120; i++) {
+        this.particles.push({
+          x: (Math.random() - 0.5) * this.worldSize,
+          y: (Math.random() - 0.5) * this.worldSize,
+          size: Math.random() < 0.7 ? 1.5 : 2.5,
+          color: Math.random() < 0.5 ? '#4ecca3' : (Math.random() < 0.7 ? '#ffd166' : '#54a0ff'),
+          alpha: 0.2 + Math.random() * 0.6,
+          speedY: -0.2 - Math.random() * 0.3,
+          speedX: (Math.random() - 0.5) * 0.2,
+          flicker: Math.random() * Math.PI
+        });
       }
+    }
 
-      if (jBadgeStep) jBadgeStep.textContent = data.stepBadge;
-      if (jStepIndicator) jStepIndicator.textContent = data.stepIndicator;
-      if (jDisplayTitle) jDisplayTitle.textContent = data.title;
-      if (jDisplayText) jDisplayText.textContent = data.desc;
-      if (jTakeawayVal) jTakeawayVal.textContent = data.takeaway;
-    });
-  });
+    start() {
+      this.isGameRunning = true;
+      this.resize();
+      this.loop = this.loop.bind(this);
+      requestAnimationFrame(this.loop);
+    }
 
-  // -------------------------------------------------------------------------
-  // 8. SKILLS INTERACTION & TOOLTIP CALLOUT
-  // -------------------------------------------------------------------------
-  const skillBadges = document.querySelectorAll('.skill-badge-item');
-  const calloutTitle = document.getElementById('callout-title');
-  const calloutDesc = document.getElementById('callout-desc');
+    resize() {
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+      this.canvas.width = this.width;
+      this.canvas.height = this.height;
+      this.ctx.imageSmoothingEnabled = false;
+    }
 
-  skillBadges.forEach(badge => {
-    const desc = badge.getAttribute('data-desc');
-    const name = badge.querySelector('.skill-name')?.textContent || 'Kemampuan';
+    bindEvents() {
+      window.addEventListener('resize', () => this.resize());
 
-    const updateSkillCallout = () => {
-      skillBadges.forEach(b => b.classList.remove('selected'));
-      badge.classList.add('selected');
-      if (calloutTitle) calloutTitle.textContent = name;
-      if (calloutDesc && desc) calloutDesc.textContent = desc;
-    };
+      // Keyboard Controls
+      window.addEventListener('keydown', (e) => {
+        if (this.activeModal) {
+          if (e.key === 'Escape') {
+            closeAllModals();
+          }
+          return;
+        }
 
-    badge.addEventListener('mouseenter', updateSkillCallout);
-    badge.addEventListener('click', updateSkillCallout);
-  });
-
-  // -------------------------------------------------------------------------
-  // 9. PROJECT FILTER SYSTEM
-  // -------------------------------------------------------------------------
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterVal = btn.getAttribute('data-filter').toLowerCase();
-
-      projectCards.forEach(card => {
-        const cat = card.getAttribute('data-category').toLowerCase();
-        if (filterVal === 'all' || cat.includes(filterVal)) {
-          card.classList.remove('hide');
-        } else {
-          card.classList.add('hide');
+        switch (e.code) {
+          case 'KeyW': this.keys.w = true; break;
+          case 'KeyA': this.keys.a = true; break;
+          case 'KeyS': this.keys.s = true; break;
+          case 'KeyD': this.keys.d = true; break;
+          case 'ArrowUp': this.keys.up = true; break;
+          case 'ArrowLeft': this.keys.left = true; break;
+          case 'ArrowDown': this.keys.down = true; break;
+          case 'ArrowRight': this.keys.right = true; break;
+          case 'KeyE':
+          case 'Space':
+          case 'Enter':
+            e.preventDefault();
+            this.triggerInteraction();
+            break;
+          case 'KeyM':
+            e.preventDefault();
+            openModal('modal-map');
+            break;
+          case 'KeyQ':
+            e.preventDefault();
+            toggleQuickView(true);
+            break;
         }
       });
-    });
-  });
 
-  // -------------------------------------------------------------------------
-  // 10. PROJECT MODAL & LIGHTBOX SYSTEM
-  // -------------------------------------------------------------------------
-  const projectModal = document.getElementById('project-modal');
-  const projectModalInner = document.getElementById('modal-inner');
-  const projectModalClose = document.getElementById('modal-close-btn');
-  const projectModalBackdrop = document.getElementById('modal-backdrop');
+      window.addEventListener('keyup', (e) => {
+        switch (e.code) {
+          case 'KeyW': this.keys.w = false; break;
+          case 'KeyA': this.keys.a = false; break;
+          case 'KeyS': this.keys.s = false; break;
+          case 'KeyD': this.keys.d = false; break;
+          case 'ArrowUp': this.keys.up = false; break;
+          case 'ArrowLeft': this.keys.left = false; break;
+          case 'ArrowDown': this.keys.down = false; break;
+          case 'ArrowRight': this.keys.right = false; break;
+        }
+      });
 
-  const lightboxModal = document.getElementById('image-lightbox-modal');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxCaption = document.getElementById('lightbox-caption');
-  const lightboxClose = document.getElementById('lightbox-close-btn');
-  const lightboxBackdrop = document.getElementById('lightbox-backdrop');
+      // Canvas Mouse Click-to-Move
+      this.canvas.addEventListener('pointerdown', (e) => {
+        if (this.activeModal) return;
+        if (e.target !== this.canvas) return;
 
-  function openLightbox(src, caption, alt) {
-    if (!lightboxModal || !lightboxImg) return;
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || caption || 'Pratinjau Hasil Karya Asli';
-    if (lightboxCaption) {
-      lightboxCaption.innerHTML = `<i class="fa-solid fa-image text-cyan"></i> ${caption || ''}`;
+        // Convert screen coordinates to world coordinates
+        const screenX = e.clientX;
+        const screenY = e.clientY;
+        const worldX = screenX - this.width / 2 + this.camera.x;
+        const worldY = screenY - this.height / 2 + this.camera.y;
+
+        this.player.targetX = worldX;
+        this.player.targetY = worldY;
+        sfx.click();
+      });
+
+      // Big Map CRT click-to-teleport
+      this.bigMapCanvas.addEventListener('click', (e) => {
+        const rect = this.bigMapCanvas.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const clickY = e.clientY - rect.top;
+
+        const mapWidth = this.bigMapCanvas.width;
+        const mapHeight = this.bigMapCanvas.height;
+
+        // Map scale: world coords (-600 to 600) maps to canvas
+        const worldX = ((clickX / mapWidth) - 0.5) * 1200;
+        const worldY = ((clickY / mapHeight) - 0.5) * 1200;
+
+        // Find nearest landmark to clicked point
+        let closest = null;
+        let minDist = 90;
+        this.landmarks.forEach(lm => {
+          const dist = Math.hypot(lm.x - worldX, lm.y - worldY);
+          if (dist < minDist) {
+            minDist = dist;
+            closest = lm;
+          }
+        });
+
+        if (closest) {
+          this.teleportTo(closest.x, closest.y, closest.name);
+          closeAllModals();
+        } else {
+          this.teleportTo(worldX, worldY, 'EXPLORATION POINT');
+          closeAllModals();
+        }
+      });
+
+      // Minimap click opens Big Map
+      const minimapBox = document.getElementById('minimap-container');
+      if (minimapBox) {
+        minimapBox.addEventListener('click', () => {
+          openModal('modal-map');
+        });
+      }
+
+      // Mobile Touch Joystick
+      this.setupTouchControls();
     }
-    lightboxModal.classList.add('active');
-    lightboxModal.setAttribute('aria-hidden', 'false');
+
+    setupTouchControls() {
+      const joystickBase = document.getElementById('joystick-base');
+      const joystickThumb = document.getElementById('joystick-thumb');
+      const btnInteract = document.getElementById('btn-touch-interact');
+
+      if (!joystickBase || !joystickThumb) return;
+
+      let touchId = null;
+      const maxRadius = 40;
+
+      const handleTouchStart = (e) => {
+        for (let i = 0; i < e.changedTouches.length; i++) {
+          const touch = e.changedTouches[i];
+          const rect = joystickBase.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const dist = Math.hypot(touch.clientX - centerX, touch.clientY - centerY);
+
+          if (dist < 80 && touchId === null) {
+            touchId = touch.identifier;
+            this.isTouchActive = true;
+            this.updateJoystick(touch.clientX, touch.clientY, centerX, centerY, maxRadius, joystickThumb);
+            break;
+          }
+        }
+      };
+
+      const handleTouchMove = (e) => {
+        if (!this.isTouchActive) return;
+        for (let i = 0; i < e.changedTouches.length; i++) {
+          const touch = e.changedTouches[i];
+          if (touch.identifier === touchId) {
+            const rect = joystickBase.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            this.updateJoystick(touch.clientX, touch.clientY, centerX, centerY, maxRadius, joystickThumb);
+            break;
+          }
+        }
+      };
+
+      const handleTouchEnd = (e) => {
+        for (let i = 0; i < e.changedTouches.length; i++) {
+          if (e.changedTouches[i].identifier === touchId) {
+            touchId = null;
+            this.isTouchActive = false;
+            this.joystickVector = { x: 0, y: 0 };
+            joystickThumb.style.transform = `translate(0px, 0px)`;
+            break;
+          }
+        }
+      };
+
+      joystickBase.addEventListener('touchstart', handleTouchStart, { passive: false });
+      window.addEventListener('touchmove', handleTouchMove, { passive: false });
+      window.addEventListener('touchend', handleTouchEnd, { passive: false });
+      window.addEventListener('touchcancel', handleTouchEnd, { passive: false });
+
+      if (btnInteract) {
+        btnInteract.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.triggerInteraction();
+        });
+      }
+    }
+
+    updateJoystick(touchX, touchY, centerX, centerY, maxRadius, thumbEl) {
+      const dx = touchX - centerX;
+      const dy = touchY - centerY;
+      const dist = Math.hypot(dx, dy);
+      const angle = Math.atan2(dy, dx);
+
+      const clampedDist = Math.min(dist, maxRadius);
+      const thumbX = Math.cos(angle) * clampedDist;
+      const thumbY = Math.sin(angle) * clampedDist;
+
+      thumbEl.style.transform = `translate(${thumbX}px, ${thumbY}px)`;
+
+      // Normalized vector
+      this.joystickVector = {
+        x: thumbX / maxRadius,
+        y: thumbY / maxRadius
+      };
+
+      // Reset click-to-move if using joystick
+      this.player.targetX = null;
+      this.player.targetY = null;
+    }
+
+    teleportTo(x, y, zoneName = '') {
+      this.player.x = x;
+      this.player.y = y;
+      this.player.targetX = null;
+      this.player.targetY = null;
+      this.camera.x = x;
+      this.camera.y = y;
+      sfx.teleport();
+
+      if (zoneName) {
+        this.currentZoneName = zoneName;
+      }
+    }
+
+    triggerInteraction() {
+      if (this.nearestLandmark) {
+        sfx.interact();
+        this.nearestLandmark.visited = true;
+
+        if (this.nearestLandmark.projectId) {
+          openProjectModal(this.nearestLandmark.projectId);
+        } else if (this.nearestLandmark.targetModal) {
+          openModal(this.nearestLandmark.targetModal);
+        }
+      }
+    }
+
+    update() {
+      if (this.activeModal) return;
+
+      let moveX = 0;
+      let moveY = 0;
+
+      // 1. Keyboard Input
+      if (this.keys.w || this.keys.up) moveY -= 1;
+      if (this.keys.s || this.keys.down) moveY += 1;
+      if (this.keys.a || this.keys.left) moveX -= 1;
+      if (this.keys.d || this.keys.right) moveX += 1;
+
+      // 2. Virtual Joystick Input
+      if (this.isTouchActive && (Math.abs(this.joystickVector.x) > 0.1 || Math.abs(this.joystickVector.y) > 0.1)) {
+        moveX = this.joystickVector.x;
+        moveY = this.joystickVector.y;
+      }
+
+      // 3. Click to Move Input
+      if (this.player.targetX !== null && this.player.targetY !== null) {
+        const dx = this.player.targetX - this.player.x;
+        const dy = this.player.targetY - this.player.y;
+        const dist = Math.hypot(dx, dy);
+
+        if (dist > 6) {
+          moveX = dx / dist;
+          moveY = dy / dist;
+        } else {
+          this.player.targetX = null;
+          this.player.targetY = null;
+        }
+      }
+
+      // Normalize diagonal movement
+      const inputLen = Math.hypot(moveX, moveY);
+      if (inputLen > 0) {
+        this.player.isMoving = true;
+        const normX = (moveX / inputLen) * Math.min(inputLen, 1);
+        const normY = (moveY / inputLen) * Math.min(inputLen, 1);
+
+        this.player.x += normX * this.player.speed;
+        this.player.y += normY * this.player.speed;
+
+        // Facing direction
+        if (Math.abs(normX) > Math.abs(normY)) {
+          this.player.facing = normX > 0 ? 'right' : 'left';
+        } else {
+          this.player.facing = normY > 0 ? 'down' : 'up';
+        }
+
+        // Animation cycle
+        this.player.walkCycle += 0.2;
+        this.player.stepTimer += 1;
+        if (this.player.stepTimer % 18 === 0) {
+          sfx.step();
+        }
+      } else {
+        this.player.isMoving = false;
+      }
+
+      // World Bounds Clamping (-800 to 800)
+      const bound = 800;
+      this.player.x = Math.max(-bound, Math.min(bound, this.player.x));
+      this.player.y = Math.max(-bound, Math.min(bound, this.player.y));
+
+      // Smooth Camera Follow
+      this.camera.x += (this.player.x - this.camera.x) * this.camera.lerp;
+      this.camera.y += (this.player.y - this.camera.y) * this.camera.lerp;
+
+      // Update Particles
+      this.particles.forEach(p => {
+        p.y += p.speedY;
+        p.x += p.speedX;
+        p.flicker += 0.05;
+        if (p.y < this.camera.y - this.height / 2 - 50) {
+          p.y = this.camera.y + this.height / 2 + 50;
+          p.x = this.camera.x + (Math.random() - 0.5) * this.width;
+        }
+      });
+
+      // Check Proximity to Landmarks
+      this.nearestLandmark = null;
+      let minDistance = Infinity;
+      let zoneName = 'DIGITAL REALM';
+
+      this.landmarks.forEach(lm => {
+        const dist = Math.hypot(lm.x - this.player.x, lm.y - this.player.y);
+        if (dist < lm.radius + 35 && dist < minDistance) {
+          minDistance = dist;
+          this.nearestLandmark = lm;
+          zoneName = lm.name;
+        }
+      });
+
+      this.currentZoneName = zoneName;
+
+      // Update HUD Coordinates & Prompt
+      const coordsEl = document.getElementById('hud-coords-val');
+      if (coordsEl) {
+        coordsEl.textContent = `X: ${Math.round(this.player.x)} | Y: ${Math.round(this.player.y)}`;
+      }
+
+      const zoneEl = document.getElementById('hud-zone-name');
+      if (zoneEl) {
+        zoneEl.textContent = this.currentZoneName;
+      }
+
+      const promptEl = document.getElementById('interact-prompt');
+      const promptTextEl = document.getElementById('prompt-action-text');
+      if (this.nearestLandmark) {
+        promptEl.classList.remove('hidden');
+        promptTextEl.textContent = this.nearestLandmark.actionText;
+      } else {
+        promptEl.classList.add('hidden');
+      }
+    }
+
+    render() {
+      const ctx = this.ctx;
+      ctx.clearRect(0, 0, this.width, this.height);
+
+      const cx = this.width / 2 - this.camera.x;
+      const cy = this.height / 2 - this.camera.y;
+
+      // 1. Draw Realm Grid Floor & Pathways
+      this.drawRealmFloor(ctx, cx, cy);
+
+      // 2. Draw Floating Particles
+      this.drawParticles(ctx, cx, cy);
+
+      // 3. Draw Landmarks (Monuments, Shrines & Exhibits)
+      this.landmarks.forEach(lm => {
+        this.drawLandmark(ctx, lm, cx, cy);
+      });
+
+      // 4. Draw Click Target Indicator (if moving by click)
+      if (this.player.targetX !== null && this.player.targetY !== null) {
+        this.drawClickTarget(ctx, this.player.targetX + cx, this.player.targetY + cy);
+      }
+
+      // 5. Draw Player Avatar Character
+      this.drawPlayer(ctx, this.player.x + cx, this.player.y + cy);
+
+      // 6. Draw Minimap & Big Map Canvas
+      this.renderMinimap();
+      if (this.activeModal === 'modal-map') {
+        this.renderBigMap();
+      }
+    }
+
+    drawRealmFloor(ctx, cx, cy) {
+      const gridSize = 48;
+      const startX = Math.floor((-cx) / gridSize) * gridSize;
+      const startY = Math.floor((-cy) / gridSize) * gridSize;
+      const endX = startX + this.width + gridSize * 2;
+      const endY = startY + this.height + gridSize * 2;
+
+      // Dark Space Ground
+      ctx.fillStyle = '#0a0d18';
+      ctx.fillRect(0, 0, this.width, this.height);
+
+      // Subtle Cyber Grid Lines
+      ctx.strokeStyle = '#121728';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (let x = startX; x <= endX; x += gridSize) {
+        ctx.moveTo(x + cx, 0);
+        ctx.lineTo(x + cx, this.height);
+      }
+      for (let y = startY; y <= endY; y += gridSize) {
+        ctx.moveTo(0, y + cy);
+        ctx.lineTo(this.width, y + cy);
+      }
+      ctx.stroke();
+
+      // Pathways Connecting All Landmarks to Spawn (0,0)
+      ctx.strokeStyle = '#1f2742';
+      ctx.lineWidth = 24;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      this.landmarks.forEach(lm => {
+        ctx.moveTo(0 + cx, 0 + cy);
+        ctx.lineTo(lm.x + cx, lm.y + cy);
+      });
+      ctx.stroke();
+
+      // Cobblestone / Pathway Core Lines
+      ctx.strokeStyle = '#2d385e';
+      ctx.lineWidth = 8;
+      ctx.beginPath();
+      this.landmarks.forEach(lm => {
+        ctx.moveTo(0 + cx, 0 + cy);
+        ctx.lineTo(lm.x + cx, lm.y + cy);
+      });
+      ctx.stroke();
+
+      // Outer Bound Ring
+      ctx.strokeStyle = '#ef476f';
+      ctx.lineWidth = 3;
+      ctx.setLineDash([12, 12]);
+      ctx.beginPath();
+      ctx.arc(0 + cx, 0 + cy, 800, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    drawParticles(ctx, cx, cy) {
+      this.particles.forEach(p => {
+        const screenX = p.x + cx;
+        const screenY = p.y + cy;
+
+        if (screenX >= -10 && screenX <= this.width + 10 && screenY >= -10 && screenY <= this.height + 10) {
+          const alpha = p.alpha * (0.6 + 0.4 * Math.sin(p.flicker));
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = Math.max(0.1, Math.min(1, alpha));
+          ctx.fillRect(screenX, screenY, p.size, p.size);
+        }
+      });
+      ctx.globalAlpha = 1;
+    }
+
+    drawLandmark(ctx, lm, cx, cy) {
+      const lx = lm.x + cx;
+      const ly = lm.y + cy;
+
+      // Culling if off screen
+      if (lx < -120 || lx > this.width + 120 || ly < -120 || ly > this.height + 120) return;
+
+      const time = performance.now() * 0.003;
+      const isNearby = this.nearestLandmark && this.nearestLandmark.id === lm.id;
+
+      // 1. Base Platform
+      ctx.fillStyle = isNearby ? '#1b233d' : '#141829';
+      ctx.strokeStyle = isNearby ? '#ffd166' : (lm.visited ? '#4ecca3' : '#3d4b75');
+      ctx.lineWidth = isNearby ? 3 : 2;
+
+      ctx.beginPath();
+      ctx.arc(lx, ly, lm.radius * 0.6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+
+      // 2. Pulsing Beacon Ring
+      ctx.strokeStyle = lm.color;
+      ctx.lineWidth = isNearby ? 2 : 1;
+      ctx.beginPath();
+      const ringScale = 0.7 + 0.08 * Math.sin(time + lm.x);
+      ctx.arc(lx, ly, lm.radius * ringScale, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // 3. Custom Pixel Structures per Landmark
+      this.drawLandmarkStructure(ctx, lm, lx, ly, time);
+
+      // 4. Floating Icon & Name Badge
+      const bob = Math.sin(time * 2 + lm.y) * 4;
+      
+      // Floating Alert / Exclamation if unvisited
+      if (!lm.visited) {
+        ctx.fillStyle = '#ffd166';
+        ctx.font = '10px "Press Start 2P", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('!', lx, ly - 46 + bob);
+      }
+
+      // Title Tag
+      ctx.fillStyle = 'rgba(10, 13, 24, 0.85)';
+      ctx.fillRect(lx - 60, ly + 36, 120, 16);
+      ctx.strokeStyle = isNearby ? '#ffd166' : '#2b3558';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(lx - 60, ly + 36, 120, 16);
+
+      ctx.fillStyle = isNearby ? '#ffd166' : '#c8d6e5';
+      ctx.font = '6.5px "Press Start 2P", monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(lm.name, lx, ly + 44);
+    }
+
+    drawLandmarkStructure(ctx, lm, x, y, time) {
+      switch (lm.id) {
+        case 'spawn':
+          // Central Digital Obelisk
+          ctx.fillStyle = '#4ecca3';
+          ctx.fillRect(x - 6, y - 24, 12, 28);
+          ctx.fillStyle = '#ffd166';
+          ctx.fillRect(x - 4, y - 30, 8, 8);
+          break;
+
+        case 'about':
+          // Codex Shrine / Ancient Library Screen
+          ctx.fillStyle = '#2c3e50';
+          ctx.fillRect(x - 14, y - 22, 28, 24);
+          ctx.fillStyle = '#4ecca3';
+          ctx.fillRect(x - 10, y - 18, 20, 16);
+          // Book glyph
+          ctx.fillStyle = '#fff';
+          ctx.fillRect(x - 6, y - 12, 12, 4);
+          break;
+
+        case 'skills':
+          // Cyber Workstation & Tool Chest
+          ctx.fillStyle = '#1e272e';
+          ctx.fillRect(x - 16, y - 20, 32, 22);
+          ctx.fillStyle = '#54a0ff';
+          ctx.fillRect(x - 12, y - 16, 24, 12);
+          // Tool icon
+          ctx.fillStyle = '#ffd166';
+          ctx.fillRect(x - 4, y - 12, 8, 4);
+          break;
+
+        case 'monas':
+          // Monas Tower Replica
+          ctx.fillStyle = '#e2e8f0';
+          ctx.fillRect(x - 12, y - 6, 24, 8); // Base bowl
+          ctx.fillRect(x - 4, y - 28, 8, 24); // Shaft
+          // Golden Flame
+          ctx.fillStyle = '#ffd166';
+          ctx.fillRect(x - 3, y - 34, 6, 6);
+          break;
+
+        case 'durkheim':
+          // Sociological Library & Study
+          ctx.fillStyle = '#341f97';
+          ctx.fillRect(x - 14, y - 22, 28, 24);
+          ctx.fillStyle = '#ff9ff3';
+          ctx.fillRect(x - 10, y - 18, 20, 16);
+          // Mindmap dots
+          ctx.fillStyle = '#fff';
+          ctx.fillRect(x - 4, y - 12, 3, 3);
+          ctx.fillRect(x + 2, y - 8, 3, 3);
+          break;
+
+        case 'pollution':
+          // Eco Sanctum (Tree & River nature)
+          ctx.fillStyle = '#57606f';
+          ctx.fillRect(x - 4, y - 12, 8, 14); // Trunk
+          ctx.fillStyle = '#2ed573';
+          ctx.beginPath();
+          ctx.arc(x, y - 18, 14, 0, Math.PI * 2);
+          ctx.fill();
+          break;
+
+        case 'contact':
+          // Satellite Comm Tower
+          ctx.fillStyle = '#718093';
+          ctx.fillRect(x - 3, y - 28, 6, 30);
+          ctx.fillStyle = '#ef476f';
+          ctx.beginPath();
+          ctx.arc(x, y - 30, 8, 0, Math.PI);
+          ctx.fill();
+          break;
+      }
+    }
+
+    drawClickTarget(ctx, x, y) {
+      const time = performance.now() * 0.006;
+      ctx.strokeStyle = '#4ecca3';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(x, y, 10 + 2 * Math.sin(time), 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.fillStyle = '#4ecca3';
+      ctx.fillRect(x - 2, y - 2, 4, 4);
+    }
+
+    drawPlayer(ctx, x, y) {
+      const scale = 2.5;
+      const isWalk = this.player.isMoving;
+      const walkBob = isWalk ? Math.sin(this.player.walkCycle) * 2 : 0;
+
+      ctx.save();
+      ctx.translate(x, y - 16 + walkBob);
+
+      // Character Shadow
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+      ctx.beginPath();
+      ctx.ellipse(0, 16 - walkBob, 10, 5, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Skin & Hair
+      const skin = '#ffd3a5';
+      const hair = '#2c1e19';
+      const jacket = '#1a365d';
+      const shirt = '#268bd2';
+      const pants = '#1f2937';
+      const shoes = '#e2e8f0';
+
+      // Head & Hair
+      ctx.fillStyle = hair;
+      ctx.fillRect(-6 * scale / 2, -12 * scale / 2, 6 * scale, 3 * scale);
+      ctx.fillStyle = skin;
+      ctx.fillRect(-5 * scale / 2, -9 * scale / 2, 5 * scale, 4 * scale);
+
+      // Eyes (Directional)
+      ctx.fillStyle = '#111827';
+      if (this.player.facing === 'down') {
+        ctx.fillRect(-3 * scale / 2, -7 * scale / 2, 1.5 * scale, 1.5 * scale);
+        ctx.fillRect(1 * scale / 2, -7 * scale / 2, 1.5 * scale, 1.5 * scale);
+      } else if (this.player.facing === 'left') {
+        ctx.fillRect(-4 * scale / 2, -7 * scale / 2, 1.5 * scale, 1.5 * scale);
+      } else if (this.player.facing === 'right') {
+        ctx.fillRect(1.5 * scale / 2, -7 * scale / 2, 1.5 * scale, 1.5 * scale);
+      }
+
+      // Torso / Jacket
+      ctx.fillStyle = jacket;
+      ctx.fillRect(-6 * scale / 2, -5 * scale / 2, 6 * scale, 5 * scale);
+      ctx.fillStyle = shirt;
+      ctx.fillRect(-2 * scale / 2, -5 * scale / 2, 2 * scale, 5 * scale);
+
+      // Legs / Walking animation
+      ctx.fillStyle = pants;
+      const legOffset = isWalk ? Math.sin(this.player.walkCycle) * 3 : 0;
+      ctx.fillRect(-5 * scale / 2, 0, 2 * scale, 3 * scale + legOffset);
+      ctx.fillRect(1 * scale / 2, 0, 2 * scale, 3 * scale - legOffset);
+
+      // Shoes
+      ctx.fillStyle = shoes;
+      ctx.fillRect(-5 * scale / 2, 3 * scale + legOffset, 2 * scale, 1.5 * scale);
+      ctx.fillRect(1 * scale / 2, 3 * scale - legOffset, 2 * scale, 1.5 * scale);
+
+      ctx.restore();
+    }
+
+    renderMinimap() {
+      const mCtx = this.minimapCtx;
+      const w = this.minimapCanvas.width;
+      const h = this.minimapCanvas.height;
+
+      mCtx.fillStyle = '#060810';
+      mCtx.fillRect(0, 0, w, h);
+
+      // Radar Grid
+      mCtx.strokeStyle = '#141c30';
+      mCtx.lineWidth = 1;
+      mCtx.beginPath();
+      mCtx.arc(w / 2, h / 2, w / 2 - 2, 0, Math.PI * 2);
+      mCtx.stroke();
+
+      // Landmarks blips
+      const scale = (w / 2) / 750;
+      this.landmarks.forEach(lm => {
+        const blipX = w / 2 + lm.x * scale;
+        const blipY = h / 2 + lm.y * scale;
+
+        mCtx.fillStyle = lm.visited ? '#4ecca3' : '#ffd166';
+        mCtx.fillRect(blipX - 2, blipY - 2, 4, 4);
+      });
+
+      // Player Blip
+      const pX = w / 2 + this.player.x * scale;
+      const pY = h / 2 + this.player.y * scale;
+      mCtx.fillStyle = '#54a0ff';
+      mCtx.fillRect(pX - 2.5, pY - 2.5, 5, 5);
+    }
+
+    renderBigMap() {
+      const bCtx = this.bigMapCtx;
+      const w = this.bigMapCanvas.width;
+      const h = this.bigMapCanvas.height;
+
+      bCtx.fillStyle = '#04060c';
+      bCtx.fillRect(0, 0, w, h);
+
+      // CRT Grid
+      bCtx.strokeStyle = '#131b2e';
+      bCtx.lineWidth = 1;
+      for (let x = 0; x < w; x += 30) {
+        bCtx.beginPath();
+        bCtx.moveTo(x, 0);
+        bCtx.lineTo(x, h);
+        bCtx.stroke();
+      }
+      for (let y = 0; y < h; y += 30) {
+        bCtx.beginPath();
+        bCtx.moveTo(0, y);
+        bCtx.lineTo(w, y);
+        bCtx.stroke();
+      }
+
+      // Center crosshair
+      bCtx.strokeStyle = '#2b3a5e';
+      bCtx.beginPath();
+      bCtx.moveTo(w / 2, 0); bCtx.lineTo(w / 2, h);
+      bCtx.moveTo(0, h / 2); bCtx.lineTo(w, h / 2);
+      bCtx.stroke();
+
+      // Landmark Nodes
+      const scale = (w / 2) / 600;
+      this.landmarks.forEach(lm => {
+        const nodeX = w / 2 + lm.x * scale;
+        const nodeY = h / 2 + lm.y * scale;
+
+        // Node line to center
+        bCtx.strokeStyle = '#1a243d';
+        bCtx.beginPath();
+        bCtx.moveTo(w / 2, h / 2);
+        bCtx.lineTo(nodeX, nodeY);
+        bCtx.stroke();
+
+        // Node circle
+        bCtx.fillStyle = lm.visited ? '#4ecca3' : '#ffd166';
+        bCtx.beginPath();
+        bCtx.arc(nodeX, nodeY, 6, 0, Math.PI * 2);
+        bCtx.fill();
+
+        // Label
+        bCtx.fillStyle = '#e2e8f0';
+        bCtx.font = '7px "Press Start 2P", monospace';
+        bCtx.textAlign = 'center';
+        bCtx.fillText(lm.name, nodeX, nodeY + 14);
+      });
+
+      // Player Marker (Flashing)
+      const pNodeX = w / 2 + this.player.x * scale;
+      const pNodeY = h / 2 + this.player.y * scale;
+      const time = performance.now() * 0.005;
+
+      bCtx.strokeStyle = '#54a0ff';
+      bCtx.lineWidth = 2;
+      bCtx.beginPath();
+      bCtx.arc(pNodeX, pNodeY, 8 + 2 * Math.sin(time), 0, Math.PI * 2);
+      bCtx.stroke();
+
+      bCtx.fillStyle = '#fff';
+      bCtx.fillRect(pNodeX - 2, pNodeY - 2, 4, 4);
+    }
+
+    loop() {
+      this.update();
+      this.render();
+      requestAnimationFrame(this.loop);
+    }
   }
 
-  function closeLightbox() {
-    if (!lightboxModal) return;
-    lightboxModal.classList.remove('active');
-    lightboxModal.setAttribute('aria-hidden', 'true');
+  // --------------------------------------------------------------------------
+  // 5. MODAL & DIALOG SYSTEM
+  // --------------------------------------------------------------------------
+  let currentProjectIndex = 1;
+  const game = new GameRealm();
+
+  function openModal(modalId) {
+    const backdrop = document.getElementById('modal-backdrop');
+    const modal = document.getElementById(modalId);
+
+    if (!modal) return;
+
+    // Close any already open modal
+    document.querySelectorAll('.modal-window').forEach(m => m.classList.add('hidden'));
+
+    backdrop.classList.remove('hidden');
+    modal.classList.remove('hidden');
+    game.activeModal = modalId;
+    sfx.click();
   }
 
-  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-  if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+  function closeAllModals() {
+    const backdrop = document.getElementById('modal-backdrop');
+    document.querySelectorAll('.modal-window').forEach(m => m.classList.add('hidden'));
+    backdrop.classList.add('hidden');
+    game.activeModal = null;
+    sfx.modalClose();
+  }
 
-  function openProjectDetail(id) {
-    const proj = studentProjects[id];
-    if (!proj || !projectModalInner) return;
+  function openProjectModal(projectId) {
+    currentProjectIndex = projectId;
+    renderProjectDetail(projectId);
+    openModal('modal-project');
+  }
 
-    let secondaryActionHTML = '';
-    if (proj.secondaryLink) {
-      secondaryActionHTML = `
-        <div class="p-external-link-btn">
-          <a href="${proj.secondaryLink.url}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block" title="Buka video dokumentasi Monas di YouTube">
-            <i class="fa-brands fa-youtube" style="color: #ef4444;"></i>
-            <span>${proj.secondaryLink.label}</span>
-            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 11px; opacity: 0.7;"></i>
-          </a>
-        </div>
-      `;
+  function renderProjectDetail(id) {
+    const proj = REALM_DATA.projects[id];
+    if (!proj) return;
+
+    const container = document.getElementById('project-detail-content');
+    const counterEl = document.getElementById('proj-counter');
+
+    if (counterEl) {
+      counterEl.textContent = `${id} / 3`;
     }
 
-    projectModalInner.innerHTML = `
-      <div class="project-modal-header">
-        <span class="project-modal-tag">${proj.category}</span>
-        <h3 class="project-modal-title">${proj.title}</h3>
-        <div class="project-modal-chips">
-          ${proj.tags.map(t => `<span class="tool-tag">${t}</span>`).join('')}
+    container.innerHTML = `
+      <div class="proj-detail-header-card pixel-box-inset">
+        <div class="proj-tag-row">
+          <span class="proj-cat-badge">${proj.category}</span>
+          <span class="proj-year-badge">TAHUN: ${proj.year}</span>
         </div>
-      </div>
-
-      <p class="p-summary-desc">${proj.summary}</p>
-
-      <div class="project-details-grid">
-        <div class="p-detail-card">
-          <span class="p-detail-title"><i class="fa-solid fa-circle-info"></i> Tentang Proyek</span>
-          <p class="p-detail-val">${proj.about}</p>
-        </div>
-        <div class="p-detail-card">
-          <span class="p-detail-title"><i class="fa-solid fa-user-check"></i> Peran Saya</span>
-          <p class="p-detail-val">${proj.role}</p>
-        </div>
-        <div class="p-detail-card">
-          <span class="p-detail-title"><i class="fa-solid fa-list-check"></i> Yang Saya Kerjakan</span>
-          <p class="p-detail-val">${proj.whatIDid}</p>
-        </div>
-        <div class="p-detail-card">
-          <span class="p-detail-title"><i class="fa-solid fa-wrench"></i> Alat / Bahan</span>
-          <p class="p-detail-val">${proj.tools}</p>
-        </div>
-      </div>
-
-      <h4 class="p-section-heading"><i class="fa-solid fa-graduation-cap text-cyan"></i> Yang Saya Pelajari</h4>
-      <ul class="p-learnings-list">
-        ${proj.learnings.map(item => `<li><i class="fa-solid fa-check"></i> <span>${item}</span></li>`).join('')}
-      </ul>
-
-      <!-- HASIL KARYA ASLI SECTION -->
-      <h4 class="p-section-heading"><i class="fa-solid fa-image text-cyan"></i> Hasil Karya Asli</h4>
-      <div class="p-output-box">
-        <div class="p-preview-trigger" id="modal-img-trigger" title="Klik untuk memperbesar gambar">
-          <img src="${proj.image}" alt="${proj.imageAlt}" class="p-modal-img" loading="lazy">
-          <div class="p-zoom-hint">
-            <i class="fa-solid fa-magnifying-glass-plus"></i>
-            <span>Klik untuk perbesar</span>
+        <h3 class="proj-headline">${proj.title}</h3>
+        
+        <div class="proj-meta-grid">
+          <div class="proj-meta-item">
+            <strong>PERAN SAYA:</strong>
+            <span>${proj.role}</span>
+          </div>
+          <div class="proj-meta-item">
+            <strong>ALAT YANG DIGUNAKAN:</strong>
+            <span>${proj.tools}</span>
           </div>
         </div>
-        <div class="p-output-caption-bar">
-          <span><i class="fa-solid fa-camera"></i> ${proj.imageCaption}</span>
-          <small style="color: var(--accent-cyan); font-weight: 600;">100% Foto Karya Asli</small>
-        </div>
-      </div>
-      ${secondaryActionHTML}
-
-      <!-- QUICK QUIZ TRIGGER BUTTON -->
-      <div class="modal-quiz-callout">
-        <div class="m-quiz-info">
-          <h4><i class="fa-solid fa-brain text-cyan"></i> Kuis Singkat Proyek</h4>
-          <p>Uji pemahaman Anda seputar materi <strong>${proj.title}</strong> (3 soal interaktif).</p>
-        </div>
-        <button class="btn btn-primary start-project-quiz-btn" data-quiz="${proj.quizKey}" data-id="${proj.id}" title="Mulai kuis interaktif 3 soal">
-          <i class="fa-solid fa-play"></i>
-          <span>Mulai Kuis (3 Soal)</span>
-        </button>
-      </div>
-    `;
-
-    projectModal.classList.add('active');
-    projectModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-
-    // Hook image preview click to Lightbox
-    const imgTrigger = projectModalInner.querySelector('#modal-img-trigger');
-    if (imgTrigger) {
-      imgTrigger.addEventListener('click', () => {
-        openLightbox(proj.image, proj.imageCaption, proj.imageAlt);
-      });
-    }
-
-    // Hook quiz trigger inside modal
-    const quizBtn = projectModalInner.querySelector('.start-project-quiz-btn');
-    if (quizBtn) {
-      quizBtn.addEventListener('click', () => {
-        const quizKey = quizBtn.getAttribute('data-quiz');
-        const projId = parseInt(quizBtn.getAttribute('data-id'), 10);
-        openProjectQuiz(quizKey, projId);
-      });
-    }
-  }
-
-  function closeProjectDetail() {
-    if (projectModal) {
-      projectModal.classList.remove('active');
-      projectModal.setAttribute('aria-hidden', 'true');
-      if (projectModalInner) projectModalInner.innerHTML = '';
-    }
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.view-project-btn');
-    if (btn) {
-      e.preventDefault();
-      const id = btn.getAttribute('data-id');
-      openProjectDetail(id);
-    }
-  });
-
-  if (projectModalClose) projectModalClose.addEventListener('click', closeProjectDetail);
-  if (projectModalBackdrop) projectModalBackdrop.addEventListener('click', closeProjectDetail);
-
-  // -------------------------------------------------------------------------
-  // 11. QUICK QUIZ SYSTEM (ABOUT ME 5 SOAL & PROYEK 3 SOAL)
-  // -------------------------------------------------------------------------
-  const quizModal = document.getElementById('quiz-modal');
-  const quizModalClose = document.getElementById('quiz-modal-close');
-  const quizModalBackdrop = document.getElementById('quiz-modal-backdrop');
-  const quizNavBtn = document.getElementById('quiz-nav-btn');
-  const footerQuizLink = document.getElementById('footer-quiz-link');
-  const quizContainer = document.getElementById('quiz-container');
-
-  let activeQuizData = null;
-  let activeProjectId = null;
-  let currentQuizIdx = 0;
-  let quizScore = 0;
-  let quizAnswered = false;
-
-  function openProjectQuiz(quizKey, projectId) {
-    const qGroup = projectQuizzes[quizKey];
-    if (!qGroup) return;
-
-    activeQuizData = qGroup;
-    activeProjectId = projectId;
-    currentQuizIdx = 0;
-    quizScore = 0;
-
-    // Smoothly close project modal
-    if (projectModal) {
-      projectModal.classList.remove('active');
-      projectModal.setAttribute('aria-hidden', 'true');
-    }
-
-    renderQuizQuestion();
-
-    if (quizModal) {
-      quizModal.classList.add('active');
-      quizModal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function openGeneralQuiz() {
-    activeQuizData = generalQuizData;
-    activeProjectId = null;
-    currentQuizIdx = 0;
-    quizScore = 0;
-
-    renderQuizQuestion();
-
-    if (quizModal) {
-      quizModal.classList.add('active');
-      quizModal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function renderQuizQuestion() {
-    if (!quizContainer || !activeQuizData) return;
-    const questions = activeQuizData.questions;
-    const totalQ = questions.length;
-    const qData = questions[currentQuizIdx];
-    const progressPercent = ((currentQuizIdx + 1) / totalQ) * 100;
-    quizAnswered = false;
-
-    quizContainer.innerHTML = `
-      <div class="quiz-header-top">
-        <span class="quiz-header-badge"><i class="fa-solid fa-brain"></i> Quick Quiz</span>
-        <span class="quiz-step-tag">Soal ${currentQuizIdx + 1} dari ${totalQ}</span>
-      </div>
-      <h3 class="quiz-title">${activeQuizData.title}</h3>
-      <p class="quiz-sub">${activeQuizData.subtitle}</p>
-
-      <div class="quiz-progress-track" aria-label="Progress kuis: ${Math.round(progressPercent)}%">
-        <div class="quiz-progress-fill" style="width: ${progressPercent}%;"></div>
       </div>
 
-      <div class="quiz-card">
-        <h4 class="quiz-q-text">${currentQuizIdx + 1}. ${qData.q}</h4>
+      <div class="proj-media-container">
+        <img src="${proj.image}" alt="${proj.caption}">
+        <p class="proj-media-caption">📷 ${proj.caption}</p>
+      </div>
 
-        <div class="quiz-opts-group">
-          ${qData.options.map((opt, i) => `
-            <button class="quiz-opt-btn" data-opt="${i}">
-              <span class="opt-letter">${String.fromCharCode(65 + i)}</span>
-              <span class="opt-text">${opt}</span>
-            </button>
-          `).join('')}
-        </div>
+      <div class="proj-section-block pixel-box-inset">
+        <h4>GAMBARAN UMUM</h4>
+        <p>${proj.overview}</p>
+      </div>
 
-        <div class="quiz-feedback-strip" id="quiz-feedback-strip"></div>
+      <div class="proj-section-block pixel-box-inset">
+        <h4>PROSES KERJA</h4>
+        <p>${proj.process}</p>
+      </div>
 
-        <button class="btn btn-primary btn-block" id="quiz-next-btn" style="display: none; margin-top: 16px;">
-          <span>${currentQuizIdx + 1 === totalQ ? 'Lihat Hasil Akhir' : 'Lanjut ke Soal Berikutnya'}</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
+      <div class="proj-section-block pixel-box-inset">
+        <h4>TANTANGAN</h4>
+        <p>${proj.challenge}</p>
+      </div>
+
+      <div class="proj-section-block pixel-box-inset">
+        <h4>SOLUSI</h4>
+        <p>${proj.solution}</p>
+      </div>
+
+      <div class="proj-section-block pixel-box-inset">
+        <h4>HASIL PROYEK</h4>
+        <p>${proj.result}</p>
+      </div>
+
+      <div class="proj-section-block pixel-box-inset highlight-box">
+        <h4 style="color: var(--accent-gold);">PEMBELAJARAN & NILAI</h4>
+        <p>${proj.learnings}</p>
       </div>
     `;
-
-    // Hook options click
-    const optButtons = quizContainer.querySelectorAll('.quiz-opt-btn');
-    const feedbackBox = document.getElementById('quiz-feedback-strip');
-    const nextBtn = document.getElementById('quiz-next-btn');
-
-    optButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (quizAnswered) return;
-        quizAnswered = true;
-
-        const chosen = parseInt(btn.getAttribute('data-opt'), 10);
-        optButtons.forEach(b => b.disabled = true);
-
-        if (chosen === qData.correct) {
-          btn.classList.add('correct');
-          quizScore++;
-          feedbackBox.className = 'quiz-feedback-strip show correct';
-          feedbackBox.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${qData.feedback}</span>`;
-        } else {
-          btn.classList.add('wrong');
-          if (optButtons[qData.correct]) {
-            optButtons[qData.correct].classList.add('correct');
-          }
-          feedbackBox.className = 'quiz-feedback-strip show wrong';
-          feedbackBox.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> <span>${qData.feedback}</span>`;
-        }
-
-        if (nextBtn) {
-          nextBtn.style.display = 'inline-flex';
-          nextBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      });
-    });
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        currentQuizIdx++;
-        if (currentQuizIdx < totalQ) {
-          renderQuizQuestion();
-        } else {
-          renderQuizResult();
-        }
-      });
-    }
   }
 
-  function renderQuizResult() {
-    if (!quizContainer || !activeQuizData) return;
-    const totalQ = activeQuizData.questions.length;
-    let scoreFeedback = '';
+  function toggleQuickView(show) {
+    const overlay = document.getElementById('quickview-overlay');
+    if (!overlay) return;
 
-    // Dynamic authentic feedback messages with light humor
-    if (activeProjectId === null) {
-      // General Quiz Tentang Saya (5 Soal)
-      if (quizScore === 5) {
-        scoreFeedback = 'Kenal saya banget 😎 Mantap!';
-      } else if (quizScore >= 3) {
-        scoreFeedback = 'Sudah lumayan kenal! 👍';
-      } else {
-        scoreFeedback = 'Kayaknya harus keliling portfolio dulu 😭';
-      }
+    if (show) {
+      overlay.classList.remove('hidden');
+      sfx.click();
     } else {
-      // Project Quiz (3 Soal)
-      if (quizScore === 3) {
-        scoreFeedback = 'Luar biasa! Kamu paham betul detail proyek ini 🎯';
-      } else if (quizScore === 2) {
-        scoreFeedback = 'Bagus! Sudah memahami sebagian besar isi proyek 👍';
-      } else {
-        scoreFeedback = 'Masih ada yang keliru, yuk baca lagi detail proyeknya! 📖';
-      }
+      overlay.classList.add('hidden');
+      sfx.click();
     }
+  }
 
-    quizContainer.innerHTML = `
-      <div class="quiz-result-box">
-        <div class="quiz-trophy-icon">
-          <i class="fa-solid ${quizScore >= totalQ - 1 ? 'fa-trophy text-cyan' : quizScore >= 1 ? 'fa-circle-check text-emerald' : 'fa-lightbulb text-amber'}"></i>
+  function renderQuickViewProjects() {
+    const stack = document.getElementById('doc-projects-stack');
+    if (!stack) return;
+
+    stack.innerHTML = Object.values(REALM_DATA.projects).map(proj => `
+      <div class="doc-project-full-card pixel-box-inset">
+        <div class="proj-tag-row">
+          <span class="proj-cat-badge">${proj.category}</span>
+          <span class="proj-year-badge">TAHUN: ${proj.year}</span>
         </div>
-        <span class="quiz-header-badge">Kuis Selesai!</span>
-        <h3 class="quiz-title" style="margin-top: 6px;">Hasil Kuis Anda</h3>
-        <div class="quiz-score-badge">Skor: ${quizScore} / ${totalQ}</div>
-        <p class="quiz-result-msg">${scoreFeedback}</p>
+        <h3 class="proj-headline">${proj.title}</h3>
         
-        <div class="quiz-result-actions">
-          <button class="btn btn-secondary" id="quiz-retake-btn">
-            <i class="fa-solid fa-rotate-left"></i>
-            <span>Coba Lagi</span>
-          </button>
-          ${activeProjectId ? `
-            <button class="btn btn-primary" id="quiz-back-project-btn">
-              <i class="fa-solid fa-arrow-left"></i>
-              <span>Kembali ke Proyek</span>
-            </button>
-          ` : `
-            <button class="btn btn-primary" id="quiz-finish-btn">
-              <i class="fa-solid fa-check"></i>
-              <span>Selesai</span>
-            </button>
-          `}
+        <div class="proj-media-container" style="margin: 8px 0;">
+          <img src="${proj.image}" alt="${proj.caption}">
+          <p class="proj-media-caption">${proj.caption}</p>
+        </div>
+
+        <div class="proj-meta-grid" style="margin-bottom: 8px;">
+          <div class="proj-meta-item">
+            <strong>PERAN:</strong> <span>${proj.role}</span>
+          </div>
+          <div class="proj-meta-item">
+            <strong>ALAT:</strong> <span>${proj.tools}</span>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h4 class="section-label">GAMBARAN UMUM</h4>
+          <p class="dialogue-p">${proj.overview}</p>
+        </div>
+
+        <div class="content-section">
+          <h4 class="section-label">PROSES</h4>
+          <p class="dialogue-p">${proj.process}</p>
+        </div>
+
+        <div class="content-section">
+          <h4 class="section-label">TANTANGAN & SOLUSI</h4>
+          <p class="dialogue-p"><strong>Tantangan:</strong> ${proj.challenge}</p>
+          <p class="dialogue-p"><strong>Solusi:</strong> ${proj.solution}</p>
+        </div>
+
+        <div class="content-section">
+          <h4 class="section-label">HASIL & PEMBELAJARAN</h4>
+          <p class="dialogue-p"><strong>Hasil:</strong> ${proj.result}</p>
+          <p class="dialogue-p"><strong>Pembelajaran:</strong> ${proj.learnings}</p>
         </div>
       </div>
-    `;
-
-    const retakeBtn = document.getElementById('quiz-retake-btn');
-    const backProjectBtn = document.getElementById('quiz-back-project-btn');
-    const finishBtn = document.getElementById('quiz-finish-btn');
-
-    if (retakeBtn) {
-      retakeBtn.addEventListener('click', () => {
-        currentQuizIdx = 0;
-        quizScore = 0;
-        renderQuizQuestion();
-      });
-    }
-
-    if (backProjectBtn) {
-      backProjectBtn.addEventListener('click', () => {
-        const pId = activeProjectId;
-        closeQuizModal();
-        if (pId) {
-          setTimeout(() => openProjectDetail(pId), 150);
-        }
-      });
-    }
-
-    if (finishBtn) {
-      finishBtn.addEventListener('click', closeQuizModal);
-    }
+    `).join('');
   }
 
-  function closeQuizModal() {
-    if (quizModal) {
-      quizModal.classList.remove('active');
-      quizModal.setAttribute('aria-hidden', 'true');
-    }
-    document.body.style.overflow = '';
-  }
+  // --------------------------------------------------------------------------
+  // 6. INITIALIZATION & EVENT ATTACHMENTS
+  // --------------------------------------------------------------------------
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Draw Static Avatars
+    const preloaderAvatar = document.getElementById('preloader-avatar-canvas');
+    if (preloaderAvatar) drawPixelAvatar(preloaderAvatar.getContext('2d'), 64);
 
-  if (quizNavBtn) quizNavBtn.addEventListener('click', openGeneralQuiz);
-  if (footerQuizLink) footerQuizLink.addEventListener('click', openGeneralQuiz);
-  if (quizModalClose) quizModalClose.addEventListener('click', closeQuizModal);
-  if (quizModalBackdrop) quizModalBackdrop.addEventListener('click', closeQuizModal);
+    const aboutAvatar = document.getElementById('about-avatar-canvas');
+    if (aboutAvatar) drawPixelAvatar(aboutAvatar.getContext('2d'), 80);
 
-  // -------------------------------------------------------------------------
-  // 12. SECTION REVEAL (INTERSECTION OBSERVER)
-  // -------------------------------------------------------------------------
-  const revealSections = document.querySelectorAll('.section-reveal');
-  const sectionObserver = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.08,
-    rootMargin: '0px 0px -40px 0px'
-  });
+    const hudAvatar = document.getElementById('hud-avatar-mini');
+    if (hudAvatar) hudAvatar.textContent = '👾';
 
-  revealSections.forEach(sec => sectionObserver.observe(sec));
+    // 2. Populate Document / Quick View Projects
+    renderQuickViewProjects();
 
-  // -------------------------------------------------------------------------
-  // 13. ACTIVE NAVIGATION LINK ON SCROLL & MOBILE MENU DRAWER
-  // -------------------------------------------------------------------------
-  const navMenu = document.getElementById('nav-menu');
-  const navToggle = document.getElementById('nav-toggle');
-  const navClose = document.getElementById('nav-close');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const allSections = document.querySelectorAll('section[id]');
+    // 3. Setup Preloader Progress Bar Simulation
+    const fillEl = document.getElementById('progress-fill');
+    const textEl = document.getElementById('loading-text');
+    const actionsEl = document.getElementById('gate-actions');
+    const loadingContainer = document.getElementById('loading-container');
 
-  if (navToggle) {
-    navToggle.addEventListener('click', () => navMenu.classList.add('show-menu'));
-  }
-  if (navClose) {
-    navClose.addEventListener('click', () => navMenu.classList.remove('show-menu'));
-  }
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => navMenu.classList.remove('show-menu'));
-  });
+    let progress = 0;
+    const loadInterval = setInterval(() => {
+      progress += Math.floor(Math.random() * 25) + 15;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(loadInterval);
+        fillEl.style.width = '100%';
+        textEl.textContent = 'REALM READY // 100%';
 
-  window.addEventListener('scroll', () => {
-    const scrollPos = window.pageYOffset + 140;
-
-    allSections.forEach(sec => {
-      const top = sec.offsetTop;
-      const height = sec.offsetHeight;
-      const id = sec.getAttribute('id');
-      const targetNav = document.querySelector(`.nav-menu a[href*='${id}']`);
-
-      if (targetNav) {
-        if (scrollPos >= top && scrollPos < top + height) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          targetNav.classList.add('active');
-        }
-      }
-    });
-  });
-
-  // -------------------------------------------------------------------------
-  // 14. CONTACT FORM VALIDATION & TOAST NOTIFICATION
-  // -------------------------------------------------------------------------
-  const contactForm = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('sender-name').value.trim();
-      const email = document.getElementById('sender-email').value.trim();
-      const subject = document.getElementById('sender-subject').value.trim();
-      const message = document.getElementById('sender-message').value.trim();
-
-      if (!name || !email || !subject || !message) {
-        displayToast('Harap lengkapi semua kolom formulir.', 'error');
-        return;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        displayToast('Format alamat email tidak valid.', 'error');
-        return;
-      }
-
-      const origText = submitBtn.innerHTML;
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Mengirimkan Pesan...</span>';
-
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = origText;
-        contactForm.reset();
-        displayToast(`Terima kasih, ${name}! Pesan Anda telah dicatat (dairabih2@gmail.com).`, 'success');
-      }, 850);
-    });
-  }
-
-  function displayToast(msg, type = 'success') {
-    const wrapper = document.getElementById('toast-wrapper');
-    if (!wrapper) return;
-
-    const toast = document.createElement('div');
-    toast.className = `toast-item ${type === 'easter-egg' ? 'easter-egg' : ''}`;
-
-    let icon = 'fa-circle-check text-cyan';
-    if (type === 'error') icon = 'fa-circle-exclamation text-coral';
-    if (type === 'easter-egg') icon = 'fa-sparkles text-purple';
-
-    toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${msg}</span>`;
-    wrapper.appendChild(toast);
-
-    setTimeout(() => {
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateY(10px)';
-      toast.style.transition = '0.3s ease';
-      setTimeout(() => toast.remove(), 300);
-    }, 3500);
-  }
-
-  // -------------------------------------------------------------------------
-  // 15. BACK TO TOP BUTTON & ESC KEY MODAL CLOSER
-  // -------------------------------------------------------------------------
-  const backTopBtn = document.getElementById('back-top-btn');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY >= 350) {
-      if (backTopBtn) backTopBtn.classList.add('visible');
-    } else {
-      if (backTopBtn) backTopBtn.classList.remove('visible');
-    }
-  });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (lightboxModal && lightboxModal.classList.contains('active')) {
-        closeLightbox();
-      } else if (quizModal && quizModal.classList.contains('active')) {
-        closeQuizModal();
-      } else if (projectModal && projectModal.classList.contains('active')) {
-        closeProjectDetail();
-      }
-    }
-  });
-
-  // -------------------------------------------------------------------------
-  // 16. EASTER EGG (Click Logo 5 Times)
-  // -------------------------------------------------------------------------
-  const brandLogo = document.getElementById('brand-easter-logo');
-  let logoClickCount = 0;
-  let logoClickTimer = null;
-
-  if (brandLogo) {
-    brandLogo.addEventListener('click', (e) => {
-      logoClickCount++;
-      clearTimeout(logoClickTimer);
-
-      if (logoClickCount === 5) {
-        e.preventDefault();
-        displayToast('🎉 Keren! Kamu menemukan rahasia tersembunyi. Semangat belajar!', 'easter-egg');
-        logoClickCount = 0;
+        setTimeout(() => {
+          loadingContainer.classList.add('hidden');
+          actionsEl.classList.remove('hidden');
+        }, 300);
       } else {
-        logoClickTimer = setTimeout(() => {
-          logoClickCount = 0;
-        }, 1200);
+        fillEl.style.width = `${progress}%`;
+        textEl.textContent = `LOADING REALM... ${progress}%`;
+      }
+    }, 120);
+
+    // 4. Start Game Button
+    const btnStart = document.getElementById('btn-start-game');
+    const preloaderGate = document.getElementById('preloader-gate');
+    if (btnStart) {
+      btnStart.addEventListener('click', () => {
+        sfx.init();
+        sfx.interact();
+        preloaderGate.style.opacity = '0';
+        setTimeout(() => {
+          preloaderGate.classList.add('hidden');
+          game.start();
+        }, 500);
+      });
+    }
+
+    // 5. Gate Quick View Button
+    const btnGateQuick = document.getElementById('btn-gate-quickview');
+    if (btnGateQuick) {
+      btnGateQuick.addEventListener('click', () => {
+        sfx.init();
+        preloaderGate.classList.add('hidden');
+        game.start();
+        toggleQuickView(true);
+      });
+    }
+
+    // 6. HUD Nav Buttons
+    const hudMap = {
+      'hud-btn-about': 'modal-about',
+      'hud-btn-skills': 'modal-skills',
+      'hud-btn-projects': 'modal-all-projects',
+      'hud-btn-contact': 'modal-contact',
+      'hud-btn-map': 'modal-map'
+    };
+
+    Object.keys(hudMap).forEach(btnId => {
+      const btn = document.getElementById(btnId);
+      if (btn) {
+        btn.addEventListener('click', () => {
+          openModal(hudMap[btnId]);
+        });
       }
     });
-  }
 
-  // -------------------------------------------------------------------------
-  // 17. CURRENT YEAR DYNAMIC UPDATE
-  // -------------------------------------------------------------------------
-  const yearEl = document.getElementById('current-year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-});
+    // SFX Toggle
+    const sfxBtn = document.getElementById('hud-btn-sfx');
+    const sfxIcon = document.getElementById('sfx-icon');
+    if (sfxBtn && sfxIcon) {
+      sfxIcon.textContent = sfx.muted ? '🔇' : '🔊';
+      sfxBtn.addEventListener('click', () => {
+        const unmuted = sfx.toggleMute();
+        sfxIcon.textContent = unmuted ? '🔊' : '🔇';
+      });
+    }
+
+    // View Mode Toggle (Docs)
+    const viewBtn = document.getElementById('hud-btn-viewmode');
+    if (viewBtn) {
+      viewBtn.addEventListener('click', () => {
+        toggleQuickView(true);
+      });
+    }
+
+    const exitDocsBtn = document.getElementById('btn-exit-quickview');
+    if (exitDocsBtn) {
+      exitDocsBtn.addEventListener('click', () => {
+        toggleQuickView(false);
+      });
+    }
+
+    // 7. Modal Close Buttons
+    document.querySelectorAll('.modal-close-btn, .modal-close-action').forEach(btn => {
+      btn.addEventListener('click', () => {
+        closeAllModals();
+      });
+    });
+
+    const backdrop = document.getElementById('modal-backdrop');
+    if (backdrop) {
+      backdrop.addEventListener('click', () => {
+        closeAllModals();
+      });
+    }
+
+    // 8. Project Switcher (Prev / Next)
+    const btnPrev = document.getElementById('btn-proj-prev');
+    const btnNext = document.getElementById('btn-proj-next');
+
+    if (btnPrev) {
+      btnPrev.addEventListener('click', () => {
+        currentProjectIndex = currentProjectIndex > 1 ? currentProjectIndex - 1 : 3;
+        renderProjectDetail(currentProjectIndex);
+        sfx.click();
+      });
+    }
+
+    if (btnNext) {
+      btnNext.addEventListener('click', () => {
+        currentProjectIndex = currentProjectIndex < 3 ? currentProjectIndex + 1 : 1;
+        renderProjectDetail(currentProjectIndex);
+        sfx.click();
+      });
+    }
+
+    // 9. All Projects Modal Item Triggers
+    document.querySelectorAll('.open-proj-trigger').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const targetId = parseInt(e.currentTarget.getAttribute('data-target'), 10);
+        if (targetId) {
+          openProjectModal(targetId);
+        }
+      });
+    });
+  });
+
+})();

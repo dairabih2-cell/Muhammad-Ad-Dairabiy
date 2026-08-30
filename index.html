@@ -2,991 +2,632 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio Siswa Muhammad Ad Dairabiy - Kelas X-D SMA Negeri 70 Jakarta. Siswa yang suka belajar teknologi, AI, desain, editing video, dan masih belajar coding.">
-  <meta name="keywords" content="Muhammad Ad Dairabiy, SMAN 70 Jakarta, Portofolio Siswa, Siswa SMA, Belajar Coding, Teknologi, Desain">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Portofolio Interaktif Pixel Art Muhammad Ad Dairabiy (Abiy) - Siswa, Desainer, dan Editor Video. Menjelajahi dunia digital, desain grafis, video editing, dan proyek kreatif.">
+  <meta name="keywords" content="Muhammad Ad Dairabiy, Abiy, Portofolio Pixel Art, Siswa SMAN 70, Video Editor, Desain Grafis, UI UX, Web Development">
   <meta name="author" content="Muhammad Ad Dairabiy">
-  <title>Muhammad Ad Dairabiy | Portfolio Siswa SMAN 70 Jakarta</title>
+  <meta name="theme-color" content="#0c0e17">
 
-  <!-- Google Fonts: Outfit (Headings) & Plus Jakarta Sans (Body) -->
+  <title>Muhammad Ad Dairabiy | Digital Realm Portfolio</title>
+
+  <!-- Favicon Pixel -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><rect width=%2216%22 height=%2216%22 fill=%22%230c0e17%22/><rect x=%223%22 y=%223%22 width=%2210%22 height=%2210%22 fill=%22%234ecca3%22/><rect x=%225%22 y=%225%22 width=%226%22 height=%226%22 fill=%22%230c0e17%22/><rect x=%227%22 y=%227%22 width=%222%22 height=%222%22 fill=%22%23ffd166%22/></svg>">
+
+  <!-- Google Font: Press Start 2P (Primary Dominant Pixel Font) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- Custom Modern Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- Core Pixel Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <!-- Scroll Progress Indicator -->
-  <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+<body class="pixel-theme">
 
-  <!-- Header / Navigation Bar -->
-  <header class="header" id="header">
-    <div class="container nav-wrapper">
-      <a href="#hero" class="brand-logo" id="brand-easter-logo" title="Muhammad Ad Dairabiy">
-        <span class="brand-badge">X-D</span>
-        <span class="brand-name">Ad Dairabiy<span class="brand-dot">.</span></span>
-      </a>
+  <!-- CRT Scanlines & Vignette Overlay (Toggleable) -->
+  <div class="crt-overlay" id="crt-overlay" aria-hidden="true"></div>
+
+  <!-- 1. PRELOADER & TITLE SCREEN (PETER ORAVEC INSPIRED PLAY GATE) -->
+  <div class="preloader-gate" id="preloader-gate">
+    <div class="title-panel pixel-box">
+      <div class="pixel-badge status-pulse">REALM v2.6 // 2026</div>
       
-      <nav class="nav-menu" id="nav-menu" aria-label="Navigasi Utama">
-        <ul class="nav-list">
-          <li><a href="#hero" class="nav-link active"><i class="fa-solid fa-house nav-ico"></i> Beranda</a></li>
-          <li><a href="#projects" class="nav-link"><i class="fa-solid fa-folder-open nav-ico"></i> Proyek</a></li>
-          <li><a href="#about" class="nav-link"><i class="fa-solid fa-user nav-ico"></i> Tentang Saya</a></li>
-          <li><a href="#interests" class="nav-link"><i class="fa-solid fa-compass nav-ico"></i> Minat & Hobi</a></li>
-          <li><a href="#skills" class="nav-link"><i class="fa-solid fa-layer-group nav-ico"></i> Kemampuan</a></li>
-          <li><a href="#journey" class="nav-link"><i class="fa-solid fa-route nav-ico"></i> Journey</a></li>
-          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane nav-ico"></i> Kontak</a></li>
-        </ul>
-        <button class="nav-close" id="nav-close" aria-label="Tutup menu">
-          <i class="fa-solid fa-xmark"></i>
+      <div class="title-avatar-wrap">
+        <canvas id="preloader-avatar-canvas" width="64" height="64"></canvas>
+      </div>
+
+      <h1 class="main-title">ABIY</h1>
+      <p class="sub-role">SISWA · DESAINER · EDITOR VIDEO</p>
+      
+      <div class="tagline-box">
+        <span class="type-quote">“</span>Menciptakan pengalaman digital dan konten visual.<span class="type-quote">”</span>
+      </div>
+
+      <!-- Loading Bar -->
+      <div class="loading-container" id="loading-container">
+        <div class="pixel-progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="loading-status" id="loading-text">LOADING REALM... 0%</div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="gate-actions hidden" id="gate-actions">
+        <button type="button" class="pixel-btn btn-primary btn-large pulse-glow" id="btn-start-game">
+          <span class="btn-icon">▶</span> START GAME
+        </button>
+        <button type="button" class="pixel-btn btn-secondary" id="btn-gate-quickview">
+          <span class="btn-icon">⚡</span> QUICK VIEW (DOCS)
+        </button>
+      </div>
+
+      <!-- Quick Escape / Direct Contact Note -->
+      <div class="gate-escape">
+        <span class="escape-hint">Tidak ada waktu untuk eksplorasi game?</span>
+        <div class="escape-links">
+          <a href="mailto:dairabih2@gmail.com" class="escape-link">[ EMAIL SAYA ]</a>
+          <a href="https://instagram.com/abiyxd" target="_blank" rel="noopener noreferrer" class="escape-link">[ INSTAGRAM ]</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. GAME CONTAINER (INTERACTIVE 2D CANVAS REALM) -->
+  <div class="game-viewport" id="game-viewport">
+    <!-- The HTML5 2D Canvas -->
+    <canvas id="realm-canvas"></canvas>
+
+    <!-- Top HUD Bar -->
+    <header class="hud-top" id="hud-top">
+      <!-- Player Status Block -->
+      <div class="hud-box hud-player pixel-box-sm">
+        <div class="hud-avatar-mini" id="hud-avatar-mini"></div>
+        <div class="hud-info">
+          <span class="hud-name">ABIY</span>
+          <span class="hud-zone" id="hud-zone-name">SPAWN PLAZA</span>
+        </div>
+      </div>
+
+      <!-- Coordinates & Controls Hint -->
+      <div class="hud-box hud-coords pixel-box-sm hide-on-mobile">
+        <span class="coord-label">POS:</span>
+        <span id="hud-coords-val">X: 00 | Y: 00</span>
+      </div>
+
+      <!-- Quick Action Navigation Toolbar -->
+      <nav class="hud-nav" aria-label="HUD Quick Menu">
+        <button type="button" class="hud-btn pixel-btn-sm" id="hud-btn-about" title="Tentang Abiy">
+          <span class="hud-btn-text">ABOUT</span>
+        </button>
+        <button type="button" class="hud-btn pixel-btn-sm" id="hud-btn-skills" title="Keahlian & Alat">
+          <span class="hud-btn-text">SKILLS</span>
+        </button>
+        <button type="button" class="hud-btn pixel-btn-sm" id="hud-btn-projects" title="Daftar 3 Proyek">
+          <span class="hud-btn-text">PROJECTS</span>
+        </button>
+        <button type="button" class="hud-btn pixel-btn-sm" id="hud-btn-contact" title="Kontak Abiy">
+          <span class="hud-btn-text">CONTACT</span>
+        </button>
+        <button type="button" class="hud-btn pixel-btn-sm btn-highlight" id="hud-btn-map" title="Buka Peta Besar (M)">
+          <span class="hud-btn-icon">🗺️</span><span class="hud-btn-text">MAP</span>
+        </button>
+        <button type="button" class="hud-btn pixel-btn-sm" id="hud-btn-sfx" title="Toggle Suara 8-bit">
+          <span id="sfx-icon">🔊</span>
+        </button>
+        <button type="button" class="hud-btn pixel-btn-sm" id="hud-btn-viewmode" title="Beralih ke Tampilan Dokumen">
+          <span>⚡ DOCS</span>
         </button>
       </nav>
+    </header>
 
-      <div class="nav-actions">
-        <button class="btn btn-secondary btn-sm quiz-nav-trigger" id="quiz-nav-btn" title="Kuis Portofolio Tentang Saya">
-          <i class="fa-solid fa-brain"></i>
-          <span>Kuis Saya</span>
+    <!-- Floating Interaction Prompt (Desktop & Mobile) -->
+    <div class="interact-prompt hidden" id="interact-prompt">
+      <div class="prompt-card pixel-box-sm">
+        <span class="prompt-key hide-on-mobile">[ E ]</span>
+        <span class="prompt-icon-touch show-on-mobile">👆</span>
+        <span class="prompt-text" id="prompt-action-text">INTERACT</span>
+      </div>
+    </div>
+
+    <!-- Bottom HUD: Minimap Radar & Controls Hint -->
+    <footer class="hud-bottom" id="hud-bottom">
+      <!-- Desktop Movement Hint -->
+      <div class="hud-hint pixel-box-sm hide-on-mobile">
+        <span class="hint-key">WASD / ARROW</span> MOVE · <span class="hint-key">CLICK</span> TO WALK · <span class="hint-key">E</span> INTERACT · <span class="hint-key">M</span> MAP
+      </div>
+
+      <!-- Minimap Radar Widget -->
+      <div class="minimap-container pixel-box-sm" id="minimap-container" title="Klik untuk memperbesar peta">
+        <canvas id="minimap-canvas" width="100" height="100"></canvas>
+        <span class="minimap-tag">RADAR</span>
+      </div>
+    </footer>
+
+    <!-- Mobile Touch Controls (Virtual Joystick & Action Button) -->
+    <div class="mobile-controls-overlay" id="mobile-controls-overlay">
+      <!-- Virtual Joystick Zone -->
+      <div class="joystick-zone" id="joystick-zone">
+        <div class="joystick-base" id="joystick-base">
+          <div class="joystick-thumb" id="joystick-thumb"></div>
+        </div>
+      </div>
+
+      <!-- Action Interact Button -->
+      <div class="touch-action-zone">
+        <button type="button" class="touch-action-btn pixel-box" id="btn-touch-interact" aria-label="Interaksi Titik">
+          <span class="touch-btn-label">ACTION</span>
+          <span class="touch-btn-sub">[ E ]</span>
         </button>
-        <a href="#contact" class="btn btn-primary btn-sm contact-nav-btn">
-          <span>Hubungi</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Buka navigasi">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- 1. Hero Section -->
-    <section class="hero-section section-reveal" id="hero">
-      <div class="hero-bg-glow"></div>
-      <div class="container hero-grid">
-        <div class="hero-text-block">
-          <div class="status-pill">
-            <span class="status-indicator"></span>
-            <span>Siswa Kelas X-D • SMA Negeri 70 Jakarta</span>
-          </div>
-          
-          <h1 class="hero-heading">
-            Halo! Saya <br>
-            <span class="gradient-text">Muhammad Ad Dairabiy</span>
-          </h1>
-          
-          <div class="hero-typing-wrap">
-            <span class="typing-prefix">Saat ini: </span>
-            <span class="typing-role" id="typing-role"></span>
-            <span class="cursor-bar">|</span>
-          </div>
-          
-          <p class="hero-bio">
-            Saya siswa SMA yang suka mencoba hal-hal baru di dunia teknologi—terutama AI, desain visual, dan video editing. Masih pemula dalam coding, tapi selalu antusias membuat karya nyata untuk tugas sekolah dan terus belajar untuk masa depan.
-          </p>
-          
-          <div class="hero-cta-group">
-            <a href="#projects" class="btn btn-primary btn-lg">
-              <span>Lihat Proyek Saya</span>
-              <i class="fa-solid fa-arrow-down"></i>
-            </a>
-            <a href="#about" class="btn btn-secondary btn-lg">
-              <span>Kenali Saya</span>
-              <i class="fa-solid fa-user"></i>
-            </a>
-          </div>
-
-          <div class="hero-highlights-strip">
-            <div class="highlight-item">
-              <div class="hl-icon"><i class="fa-solid fa-school"></i></div>
-              <div class="hl-info">
-                <span class="hl-label">Sekolah</span>
-                <strong class="hl-val">SMAN 70 Jakarta</strong>
-              </div>
-            </div>
-            <div class="hl-divider"></div>
-            <div class="highlight-item">
-              <div class="hl-icon"><i class="fa-solid fa-microchip"></i></div>
-              <div class="hl-info">
-                <span class="hl-label">Fokus Minat</span>
-                <strong class="hl-val">AI & Teknologi</strong>
-              </div>
-            </div>
-            <div class="hl-divider"></div>
-            <div class="highlight-item">
-              <div class="hl-icon"><i class="fa-solid fa-seedling"></i></div>
-              <div class="hl-info">
-                <span class="hl-label">Status</span>
-                <strong class="hl-val">Sedang Belajar</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Student Creator ID Card -->
-        <div class="hero-card-block">
-          <div class="student-card-wrapper">
-            <div class="student-card">
-              <div class="card-glass-glow"></div>
-              
-              <div class="student-card-header">
-                <div class="student-avatar-box">
-                  <i class="fa-solid fa-user-astronaut"></i>
-                </div>
-                <div class="student-id-details">
-                  <span class="student-card-badge">Student Portfolio</span>
-                  <h3 class="student-name">Muhammad Ad Dairabiy</h3>
-                  <p class="student-meta">Kelas X-D • SMAN 70 Jakarta</p>
-                </div>
-              </div>
-
-              <div class="student-card-body">
-                <div class="card-info-item">
-                  <span class="c-info-label"><i class="fa-solid fa-compass"></i> Minat Utama</span>
-                  <span class="c-info-value">Teknologi, AI, & Desain</span>
-                </div>
-                <div class="card-info-item">
-                  <span class="c-info-label"><i class="fa-solid fa-heart"></i> Hobi Santai</span>
-                  <span class="c-info-value">Desain, Video Editing, Musik</span>
-                </div>
-                <div class="card-info-item">
-                  <span class="c-info-label"><i class="fa-solid fa-code"></i> Status Koding</span>
-                  <span class="c-info-value"><span class="badge-status-learning">Pemula / Masih Belajar</span></span>
-                </div>
-              </div>
-
-              <div class="student-card-footer">
-                <div class="quote-box">
-                  <i class="fa-solid fa-quote-left quote-icon"></i>
-                  <p class="quote-text">"Belum jago, tapi lagi semangat belajar dan mencoba hal baru!"</p>
-                </div>
-                <div class="card-tag-row">
-                  <span class="pill-tag"><i class="fa-solid fa-palette"></i> Desain</span>
-                  <span class="pill-tag"><i class="fa-solid fa-video"></i> Video</span>
-                  <span class="pill-tag"><i class="fa-solid fa-robot"></i> AI</span>
-                  <span class="pill-tag"><i class="fa-solid fa-music"></i> Musik</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2. Projects Showcase Section (Visual Priority #1) -->
-    <section class="section-block section-reveal" id="projects">
-      <div class="container">
-        <div class="section-header-wrap">
-          <div class="header-tag-pill">
-            <i class="fa-solid fa-folder-open"></i>
-            <span>Karya & Tugas Sekolah</span>
-          </div>
-          <h2 class="section-heading">Proyek Nyata Saya</h2>
-          <p class="section-subtext">
-            Berikut adalah 5 proyek nyata yang pernah saya kerjakan untuk tugas sekolah, baik secara kelompok maupun mandiri. Klik proyek untuk melihat peran saya, alat yang digunakan, hasil karya asli, dan kuis interaktifnya.
-          </p>
-        </div>
-
-        <!-- Filter Tokens -->
-        <div class="project-filter-bar">
-          <button class="filter-btn active" data-filter="all">
-            <i class="fa-solid fa-border-all"></i>
-            <span>Semua Proyek (5)</span>
-          </button>
-          <button class="filter-btn" data-filter="school">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>School</span>
-          </button>
-          <button class="filter-btn" data-filter="technology">
-            <i class="fa-solid fa-microchip"></i>
-            <span>Technology</span>
-          </button>
-          <button class="filter-btn" data-filter="creative">
-            <i class="fa-solid fa-palette"></i>
-            <span>Creative</span>
-          </button>
-        </div>
-
-        <!-- Projects Grid -->
-        <div class="projects-grid" id="projects-grid">
-          <!-- Project 1: Proyek Video Edukatif Monas -->
-          <article class="project-card" data-category="school creative" data-id="1">
-            <div class="p-card-thumb-wrap">
-              <img src="assets/projects/monas/monas-video-preview.jpg" alt="Dokumentasi Video Edukatif Monas" class="p-card-img" loading="lazy">
-              <div class="p-card-overlay">
-                <span class="p-card-cat-badge"><i class="fa-solid fa-film"></i> School • Creative</span>
-                <span class="p-card-view-hint"><i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Detail</span>
-              </div>
-            </div>
-            <div class="p-card-content">
-              <div class="p-card-meta">
-                <span class="p-card-num">#01</span>
-                <span class="p-card-topic">Tugas Sejarah & Video</span>
-              </div>
-              <h3 class="p-card-title">Proyek Video Edukatif Monas</h3>
-              <p class="p-card-desc">
-                Video edukasi seputar sejarah perjuangan kemerdekaan dan arsitektur Monumen Nasional Jakarta bersama kelompok.
-              </p>
-              <div class="p-card-tools">
-                <span class="tool-tag"><i class="fa-solid fa-video"></i> Video Editing</span>
-                <span class="tool-tag"><i class="fa-solid fa-landmark"></i> Sejarah</span>
-                <span class="tool-tag"><i class="fa-solid fa-users"></i> Kerja Sama</span>
-              </div>
-              <button class="btn btn-card-action view-project-btn" data-id="1" aria-label="Buka Detail Proyek Video Monas">
-                <span>Lihat Detail Lengkap</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Project 2: Infografis Pencemaran Lingkungan -->
-          <article class="project-card" data-category="school creative" data-id="2">
-            <div class="p-card-thumb-wrap">
-              <img src="assets/projects/pollution/pollution-infographic.jpg" alt="Infografis Pencemaran Lingkungan" class="p-card-img" loading="lazy">
-              <div class="p-card-overlay">
-                <span class="p-card-cat-badge"><i class="fa-solid fa-leaf"></i> School • Creative</span>
-                <span class="p-card-view-hint"><i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Detail</span>
-              </div>
-            </div>
-            <div class="p-card-content">
-              <div class="p-card-meta">
-                <span class="p-card-num">#02</span>
-                <span class="p-card-topic">Tugas Biologi / Lingkungan</span>
-              </div>
-              <h3 class="p-card-title">Infografis Pencemaran Lingkungan</h3>
-              <p class="p-card-desc">
-                Infografis visual tentang jenis pencemaran lingkungan, dampak bagi alam, dan solusi nyata dengan prinsip 3R.
-              </p>
-              <div class="p-card-tools">
-                <span class="tool-tag"><i class="fa-solid fa-paintbrush"></i> Canva</span>
-                <span class="tool-tag"><i class="fa-solid fa-chart-pie"></i> Infografis</span>
-                <span class="tool-tag"><i class="fa-solid fa-person-chalkboard"></i> Presentasi</span>
-              </div>
-              <button class="btn btn-card-action view-project-btn" data-id="2" aria-label="Buka Detail Infografis Pencemaran Lingkungan">
-                <span>Lihat Detail Lengkap</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Project 3: Presentasi Teknologi Notion AI -->
-          <article class="project-card" data-category="school technology" data-id="3">
-            <div class="p-card-thumb-wrap">
-              <img src="assets/projects/notion-ai/notion-slide-preview.jpg" alt="Presentasi Teknologi Notion AI" class="p-card-img" loading="lazy">
-              <div class="p-card-overlay">
-                <span class="p-card-cat-badge"><i class="fa-solid fa-robot"></i> School • Technology</span>
-                <span class="p-card-view-hint"><i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Detail</span>
-              </div>
-            </div>
-            <div class="p-card-content">
-              <div class="p-card-meta">
-                <span class="p-card-num">#03</span>
-                <span class="p-card-topic">Tugas Teknologi & Presentasi</span>
-              </div>
-              <h3 class="p-card-title">Presentasi Teknologi Notion AI</h3>
-              <p class="p-card-desc">
-                Pemaparan materi tentang bagaimana Notion AI dapat membantu siswa mencatat, merangkum materi, dan mengelola jadwal.
-              </p>
-              <div class="p-card-tools">
-                <span class="tool-tag"><i class="fa-solid fa-robot"></i> Notion AI</span>
-                <span class="tool-tag"><i class="fa-solid fa-display"></i> Slide Presentasi</span>
-                <span class="tool-tag"><i class="fa-solid fa-lightbulb"></i> Eksplorasi AI</span>
-              </div>
-              <button class="btn btn-card-action view-project-btn" data-id="3" aria-label="Buka Detail Presentasi Notion AI">
-                <span>Lihat Detail Lengkap</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Project 4: Biografi Émile Durkheim -->
-          <article class="project-card" data-category="school creative" data-id="4">
-            <div class="p-card-thumb-wrap">
-              <img src="assets/projects/durkheim/durkheim-biography.jpg" alt="Biografi Émile Durkheim pada Karton" class="p-card-img" loading="lazy">
-              <div class="p-card-overlay">
-                <span class="p-card-cat-badge"><i class="fa-solid fa-book"></i> School • Creative</span>
-                <span class="p-card-view-hint"><i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Detail</span>
-              </div>
-            </div>
-            <div class="p-card-content">
-              <div class="p-card-meta">
-                <span class="p-card-num">#04</span>
-                <span class="p-card-topic">Tugas Sosiologi Fisik</span>
-              </div>
-              <h3 class="p-card-title">Biografi Émile Durkheim</h3>
-              <p class="p-card-desc">
-                Penyusunan biografi tokoh sosiologi klasik dan konsep fakta sosial yang ditulis serta dihias langsung di media karton.
-              </p>
-              <div class="p-card-tools">
-                <span class="tool-tag"><i class="fa-solid fa-scroll"></i> Karton</span>
-                <span class="tool-tag"><i class="fa-solid fa-pen-fancy"></i> Alat Tulis Fisik</span>
-                <span class="tool-tag"><i class="fa-solid fa-users"></i> Presentasi</span>
-              </div>
-              <button class="btn btn-card-action view-project-btn" data-id="4" aria-label="Buka Detail Biografi Emile Durkheim">
-                <span>Lihat Detail Lengkap</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </article>
-
-          <!-- Project 5: Kerajinan Daur Ulang -->
-          <article class="project-card" data-category="school creative" data-id="5">
-            <div class="p-card-thumb-wrap">
-              <img src="assets/projects/recycling/recycling-project.jpg" alt="Proyek Kerajinan Daur Ulang & Edukasi Pilah Sampah" class="p-card-img" loading="lazy">
-              <div class="p-card-overlay">
-                <span class="p-card-cat-badge"><i class="fa-solid fa-recycle"></i> School • Creative</span>
-                <span class="p-card-view-hint"><i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Detail</span>
-              </div>
-            </div>
-            <div class="p-card-content">
-              <div class="p-card-meta">
-                <span class="p-card-num">#05</span>
-                <span class="p-card-topic">Tugas Prakarya & Lingkungan</span>
-              </div>
-              <h3 class="p-card-title">Kerajinan Daur Ulang</h3>
-              <p class="p-card-desc">
-                Karya produk dari pemanfaatan koran dan karton bekas ramah lingkungan yang dirakit bersama kelompok.
-              </p>
-              <div class="p-card-tools">
-                <span class="tool-tag"><i class="fa-solid fa-box"></i> Karton & Koran Bekas</span>
-                <span class="tool-tag"><i class="fa-solid fa-scissors"></i> Gunting & Lem</span>
-                <span class="tool-tag"><i class="fa-solid fa-hands-holding-circle"></i> Upcycling</span>
-              </div>
-              <button class="btn btn-card-action view-project-btn" data-id="5" aria-label="Buka Detail Proyek Kerajinan Daur Ulang">
-                <span>Lihat Detail Lengkap</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. About Me Section -->
-    <section class="section-block section-reveal" id="about">
-      <div class="container">
-        <div class="section-header-wrap">
-          <div class="header-tag-pill">
-            <i class="fa-solid fa-user"></i>
-            <span>Profil Siswa</span>
-          </div>
-          <h2 class="section-heading">Tentang Saya</h2>
-          <p class="section-subtext">
-            Perkenalan singkat mengenai identitas saya, motivasi membuat portfolio ini, dan hal-hal yang sedang saya pelajari.
-          </p>
-        </div>
-
-        <div class="about-grid-modern">
-          <!-- Story & Bio Card -->
-          <div class="about-main-card">
-            <div class="about-card-badge"><i class="fa-solid fa-id-card"></i> Cerita Singkat</div>
-            <h3 class="about-card-title">Siswa Kelas X-D yang Suka Belajar Hal Baru</h3>
-            <p class="about-p">
-              Halo! Saya <strong>Muhammad Ad Dairabiy</strong>, saat ini bersekolah di <strong>SMA Negeri 70 Jakarta</strong> di kelas X-D (sebelumnya saya lulusan dari SMPN 68 Jakarta Selatan). 
-            </p>
-            <p class="about-p">
-              Saya adalah orang yang suka belajar dan penasaran mencoba berbagai hal baru, terutama yang berhubungan dengan teknologi dan kecerdasan buatan (AI). Di sekolah maupun waktu luang, saya suka mendesain visual, mengedit video, dan saat ini sedang mulai belajar dasar-dasar pemrograman/coding.
-            </p>
-            <p class="about-p">
-              Saya masih seorang pemula dan belum memiliki keahlian profesional, tapi saya menikmati proses belajar langkah demi langkah dan mengerjakan proyek-proyek tugas sekolah sebaik mungkin.
-            </p>
-
-            <div class="about-info-tags">
-              <div class="a-tag-item"><i class="fa-solid fa-school text-cyan"></i> SMAN 70 Jakarta (X-D)</div>
-              <div class="a-tag-item"><i class="fa-solid fa-location-dot text-cyan"></i> Jakarta, Indonesia</div>
-              <div class="a-tag-item"><i class="fa-solid fa-graduation-cap text-cyan"></i> Alumni SMPN 68 Jaksel</div>
-              <div class="a-tag-item"><i class="fa-solid fa-language text-cyan"></i> Bahasa Indonesia & Inggris</div>
-            </div>
-          </div>
-
-          <!-- Motivation Card -->
-          <div class="about-motivation-card">
-            <div class="motivation-header">
-              <div class="mot-icon-box"><i class="fa-solid fa-lightbulb"></i></div>
-              <div>
-                <span class="mot-badge">Cerita Nyata</span>
-                <h3 class="mot-title">Kenapa Saya Membuat Portfolio Ini?</h3>
-              </div>
-            </div>
-            <div class="motivation-content">
-              <p class="mot-quote">
-                "Awalnya portfolio ini dibuat karena tugas dari ekstrakurikuler Klub Robotik. Tapi setelah dipikir-pikir, saya merasa kemampuan membuat dan mengelola portfolio akan sangat berguna saat kuliah maupun ketika bekerja nanti."
-              </p>
-              <p class="mot-sub">
-                Karena itu, saya ingin mulai belajar membuat portfolio dari sekarang supaya ke depannya bisa terus mengembangkan diri dan menghasilkan karya yang lebih baik lagi.
-              </p>
-            </div>
-            <div class="motivation-footer">
-              <div class="mot-tag"><i class="fa-solid fa-robot"></i> Tugas Klub Robotik</div>
-              <div class="mot-tag"><i class="fa-solid fa-rocket"></i> Persiapan Masa Depan</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Minat & Hobi Section -->
-    <section class="section-block section-reveal" id="interests">
-      <div class="container">
-        <div class="section-header-wrap">
-          <div class="header-tag-pill">
-            <i class="fa-solid fa-compass"></i>
-            <span>Eksplorasi & Waktu Luang</span>
-          </div>
-          <h2 class="section-heading">Minat & Hobi Saya</h2>
-          <p class="section-subtext">
-            Bidang teknologi yang paling membuat saya tertarik dan aktivitas kreatif yang sering saya lakukan.
-          </p>
-        </div>
-
-        <!-- Interests Subsection -->
-        <div class="sub-section-title">
-          <i class="fa-solid fa-microchip text-cyan"></i>
-          <span>Bidang Teknologi yang Saya Minati</span>
-        </div>
-        <div class="interests-grid">
-          <!-- Interest 1: AI -->
-          <div class="interest-card">
-            <div class="int-icon-box"><i class="fa-solid fa-robot"></i></div>
-            <h4 class="int-title">Kecerdasan Buatan (AI)</h4>
-            <p class="int-desc">
-              Saya sangat tertarik melihat bagaimana AI bisa membantu manusia dalam belajar, mencari ide, merangkum materi, dan berbagai aktivitas harian.
-            </p>
-            <span class="int-status"><i class="fa-solid fa-sparkles"></i> Minat Terbesar</span>
-          </div>
-
-          <!-- Interest 2: Teknologi & Komputer -->
-          <div class="interest-card">
-            <div class="int-icon-box"><i class="fa-solid fa-desktop"></i></div>
-            <h4 class="int-title">Teknologi & Komputer</h4>
-            <p class="int-desc">
-              Suka mengeksplorasi sistem operasi komputer, software produktivitas, dan mengikuti tren inovasi teknologi digital terbaru.
-            </p>
-            <span class="int-status"><i class="fa-solid fa-laptop"></i> Eksplorasi Rutin</span>
-          </div>
-
-          <!-- Interest 3: Desain Visual -->
-          <div class="interest-card">
-            <div class="int-icon-box"><i class="fa-solid fa-palette"></i></div>
-            <h4 class="int-title">Desain Grafis & Visual</h4>
-            <p class="int-desc">
-              Suka membuat tampilan visual tugas sekolah, infografis, dan tata letak materi agar lebih rapi, jelas, dan menarik dipandang.
-            </p>
-            <span class="int-status"><i class="fa-solid fa-brush"></i> Kreativitas</span>
-          </div>
-
-          <!-- Interest 4: Video Editing -->
-          <div class="interest-card">
-            <div class="int-icon-box"><i class="fa-solid fa-video"></i></div>
-            <h4 class="int-title">Video Editing</h4>
-            <p class="int-desc">
-              Suka mengolah klip video dan audio untuk kebutuhan tugas sekolah, seperti pembuatan dokumenter dan video presentasi kelompok.
-            </p>
-            <span class="int-status"><i class="fa-solid fa-film"></i> Praktik Tugas</span>
-          </div>
-        </div>
-
-        <!-- Hobbies Subsection -->
-        <div class="sub-section-title" style="margin-top: 48px;">
-          <i class="fa-solid fa-heart text-coral"></i>
-          <span>Hobi Santai</span>
-        </div>
-        <div class="hobbies-grid">
-          <div class="hobby-card">
-            <div class="hobby-icon-wrap"><i class="fa-solid fa-pen-nib"></i></div>
-            <div class="hobby-body">
-              <h4 class="hobby-name">Desain</h4>
-              <p class="hobby-text">"Saya suka mencoba membuat visual untuk tugas dan proyek sekolah."</p>
-            </div>
-          </div>
-
-          <div class="hobby-card">
-            <div class="hobby-icon-wrap"><i class="fa-solid fa-scissors"></i></div>
-            <div class="hobby-body">
-              <h4 class="hobby-name">Video Editing</h4>
-              <p class="hobby-text">"Saya suka mengedit video, terutama saat ada proyek sekolah yang membutuhkan video."</p>
-            </div>
-          </div>
-
-          <div class="hobby-card">
-            <div class="hobby-icon-wrap"><i class="fa-solid fa-headphones"></i></div>
-            <div class="hobby-body">
-              <h4 class="hobby-name">Mendengarkan Musik</h4>
-              <p class="hobby-text">"Saya juga suka mendengarkan musik saat santai atau sedang belajar."</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Skills Section (Qualitative Levels: Exploring / Beginner / Developing) -->
-    <section class="section-block section-reveal" id="skills">
-      <div class="container">
-        <div class="section-header-wrap">
-          <div class="header-tag-pill">
-            <i class="fa-solid fa-layer-group"></i>
-            <span>Kemampuan & Pembelajaran</span>
-          </div>
-          <h2 class="section-heading">Kemampuan yang Sedang Saya Kembangkan</h2>
-          <p class="section-subtext">
-            Saya mengelompokkan kemampuan saya secara realistis berdasarkan tahap perkembangan (bukan persentase atau klaim expert). Klik pada kartu kemampuan untuk melihat bagaimana saya menerapkannya.
-          </p>
-        </div>
-
-        <div class="skills-categories-grid">
-          <!-- Category 1: Teknologi & AI -->
-          <div class="skill-group-card">
-            <div class="group-header">
-              <div class="g-icon"><i class="fa-solid fa-microchip"></i></div>
-              <div>
-                <h3 class="g-title">Teknologi & Coding</h3>
-                <span class="g-subtitle">Eksplorasi & dasar komputer</span>
-              </div>
-            </div>
-
-            <div class="skill-items-list">
-              <div class="skill-badge-item" data-desc="Mengeksplorasi bagaimana AI seperti Notion AI dapat dimanfaatkan untuk efisiensi belajar dan merangkum informasi.">
-                <div class="skill-left">
-                  <i class="fa-solid fa-robot text-cyan"></i>
-                  <span class="skill-name">Artificial Intelligence (AI)</span>
-                </div>
-                <span class="level-tag exploring">Exploring</span>
-              </div>
-
-              <div class="skill-badge-item" data-desc="Sedang mempelajari dasar-dasar logika pemrograman komputer, alur algoritma sederhana, dan cara kerja web.">
-                <div class="skill-left">
-                  <i class="fa-solid fa-code text-cyan"></i>
-                  <span class="skill-name">Programming / Coding</span>
-                </div>
-                <span class="level-tag beginner">Beginner</span>
-              </div>
-
-              <div class="skill-badge-item" data-desc="Memahami pengoperasian komputer sehari-hari, manajemen file, dan penggunaan software pendukung sekolah.">
-                <div class="skill-left">
-                  <i class="fa-solid fa-computer text-cyan"></i>
-                  <span class="skill-name">Dasar Komputer & OS</span>
-                </div>
-                <span class="level-tag developing">Developing</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Category 2: Kreatif & Media -->
-          <div class="skill-group-card">
-            <div class="group-header">
-              <div class="g-icon"><i class="fa-solid fa-palette"></i></div>
-              <div>
-                <h3 class="g-title">Desain & Multimedia</h3>
-                <span class="g-subtitle">Kebutuhan tugas visual & video</span>
-              </div>
-            </div>
-
-            <div class="skill-items-list">
-              <div class="skill-badge-item" data-desc="Mendesain infografis, poster, dan slide presentasi yang rapi dan nyaman dibaca menggunakan Canva.">
-                <div class="skill-left">
-                  <i class="fa-solid fa-paintbrush text-purple"></i>
-                  <span class="skill-name">Desain Grafis (Canva)</span>
-                </div>
-                <span class="level-tag developing">Developing</span>
-              </div>
-
-              <div class="skill-badge-item" data-desc="Mengedit potongan klip, menambahkan teks narasi, dan menyelaraskan audio untuk tugas video edukasi.">
-                <div class="skill-left">
-                  <i class="fa-solid fa-video text-purple"></i>
-                  <span class="skill-name">Video Editing</span>
-                </div>
-                <span class="level-tag developing">Developing</span>
-              </div>
-
-              <div class="skill-badge-item" data-desc="Menggunakan Microsoft Word dan PowerPoint untuk menyusun laporan tugas dan menyajikan materi di kelas.">
-                <div class="skill-left">
-                  <i class="fa-solid fa-file-powerpoint text-purple"></i>
-                  <span class="skill-name">Word & PowerPoint</span>
-                </div>
-                <span class="level-tag developing">Developing</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Category 3: Soft Skills -->
-          <div class="skill-group-card">
-            <div class="group-header">
-              <div class="g-icon"><i class="fa-solid fa-users-gear"></i></div>
-              <div>
-                <h3 class="g-title">Kerja Sama & Komunikasi</h3>
-                <span class="g-subtitle">Kolaborasi tugas kelompok</span>
-              </div>
-            </div>
-
-            <div class="skill-items-list">
-              <div class="skill-badge-item" data-desc="Bekerja sama dalam pembagian tugas kelompok sekolah, saling berdiskusi, dan menyelesaikan tugas bersama.">
-                <div class="skill-left">
-                  <i class="fa-solid fa-handshake text-emerald"></i>
-                  <span class="skill-name">Kerja Sama Tim (Teamwork)</span>
-                </div>
-                <span class="level-tag developing">Developing</span>
-              </div>
-
-              <div class="skill-badge-item" data-desc="Menyampaikan materi hasil tugas kelompok di depan kelas secara runtut, seperti presentasi Notion AI dan Sosiologi.">
-                <div class="skill-left">
-                  <i class="fa-solid fa-person-chalkboard text-emerald"></i>
-                  <span class="skill-name">Presentasi di Kelas</span>
-                </div>
-                <span class="level-tag developing">Developing</span>
-              </div>
-
-              <div class="skill-badge-item" data-desc="Berkomunikasi secara terbuka dengan teman sekelas dan guru untuk koordinasi tugas akademik.">
-                <div class="skill-left">
-                  <i class="fa-solid fa-comments text-emerald"></i>
-                  <span class="skill-name">Komunikasi</span>
-                </div>
-                <span class="level-tag developing">Developing</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Interactive Skill Callout Box -->
-        <div class="skill-callout-box" id="skill-callout-box">
-          <div class="callout-icon"><i class="fa-solid fa-circle-info"></i></div>
-          <div class="callout-content">
-            <strong class="callout-title" id="callout-title">Penjelasan Kemampuan</strong>
-            <p class="callout-desc" id="callout-desc">Klik atau arahkan kursor pada salah satu kartu kemampuan di atas untuk melihat detail penggunaannya dalam proyek saya.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. Learning Journey Section -->
-    <section class="section-block section-reveal" id="journey">
-      <div class="container">
-        <div class="section-header-wrap">
-          <div class="header-tag-pill">
-            <i class="fa-solid fa-route"></i>
-            <span>Perjalanan Belajar</span>
-          </div>
-          <h2 class="section-heading">Learning Journey</h2>
-          <p class="section-subtext">
-            Tahapan proses belajar saya dari bangku SMP hingga mengeksplorasi dunia teknologi di SMA. Klik setiap tahapan untuk melihat kisahnya.
-          </p>
-        </div>
-
-        <div class="journey-stepper-wrap">
-          <!-- Stepper Buttons -->
-          <div class="journey-nodes-row" role="tablist" aria-label="Tahapan Belajar">
-            <button class="j-node active" data-step="1" role="tab" aria-selected="true">
-              <span class="j-node-num">01</span>
-              <div class="j-node-label">
-                <strong>SMP</strong>
-                <small>Eksplorasi Awal</small>
-              </div>
-            </button>
-            <div class="j-line"></div>
-
-            <button class="j-node" data-step="2" role="tab" aria-selected="false">
-              <span class="j-node-num">02</span>
-              <div class="j-node-label">
-                <strong>Masuk SMA</strong>
-                <small>SMAN 70 (X-D)</small>
-              </div>
-            </button>
-            <div class="j-line"></div>
-
-            <button class="j-node" data-step="3" role="tab" aria-selected="false">
-              <span class="j-node-num">03</span>
-              <div class="j-node-label">
-                <strong>Eksplorasi Teknologi</strong>
-                <small>Mencoba AI & Media</small>
-              </div>
-            </button>
-            <div class="j-line"></div>
-
-            <button class="j-node" data-step="4" role="tab" aria-selected="false">
-              <span class="j-node-num">04</span>
-              <div class="j-node-label">
-                <strong>Proyek Sekolah</strong>
-                <small>5 Karya Nyata</small>
-              </div>
-            </button>
-            <div class="j-line"></div>
-
-            <button class="j-node" data-step="5" role="tab" aria-selected="false">
-              <span class="j-node-num">05</span>
-              <div class="j-node-label">
-                <strong>Belajar Coding</strong>
-                <small>Masa Depan</small>
-              </div>
-            </button>
-          </div>
-
-          <!-- Dynamic Journey Detail Card -->
-          <div class="journey-display-card" id="journey-display-card">
-            <div class="j-card-top">
-              <span class="j-badge-step" id="j-badge-step">Tahap 1: SMP</span>
-              <span class="j-step-indicator" id="j-step-indicator">Langkah 1 dari 5</span>
-            </div>
-            <h3 class="j-display-title" id="j-display-title">Awal Mula Tertarik pada Sains & Komputer di SMP</h3>
-            <p class="j-display-text" id="j-display-text">
-              Di bangku SMPN 68 Jakarta Selatan, rasa penasaran saya mulai tumbuh melalui kegiatan ekstrakurikuler Klub IPA. Di sana saya belajar mengamati fenomena sekitar, melatih logika dasar, dan mulai sering menggunakan komputer untuk tugas sekolah.
-            </p>
-            <div class="j-takeaway-bar">
-              <span class="t-label"><i class="fa-solid fa-check text-cyan"></i> Poin Pembelajaran:</span>
-              <span class="t-value" id="j-takeaway-val">Klub IPA SMPN 68 Jaksel • Melatih rasa ingin tahu • Awal mula memakai komputer</span>
-            </div>
-          </div>
-
-          <!-- Narrative Footer Quote -->
-          <div class="journey-future-quote">
-            <i class="fa-solid fa-quote-left"></i>
-            <p>
-              "Saya belum tahu persis akan menjadi apa di masa depan. Untuk sekarang, saya ingin mencoba berbagai hal yang berhubungan dengan teknologi dan melihat bidang mana yang paling cocok untuk saya."
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. Activities & Extracurricular Section -->
-    <section class="section-block section-reveal" id="activities">
-      <div class="container">
-        <div class="section-header-wrap">
-          <div class="header-tag-pill">
-            <i class="fa-solid fa-shapes"></i>
-            <span>Kegiatan & Ekstrakurikuler</span>
-          </div>
-          <h2 class="section-heading">Aktivitas di Sekolah</h2>
-          <p class="section-subtext">
-            Keterlibatan saya dalam kegiatan ekstrakurikuler sekolah yang menjadi wadah belajar dan eksplorasi.
-          </p>
-        </div>
-
-        <div class="activities-grid-modern">
-          <!-- Activity 1: Klub Robotik -->
-          <div class="activity-box-card highlight-box">
-            <div class="act-badge-pill"><i class="fa-solid fa-robot"></i> SMA Negeri 70 Jakarta</div>
-            <h3 class="act-box-title">Ekstrakurikuler Klub Robotik</h3>
-            <p class="act-box-desc">
-              Di SMA Negeri 70 Jakarta, saya mengikuti ekstrakurikuler Klub Robotik. Melalui ekskul inilah saya mendapatkan tugas untuk membuat website portfolio ini, yang kemudian memotivasi saya untuk belajar coding dan membangun wadah dokumentasi karya pribadi.
-            </p>
-            <div class="act-tag-chips">
-              <span class="act-chip">Tugas Pembuatan Portfolio</span>
-              <span class="act-chip">Eksplorasi Teknologi</span>
-              <span class="act-chip">SMAN 70 Jakarta</span>
-            </div>
-          </div>
-
-          <!-- Activity 2: Klub IPA SMP -->
-          <div class="activity-box-card">
-            <div class="act-badge-pill"><i class="fa-solid fa-flask"></i> SMP Negeri 68 Jakarta Selatan</div>
-            <h3 class="act-box-title">Klub IPA (Ilmu Pengetahuan Alam)</h3>
-            <p class="act-box-desc">
-              Saat di jenjang SMP, saya aktif mengikuti kegiatan eksperimen sains dan observasi fenomena alam di Klub IPA. Kegiatan ini membantu melatih daya analisis dan cara berpikir logis saya sejak dini.
-            </p>
-            <div class="act-tag-chips">
-              <span class="act-chip">Observasi Ilmiah</span>
-              <span class="act-chip">Eksperimen Sains</span>
-              <span class="act-chip">SMPN 68 Jaksel</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. Contact Section -->
-    <section class="section-block section-reveal" id="contact">
-      <div class="container">
-        <div class="section-header-wrap">
-          <div class="header-tag-pill">
-            <i class="fa-solid fa-paper-plane"></i>
-            <span>Terhubung Bersama</span>
-          </div>
-          <h2 class="section-heading">Kontak & Terhubung</h2>
-          <p class="section-subtext">
-            Tertarik berdiskusi seputar tugas sekolah, kolaborasi proyek, atau sekadar berbagi cerita seputar dunia teknologi? Silakan hubungi saya melalui informasi di bawah.
-          </p>
-        </div>
-
-        <div class="contact-layout-grid">
-          <!-- Contact Info Column -->
-          <div class="contact-info-col">
-            <a href="mailto:dairabih2@gmail.com" class="c-info-card">
-              <div class="c-icon-wrap"><i class="fa-solid fa-envelope"></i></div>
-              <div class="c-card-text">
-                <span class="c-type">Email Pribadi</span>
-                <strong class="c-value">dairabih2@gmail.com</strong>
-                <span class="c-hint">Klik untuk mengirim email langsung</span>
-              </div>
-              <i class="fa-solid fa-arrow-up-right-from-square c-arrow"></i>
-            </a>
-
-            <div class="c-info-card">
-              <div class="c-icon-wrap"><i class="fa-brands fa-instagram"></i></div>
-              <div class="c-card-text">
-                <span class="c-type">Instagram</span>
-                <strong class="c-value">Muhammad Ad Dairabiy</strong>
-                <span class="c-hint">Akun media sosial pribadi</span>
-              </div>
-            </div>
-
-            <div class="c-info-card">
-              <div class="c-icon-wrap"><i class="fa-solid fa-school"></i></div>
-              <div class="c-card-text">
-                <span class="c-type">Sekolah Saat Ini</span>
-                <strong class="c-value">SMA Negeri 70 Jakarta</strong>
-                <span class="c-hint">Kelas X-D • Jakarta Selatan</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Contact Form Column -->
-          <div class="contact-form-col">
-            <div class="form-wrapper-card">
-              <h3 class="form-card-title"><i class="fa-solid fa-message text-cyan"></i> Kirim Pesan</h3>
-              <p class="form-card-subtitle">Isi formulir di bawah untuk mengirim pesan langsung kepada saya.</p>
-
-              <form id="contact-form" class="modern-form">
-                <div class="form-group">
-                  <label for="sender-name">Nama Anda <span class="req">*</span></label>
-                  <div class="input-with-icon">
-                    <i class="fa-solid fa-user input-icon"></i>
-                    <input type="text" id="sender-name" name="name" placeholder="Tuliskan nama Anda..." required>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="sender-email">Email Anda <span class="req">*</span></label>
-                  <div class="input-with-icon">
-                    <i class="fa-solid fa-envelope input-icon"></i>
-                    <input type="email" id="sender-email" name="email" placeholder="nama@email.com" required>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="sender-subject">Subjek Pesan <span class="req">*</span></label>
-                  <div class="input-with-icon">
-                    <i class="fa-solid fa-tag input-icon"></i>
-                    <input type="text" id="sender-subject" name="subject" placeholder="Topik diskusi atau kolaborasi..." required>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="sender-message">Isi Pesan <span class="req">*</span></label>
-                  <div class="textarea-with-icon">
-                    <textarea id="sender-message" name="message" rows="4" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
-                  </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
-                  <span>Kirim Pesan</span>
-                  <i class="fa-solid fa-paper-plane"></i>
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand-side">
-        <a href="#hero" class="footer-logo">
-          <span class="brand-badge">X-D</span>
-          <span>Muhammad Ad Dairabiy</span>
-        </a>
-        <p class="footer-tagline">"Masih belajar, masih mencoba, masih berkembang."</p>
-        <p class="footer-school">Siswa Kelas X-D • SMA Negeri 70 Jakarta</p>
-      </div>
-
-      <div class="footer-nav-side">
-        <div class="footer-nav-col">
-          <strong>Navigasi</strong>
-          <ul>
-            <li><a href="#hero">Beranda</a></li>
-            <li><a href="#projects">Proyek Sekolah</a></li>
-            <li><a href="#about">Tentang Saya</a></li>
-            <li><a href="#interests">Minat & Hobi</a></li>
-          </ul>
-        </div>
-        <div class="footer-nav-col">
-          <strong>Fitur Tambahan</strong>
-          <ul>
-            <li><a href="javascript:void(0)" id="footer-quiz-link">Kuis Tentang Saya (5 Soal)</a></li>
-            <li><a href="#skills">Level Kemampuan</a></li>
-            <li><a href="#journey">Learning Journey</a></li>
-            <li><a href="#contact">Kontak</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container footer-bottom-flex">
-        <p>&copy; <span id="current-year"></span> Muhammad Ad Dairabiy. Portfolio Siswa SMAN 70 Jakarta.</p>
-        <p class="footer-sub-note">Dibuat dengan semangat belajar teknologi & AI.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ========================================================================= -->
-  <!-- MODAL 1: PROJECT DETAILS (Rich Structured View with Authentic Assets) -->
-  <!-- ========================================================================= -->
-  <div class="modal" id="project-modal" aria-hidden="true" role="dialog" aria-label="Detail Proyek">
-    <div class="modal-backdrop" id="modal-backdrop"></div>
-    <div class="modal-box project-modal-box">
-      <button class="modal-close-btn" id="modal-close-btn" aria-label="Tutup popup detail proyek">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      <div class="modal-inner" id="modal-inner">
-        <!-- Dynamic content injected via JavaScript -->
       </div>
     </div>
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- MODAL 2: INTERACTIVE QUICK QUIZ (About Me & Dedicated Project Quizzes) -->
-  <!-- ========================================================================= -->
-  <div class="modal" id="quiz-modal" aria-hidden="true" role="dialog" aria-label="Kuis Interaktif">
-    <div class="modal-backdrop" id="quiz-modal-backdrop"></div>
-    <div class="modal-box quiz-modal-box">
-      <button class="modal-close-btn" id="quiz-modal-close" aria-label="Tutup kuis">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      <div class="quiz-container" id="quiz-container">
-        <!-- Dynamic quiz interface injected via JavaScript -->
+  <!-- 3. MODAL DIALOGS SYSTEM (RETRO RPG FRAMES) -->
+  <div class="modal-backdrop hidden" id="modal-backdrop"></div>
+
+  <!-- MODAL: ABOUT ME -->
+  <div class="modal-window hidden" id="modal-about" role="dialog" aria-labelledby="about-title" aria-modal="true">
+    <div class="modal-frame pixel-box">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">📜</span>
+          <h2 class="modal-title" id="about-title">TENTANG ABIY</h2>
+        </div>
+        <button type="button" class="modal-close-btn pixel-btn-sm" aria-label="Tutup modal">×</button>
+      </div>
+
+      <div class="modal-body custom-scroll">
+        <div class="about-hero-card pixel-box-inset">
+          <div class="about-avatar-frame">
+            <canvas id="about-avatar-canvas" width="80" height="80"></canvas>
+          </div>
+          <div class="about-hero-meta">
+            <h3 class="about-name">Muhammad Ad Dairabiy</h3>
+            <p class="about-badge-role">Siswa · Desainer · Editor Video</p>
+            <p class="about-subtext">SMAN 70 Jakarta</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h4 class="section-label">PROFIL</h4>
+          <p class="dialogue-p">
+            Saya adalah seorang siswa yang tertarik pada teknologi, desain, dan kreativitas digital.
+          </p>
+          <p class="dialogue-p">
+            Saya senang mengeksplorasi berbagai hal baru, mulai dari membuat situs web dan mengembangkan desain visual hingga mengedit video serta bereksperimen dengan teknologi baru dan alat AI.
+          </p>
+        </div>
+
+        <div class="content-section">
+          <h4 class="section-label">MINAT & EKSPLORASI</h4>
+          <p class="dialogue-p">
+            Saya suka membuat desain, mengedit video, mengeksplorasi situs web, bereksperimen dengan teknologi baru, mendengarkan musik, dan mengembangkan proyek digital.
+          </p>
+        </div>
+
+        <div class="content-section">
+          <h4 class="section-label">ARAH MASA DEPAN</h4>
+          <p class="dialogue-p highlight-box">
+            Saya ingin terus meningkatkan kemampuan di bidang teknologi, desain, dan pengembangan digital sambil membangun proyek yang melampaui tugas sekolah dan menjadi bagian dari portofolio pribadi saya.
+          </p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="pixel-btn btn-primary modal-close-action">OK (TUTUP)</button>
       </div>
     </div>
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- MODAL 3: LIGHTBOX / FULLSCREEN IMAGE VIEWER -->
-  <!-- ========================================================================= -->
-  <div class="modal image-lightbox-modal" id="image-lightbox-modal" aria-hidden="true" role="dialog" aria-label="Pratinjau Gambar Penuh">
-    <div class="modal-backdrop lightbox-backdrop" id="lightbox-backdrop"></div>
-    <div class="lightbox-content-box">
-      <button class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Tutup pratinjau gambar">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      <div class="lightbox-img-wrapper">
-        <img src="" alt="Pratinjau Hasil Karya Asli" class="lightbox-img" id="lightbox-img">
+  <!-- MODAL: SKILLS & TOOLS -->
+  <div class="modal-window hidden" id="modal-skills" role="dialog" aria-labelledby="skills-title" aria-modal="true">
+    <div class="modal-frame pixel-box">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">⚡</span>
+          <h2 class="modal-title" id="skills-title">KEAHLIAN & ALAT</h2>
+        </div>
+        <button type="button" class="modal-close-btn pixel-btn-sm" aria-label="Tutup modal">×</button>
       </div>
-      <div class="lightbox-caption-bar" id="lightbox-caption"></div>
+
+      <div class="modal-body custom-scroll">
+        <div class="content-section">
+          <h4 class="section-label">5 BIDANG KEAHLIAN</h4>
+          
+          <div class="skills-grid">
+            <div class="skill-item pixel-box-inset">
+              <div class="skill-header">
+                <span class="skill-num">01</span>
+                <h5 class="skill-title">EDITING VIDEO</h5>
+              </div>
+              <p class="skill-desc">
+                Membuat dan mengedit konten video dengan memperhatikan alur cerita, visual, transisi, dan penyampaian informasi.
+              </p>
+            </div>
+
+            <div class="skill-item pixel-box-inset">
+              <div class="skill-header">
+                <span class="skill-num">02</span>
+                <h5 class="skill-title">DESAIN GRAFIS</h5>
+              </div>
+              <p class="skill-desc">
+                Membuat poster, infografis, presentasi, dan konten visual digital.
+              </p>
+            </div>
+
+            <div class="skill-item pixel-box-inset">
+              <div class="skill-header">
+                <span class="skill-num">03</span>
+                <h5 class="skill-title">DESAIN UI/UX</h5>
+              </div>
+              <p class="skill-desc">
+                Mengeksplorasi desain antarmuka dan pengalaman pengguna dengan fokus pada pengalaman digital yang modern, menarik, dan mudah digunakan.
+              </p>
+            </div>
+
+            <div class="skill-item pixel-box-inset">
+              <div class="skill-header">
+                <span class="skill-num">04</span>
+                <h5 class="skill-title">PENGEMBANGAN WEB</h5>
+              </div>
+              <p class="skill-desc">
+                Mengeksplorasi pengembangan situs web dan mempelajari bagaimana desain dapat menjadi pengalaman digital yang interaktif.
+              </p>
+            </div>
+
+            <div class="skill-item pixel-box-inset">
+              <div class="skill-header">
+                <span class="skill-num">05</span>
+                <h5 class="skill-title">AI & ALAT DIGITAL</h5>
+              </div>
+              <p class="skill-desc">
+                Mengeksplorasi alat AI dan teknologi digital untuk mendukung pembelajaran, kreativitas, desain, dan pengembangan proyek.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h4 class="section-label">ALAT UTAMA</h4>
+          <div class="tools-tag-list">
+            <span class="tool-tag primary">Canva</span>
+            <span class="tool-tag primary">CapCut</span>
+            <span class="tool-tag primary">Visual Studio Code</span>
+            <span class="tool-tag primary">GitHub</span>
+            <span class="tool-tag primary">Alat AI</span>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h4 class="section-label">ALAT EKSPLORASI TAMBAHAN</h4>
+          <div class="tools-tag-list">
+            <span class="tool-tag secondary">Figma</span>
+            <span class="tool-tag secondary">Adobe Photoshop</span>
+            <span class="tool-tag secondary">Notion</span>
+            <span class="tool-tag secondary">Notion AI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="pixel-btn btn-primary modal-close-action">OK (TUTUP)</button>
+      </div>
     </div>
   </div>
 
-  <!-- Toast Notification Wrapper -->
-  <div class="toast-wrapper" id="toast-wrapper"></div>
+  <!-- MODAL: PROJECT DETAIL (DYNAMIC & DIRECT FOR THE 3 PROJECTS) -->
+  <div class="modal-window hidden" id="modal-project" role="dialog" aria-labelledby="proj-title" aria-modal="true">
+    <div class="modal-frame pixel-box modal-frame-wide">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">📁</span>
+          <h2 class="modal-title" id="proj-title">DETAIL PROYEK</h2>
+        </div>
+        <button type="button" class="modal-close-btn pixel-btn-sm" aria-label="Tutup modal">×</button>
+      </div>
 
-  <!-- Back to Top Button -->
-  <a href="#hero" class="back-top-btn" id="back-top-btn" aria-label="Kembali ke atas">
-    <i class="fa-solid fa-arrow-up"></i>
-  </a>
+      <div class="modal-body custom-scroll" id="project-detail-content">
+        <!-- Injected via JavaScript based on selected project (1, 2, or 3) -->
+      </div>
 
-  <!-- Main JavaScript File -->
+      <div class="modal-footer project-nav-footer">
+        <div class="proj-switch-group">
+          <button type="button" class="pixel-btn-sm" id="btn-proj-prev">◀ PREV</button>
+          <span class="proj-counter" id="proj-counter">1 / 3</span>
+          <button type="button" class="pixel-btn-sm" id="btn-proj-next">NEXT ▶</button>
+        </div>
+        <button type="button" class="pixel-btn btn-primary modal-close-action">TUTUP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ALL PROJECTS DIRECTORY -->
+  <div class="modal-window hidden" id="modal-all-projects" role="dialog" aria-labelledby="all-proj-title" aria-modal="true">
+    <div class="modal-frame pixel-box modal-frame-wide">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">⭐</span>
+          <h2 class="modal-title" id="all-proj-title">3 PROYEK TERPILIH</h2>
+        </div>
+        <button type="button" class="modal-close-btn pixel-btn-sm" aria-label="Tutup modal">×</button>
+      </div>
+
+      <div class="modal-body custom-scroll">
+        <p class="dialogue-p text-muted">
+          Pilih salah satu dari tiga proyek otentik di bawah ini untuk melihat dokumentasi, alur proses, tantangan, dan pembelajarannya:
+        </p>
+
+        <div class="project-cards-stack">
+          <!-- Card 1 -->
+          <div class="proj-summary-card pixel-box-inset" data-project-id="1">
+            <div class="proj-card-thumb">
+              <img src="assets/projects/monas/monas-video-preview.jpg" alt="Preview Proyek Monumen Nasional" loading="lazy">
+            </div>
+            <div class="proj-card-info">
+              <div class="proj-meta-pill">PROYEK 01 // 2026</div>
+              <h3 class="proj-card-title">Mengeksplorasi Monumen Nasional</h3>
+              <p class="proj-card-cat">Proyek Sekolah · Sejarah · Presentasi Visual</p>
+              <p class="proj-card-brief">Mengeksplorasi Monumen Nasional sebagai ikon penting sejarah dan mengemasnya dalam video & presentasi visual kelompok.</p>
+              <button type="button" class="pixel-btn-sm btn-primary open-proj-trigger" data-target="1">BUKA DETAIL ▶</button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="proj-summary-card pixel-box-inset" data-project-id="2">
+            <div class="proj-card-thumb">
+              <img src="assets/projects/durkheim/durkheim-biography.jpg" alt="Preview Proyek Biografi Émile Durkheim" loading="lazy">
+            </div>
+            <div class="proj-card-info">
+              <div class="proj-meta-pill">PROYEK 02 // 2026</div>
+              <h3 class="proj-card-title">Biografi Émile Durkheim</h3>
+              <p class="proj-card-cat">Proyek Sekolah · Sosiologi · Desain Visual</p>
+              <p class="proj-card-brief">Merangkum pemikiran & kontribusi tokoh sosiologi ke dalam struktur mind map visual pada media karton A3.</p>
+              <button type="button" class="pixel-btn-sm btn-primary open-proj-trigger" data-target="2">BUKA DETAIL ▶</button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="proj-summary-card pixel-box-inset" data-project-id="3">
+            <div class="proj-card-thumb">
+              <img src="assets/projects/pollution/pollution-infographic.jpg" alt="Preview Proyek Infografis Pencemaran Lingkungan" loading="lazy">
+            </div>
+            <div class="proj-card-info">
+              <div class="proj-meta-pill">PROYEK 03 // 2026</div>
+              <h3 class="proj-card-title">Infografis Pencemaran Lingkungan</h3>
+              <p class="proj-card-cat">Proyek Sekolah · Infografis · Kesadaran Lingkungan</p>
+              <p class="proj-card-brief">Menyajikan permasalahan dan solusi pencemaran lingkungan (3R & pemilahan sampah) secara ringkas, visual, dan komunikatif.</p>
+              <button type="button" class="pixel-btn-sm btn-primary open-proj-trigger" data-target="3">BUKA DETAIL ▶</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="pixel-btn btn-primary modal-close-action">TUTUP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CONTACT -->
+  <div class="modal-window hidden" id="modal-contact" role="dialog" aria-labelledby="contact-title" aria-modal="true">
+    <div class="modal-frame pixel-box">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">📡</span>
+          <h2 class="modal-title" id="contact-title">KONTAK</h2>
+        </div>
+        <button type="button" class="modal-close-btn pixel-btn-sm" aria-label="Tutup modal">×</button>
+      </div>
+
+      <div class="modal-body custom-scroll">
+        <div class="contact-banner pixel-box-inset text-center">
+          <h3 class="contact-headline">“Mari menciptakan sesuatu.”</h3>
+          <p class="contact-sub">Terbuka untuk kolaborasi proyek, diskusi desain, dan eksplorasi teknologi baru.</p>
+        </div>
+
+        <div class="contact-methods-list">
+          <a href="mailto:dairabih2@gmail.com" class="contact-item-card pixel-box-inset">
+            <div class="contact-card-icon">✉️</div>
+            <div class="contact-card-text">
+              <span class="contact-label">EMAIL</span>
+              <strong class="contact-val">dairabih2@gmail.com</strong>
+            </div>
+            <span class="contact-arrow">▶</span>
+          </a>
+
+          <a href="https://instagram.com/abiyxd" target="_blank" rel="noopener noreferrer" class="contact-item-card pixel-box-inset">
+            <div class="contact-card-icon">📸</div>
+            <div class="contact-card-text">
+              <span class="contact-label">INSTAGRAM</span>
+              <strong class="contact-val">@abiyxd</strong>
+            </div>
+            <span class="contact-arrow">▶</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="pixel-btn btn-primary modal-close-action">TUTUP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: BIG MAP CRT MONITOR (PETER ORAVEC CRT MAP INSPIRED) -->
+  <div class="modal-window hidden" id="modal-map" role="dialog" aria-labelledby="map-title" aria-modal="true">
+    <div class="modal-frame pixel-box modal-frame-wide crt-map-frame">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">🗺️</span>
+          <h2 class="modal-title" id="map-title">WORLD MAP MONITOR</h2>
+        </div>
+        <button type="button" class="modal-close-btn pixel-btn-sm" aria-label="Tutup peta">×</button>
+      </div>
+
+      <div class="modal-body map-modal-body">
+        <div class="map-legend">
+          <span class="legend-item"><span class="legend-dot dot-player"></span> PEMAIN</span>
+          <span class="legend-item"><span class="legend-dot dot-visited"></span> DIKUNJUNGI</span>
+          <span class="legend-item"><span class="legend-dot dot-unvisited"></span> BELUM DIKUNJUNGI</span>
+        </div>
+
+        <div class="crt-map-container" id="crt-map-container">
+          <canvas id="big-map-canvas" width="600" height="400"></canvas>
+          <div class="map-scanline"></div>
+        </div>
+
+        <p class="map-instruction text-center">
+          [ KLIK LOKASI MANA PUN PADA PETA UNTUK TELEPORTASI LANGSUNG ]
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="pixel-btn btn-primary modal-close-action">KEMBALI KE REALM</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. QUICK VIEW / DOCUMENT GRID MODE (FULL PORTFOLIO IN ACCESSIBLE RETRO FORMAT) -->
+  <div class="quickview-overlay hidden" id="quickview-overlay">
+    <div class="quickview-header">
+      <div class="quickview-brand">
+        <span class="brand-badge">DOCS MODE</span>
+        <h2 class="brand-title">MUHAMMAD AD DAIRABIY</h2>
+      </div>
+      <button type="button" class="pixel-btn btn-primary" id="btn-exit-quickview">
+        <span>▶ KEMBALI KE GAME</span>
+      </button>
+    </div>
+
+    <main class="quickview-container custom-scroll">
+      <!-- HERO -->
+      <section class="doc-section doc-hero pixel-box">
+        <div class="doc-badge">IDENTITAS</div>
+        <h1 class="doc-main-title">Abiy</h1>
+        <p class="doc-role">Siswa · Desainer · Editor Video</p>
+        <div class="doc-quote-box">
+          <p class="doc-quote">“Menciptakan pengalaman digital dan konten visual.”</p>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="doc-section pixel-box" id="doc-about">
+        <div class="doc-section-header">
+          <span class="doc-sec-icon">📜</span>
+          <h2 class="doc-sec-title">TENTANG SAYA</h2>
+        </div>
+        <div class="doc-content-block">
+          <p>Saya adalah seorang siswa yang tertarik pada teknologi, desain, dan kreativitas digital.</p>
+          <p>Saya senang mengeksplorasi berbagai hal baru, mulai dari membuat situs web dan mengembangkan desain visual hingga mengedit video serta bereksperimen dengan teknologi baru dan alat AI.</p>
+          <p>Saya suka membuat desain, mengedit video, mengeksplorasi situs web, bereksperimen dengan teknologi baru, mendengarkan musik, dan mengembangkan proyek digital.</p>
+          <div class="doc-highlight-card pixel-box-inset">
+            <strong>Arah Masa Depan:</strong>
+            <p>Saya ingin terus meningkatkan kemampuan di bidang teknologi, desain, dan pengembangan digital sambil membangun proyek yang melampaui tugas sekolah dan menjadi bagian dari portofolio pribadi saya.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS & TOOLS -->
+      <section class="doc-section pixel-box" id="doc-skills">
+        <div class="doc-section-header">
+          <span class="doc-sec-icon">⚡</span>
+          <h2 class="doc-sec-title">KEAHLIAN & ALAT</h2>
+        </div>
+        
+        <div class="doc-skills-list">
+          <div class="doc-skill-card pixel-box-inset">
+            <span class="doc-num">01</span>
+            <div>
+              <h3>EDITING VIDEO</h3>
+              <p>Membuat dan mengedit konten video dengan memperhatikan alur cerita, visual, transisi, dan penyampaian informasi.</p>
+            </div>
+          </div>
+          <div class="doc-skill-card pixel-box-inset">
+            <span class="doc-num">02</span>
+            <div>
+              <h3>DESAIN GRAFIS</h3>
+              <p>Membuat poster, infografis, presentasi, dan konten visual digital.</p>
+            </div>
+          </div>
+          <div class="doc-skill-card pixel-box-inset">
+            <span class="doc-num">03</span>
+            <div>
+              <h3>DESAIN UI/UX</h3>
+              <p>Mengeksplorasi desain antarmuka dan pengalaman pengguna dengan fokus pada pengalaman digital yang modern, menarik, dan mudah digunakan.</p>
+            </div>
+          </div>
+          <div class="doc-skill-card pixel-box-inset">
+            <span class="doc-num">04</span>
+            <div>
+              <h3>PENGEMBANGAN WEB</h3>
+              <p>Mengeksplorasi pengembangan situs web dan mempelajari bagaimana desain dapat menjadi pengalaman digital yang interaktif.</p>
+            </div>
+          </div>
+          <div class="doc-skill-card pixel-box-inset">
+            <span class="doc-num">05</span>
+            <div>
+              <h3>AI & ALAT DIGITAL</h3>
+              <p>Mengeksplorasi alat AI dan teknologi digital untuk mendukung pembelajaran, kreativitas, desain, dan pengembangan proyek.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-tools-wrapper">
+          <h3 class="doc-tools-subtitle">ALAT UTAMA:</h3>
+          <div class="tools-tag-list">
+            <span class="tool-tag primary">Canva</span>
+            <span class="tool-tag primary">CapCut</span>
+            <span class="tool-tag primary">Visual Studio Code</span>
+            <span class="tool-tag primary">GitHub</span>
+            <span class="tool-tag primary">Alat AI</span>
+          </div>
+
+          <h3 class="doc-tools-subtitle" style="margin-top: 15px;">ALAT EKSPLORASI:</h3>
+          <div class="tools-tag-list">
+            <span class="tool-tag secondary">Figma</span>
+            <span class="tool-tag secondary">Adobe Photoshop</span>
+            <span class="tool-tag secondary">Notion</span>
+            <span class="tool-tag secondary">Notion AI</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 PROJECTS -->
+      <section class="doc-section pixel-box" id="doc-projects">
+        <div class="doc-section-header">
+          <span class="doc-sec-icon">⭐</span>
+          <h2 class="doc-sec-title">3 PROYEK TERPILIH</h2>
+        </div>
+
+        <div class="doc-projects-stack" id="doc-projects-stack">
+          <!-- Injected via JavaScript with full detail cards -->
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="doc-section pixel-box" id="doc-contact">
+        <div class="doc-section-header">
+          <span class="doc-sec-icon">📡</span>
+          <h2 class="doc-sec-title">KONTAK</h2>
+        </div>
+        <div class="doc-contact-inner text-center">
+          <p class="contact-headline">“Mari menciptakan sesuatu.”</p>
+          <div class="contact-links-grid">
+            <a href="mailto:dairabih2@gmail.com" class="pixel-btn btn-secondary">
+              <span>✉️ EMAIL: dairabih2@gmail.com</span>
+            </a>
+            <a href="https://instagram.com/abiyxd" target="_blank" rel="noopener noreferrer" class="pixel-btn btn-secondary">
+              <span>📸 INSTAGRAM: @abiyxd</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="doc-footer text-center">
+        <p>© 2026 Muhammad Ad Dairabiy // SMAN 70 Jakarta</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Core Game & UI Logic -->
   <script src="script.js"></script>
 </body>
 </html>

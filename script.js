@@ -1,8 +1,9 @@
 /**
  * ==========================================================================
- * MUHAMMAD AD DAIRABIY // PIXEL ART INTERACTIVE DIGITAL REALM
- * Complete Game Engine, HUD, Audio Synth, Modals & Quick View Manager
- * Inspired by Peter Oravec (peteroravec.com)
+ * MUHAMMAD AD DAIRABIY // IMMERSIVE PIXEL REALM ENGINE
+ * Journey-to-Content Navigation: WORLD -> PLAYER -> DESTINATION -> JOURNEY -> CONTENT
+ * Blue Fireball Fast Travel, Train Transit, Multi-Zone World, Kraken Encounter
+ * Dominant Font: 'Press Start 2P', monospace
  * ==========================================================================
  */
 
@@ -10,7 +11,7 @@
   'use strict';
 
   // --------------------------------------------------------------------------
-  // 1. DATA STORE (100% Authentic Student Information)
+  // 1. DATA STORE (100% Authentic Student Information & Destination System)
   // --------------------------------------------------------------------------
   const REALM_DATA = {
     profile: {
@@ -110,100 +111,107 @@
       }
     },
 
-    // Realm Landmark Points
-    landmarks: [
-      {
-        id: 'spawn',
-        name: 'SPAWN PLAZA',
-        icon: '🏛️',
-        x: 0,
-        y: 0,
-        radius: 80,
-        color: '#ffd166',
-        actionText: 'INTRODUKSI ABIY',
+    // Extended Multi-Zone Destination Registry
+    destinations: {
+      home: {
+        id: 'home',
+        name: 'HOME VALLEY',
+        subtitle: 'Rumah & Tempat Mulai Abiy',
+        icon: '🏠',
+        x: -520,
+        y: -220,
+        radius: 70,
+        color: '#4ecca3',
+        actionText: 'RUMAH ABIY',
         targetModal: 'modal-about',
         visited: true
       },
-      {
+      about: {
         id: 'about',
-        name: 'CODEX SANCTUM',
+        name: 'ABOUT SANCTUM',
+        subtitle: 'Perjalanan & Profil Siswa',
         icon: '📜',
         x: -280,
-        y: -240,
+        y: -220,
         radius: 75,
-        color: '#4ecca3',
-        actionText: 'BACA TENTANG SAYA',
+        color: '#ffd166',
+        actionText: 'TENTANG ABIY',
         targetModal: 'modal-about',
         visited: false
       },
-      {
+      skills: {
         id: 'skills',
         name: 'TECH FORGE',
+        subtitle: 'Workshop & Alat Digital',
         icon: '⚡',
         x: 280,
-        y: -240,
+        y: -220,
         radius: 75,
         color: '#54a0ff',
-        actionText: 'LIHAT KEAHLIAN & ALAT',
+        actionText: 'KEAHLIAN & ALAT',
         targetModal: 'modal-skills',
         visited: false
       },
-      {
+      monas: {
         id: 'monas',
-        name: 'MONAS OBELISK',
+        name: 'MONAS PLAZA',
+        subtitle: 'Proyek 01 — Monumen Nasional',
         icon: '🗼',
-        x: -380,
-        y: 160,
-        radius: 75,
+        x: -320,
+        y: 380,
+        radius: 80,
         color: '#ffd166',
-        actionText: 'PROYEK 01: MONUMEN NASIONAL',
+        actionText: 'PROYEK 01: MONAS',
         targetModal: 'modal-project',
         projectId: 1,
         visited: false
       },
-      {
+      durkheim: {
         id: 'durkheim',
         name: 'DURKHEIM ARCHIVE',
+        subtitle: 'Proyek 02 — Biografi Durkheim',
         icon: '📚',
-        x: 380,
-        y: 160,
-        radius: 75,
+        x: 140,
+        y: 400,
+        radius: 80,
         color: '#ff9ff3',
-        actionText: 'PROYEK 02: ÉMILE DURKHEIM',
+        actionText: 'PROYEK 02: DURKHEIM',
         targetModal: 'modal-project',
         projectId: 2,
         visited: false
       },
-      {
+      pollution: {
         id: 'pollution',
         name: 'ECO SANCTUM',
+        subtitle: 'Proyek 03 — Infografis Lingkungan',
         icon: '🌿',
-        x: 180,
-        y: 380,
-        radius: 75,
+        x: 680,
+        y: 420,
+        radius: 80,
         color: '#4ecca3',
-        actionText: 'PROYEK 03: INFOGRAFIS LINGKUNGAN',
+        actionText: 'PROYEK 03: LINGKUNGAN',
         targetModal: 'modal-project',
         projectId: 3,
         visited: false
       },
-      {
+      contact: {
         id: 'contact',
         name: 'COMM BEACON',
+        subtitle: 'Pemancar Sinyal & Kontak',
         icon: '📡',
-        x: -180,
-        y: 380,
+        x: 950,
+        y: 180,
         radius: 75,
         color: '#ef476f',
         actionText: 'HUBUNGI ABIY',
         targetModal: 'modal-contact',
         visited: false
       }
-    ]
+    }
   };
 
   // --------------------------------------------------------------------------
-  // 2. RETRO 8-BIT SOUND SYNTHESIZER (WEB AUDIO API)
+  // 2. RETRO 8-BIT SOUND SYNTHESIZER
   // --------------------------------------------------------------------------
   class SoundSynth {
     constructor() {
@@ -213,10 +221,8 @@
 
     init() {
       if (!this.ctx) {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        if (AudioContext) {
-          this.ctx = new AudioContext();
-        }
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) this.ctx = new AudioCtx();
       }
       if (this.ctx && this.ctx.state === 'suspended') {
         this.ctx.resume();
@@ -246,26 +252,32 @@
         gain.connect(this.ctx.destination);
         osc.start();
         osc.stop(this.ctx.currentTime + duration);
-      } catch (e) {
-        // Audio policy ignore
-      }
+      } catch (e) {}
     }
 
     step() {
-      this.playTone(180, 'triangle', 0.04, 0.02);
+      this.playTone(160, 'triangle', 0.04, 0.02);
     }
 
     click() {
-      this.playTone(480, 'square', 0.03, 0.03);
+      this.playTone(520, 'square', 0.03, 0.03);
     }
 
-    interact() {
+    fireballTransform() {
       this.init();
       if (this.muted || !this.ctx) return;
-      // Arpeggio chime
-      const notes = [330, 440, 660, 880];
+      // Blue fireball whoosh sweep
+      for (let i = 0; i < 8; i++) {
+        setTimeout(() => this.playTone(280 + i * 90, 'sawtooth', 0.06, 0.03), i * 30);
+      }
+    }
+
+    arrivalFanfare() {
+      this.init();
+      if (this.muted || !this.ctx) return;
+      const notes = [392, 523, 659, 784, 1046];
       notes.forEach((freq, idx) => {
-        setTimeout(() => this.playTone(freq, 'square', 0.09, 0.05), idx * 60);
+        setTimeout(() => this.playTone(freq, 'square', 0.12, 0.04), idx * 60);
       });
     }
 
@@ -274,16 +286,8 @@
       if (this.muted || !this.ctx) return;
       const notes = [660, 440, 220];
       notes.forEach((freq, idx) => {
-        setTimeout(() => this.playTone(freq, 'triangle', 0.07, 0.04), idx * 50);
+        setTimeout(() => this.playTone(freq, 'triangle', 0.06, 0.03), idx * 40);
       });
-    }
-
-    teleport() {
-      this.init();
-      if (this.muted || !this.ctx) return;
-      for (let i = 0; i < 6; i++) {
-        setTimeout(() => this.playTone(200 + i * 150, 'sawtooth', 0.06, 0.04), i * 35);
-      }
     }
   }
 
@@ -296,7 +300,6 @@
     const scale = size / 16;
     ctx.imageSmoothingEnabled = false;
 
-    // Palette
     const skin = '#ffd3a5';
     const hair = '#2c1e19';
     const shirt = '#268bd2';
@@ -321,105 +324,121 @@
     ctx.fillRect(5 * scale, 6 * scale, 2 * scale, 2 * scale);
     ctx.fillRect(9 * scale, 6 * scale, 2 * scale, 2 * scale);
 
-    // Glasses / Rim
+    // Glasses
     ctx.fillStyle = '#4ecca3';
     ctx.fillRect(4 * scale, 5 * scale, 3 * scale, 1 * scale);
     ctx.fillRect(9 * scale, 5 * scale, 3 * scale, 1 * scale);
     ctx.fillRect(7 * scale, 6 * scale, 2 * scale, 1 * scale);
 
-    // Shirt & Jacket
+    // Jacket & Shirt
     ctx.fillStyle = jacket;
     ctx.fillRect(3 * scale, 9 * scale, 10 * scale, 4 * scale);
     ctx.fillStyle = shirt;
     ctx.fillRect(6 * scale, 9 * scale, 4 * scale, 4 * scale);
 
-    // Pants
+    // Pants & Shoes
     ctx.fillStyle = pants;
     ctx.fillRect(4 * scale, 13 * scale, 3 * scale, 2 * scale);
     ctx.fillRect(9 * scale, 13 * scale, 3 * scale, 2 * scale);
 
-    // Shoes
     ctx.fillStyle = shoes;
     ctx.fillRect(3 * scale, 15 * scale, 4 * scale, 1 * scale);
     ctx.fillRect(9 * scale, 15 * scale, 4 * scale, 1 * scale);
   }
 
   // --------------------------------------------------------------------------
-  // 4. GAME ENGINE (CANVAS 2D 60FPS)
+  // 4. CORE IMMERSIVE ENGINE (CANVAS 2D 60FPS)
   // --------------------------------------------------------------------------
-  class GameRealm {
+  class ImmersiveRealm {
     constructor() {
       this.canvas = document.getElementById('realm-canvas');
       this.ctx = this.canvas.getContext('2d');
-      
+
       this.minimapCanvas = document.getElementById('minimap-canvas');
       this.minimapCtx = this.minimapCanvas.getContext('2d');
 
       this.bigMapCanvas = document.getElementById('big-map-canvas');
       this.bigMapCtx = this.bigMapCanvas.getContext('2d');
 
-      // World Settings
-      this.worldSize = 2000;
       this.width = window.innerWidth;
       this.height = window.innerHeight;
 
-      // Player State
+      // Player State Machine: 'IDLE' | 'WALKING' | 'TRANSFORMING_IN' | 'BLUE_FIREBALL' | 'TRANSFORMING_OUT' | 'ARRIVED'
       this.player = {
-        x: 0,
-        y: 0,
+        x: -520, // Start at Home Valley
+        y: -220,
+        state: 'IDLE',
         targetX: null,
         targetY: null,
+        destTarget: null, // Destination object
         speed: 3.5,
-        vx: 0,
-        vy: 0,
-        facing: 'down', // 'down', 'up', 'left', 'right'
+        fireballSpeed: 14,
+        facing: 'down',
         walkCycle: 0,
-        isMoving: false,
-        stepTimer: 0
+        stepTimer: 0,
+        animTimer: 0,
+        fireballTrail: []
       };
 
-      // Camera
+      // Camera System with Dynamic Zoom
       this.camera = {
-        x: 0,
-        y: 0,
-        targetX: 0,
-        targetY: 0,
-        lerp: 0.1
+        x: -520,
+        y: -220,
+        zoom: 1.0,
+        targetZoom: 1.0,
+        lerp: 0.08,
+        shake: 0
       };
 
       // Input State
       this.keys = {
         w: false, a: false, s: false, d: false,
-        up: false, left: false, down: false, right: false,
-        e: false, space: false
+        up: false, left: false, down: false, right: false
       };
-
       this.joystickVector = { x: 0, y: 0 };
       this.isTouchActive = false;
 
-      // Environment Particles (Floating Dust / Star particles)
+      // Environment & Atmospheric Systems
       this.particles = [];
-      this.initParticles();
+      this.seaWaves = [];
+      this.kraken = {
+        x: 850,
+        y: -250,
+        tentacleProgress: 0, // 0 to 1
+        active: false,
+        timer: 0
+      };
+      this.train = {
+        x: -400,
+        y: 150,
+        speed: 4,
+        moving: true,
+        smokeTimer: 0,
+        smokePuffs: []
+      };
+      this.npcs = [
+        { x: 460, y: 220, type: 'walker', range: 60, currentX: 460, dir: 1, color: '#f368e0' },
+        { x: 540, y: 240, type: 'walker', range: 80, currentX: 540, dir: -1, color: '#ff9f43' },
+        { x: -140, y: -230, type: 'seagull', startX: -140, startY: -230, angle: 0 }
+      ];
 
-      // Landmarks Reference
-      this.landmarks = REALM_DATA.landmarks;
+      this.destinations = REALM_DATA.destinations;
       this.nearestLandmark = null;
-      this.currentZoneName = 'SPAWN PLAZA';
-
-      // Timers & Loops
-      this.lastFrameTime = performance.now();
+      this.currentZoneName = 'HOME VALLEY';
       this.activeModal = null;
-      this.isGameRunning = false;
+      this.isGameActive = false;
 
+      this.initParticles();
       this.bindEvents();
     }
 
     initParticles() {
+      // Dust / Stars
       this.particles = [];
-      for (let i = 0; i < 120; i++) {
+      for (let i = 0; i < 140; i++) {
         this.particles.push({
-          x: (Math.random() - 0.5) * this.worldSize,
-          y: (Math.random() - 0.5) * this.worldSize,
+          x: (Math.random() - 0.5) * 3200,
+          y: (Math.random() - 0.5) * 2200,
           size: Math.random() < 0.7 ? 1.5 : 2.5,
           color: Math.random() < 0.5 ? '#4ecca3' : (Math.random() < 0.7 ? '#ffd166' : '#54a0ff'),
           alpha: 0.2 + Math.random() * 0.6,
@@ -428,10 +447,21 @@
           flicker: Math.random() * Math.PI
         });
       }
+
+      // Beach & Ocean Wave Rhythms
+      this.seaWaves = [];
+      for (let i = 0; i < 30; i++) {
+        this.seaWaves.push({
+          x: 100 + Math.random() * 1000,
+          y: -400 + Math.random() * 320,
+          len: 30 + Math.random() * 50,
+          phase: Math.random() * Math.PI * 2
+        });
+      }
     }
 
     start() {
-      this.isGameRunning = true;
+      this.isGameActive = true;
       this.resize();
       this.loop = this.loop.bind(this);
       requestAnimationFrame(this.loop);
@@ -451,9 +481,7 @@
       // Keyboard Controls
       window.addEventListener('keydown', (e) => {
         if (this.activeModal) {
-          if (e.key === 'Escape') {
-            closeAllModals();
-          }
+          if (e.key === 'Escape') closeAllModals();
           return;
         }
 
@@ -496,23 +524,37 @@
         }
       });
 
-      // Canvas Mouse Click-to-Move
+      // Canvas Pointer Down -> Click-to-Move
       this.canvas.addEventListener('pointerdown', (e) => {
         if (this.activeModal) return;
         if (e.target !== this.canvas) return;
 
-        // Convert screen coordinates to world coordinates
         const screenX = e.clientX;
         const screenY = e.clientY;
-        const worldX = screenX - this.width / 2 + this.camera.x;
-        const worldY = screenY - this.height / 2 + this.camera.y;
+        const worldX = (screenX - this.width / 2) / this.camera.zoom + this.camera.x;
+        const worldY = (screenY - this.height / 2) / this.camera.zoom + this.camera.y;
 
-        this.player.targetX = worldX;
-        this.player.targetY = worldY;
-        sfx.click();
+        // Check if clicked near a destination
+        let clickedDest = null;
+        Object.values(this.destinations).forEach(dest => {
+          if (Math.hypot(dest.x - worldX, dest.y - worldY) < dest.radius + 30) {
+            clickedDest = dest;
+          }
+        });
+
+        if (clickedDest) {
+          this.initiateJourney(clickedDest.id);
+        } else {
+          // Normal manual walking to point
+          if (this.player.state === 'BLUE_FIREBALL') return;
+          this.player.targetX = worldX;
+          this.player.targetY = worldY;
+          this.player.destTarget = null;
+          sfx.click();
+        }
       });
 
-      // Big Map CRT click-to-teleport
+      // Big Map Canvas click-to-travel
       this.bigMapCanvas.addEventListener('click', (e) => {
         const rect = this.bigMapCanvas.getBoundingClientRect();
         const clickX = e.clientX - rect.left;
@@ -521,228 +563,356 @@
         const mapWidth = this.bigMapCanvas.width;
         const mapHeight = this.bigMapCanvas.height;
 
-        // Map scale: world coords (-600 to 600) maps to canvas
-        const worldX = ((clickX / mapWidth) - 0.5) * 1200;
-        const worldY = ((clickY / mapHeight) - 0.5) * 1200;
+        const worldX = ((clickX / mapWidth) - 0.5) * 2200;
+        const worldY = ((clickY / mapHeight) - 0.5) * 1600;
 
-        // Find nearest landmark to clicked point
         let closest = null;
-        let minDist = 90;
-        this.landmarks.forEach(lm => {
-          const dist = Math.hypot(lm.x - worldX, lm.y - worldY);
+        let minDist = 120;
+        Object.values(this.destinations).forEach(dest => {
+          const dist = Math.hypot(dest.x - worldX, dest.y - worldY);
           if (dist < minDist) {
             minDist = dist;
-            closest = lm;
+            closest = dest;
           }
         });
 
+        closeAllModals();
         if (closest) {
-          this.teleportTo(closest.x, closest.y, closest.name);
-          closeAllModals();
+          this.initiateJourney(closest.id);
         } else {
-          this.teleportTo(worldX, worldY, 'EXPLORATION POINT');
-          closeAllModals();
+          this.initiateJourneyToCoords(worldX, worldY, 'EXPLORATION POINT');
         }
       });
 
-      // Minimap click opens Big Map
-      const minimapBox = document.getElementById('minimap-container');
-      if (minimapBox) {
-        minimapBox.addEventListener('click', () => {
-          openModal('modal-map');
-        });
-      }
-
-      // Mobile Touch Joystick
+      // Touch Virtual Joystick
       this.setupTouchControls();
     }
 
     setupTouchControls() {
-      const joystickBase = document.getElementById('joystick-base');
-      const joystickThumb = document.getElementById('joystick-thumb');
-      const btnInteract = document.getElementById('btn-touch-interact');
+      const base = document.getElementById('joystick-base');
+      const thumb = document.getElementById('joystick-thumb');
+      const btnAction = document.getElementById('btn-touch-interact');
 
-      if (!joystickBase || !joystickThumb) return;
+      if (!base || !thumb) return;
 
       let touchId = null;
-      const maxRadius = 40;
+      const maxDist = 38;
 
-      const handleTouchStart = (e) => {
+      const onTouchStart = (e) => {
         for (let i = 0; i < e.changedTouches.length; i++) {
-          const touch = e.changedTouches[i];
-          const rect = joystickBase.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-          const dist = Math.hypot(touch.clientX - centerX, touch.clientY - centerY);
-
-          if (dist < 80 && touchId === null) {
-            touchId = touch.identifier;
+          const t = e.changedTouches[i];
+          const rect = base.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          if (Math.hypot(t.clientX - cx, t.clientY - cy) < 75 && touchId === null) {
+            touchId = t.identifier;
             this.isTouchActive = true;
-            this.updateJoystick(touch.clientX, touch.clientY, centerX, centerY, maxRadius, joystickThumb);
+            this.handleJoystick(t.clientX, t.clientY, cx, cy, maxDist, thumb);
             break;
           }
         }
       };
 
-      const handleTouchMove = (e) => {
+      const onTouchMove = (e) => {
         if (!this.isTouchActive) return;
         for (let i = 0; i < e.changedTouches.length; i++) {
-          const touch = e.changedTouches[i];
-          if (touch.identifier === touchId) {
-            const rect = joystickBase.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            this.updateJoystick(touch.clientX, touch.clientY, centerX, centerY, maxRadius, joystickThumb);
+          const t = e.changedTouches[i];
+          if (t.identifier === touchId) {
+            const rect = base.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            this.handleJoystick(t.clientX, t.clientY, cx, cy, maxDist, thumb);
             break;
           }
         }
       };
 
-      const handleTouchEnd = (e) => {
+      const onTouchEnd = (e) => {
         for (let i = 0; i < e.changedTouches.length; i++) {
           if (e.changedTouches[i].identifier === touchId) {
             touchId = null;
             this.isTouchActive = false;
             this.joystickVector = { x: 0, y: 0 };
-            joystickThumb.style.transform = `translate(0px, 0px)`;
+            thumb.style.transform = 'translate(0px, 0px)';
             break;
           }
         }
       };
 
-      joystickBase.addEventListener('touchstart', handleTouchStart, { passive: false });
-      window.addEventListener('touchmove', handleTouchMove, { passive: false });
-      window.addEventListener('touchend', handleTouchEnd, { passive: false });
-      window.addEventListener('touchcancel', handleTouchEnd, { passive: false });
+      base.addEventListener('touchstart', onTouchStart, { passive: false });
+      window.addEventListener('touchmove', onTouchMove, { passive: false });
+      window.addEventListener('touchend', onTouchEnd, { passive: false });
+      window.addEventListener('touchcancel', onTouchEnd, { passive: false });
 
-      if (btnInteract) {
-        btnInteract.addEventListener('click', (e) => {
+      if (btnAction) {
+        btnAction.addEventListener('click', (e) => {
           e.preventDefault();
           this.triggerInteraction();
         });
       }
     }
 
-    updateJoystick(touchX, touchY, centerX, centerY, maxRadius, thumbEl) {
-      const dx = touchX - centerX;
-      const dy = touchY - centerY;
+    handleJoystick(tx, ty, cx, cy, maxDist, thumbEl) {
+      const dx = tx - cx;
+      const dy = ty - cy;
       const dist = Math.hypot(dx, dy);
       const angle = Math.atan2(dy, dx);
 
-      const clampedDist = Math.min(dist, maxRadius);
-      const thumbX = Math.cos(angle) * clampedDist;
-      const thumbY = Math.sin(angle) * clampedDist;
+      const clamped = Math.min(dist, maxDist);
+      const fx = Math.cos(angle) * clamped;
+      const fy = Math.sin(angle) * clamped;
 
-      thumbEl.style.transform = `translate(${thumbX}px, ${thumbY}px)`;
-
-      // Normalized vector
+      thumbEl.style.transform = `translate(${fx}px, ${fy}px)`;
       this.joystickVector = {
-        x: thumbX / maxRadius,
-        y: thumbY / maxRadius
+        x: fx / maxDist,
+        y: fy / maxDist
       };
-
-      // Reset click-to-move if using joystick
       this.player.targetX = null;
       this.player.targetY = null;
     }
 
-    teleportTo(x, y, zoneName = '') {
-      this.player.x = x;
-      this.player.y = y;
-      this.player.targetX = null;
-      this.player.targetY = null;
-      this.camera.x = x;
-      this.camera.y = y;
-      sfx.teleport();
+    // ------------------------------------------------------------------------
+    // JOURNEY CONTROLLER: CLICK -> CHARACTER TRAVELS -> ARRIVAL -> CONTENT
+    // ------------------------------------------------------------------------
+    initiateJourney(destinationId) {
+      const dest = this.destinations[destinationId];
+      if (!dest) return;
 
-      if (zoneName) {
-        this.currentZoneName = zoneName;
+      closeAllModals();
+      const dist = Math.hypot(dest.x - this.player.x, dest.y - this.player.y);
+
+      // Show travel status ticker
+      const ticker = document.getElementById('travel-status-bar');
+      const tickerText = document.getElementById('travel-status-text');
+      if (ticker && tickerText) {
+        ticker.classList.remove('hidden');
+        tickerText.textContent = `TRAVELING TO: ${dest.name}...`;
+      }
+
+      this.player.destTarget = dest;
+      this.player.targetX = dest.x;
+      this.player.targetY = dest.y;
+
+      // If long distance (> 220px), transform into BLUE FIREBALL!
+      if (dist > 220) {
+        sfx.fireballTransform();
+        this.player.state = 'TRANSFORMING_IN';
+        this.player.animTimer = 0;
+        this.camera.targetZoom = 0.85; // Widen view during fast travel
+      } else {
+        // Normal direct walk
+        this.player.state = 'WALKING';
+        this.camera.targetZoom = 1.0;
+      }
+    }
+
+    initiateJourneyToCoords(x, y, label) {
+      const ticker = document.getElementById('travel-status-bar');
+      const tickerText = document.getElementById('travel-status-text');
+      if (ticker && tickerText) {
+        ticker.classList.remove('hidden');
+        tickerText.textContent = `TRAVELING TO: ${label}...`;
+      }
+
+      this.player.destTarget = null;
+      this.player.targetX = x;
+      this.player.targetY = y;
+      sfx.fireballTransform();
+      this.player.state = 'TRANSFORMING_IN';
+      this.player.animTimer = 0;
+      this.camera.targetZoom = 0.85;
+    }
+
+    onArrivalAtDestination(dest) {
+      this.player.state = 'ARRIVED';
+      this.camera.targetZoom = 1.12; // Focus zoom on destination
+      sfx.arrivalFanfare();
+
+      const ticker = document.getElementById('travel-status-bar');
+      if (ticker) ticker.classList.add('hidden');
+
+      if (dest) {
+        dest.visited = true;
+        this.currentZoneName = dest.name;
+
+        // Open content modal after arrival framing
+        setTimeout(() => {
+          if (dest.projectId) {
+            openProjectModal(dest.projectId);
+          } else if (dest.targetModal) {
+            openModal(dest.targetModal);
+          }
+          this.player.state = 'IDLE';
+        }, 500);
+      } else {
+        setTimeout(() => {
+          this.player.state = 'IDLE';
+        }, 400);
       }
     }
 
     triggerInteraction() {
       if (this.nearestLandmark) {
-        sfx.interact();
-        this.nearestLandmark.visited = true;
-
-        if (this.nearestLandmark.projectId) {
-          openProjectModal(this.nearestLandmark.projectId);
-        } else if (this.nearestLandmark.targetModal) {
-          openModal(this.nearestLandmark.targetModal);
-        }
+        this.onArrivalAtDestination(this.nearestLandmark);
       }
     }
 
+    // ------------------------------------------------------------------------
+    // UPDATE LOOP
+    // ------------------------------------------------------------------------
     update() {
       if (this.activeModal) return;
 
-      let moveX = 0;
-      let moveY = 0;
+      // 1. Blue Fireball / Travel State Machine
+      if (this.player.state === 'TRANSFORMING_IN') {
+        this.player.animTimer += 1;
+        if (this.player.animTimer > 18) {
+          this.player.state = 'BLUE_FIREBALL';
+        }
+      } else if (this.player.state === 'TRANSFORMING_OUT') {
+        this.player.animTimer += 1;
+        if (this.player.animTimer > 18) {
+          this.onArrivalAtDestination(this.player.destTarget);
+        }
+      } else if (this.player.state === 'BLUE_FIREBALL') {
+        // High Speed Curved Flight towards Target
+        if (this.player.targetX !== null && this.player.targetY !== null) {
+          const dx = this.player.targetX - this.player.x;
+          const dy = this.player.targetY - this.player.y;
+          const dist = Math.hypot(dx, dy);
 
-      // 1. Keyboard Input
-      if (this.keys.w || this.keys.up) moveY -= 1;
-      if (this.keys.s || this.keys.down) moveY += 1;
-      if (this.keys.a || this.keys.left) moveX -= 1;
-      if (this.keys.d || this.keys.right) moveX += 1;
+          if (dist > 16) {
+            this.player.x += (dx / dist) * this.player.fireballSpeed;
+            this.player.y += (dy / dist) * this.player.fireballSpeed;
 
-      // 2. Virtual Joystick Input
-      if (this.isTouchActive && (Math.abs(this.joystickVector.x) > 0.1 || Math.abs(this.joystickVector.y) > 0.1)) {
-        moveX = this.joystickVector.x;
-        moveY = this.joystickVector.y;
-      }
+            // Record motion trail
+            this.player.fireballTrail.push({
+              x: this.player.x,
+              y: this.player.y,
+              alpha: 1.0,
+              size: 14 + Math.random() * 8
+            });
+          } else {
+            this.player.x = this.player.targetX;
+            this.player.y = this.player.targetY;
+            this.player.targetX = null;
+            this.player.targetY = null;
+            this.player.state = 'TRANSFORMING_OUT';
+            this.player.animTimer = 0;
+            this.camera.targetZoom = 1.0;
+          }
+        }
+      } else if (this.player.state === 'IDLE' || this.player.state === 'WALKING') {
+        // Normal Walking Movement
+        let mx = 0;
+        let my = 0;
 
-      // 3. Click to Move Input
-      if (this.player.targetX !== null && this.player.targetY !== null) {
-        const dx = this.player.targetX - this.player.x;
-        const dy = this.player.targetY - this.player.y;
-        const dist = Math.hypot(dx, dy);
+        if (this.keys.w || this.keys.up) my -= 1;
+        if (this.keys.s || this.keys.down) my += 1;
+        if (this.keys.a || this.keys.left) mx -= 1;
+        if (this.keys.d || this.keys.right) mx += 1;
 
-        if (dist > 6) {
-          moveX = dx / dist;
-          moveY = dy / dist;
+        if (this.isTouchActive && (Math.abs(this.joystickVector.x) > 0.1 || Math.abs(this.joystickVector.y) > 0.1)) {
+          mx = this.joystickVector.x;
+          my = this.joystickVector.y;
+        }
+
+        if (this.player.targetX !== null && this.player.targetY !== null) {
+          const dx = this.player.targetX - this.player.x;
+          const dy = this.player.targetY - this.player.y;
+          const dist = Math.hypot(dx, dy);
+
+          if (dist > 6) {
+            mx = dx / dist;
+            my = dy / dist;
+          } else {
+            this.player.targetX = null;
+            this.player.targetY = null;
+            if (this.player.destTarget) {
+              this.onArrivalAtDestination(this.player.destTarget);
+            }
+          }
+        }
+
+        const len = Math.hypot(mx, my);
+        if (len > 0) {
+          this.player.state = 'WALKING';
+          const nx = (mx / len) * Math.min(len, 1);
+          const ny = (my / len) * Math.min(len, 1);
+
+          this.player.x += nx * this.player.speed;
+          this.player.y += ny * this.player.speed;
+
+          if (Math.abs(nx) > Math.abs(ny)) {
+            this.player.facing = nx > 0 ? 'right' : 'left';
+          } else {
+            this.player.facing = ny > 0 ? 'down' : 'up';
+          }
+
+          this.player.walkCycle += 0.22;
+          this.player.stepTimer += 1;
+          if (this.player.stepTimer % 18 === 0) sfx.step();
         } else {
-          this.player.targetX = null;
-          this.player.targetY = null;
+          this.player.state = 'IDLE';
         }
       }
 
-      // Normalize diagonal movement
-      const inputLen = Math.hypot(moveX, moveY);
-      if (inputLen > 0) {
-        this.player.isMoving = true;
-        const normX = (moveX / inputLen) * Math.min(inputLen, 1);
-        const normY = (moveY / inputLen) * Math.min(inputLen, 1);
-
-        this.player.x += normX * this.player.speed;
-        this.player.y += normY * this.player.speed;
-
-        // Facing direction
-        if (Math.abs(normX) > Math.abs(normY)) {
-          this.player.facing = normX > 0 ? 'right' : 'left';
-        } else {
-          this.player.facing = normY > 0 ? 'down' : 'up';
+      // Update Fireball Trail
+      for (let i = this.player.fireballTrail.length - 1; i >= 0; i--) {
+        const pt = this.player.fireballTrail[i];
+        pt.alpha -= 0.08;
+        pt.size *= 0.92;
+        if (pt.alpha <= 0) {
+          this.player.fireballTrail.splice(i, 1);
         }
-
-        // Animation cycle
-        this.player.walkCycle += 0.2;
-        this.player.stepTimer += 1;
-        if (this.player.stepTimer % 18 === 0) {
-          sfx.step();
-        }
-      } else {
-        this.player.isMoving = false;
       }
 
-      // World Bounds Clamping (-800 to 800)
-      const bound = 800;
-      this.player.x = Math.max(-bound, Math.min(bound, this.player.x));
-      this.player.y = Math.max(-bound, Math.min(bound, this.player.y));
+      // World Boundary Clamping (-1200 to 1400)
+      this.player.x = Math.max(-1100, Math.min(1300, this.player.x));
+      this.player.y = Math.max(-700, Math.min(800, this.player.y));
 
-      // Smooth Camera Follow
+      // Camera Smooth Follow & Dynamic Zoom
       this.camera.x += (this.player.x - this.camera.x) * this.camera.lerp;
       this.camera.y += (this.player.y - this.camera.y) * this.camera.lerp;
+      this.camera.zoom += (this.camera.targetZoom - this.camera.zoom) * 0.05;
 
-      // Update Particles
+      // Update Environmental Systems:
+      // A. Kraken Encounter in Deep Ocean (x: 850, y: -250)
+      const distToKraken = Math.hypot(this.player.x - this.kraken.x, this.player.y - this.kraken.y);
+      if (distToKraken < 450) {
+        this.kraken.active = true;
+        this.kraken.tentacleProgress = Math.min(1, this.kraken.tentacleProgress + 0.015);
+      } else {
+        this.kraken.tentacleProgress = Math.max(0, this.kraken.tentacleProgress - 0.02);
+        if (this.kraken.tentacleProgress <= 0) this.kraken.active = false;
+      }
+
+      // B. Animated Train on Tracks (Home Station <-> City Station)
+      this.train.x += this.train.speed;
+      if (this.train.x > 750) this.train.x = -650;
+      this.train.smokeTimer++;
+      if (this.train.smokeTimer % 14 === 0) {
+        this.train.smokePuffs.push({ x: this.train.x + 30, y: this.train.y - 18, size: 6, alpha: 0.8 });
+      }
+      for (let i = this.train.smokePuffs.length - 1; i >= 0; i--) {
+        const p = this.train.smokePuffs[i];
+        p.y -= 0.4;
+        p.size += 0.3;
+        p.alpha -= 0.02;
+        if (p.alpha <= 0) this.train.smokePuffs.splice(i, 1);
+      }
+
+      // C. NPCs walking
+      this.npcs.forEach(npc => {
+        if (npc.type === 'walker') {
+          npc.currentX += npc.dir * 0.8;
+          if (Math.abs(npc.currentX - npc.x) > npc.range) npc.dir *= -1;
+        } else if (npc.type === 'seagull') {
+          npc.angle += 0.02;
+        }
+      });
+
+      // D. Ambient Floating Particles
       this.particles.forEach(p => {
         p.y += p.speedY;
         p.x += p.speedX;
@@ -753,28 +923,27 @@
         }
       });
 
-      // Check Proximity to Landmarks
+      // Check Proximity to Nearest Landmark
       this.nearestLandmark = null;
       let minDistance = Infinity;
-      let zoneName = 'DIGITAL REALM';
+      let zoneName = 'IMMERSIVE REALM';
 
-      this.landmarks.forEach(lm => {
-        const dist = Math.hypot(lm.x - this.player.x, lm.y - this.player.y);
-        if (dist < lm.radius + 35 && dist < minDistance) {
+      Object.values(this.destinations).forEach(dest => {
+        const dist = Math.hypot(dest.x - this.player.x, dest.y - this.player.y);
+        if (dist < dest.radius + 40 && dist < minDistance) {
           minDistance = dist;
-          this.nearestLandmark = lm;
-          zoneName = lm.name;
+          this.nearestLandmark = dest;
+          zoneName = dest.name;
         }
       });
 
       this.currentZoneName = zoneName;
 
-      // Update HUD Coordinates & Prompt
+      // Update HUD
       const coordsEl = document.getElementById('hud-coords-val');
       if (coordsEl) {
         coordsEl.textContent = `X: ${Math.round(this.player.x)} | Y: ${Math.round(this.player.y)}`;
       }
-
       const zoneEl = document.getElementById('hud-zone-name');
       if (zoneEl) {
         zoneEl.textContent = this.currentZoneName;
@@ -782,7 +951,7 @@
 
       const promptEl = document.getElementById('interact-prompt');
       const promptTextEl = document.getElementById('prompt-action-text');
-      if (this.nearestLandmark) {
+      if (this.nearestLandmark && this.player.state !== 'BLUE_FIREBALL') {
         promptEl.classList.remove('hidden');
         promptTextEl.textContent = this.nearestLandmark.actionText;
       } else {
@@ -790,261 +959,438 @@
       }
     }
 
+    // ------------------------------------------------------------------------
+    // RENDER LOOP
+    // ------------------------------------------------------------------------
     render() {
       const ctx = this.ctx;
       ctx.clearRect(0, 0, this.width, this.height);
 
-      const cx = this.width / 2 - this.camera.x;
-      const cy = this.height / 2 - this.camera.y;
+      ctx.save();
+      // Apply Camera Transform & Dynamic Zoom
+      ctx.translate(this.width / 2, this.height / 2);
+      ctx.scale(this.camera.zoom, this.camera.zoom);
+      ctx.translate(-this.camera.x, -this.camera.y);
 
-      // 1. Draw Realm Grid Floor & Pathways
-      this.drawRealmFloor(ctx, cx, cy);
+      // 1. Draw Multi-Zone World Terrain
+      this.drawWorldTerrain(ctx);
 
-      // 2. Draw Floating Particles
-      this.drawParticles(ctx, cx, cy);
+      // 2. Draw Train Tracks & Animated Metro Train
+      this.drawRailwayAndTrain(ctx);
 
-      // 3. Draw Landmarks (Monuments, Shrines & Exhibits)
-      this.landmarks.forEach(lm => {
-        this.drawLandmark(ctx, lm, cx, cy);
+      // 3. Draw Ocean Waves & Kraken Encounter
+      this.drawOceanAndKraken(ctx);
+
+      // 4. Draw Atmospheric Particles
+      this.drawParticles(ctx);
+
+      // 5. Draw NPC Citizens & Seagulls
+      this.drawNPCs(ctx);
+
+      // 6. Draw Landmark Structures & Shrines
+      Object.values(this.destinations).forEach(dest => {
+        this.drawLandmark(ctx, dest);
       });
 
-      // 4. Draw Click Target Indicator (if moving by click)
-      if (this.player.targetX !== null && this.player.targetY !== null) {
-        this.drawClickTarget(ctx, this.player.targetX + cx, this.player.targetY + cy);
-      }
+      // 7. Draw Player or Blue Fireball Transformation
+      this.drawPlayerCharacter(ctx);
 
-      // 5. Draw Player Avatar Character
-      this.drawPlayer(ctx, this.player.x + cx, this.player.y + cy);
+      ctx.restore();
 
-      // 6. Draw Minimap & Big Map Canvas
+      // 8. Draw HUD Radar Minimap & Big Map CRT
       this.renderMinimap();
       if (this.activeModal === 'modal-map') {
         this.renderBigMap();
       }
     }
 
-    drawRealmFloor(ctx, cx, cy) {
-      const gridSize = 48;
-      const startX = Math.floor((-cx) / gridSize) * gridSize;
-      const startY = Math.floor((-cy) / gridSize) * gridSize;
-      const endX = startX + this.width + gridSize * 2;
-      const endY = startY + this.height + gridSize * 2;
+    // ------------------------------------------------------------------------
+    // WORLD TERRAIN & MULTI-ZONE DRAWING
+    // ------------------------------------------------------------------------
+    drawWorldTerrain(ctx) {
+      // Space/Abyss background
+      ctx.fillStyle = '#060810';
+      ctx.fillRect(-1400, -900, 3000, 2000);
 
-      // Dark Space Ground
-      ctx.fillStyle = '#0a0d18';
-      ctx.fillRect(0, 0, this.width, this.height);
+      // Zone 1 & 2: Main Green Continents
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(-900, -500, 1800, 1100);
 
-      // Subtle Cyber Grid Lines
-      ctx.strokeStyle = '#121728';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      for (let x = startX; x <= endX; x += gridSize) {
-        ctx.moveTo(x + cx, 0);
-        ctx.lineTo(x + cx, this.height);
-      }
-      for (let y = startY; y <= endY; y += gridSize) {
-        ctx.moveTo(0, y + cy);
-        ctx.lineTo(this.width, y + cy);
-      }
-      ctx.stroke();
+      // Zone 2: Sandy Beach Shoreline (x: -180 to 200, y: -450 to -100)
+      ctx.fillStyle = '#94723c';
+      ctx.fillRect(-180, -420, 240, 260);
+      ctx.fillStyle = '#d4a373';
+      ctx.fillRect(-170, -410, 220, 240);
 
-      // Pathways Connecting All Landmarks to Spawn (0,0)
-      ctx.strokeStyle = '#1f2742';
-      ctx.lineWidth = 24;
+      // Beach Wooden Pier
+      ctx.fillStyle = '#6b4c2b';
+      ctx.fillRect(-60, -380, 24, 120);
+      ctx.strokeStyle = '#3d2612';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(-60, -380, 24, 120);
+
+      // Zone 3: Open Ocean Blue Water (x: 60 to 1200, y: -500 to 0)
+      ctx.fillStyle = '#092540';
+      ctx.fillRect(60, -500, 1100, 420);
+      ctx.fillStyle = '#0d3b66';
+      ctx.fillRect(70, -490, 1080, 400);
+
+      // Cobblestone Pathways Linking Shrines
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 26;
       ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
       ctx.beginPath();
-      this.landmarks.forEach(lm => {
-        ctx.moveTo(0 + cx, 0 + cy);
-        ctx.lineTo(lm.x + cx, lm.y + cy);
-      });
+      // Home -> About -> Skills
+      ctx.moveTo(-520, -220);
+      ctx.lineTo(-280, -220);
+      ctx.lineTo(280, -220);
+      // About -> Monas -> Durkheim -> Eco -> Comm
+      ctx.lineTo(-320, 380);
+      ctx.lineTo(140, 400);
+      ctx.lineTo(680, 420);
+      ctx.lineTo(950, 180);
       ctx.stroke();
 
-      // Cobblestone / Pathway Core Lines
-      ctx.strokeStyle = '#2d385e';
-      ctx.lineWidth = 8;
-      ctx.beginPath();
-      this.landmarks.forEach(lm => {
-        ctx.moveTo(0 + cx, 0 + cy);
-        ctx.lineTo(lm.x + cx, lm.y + cy);
-      });
+      // Pathway Center Cobble Line
+      ctx.strokeStyle = '#334155';
+      ctx.lineWidth = 10;
       ctx.stroke();
 
-      // Outer Bound Ring
+      // World Boundary Ring
       ctx.strokeStyle = '#ef476f';
       ctx.lineWidth = 3;
-      ctx.setLineDash([12, 12]);
-      ctx.beginPath();
-      ctx.arc(0 + cx, 0 + cy, 800, 0, Math.PI * 2);
-      ctx.stroke();
+      ctx.setLineDash([16, 16]);
+      ctx.strokeRect(-1000, -600, 2200, 1300);
       ctx.setLineDash([]);
     }
 
-    drawParticles(ctx, cx, cy) {
-      this.particles.forEach(p => {
-        const screenX = p.x + cx;
-        const screenY = p.y + cy;
+    drawRailwayAndTrain(ctx) {
+      const ry = 150;
+      // Train Tracks Ties
+      ctx.strokeStyle = '#475569';
+      ctx.lineWidth = 14;
+      ctx.beginPath();
+      ctx.moveTo(-700, ry);
+      ctx.lineTo(800, ry);
+      ctx.stroke();
 
-        if (screenX >= -10 && screenX <= this.width + 10 && screenY >= -10 && screenY <= this.height + 10) {
-          const alpha = p.alpha * (0.6 + 0.4 * Math.sin(p.flicker));
-          ctx.fillStyle = p.color;
-          ctx.globalAlpha = Math.max(0.1, Math.min(1, alpha));
-          ctx.fillRect(screenX, screenY, p.size, p.size);
-        }
+      // Rails
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(-700, ry - 4);
+      ctx.lineTo(800, ry - 4);
+      ctx.moveTo(-700, ry + 4);
+      ctx.lineTo(800, ry + 4);
+      ctx.stroke();
+
+      // Train Station Platforms (Home & City)
+      ctx.fillStyle = '#1e293b';
+      ctx.fillRect(-450, ry - 28, 90, 16);
+      ctx.fillRect(450, ry - 28, 90, 16);
+      ctx.fillStyle = '#ffd166';
+      ctx.font = '6px "Press Start 2P", monospace';
+      ctx.fillText('HOME STN', -440, ry - 18);
+      ctx.fillText('CITY STN', 460, ry - 18);
+
+      // Animated Smoke Puffs
+      this.train.smokePuffs.forEach(p => {
+        ctx.fillStyle = `rgba(226, 232, 240, ${p.alpha})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Retro Metro Train Cars
+      const tx = this.train.x;
+      // Locomotive
+      ctx.fillStyle = '#0f766e';
+      ctx.fillRect(tx, ry - 18, 55, 20);
+      ctx.fillStyle = '#14b8a6';
+      ctx.fillRect(tx + 40, ry - 16, 12, 16); // Cabin
+      ctx.fillStyle = '#ffd166';
+      ctx.fillRect(tx + 50, ry - 10, 4, 6); // Headlight
+      // Carriage
+      ctx.fillStyle = '#0e7490';
+      ctx.fillRect(tx - 65, ry - 18, 58, 20);
+      ctx.fillStyle = '#e2e8f0';
+      ctx.fillRect(tx - 55, ry - 14, 10, 8); // Window 1
+      ctx.fillRect(tx - 35, ry - 14, 10, 8); // Window 2
+      ctx.fillRect(tx - 15, ry - 14, 10, 8); // Window 3
+    }
+
+    drawOceanAndKraken(ctx) {
+      const time = performance.now() * 0.003;
+
+      // Animated Wave Foams
+      this.seaWaves.forEach(w => {
+        const wx = w.x + Math.sin(time + w.phase) * 6;
+        const wy = w.y;
+        ctx.strokeStyle = 'rgba(165, 243, 252, 0.45)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(wx, wy, 8, Math.PI, 0);
+        ctx.stroke();
+      });
+
+      // Ocean Schooner / Sailboat (x: 420, y: -320)
+      const boatX = 420;
+      const boatY = -320 + Math.sin(time * 1.5) * 4;
+      ctx.fillStyle = '#78350f';
+      ctx.fillRect(boatX - 16, boatY, 32, 10);
+      ctx.fillStyle = '#f8fafc';
+      ctx.beginPath();
+      ctx.moveTo(boatX, boatY - 24);
+      ctx.lineTo(boatX + 14, boatY - 4);
+      ctx.lineTo(boatX, boatY - 4);
+      ctx.fill();
+
+      // Area 04: Kraken Environmental Encounter (x: 850, y: -250)
+      if (this.kraken.tentacleProgress > 0) {
+        const kx = this.kraken.x;
+        const ky = this.kraken.y;
+        const prog = this.kraken.tentacleProgress;
+        const sway = Math.sin(time * 2) * 12;
+
+        // Giant Swirl
+        ctx.strokeStyle = `rgba(56, 189, 248, ${prog * 0.7})`;
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(kx, ky, 50 * prog, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // 3 Giant Kraken Tentacles
+        const tentacleOffsets = [-35, 0, 35];
+        tentacleOffsets.forEach((ox, idx) => {
+          const tHeight = 55 * prog;
+          ctx.fillStyle = '#6b21a8';
+          ctx.beginPath();
+          ctx.moveTo(kx + ox - 8, ky);
+          ctx.quadraticCurveTo(kx + ox + sway, ky - tHeight * 0.6, kx + ox + sway * 1.3, ky - tHeight);
+          ctx.quadraticCurveTo(kx + ox + 8 + sway, ky - tHeight * 0.6, kx + ox + 8, ky);
+          ctx.fill();
+
+          // Suction Cups
+          ctx.fillStyle = '#f472b6';
+          for (let s = 0; s < 4; s++) {
+            ctx.fillRect(kx + ox + (sway * s * 0.25), ky - s * (tHeight / 4) - 6, 3, 3);
+          }
+        });
+      }
+    }
+
+    drawParticles(ctx) {
+      this.particles.forEach(p => {
+        const alpha = p.alpha * (0.6 + 0.4 * Math.sin(p.flicker));
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.max(0.1, Math.min(1, alpha));
+        ctx.fillRect(p.x, p.y, p.size, p.size);
       });
       ctx.globalAlpha = 1;
     }
 
-    drawLandmark(ctx, lm, cx, cy) {
-      const lx = lm.x + cx;
-      const ly = lm.y + cy;
+    drawNPCs(ctx) {
+      this.npcs.forEach(npc => {
+        if (npc.type === 'walker') {
+          // Pixel NPC
+          ctx.fillStyle = npc.color;
+          ctx.fillRect(npc.currentX - 5, npc.y - 16, 10, 12);
+          ctx.fillStyle = '#ffd3a5';
+          ctx.fillRect(npc.currentX - 3, npc.y - 22, 6, 6);
+          ctx.fillStyle = '#1e293b';
+          ctx.fillRect(npc.currentX - 4, npc.y - 4, 3, 5);
+          ctx.fillRect(npc.currentX + 1, npc.y - 4, 3, 5);
+        } else if (npc.type === 'seagull') {
+          const sx = npc.startX + Math.cos(npc.angle) * 70;
+          const sy = npc.startY + Math.sin(npc.angle) * 40;
+          ctx.fillStyle = '#fff';
+          ctx.fillRect(sx - 4, sy, 8, 2);
+          ctx.fillRect(sx - 2, sy - 2, 4, 2);
+        }
+      });
+    }
 
-      // Culling if off screen
-      if (lx < -120 || lx > this.width + 120 || ly < -120 || ly > this.height + 120) return;
-
+    // ------------------------------------------------------------------------
+    // LANDMARK DRAWING
+    // ------------------------------------------------------------------------
+    drawLandmark(ctx, dest) {
       const time = performance.now() * 0.003;
-      const isNearby = this.nearestLandmark && this.nearestLandmark.id === lm.id;
+      const isNearby = this.nearestLandmark && this.nearestLandmark.id === dest.id;
 
-      // 1. Base Platform
-      ctx.fillStyle = isNearby ? '#1b233d' : '#141829';
-      ctx.strokeStyle = isNearby ? '#ffd166' : (lm.visited ? '#4ecca3' : '#3d4b75');
+      // Base Platform
+      ctx.fillStyle = isNearby ? '#1e293b' : '#141829';
+      ctx.strokeStyle = isNearby ? '#ffd166' : (dest.visited ? '#4ecca3' : '#334155');
       ctx.lineWidth = isNearby ? 3 : 2;
-
       ctx.beginPath();
-      ctx.arc(lx, ly, lm.radius * 0.6, 0, Math.PI * 2);
+      ctx.arc(dest.x, dest.y, dest.radius * 0.65, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
 
-      // 2. Pulsing Beacon Ring
-      ctx.strokeStyle = lm.color;
-      ctx.lineWidth = isNearby ? 2 : 1;
+      // Pulsing Beacon Ring
+      ctx.strokeStyle = dest.color;
+      ctx.lineWidth = isNearby ? 2.5 : 1.2;
       ctx.beginPath();
-      const ringScale = 0.7 + 0.08 * Math.sin(time + lm.x);
-      ctx.arc(lx, ly, lm.radius * ringScale, 0, Math.PI * 2);
+      ctx.arc(dest.x, dest.y, dest.radius * (0.75 + 0.08 * Math.sin(time + dest.x)), 0, Math.PI * 2);
       ctx.stroke();
 
-      // 3. Custom Pixel Structures per Landmark
-      this.drawLandmarkStructure(ctx, lm, lx, ly, time);
+      // Custom Pixel Monument Graphic
+      this.drawMonumentGraphic(ctx, dest.id, dest.x, dest.y, time);
 
-      // 4. Floating Icon & Name Badge
-      const bob = Math.sin(time * 2 + lm.y) * 4;
-      
-      // Floating Alert / Exclamation if unvisited
-      if (!lm.visited) {
-        ctx.fillStyle = '#ffd166';
-        ctx.font = '10px "Press Start 2P", monospace';
-        ctx.textAlign = 'center';
-        ctx.fillText('!', lx, ly - 46 + bob);
-      }
-
-      // Title Tag
-      ctx.fillStyle = 'rgba(10, 13, 24, 0.85)';
-      ctx.fillRect(lx - 60, ly + 36, 120, 16);
+      // Title & Subtitle Badge
+      ctx.fillStyle = 'rgba(10, 13, 24, 0.88)';
+      ctx.fillRect(dest.x - 70, dest.y + 40, 140, 24);
       ctx.strokeStyle = isNearby ? '#ffd166' : '#2b3558';
       ctx.lineWidth = 1;
-      ctx.strokeRect(lx - 60, ly + 36, 120, 16);
+      ctx.strokeRect(dest.x - 70, dest.y + 40, 140, 24);
 
-      ctx.fillStyle = isNearby ? '#ffd166' : '#c8d6e5';
+      ctx.fillStyle = isNearby ? '#ffd166' : '#e2e8f0';
       ctx.font = '6.5px "Press Start 2P", monospace';
       ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(lm.name, lx, ly + 44);
+      ctx.fillText(dest.name, dest.x, dest.y + 51);
+
+      ctx.fillStyle = dest.color;
+      ctx.font = '5.5px "Press Start 2P", monospace';
+      ctx.fillText(dest.subtitle, dest.x, dest.y + 60);
     }
 
-    drawLandmarkStructure(ctx, lm, x, y, time) {
-      switch (lm.id) {
-        case 'spawn':
-          // Central Digital Obelisk
-          ctx.fillStyle = '#4ecca3';
-          ctx.fillRect(x - 6, y - 24, 12, 28);
-          ctx.fillStyle = '#ffd166';
-          ctx.fillRect(x - 4, y - 30, 8, 8);
+    drawMonumentGraphic(ctx, id, x, y, time) {
+      switch (id) {
+        case 'home':
+          // Abiy's Cottage
+          ctx.fillStyle = '#b45309';
+          ctx.fillRect(x - 16, y - 24, 32, 22);
+          ctx.fillStyle = '#ef4444'; // Roof
+          ctx.beginPath();
+          ctx.moveTo(x - 20, y - 24);
+          ctx.lineTo(x, y - 40);
+          ctx.lineTo(x + 20, y - 24);
+          ctx.fill();
+          ctx.fillStyle = '#fef08a'; // Glowing Window
+          ctx.fillRect(x - 8, y - 18, 6, 8);
+          ctx.fillStyle = '#451a03'; // Door
+          ctx.fillRect(x + 2, y - 14, 8, 12);
           break;
 
         case 'about':
-          // Codex Shrine / Ancient Library Screen
-          ctx.fillStyle = '#2c3e50';
-          ctx.fillRect(x - 14, y - 22, 28, 24);
-          ctx.fillStyle = '#4ecca3';
-          ctx.fillRect(x - 10, y - 18, 20, 16);
-          // Book glyph
-          ctx.fillStyle = '#fff';
-          ctx.fillRect(x - 6, y - 12, 12, 4);
+          // Codex Shrine
+          ctx.fillStyle = '#334155';
+          ctx.fillRect(x - 16, y - 24, 32, 26);
+          ctx.fillStyle = '#ffd166';
+          ctx.fillRect(x - 10, y - 18, 20, 14);
+          ctx.fillStyle = '#0f172a';
+          ctx.fillRect(x - 6, y - 12, 12, 3);
           break;
 
         case 'skills':
-          // Cyber Workstation & Tool Chest
-          ctx.fillStyle = '#1e272e';
-          ctx.fillRect(x - 16, y - 20, 32, 22);
+          // Tech Forge & Cyber Terminals
+          ctx.fillStyle = '#0f172a';
+          ctx.fillRect(x - 18, y - 22, 36, 24);
           ctx.fillStyle = '#54a0ff';
-          ctx.fillRect(x - 12, y - 16, 24, 12);
-          // Tool icon
-          ctx.fillStyle = '#ffd166';
-          ctx.fillRect(x - 4, y - 12, 8, 4);
+          ctx.fillRect(x - 14, y - 18, 28, 12);
+          ctx.fillStyle = '#4ecca3';
+          ctx.fillRect(x - 6, y - 12, 12, 4);
           break;
 
         case 'monas':
-          // Monas Tower Replica
-          ctx.fillStyle = '#e2e8f0';
-          ctx.fillRect(x - 12, y - 6, 24, 8); // Base bowl
-          ctx.fillRect(x - 4, y - 28, 8, 24); // Shaft
-          // Golden Flame
-          ctx.fillStyle = '#ffd166';
-          ctx.fillRect(x - 3, y - 34, 6, 6);
+          // Monas National Monument Obelisk
+          ctx.fillStyle = '#f8fafc';
+          ctx.fillRect(x - 16, y - 8, 32, 10); // Base Cawan
+          ctx.fillRect(x - 5, y - 40, 10, 32); // Shaft
+          ctx.fillStyle = '#ffd166'; // Golden Flame
+          ctx.fillRect(x - 4, y - 48, 8, 8);
           break;
 
         case 'durkheim':
-          // Sociological Library & Study
-          ctx.fillStyle = '#341f97';
-          ctx.fillRect(x - 14, y - 22, 28, 24);
+          // Classical Durkheim Study & Books
+          ctx.fillStyle = '#581c87';
+          ctx.fillRect(x - 18, y - 24, 36, 26);
           ctx.fillStyle = '#ff9ff3';
-          ctx.fillRect(x - 10, y - 18, 20, 16);
-          // Mindmap dots
+          ctx.fillRect(x - 12, y - 18, 24, 14);
           ctx.fillStyle = '#fff';
-          ctx.fillRect(x - 4, y - 12, 3, 3);
-          ctx.fillRect(x + 2, y - 8, 3, 3);
+          ctx.fillRect(x - 4, y - 12, 4, 4);
+          ctx.fillRect(x + 2, y - 8, 4, 4);
           break;
 
         case 'pollution':
-          // Eco Sanctum (Tree & River nature)
-          ctx.fillStyle = '#57606f';
-          ctx.fillRect(x - 4, y - 12, 8, 14); // Trunk
-          ctx.fillStyle = '#2ed573';
+          // Eco Sanctum Nature Tree & Clean River
+          ctx.fillStyle = '#78350f';
+          ctx.fillRect(x - 4, y - 14, 8, 16);
+          ctx.fillStyle = '#22c55e';
           ctx.beginPath();
-          ctx.arc(x, y - 18, 14, 0, Math.PI * 2);
+          ctx.arc(x, y - 24, 18, 0, Math.PI * 2);
           ctx.fill();
           break;
 
         case 'contact':
-          // Satellite Comm Tower
-          ctx.fillStyle = '#718093';
-          ctx.fillRect(x - 3, y - 28, 6, 30);
+          // High Satellite Comm Tower
+          ctx.fillStyle = '#64748b';
+          ctx.fillRect(x - 3, y - 36, 6, 38);
           ctx.fillStyle = '#ef476f';
           ctx.beginPath();
-          ctx.arc(x, y - 30, 8, 0, Math.PI);
+          ctx.arc(x, y - 38, 10, 0, Math.PI);
           ctx.fill();
+          // Radiating Rings
+          ctx.strokeStyle = `rgba(239, 71, 111, ${0.5 + 0.5 * Math.sin(time * 3)})`;
+          ctx.beginPath();
+          ctx.arc(x, y - 38, 18, 0, Math.PI * 2);
+          ctx.stroke();
           break;
       }
     }
 
-    drawClickTarget(ctx, x, y) {
+    // ------------------------------------------------------------------------
+    // PLAYER CHARACTER & BLUE FIREBALL TRANSFORMATION
+    // ------------------------------------------------------------------------
+    drawPlayerCharacter(ctx) {
+      const px = this.player.x;
+      const py = this.player.y;
       const time = performance.now() * 0.006;
-      ctx.strokeStyle = '#4ecca3';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.arc(x, y, 10 + 2 * Math.sin(time), 0, Math.PI * 2);
-      ctx.stroke();
 
-      ctx.fillStyle = '#4ecca3';
-      ctx.fillRect(x - 2, y - 2, 4, 4);
-    }
+      // 1. Draw Blue Fireball State
+      if (this.player.state === 'BLUE_FIREBALL' || this.player.state === 'TRANSFORMING_IN' || this.player.state === 'TRANSFORMING_OUT') {
+        // Draw Motion Trails
+        this.player.fireballTrail.forEach(pt => {
+          ctx.fillStyle = `rgba(84, 160, 255, ${pt.alpha * 0.6})`;
+          ctx.beginPath();
+          ctx.arc(pt.x, pt.y, pt.size, 0, Math.PI * 2);
+          ctx.fill();
+        });
 
-    drawPlayer(ctx, x, y) {
+        // Pulsing Azure Core Flame
+        const pulse = 16 + 4 * Math.sin(time * 3);
+        ctx.fillStyle = 'rgba(0, 210, 211, 0.4)';
+        ctx.beginPath();
+        ctx.arc(px, py, pulse + 8, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = '#54a0ff';
+        ctx.beginPath();
+        ctx.arc(px, py, pulse, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = '#cffff0';
+        ctx.beginPath();
+        ctx.arc(px, py, pulse * 0.55, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Electric Blue Sparks
+        for (let s = 0; s < 4; s++) {
+          const spAngle = time * 4 + s * (Math.PI / 2);
+          const spDist = pulse + 6;
+          ctx.fillStyle = '#fff';
+          ctx.fillRect(px + Math.cos(spAngle) * spDist - 2, py + Math.sin(spAngle) * spDist - 2, 4, 4);
+        }
+        return;
+      }
+
+      // 2. Draw Normal Human Avatar
       const scale = 2.5;
-      const isWalk = this.player.isMoving;
-      const walkBob = isWalk ? Math.sin(this.player.walkCycle) * 2 : 0;
+      const isWalk = this.player.state === 'WALKING';
+      const walkBob = isWalk ? Math.sin(this.player.walkCycle) * 2 : Math.sin(time) * 0.8;
 
       ctx.save();
-      ctx.translate(x, y - 16 + walkBob);
+      ctx.translate(px, py - 16 + walkBob);
 
       // Character Shadow
       ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
@@ -1052,7 +1398,7 @@
       ctx.ellipse(0, 16 - walkBob, 10, 5, 0, 0, Math.PI * 2);
       ctx.fill();
 
-      // Skin & Hair
+      // Palette
       const skin = '#ffd3a5';
       const hair = '#2c1e19';
       const jacket = '#1a365d';
@@ -1066,7 +1412,7 @@
       ctx.fillStyle = skin;
       ctx.fillRect(-5 * scale / 2, -9 * scale / 2, 5 * scale, 4 * scale);
 
-      // Eyes (Directional)
+      // Eyes Directional
       ctx.fillStyle = '#111827';
       if (this.player.facing === 'down') {
         ctx.fillRect(-3 * scale / 2, -7 * scale / 2, 1.5 * scale, 1.5 * scale);
@@ -1097,6 +1443,9 @@
       ctx.restore();
     }
 
+    // ------------------------------------------------------------------------
+    // MINIMAP & BIG MAP RENDERING
+    // ------------------------------------------------------------------------
     renderMinimap() {
       const mCtx = this.minimapCtx;
       const w = this.minimapCanvas.width;
@@ -1105,28 +1454,23 @@
       mCtx.fillStyle = '#060810';
       mCtx.fillRect(0, 0, w, h);
 
-      // Radar Grid
-      mCtx.strokeStyle = '#141c30';
+      mCtx.strokeStyle = '#1e293b';
       mCtx.lineWidth = 1;
-      mCtx.beginPath();
-      mCtx.arc(w / 2, h / 2, w / 2 - 2, 0, Math.PI * 2);
-      mCtx.stroke();
+      mCtx.strokeRect(2, 2, w - 4, h - 4);
 
-      // Landmarks blips
-      const scale = (w / 2) / 750;
-      this.landmarks.forEach(lm => {
-        const blipX = w / 2 + lm.x * scale;
-        const blipY = h / 2 + lm.y * scale;
-
-        mCtx.fillStyle = lm.visited ? '#4ecca3' : '#ffd166';
-        mCtx.fillRect(blipX - 2, blipY - 2, 4, 4);
+      const scale = (w / 2) / 1000;
+      Object.values(this.destinations).forEach(dest => {
+        const bx = w / 2 + dest.x * scale;
+        const by = h / 2 + dest.y * scale;
+        mCtx.fillStyle = dest.visited ? '#4ecca3' : '#ffd166';
+        mCtx.fillRect(bx - 2, by - 2, 4, 4);
       });
 
       // Player Blip
-      const pX = w / 2 + this.player.x * scale;
-      const pY = h / 2 + this.player.y * scale;
-      mCtx.fillStyle = '#54a0ff';
-      mCtx.fillRect(pX - 2.5, pY - 2.5, 5, 5);
+      const px = w / 2 + this.player.x * scale;
+      const py = h / 2 + this.player.y * scale;
+      mCtx.fillStyle = this.player.state === 'BLUE_FIREBALL' ? '#00d2d3' : '#54a0ff';
+      mCtx.fillRect(px - 2.5, py - 2.5, 5, 5);
     }
 
     renderBigMap() {
@@ -1138,67 +1482,60 @@
       bCtx.fillRect(0, 0, w, h);
 
       // CRT Grid
-      bCtx.strokeStyle = '#131b2e';
+      bCtx.strokeStyle = '#111827';
       bCtx.lineWidth = 1;
       for (let x = 0; x < w; x += 30) {
-        bCtx.beginPath();
-        bCtx.moveTo(x, 0);
-        bCtx.lineTo(x, h);
-        bCtx.stroke();
+        bCtx.beginPath(); bCtx.moveTo(x, 0); bCtx.lineTo(x, h); bCtx.stroke();
       }
       for (let y = 0; y < h; y += 30) {
-        bCtx.beginPath();
-        bCtx.moveTo(0, y);
-        bCtx.lineTo(w, y);
-        bCtx.stroke();
+        bCtx.beginPath(); bCtx.moveTo(0, y); bCtx.lineTo(w, y); bCtx.stroke();
       }
 
-      // Center crosshair
-      bCtx.strokeStyle = '#2b3a5e';
+      // Center Axes
+      bCtx.strokeStyle = '#1e293b';
       bCtx.beginPath();
       bCtx.moveTo(w / 2, 0); bCtx.lineTo(w / 2, h);
       bCtx.moveTo(0, h / 2); bCtx.lineTo(w, h / 2);
       bCtx.stroke();
 
-      // Landmark Nodes
-      const scale = (w / 2) / 600;
-      this.landmarks.forEach(lm => {
-        const nodeX = w / 2 + lm.x * scale;
-        const nodeY = h / 2 + lm.y * scale;
+      const scale = (w / 2) / 1100;
+      Object.values(this.destinations).forEach(dest => {
+        const nx = w / 2 + dest.x * scale;
+        const ny = h / 2 + dest.y * scale;
 
-        // Node line to center
-        bCtx.strokeStyle = '#1a243d';
+        // Path Line to center
+        bCtx.strokeStyle = '#1e293b';
         bCtx.beginPath();
         bCtx.moveTo(w / 2, h / 2);
-        bCtx.lineTo(nodeX, nodeY);
+        bCtx.lineTo(nx, ny);
         bCtx.stroke();
 
-        // Node circle
-        bCtx.fillStyle = lm.visited ? '#4ecca3' : '#ffd166';
+        // Node Circle
+        bCtx.fillStyle = dest.visited ? '#4ecca3' : '#ffd166';
         bCtx.beginPath();
-        bCtx.arc(nodeX, nodeY, 6, 0, Math.PI * 2);
+        bCtx.arc(nx, ny, 6, 0, Math.PI * 2);
         bCtx.fill();
 
         // Label
         bCtx.fillStyle = '#e2e8f0';
-        bCtx.font = '7px "Press Start 2P", monospace';
+        bCtx.font = '6.5px "Press Start 2P", monospace';
         bCtx.textAlign = 'center';
-        bCtx.fillText(lm.name, nodeX, nodeY + 14);
+        bCtx.fillText(dest.name, nx, ny + 14);
       });
 
-      // Player Marker (Flashing)
-      const pNodeX = w / 2 + this.player.x * scale;
-      const pNodeY = h / 2 + this.player.y * scale;
+      // Player Marker
+      const pnx = w / 2 + this.player.x * scale;
+      const pny = h / 2 + this.player.y * scale;
       const time = performance.now() * 0.005;
 
       bCtx.strokeStyle = '#54a0ff';
       bCtx.lineWidth = 2;
       bCtx.beginPath();
-      bCtx.arc(pNodeX, pNodeY, 8 + 2 * Math.sin(time), 0, Math.PI * 2);
+      bCtx.arc(pnx, pny, 8 + 2 * Math.sin(time), 0, Math.PI * 2);
       bCtx.stroke();
 
       bCtx.fillStyle = '#fff';
-      bCtx.fillRect(pNodeX - 2, pNodeY - 2, 4, 4);
+      bCtx.fillRect(pnx - 2, pny - 2, 4, 4);
     }
 
     loop() {
@@ -1209,10 +1546,10 @@
   }
 
   // --------------------------------------------------------------------------
-  // 5. MODAL & DIALOG SYSTEM
+  // 5. MODAL & QUICK VIEW MANAGER
   // --------------------------------------------------------------------------
   let currentProjectIndex = 1;
-  const game = new GameRealm();
+  const game = new ImmersiveRealm();
 
   function openModal(modalId) {
     const backdrop = document.getElementById('modal-backdrop');
@@ -1220,9 +1557,7 @@
 
     if (!modal) return;
 
-    // Close any already open modal
     document.querySelectorAll('.modal-window').forEach(m => m.classList.add('hidden'));
-
     backdrop.classList.remove('hidden');
     modal.classList.remove('hidden');
     game.activeModal = modalId;
@@ -1314,7 +1649,6 @@
   function toggleQuickView(show) {
     const overlay = document.getElementById('quickview-overlay');
     if (!overlay) return;
-
     if (show) {
       overlay.classList.remove('hidden');
       sfx.click();
@@ -1376,90 +1710,95 @@
   }
 
   // --------------------------------------------------------------------------
-  // 6. INITIALIZATION & EVENT ATTACHMENTS
+  // 6. INITIALIZATION & EVENT LISTENERS
   // --------------------------------------------------------------------------
   document.addEventListener('DOMContentLoaded', () => {
-    // 1. Draw Static Avatars
-    const preloaderAvatar = document.getElementById('preloader-avatar-canvas');
-    if (preloaderAvatar) drawPixelAvatar(preloaderAvatar.getContext('2d'), 64);
+    // 1. Render Static Pixel Avatars
+    const cinAvatar = document.getElementById('cinematic-avatar-canvas');
+    if (cinAvatar) drawPixelAvatar(cinAvatar.getContext('2d'), 64);
 
     const aboutAvatar = document.getElementById('about-avatar-canvas');
     if (aboutAvatar) drawPixelAvatar(aboutAvatar.getContext('2d'), 80);
 
-    const hudAvatar = document.getElementById('hud-avatar-mini');
-    if (hudAvatar) hudAvatar.textContent = '👾';
-
-    // 2. Populate Document / Quick View Projects
+    // 2. Render Accessible Quick View Project Data
     renderQuickViewProjects();
 
-    // 3. Setup Preloader Progress Bar Simulation
+    // 3. Opening Cinematic Boot Sequence
     const fillEl = document.getElementById('progress-fill');
     const textEl = document.getElementById('loading-text');
-    const actionsEl = document.getElementById('gate-actions');
-    const loadingContainer = document.getElementById('loading-container');
+    const actionsEl = document.getElementById('cinematic-actions');
+    const loaderEl = document.getElementById('cinematic-loader');
 
     let progress = 0;
-    const loadInterval = setInterval(() => {
+    const loadInt = setInterval(() => {
       progress += Math.floor(Math.random() * 25) + 15;
       if (progress >= 100) {
         progress = 100;
-        clearInterval(loadInterval);
+        clearInterval(loadInt);
         fillEl.style.width = '100%';
         textEl.textContent = 'REALM READY // 100%';
 
         setTimeout(() => {
-          loadingContainer.classList.add('hidden');
+          loaderEl.classList.add('hidden');
           actionsEl.classList.remove('hidden');
-        }, 300);
+        }, 200);
       } else {
         fillEl.style.width = `${progress}%`;
         textEl.textContent = `LOADING REALM... ${progress}%`;
       }
-    }, 120);
+    }, 100);
 
-    // 4. Start Game Button
-    const btnStart = document.getElementById('btn-start-game');
-    const preloaderGate = document.getElementById('preloader-gate');
-    if (btnStart) {
-      btnStart.addEventListener('click', () => {
+    // 4. Enter World Button -> Starts Journey Game
+    const btnEnter = document.getElementById('btn-enter-world');
+    const cinematicLayer = document.getElementById('cinematic-layer');
+    if (btnEnter) {
+      btnEnter.addEventListener('click', () => {
         sfx.init();
-        sfx.interact();
-        preloaderGate.style.opacity = '0';
+        sfx.arrivalFanfare();
+        cinematicLayer.style.opacity = '0';
         setTimeout(() => {
-          preloaderGate.classList.add('hidden');
+          cinematicLayer.classList.add('hidden');
           game.start();
         }, 500);
       });
     }
 
-    // 5. Gate Quick View Button
+    // 5. Direct Quick View Gate Button
     const btnGateQuick = document.getElementById('btn-gate-quickview');
     if (btnGateQuick) {
       btnGateQuick.addEventListener('click', () => {
         sfx.init();
-        preloaderGate.classList.add('hidden');
+        cinematicLayer.classList.add('hidden');
         game.start();
         toggleQuickView(true);
       });
     }
 
-    // 6. HUD Nav Buttons
-    const hudMap = {
-      'hud-btn-about': 'modal-about',
-      'hud-btn-skills': 'modal-skills',
-      'hud-btn-projects': 'modal-all-projects',
-      'hud-btn-contact': 'modal-contact',
-      'hud-btn-map': 'modal-map'
-    };
-
-    Object.keys(hudMap).forEach(btnId => {
-      const btn = document.getElementById(btnId);
-      if (btn) {
-        btn.addEventListener('click', () => {
-          openModal(hudMap[btnId]);
-        });
-      }
+    // 6. HUD Destination Buttons -> Real Journey Navigation
+    document.querySelectorAll('.hud-nav button[data-dest]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const destId = e.currentTarget.getAttribute('data-dest');
+        if (destId) {
+          game.initiateJourney(destId);
+        }
+      });
     });
+
+    // Map Button
+    const mapBtn = document.getElementById('hud-btn-map');
+    if (mapBtn) {
+      mapBtn.addEventListener('click', () => {
+        openModal('modal-map');
+      });
+    }
+
+    // Minimap Radar Click -> Opens Big Map
+    const minimapBox = document.getElementById('minimap-container');
+    if (minimapBox) {
+      minimapBox.addEventListener('click', () => {
+        openModal('modal-map');
+      });
+    }
 
     // SFX Toggle
     const sfxBtn = document.getElementById('hud-btn-sfx');
@@ -1475,30 +1814,21 @@
     // View Mode Toggle (Docs)
     const viewBtn = document.getElementById('hud-btn-viewmode');
     if (viewBtn) {
-      viewBtn.addEventListener('click', () => {
-        toggleQuickView(true);
-      });
+      viewBtn.addEventListener('click', () => toggleQuickView(true));
     }
-
     const exitDocsBtn = document.getElementById('btn-exit-quickview');
     if (exitDocsBtn) {
-      exitDocsBtn.addEventListener('click', () => {
-        toggleQuickView(false);
-      });
+      exitDocsBtn.addEventListener('click', () => toggleQuickView(false));
     }
 
     // 7. Modal Close Buttons
     document.querySelectorAll('.modal-close-btn, .modal-close-action').forEach(btn => {
-      btn.addEventListener('click', () => {
-        closeAllModals();
-      });
+      btn.addEventListener('click', () => closeAllModals());
     });
 
     const backdrop = document.getElementById('modal-backdrop');
     if (backdrop) {
-      backdrop.addEventListener('click', () => {
-        closeAllModals();
-      });
+      backdrop.addEventListener('click', () => closeAllModals());
     }
 
     // 8. Project Switcher (Prev / Next)
@@ -1520,16 +1850,6 @@
         sfx.click();
       });
     }
-
-    // 9. All Projects Modal Item Triggers
-    document.querySelectorAll('.open-proj-trigger').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const targetId = parseInt(e.currentTarget.getAttribute('data-target'), 10);
-        if (targetId) {
-          openProjectModal(targetId);
-        }
-      });
-    });
   });
 
 })();

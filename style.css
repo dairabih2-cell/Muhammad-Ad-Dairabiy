@@ -1,6 +1,6 @@
 /* ==========================================================================
-   MUHAMMAD AD DAIRABIY // PIXEL ART INTERACTIVE PORTFOLIO
-   Design Philosophy: 16-Bit Retro Digital Realm & Peter Oravec Concept
+   MUHAMMAD AD DAIRABIY // IMMERSIVE PIXEL REALM
+   Design Philosophy: 16-Bit Interactive World & Journey-to-Content Navigation
    Dominant Typography: 'Press Start 2P', monospace
    ========================================================================== */
 
@@ -10,36 +10,33 @@
 :root {
   /* Typography */
   --font-pixel: 'Press Start 2P', monospace;
-  --font-body: 'Press Start 2P', monospace;
 
   /* Color Palette */
-  --bg-space: #0a0c14;
-  --bg-dark: #0f121e;
-  --bg-panel: #151a2d;
-  --bg-panel-inset: #0e1220;
-  --bg-highlight: #1d243e;
+  --bg-space: #070911;
+  --bg-dark: #0c0f1d;
+  --bg-panel: #141829;
+  --bg-panel-inset: #0d111e;
+  --bg-highlight: #1c233c;
 
-  --border-dim: #2b3558;
-  --border-main: #435285;
-  --border-bright: #6c82c5;
-  --border-pixel: 3px solid var(--border-main);
+  --border-dim: #252e4d;
+  --border-main: #3d4a75;
+  --border-bright: #647ab8;
 
   /* Accents */
   --accent-mint: #4ecca3;
   --accent-gold: #ffd166;
   --accent-red: #ef476f;
-  --accent-blue: #268bd2;
+  --accent-blue: #54a0ff;
+  --accent-fire: #00d2d3;
   --accent-purple: #9b5de5;
 
   /* Text Colors */
   --text-pure: #ffffff;
   --text-main: #e2e8f0;
-  --text-dim: #8b9bb4;
-  --text-muted: #5e6d8a;
+  --text-dim: #8c9cb6;
+  --text-muted: #57657e;
 
-  /* Sizing & Transitions */
-  --pixel-unit: 4px;
-  --radius-pixel: 0px;
+  /* Transitions */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.25s ease;
 }
@@ -101,16 +98,16 @@ html, body {
 }
 
 /* --------------------------------------------------------------------------
-   3. PIXEL BOXES & RETRO FRAMES (NES / 16-BIT BORDERS)
+   3. PIXEL BOXES & RETRO FRAMES (NES / 16-BIT)
    -------------------------------------------------------------------------- */
 .pixel-box {
   background: var(--bg-panel);
   border: 3px solid var(--border-main);
   box-shadow:
-    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.4),
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.45),
     inset 3px 3px 0px 0px rgba(255, 255, 255, 0.08),
     0 8px 0 -2px var(--bg-space),
-    0 8px 16px rgba(0, 0, 0, 0.6);
+    0 8px 18px rgba(0, 0, 0, 0.7);
   position: relative;
 }
 
@@ -120,14 +117,14 @@ html, body {
   box-shadow:
     inset -2px -2px 0px 0px rgba(0, 0, 0, 0.4),
     inset 2px 2px 0px 0px rgba(255, 255, 255, 0.08),
-    0 4px 8px rgba(0, 0, 0, 0.4);
+    0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .pixel-box-inset {
   background: var(--bg-panel-inset);
   border: 2px solid var(--border-dim);
   box-shadow:
-    inset 2px 2px 0px 0px rgba(0, 0, 0, 0.5),
+    inset 2px 2px 0px 0px rgba(0, 0, 0, 0.6),
     inset -1px -1px 0px 0px rgba(255, 255, 255, 0.05);
 }
 
@@ -160,8 +157,8 @@ html, body {
 }
 
 .pixel-btn-sm {
-  padding: 8px 12px;
-  font-size: 9px;
+  padding: 8px 10px;
+  font-size: 8.5px;
   line-height: 1;
 }
 
@@ -178,9 +175,9 @@ html, body {
 }
 
 .pixel-btn.btn-primary {
-  background: #144e3f;
+  background: #104437;
   border-color: var(--accent-mint);
-  color: #cffff0;
+  color: #d7fff3;
 }
 .pixel-btn.btn-primary:hover {
   background: var(--accent-mint);
@@ -188,7 +185,7 @@ html, body {
 }
 
 .pixel-btn.btn-secondary {
-  background: #232d4b;
+  background: #1f2742;
   border-color: var(--border-bright);
   color: var(--text-main);
 }
@@ -213,7 +210,7 @@ html, body {
 }
 
 /* --------------------------------------------------------------------------
-   5. CRT SCANLINES & VIGNETTE EFFECT
+   5. CRT SCANLINES OVERLAY
    -------------------------------------------------------------------------- */
 .crt-overlay {
   position: fixed;
@@ -223,33 +220,35 @@ html, body {
   height: 100vh;
   pointer-events: none;
   z-index: 9999;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-              radial-gradient(circle at center, transparent 65%, rgba(0, 0, 0, 0.6) 100%);
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.22) 50%),
+              radial-gradient(circle at center, transparent 65%, rgba(0, 0, 0, 0.65) 100%);
   background-size: 100% 4px, 100% 100%;
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 /* --------------------------------------------------------------------------
-   6. PRELOADER & TITLE SCREEN (PLAY GATE)
+   6. OPENING CINEMATIC LAYER
    -------------------------------------------------------------------------- */
-.preloader-gate {
+.cinematic-layer {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle at center, #182038 0%, #080a12 100%);
+  background: rgba(7, 9, 17, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 5000;
   padding: 20px;
   opacity: 1;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.6s ease;
 }
 
-.title-panel {
-  max-width: 580px;
+.cinematic-card {
+  max-width: 560px;
   width: 100%;
   padding: 32px 24px;
   text-align: center;
@@ -257,39 +256,50 @@ html, body {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  animation: cinematicCardIn 0.5s ease;
+}
+@keyframes cinematicCardIn {
+  0% { transform: scale(0.92) translateY(20px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
 }
 
-.title-avatar-wrap {
+.cinematic-badge {
+  font-size: 7.5px;
+  color: var(--accent-gold);
+  background: var(--bg-dark);
+  border: 1px solid var(--accent-gold);
+  padding: 4px 8px;
+}
+
+.cinematic-avatar-wrap {
   width: 72px;
   height: 72px;
   background: var(--bg-dark);
-  border: 2px solid var(--accent-mint);
+  border: 2px solid var(--accent-blue);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 15px rgba(78, 204, 163, 0.3);
-  margin-top: 4px;
+  box-shadow: 0 0 16px rgba(84, 160, 255, 0.4);
 }
 
-.main-title {
-  font-size: 28px;
+.cinematic-title {
+  font-size: 30px;
   color: var(--accent-gold);
   letter-spacing: 2px;
-  text-shadow: 3px 3px 0px #9e2a2b, 5px 5px 0px rgba(0,0,0,0.8);
+  text-shadow: 3px 3px 0px #b33939, 5px 5px 0px rgba(0,0,0,0.8);
 }
 
-.sub-role {
+.cinematic-role {
   font-size: 9px;
   color: var(--accent-mint);
   letter-spacing: 1px;
-  line-height: 1.5;
 }
 
-.tagline-box {
+.cinematic-tagline {
   background: var(--bg-dark);
   border: 1px solid var(--border-dim);
   padding: 10px 16px;
-  font-size: 9px;
+  font-size: 8.5px;
   color: var(--text-dim);
   max-width: 440px;
 }
@@ -297,40 +307,36 @@ html, body {
   color: var(--accent-gold);
 }
 
-.loading-container {
+.cinematic-loader {
   width: 100%;
-  max-width: 380px;
-  margin-top: 10px;
+  max-width: 360px;
+  margin-top: 6px;
 }
-
 .pixel-progress-bar {
   height: 16px;
   background: var(--bg-dark);
   border: 2px solid var(--border-bright);
   padding: 2px;
 }
-
 .progress-fill {
   width: 0%;
   height: 100%;
-  background: linear-gradient(90deg, #144e3f, var(--accent-mint));
-  transition: width 0.15s linear;
+  background: linear-gradient(90deg, #104437, var(--accent-mint));
+  transition: width 0.1s linear;
 }
-
 .loading-status {
   font-size: 8px;
   color: var(--text-dim);
-  margin-top: 8px;
-  letter-spacing: 0.5px;
+  margin-top: 6px;
 }
 
-.gate-actions {
+.cinematic-actions {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
   max-width: 320px;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 .pulse-glow {
@@ -338,14 +344,14 @@ html, body {
 }
 @keyframes pulseGlow {
   0%, 100% { box-shadow: 0 0 10px rgba(78, 204, 163, 0.4); }
-  50% { box-shadow: 0 0 22px rgba(78, 204, 163, 0.8); }
+  50% { box-shadow: 0 0 24px rgba(78, 204, 163, 0.85); }
 }
 
-.gate-escape {
-  margin-top: 10px;
+.cinematic-escape {
+  margin-top: 8px;
   border-top: 1px dashed var(--border-dim);
-  padding-top: 12px;
-  font-size: 8px;
+  padding-top: 10px;
+  font-size: 7.5px;
   color: var(--text-muted);
 }
 .escape-hint {
@@ -361,15 +367,14 @@ html, body {
   color: var(--accent-gold);
   text-decoration: none;
   font-size: 8px;
-  transition: color var(--transition-fast);
 }
 .escape-link:hover {
-  color: #fff;
   text-decoration: underline;
+  color: #fff;
 }
 
 /* --------------------------------------------------------------------------
-   7. GAME VIEWPORT & CANVAS REALM
+   7. GAME VIEWPORT & CANVAS
    -------------------------------------------------------------------------- */
 .game-viewport {
   position: absolute;
@@ -378,7 +383,7 @@ html, body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #080a11;
+  background: #060810;
 }
 
 #realm-canvas {
@@ -401,7 +406,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
   pointer-events: none;
   z-index: 100;
 }
@@ -409,20 +414,20 @@ html, body {
 .hud-player {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 6px 10px;
   pointer-events: auto;
 }
 
 .hud-avatar-mini {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   background: var(--bg-dark);
-  border: 1px solid var(--accent-mint);
+  border: 1px solid var(--accent-blue);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .hud-info {
@@ -430,21 +435,18 @@ html, body {
   flex-direction: column;
   gap: 2px;
 }
-
 .hud-name {
-  font-size: 9px;
+  font-size: 8.5px;
   color: var(--accent-gold);
 }
-
 .hud-zone {
   font-size: 7px;
   color: var(--accent-mint);
-  letter-spacing: 0.5px;
 }
 
 .hud-coords {
   padding: 6px 10px;
-  font-size: 8px;
+  font-size: 7.5px;
   color: var(--text-dim);
   pointer-events: auto;
 }
@@ -452,7 +454,7 @@ html, body {
 .hud-nav {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   pointer-events: auto;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -467,12 +469,45 @@ html, body {
   color: var(--bg-space);
 }
 
+/* Travel Status Ticker Bar */
+.travel-status-bar {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 120;
+  animation: travelBounce 1.2s infinite ease-in-out;
+}
+@keyframes travelBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-6px); }
+}
+
+.travel-status-inner {
+  padding: 8px 16px;
+  background: rgba(12, 16, 29, 0.95);
+  border: 2px solid var(--accent-blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 8.5px;
+  box-shadow: 0 0 16px rgba(84, 160, 255, 0.6);
+}
+.travel-icon {
+  font-size: 14px;
+}
+.travel-text {
+  color: var(--accent-fire);
+}
+
 /* --------------------------------------------------------------------------
    9. INTERACTION PROMPT
    -------------------------------------------------------------------------- */
 .interact-prompt {
   position: absolute;
-  top: 40%;
+  top: 38%;
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -486,14 +521,14 @@ html, body {
 
 .prompt-card {
   padding: 10px 16px;
-  background: rgba(14, 18, 32, 0.95);
+  background: rgba(12, 16, 30, 0.95);
   border: 2px solid var(--accent-gold);
   color: var(--accent-gold);
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 9px;
-  box-shadow: 0 0 15px rgba(255, 209, 102, 0.4);
+  font-size: 8.5px;
+  box-shadow: 0 0 15px rgba(255, 209, 102, 0.45);
 }
 .prompt-key {
   color: var(--accent-mint);
@@ -517,9 +552,9 @@ html, body {
 
 .hud-hint {
   padding: 8px 14px;
-  font-size: 8px;
+  font-size: 7.5px;
   color: var(--text-dim);
-  background: rgba(21, 26, 45, 0.85);
+  background: rgba(20, 24, 41, 0.88);
   pointer-events: auto;
 }
 .hint-key {
@@ -529,7 +564,7 @@ html, body {
 .minimap-container {
   width: 106px;
   height: 106px;
-  background: rgba(14, 18, 32, 0.9);
+  background: rgba(12, 16, 29, 0.92);
   padding: 3px;
   cursor: pointer;
   pointer-events: auto;
@@ -579,10 +614,10 @@ html, body {
 }
 
 .joystick-base {
-  width: 110px;
-  height: 110px;
+  width: 105px;
+  height: 105px;
   border-radius: 50%;
-  background: rgba(21, 26, 45, 0.65);
+  background: rgba(20, 24, 41, 0.65);
   border: 3px solid var(--border-main);
   position: absolute;
   top: 50%;
@@ -595,8 +630,8 @@ html, body {
 }
 
 .joystick-thumb {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: var(--accent-mint);
   border: 2px solid #fff;
@@ -611,17 +646,17 @@ html, body {
 }
 
 .touch-action-btn {
-  width: 76px;
-  height: 76px;
+  width: 72px;
+  height: 72px;
   border-radius: 8px;
-  background: #144e3f;
+  background: #104437;
   border: 3px solid var(--accent-mint);
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 3px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
   cursor: pointer;
   touch-action: manipulation;
@@ -629,14 +664,14 @@ html, body {
 .touch-action-btn:active {
   background: var(--accent-mint);
   color: var(--bg-space);
-  transform: scale(0.95);
+  transform: scale(0.94);
 }
 .touch-btn-label {
-  font-size: 8px;
+  font-size: 7.5px;
   font-family: var(--font-pixel);
 }
 .touch-btn-sub {
-  font-size: 7px;
+  font-size: 6.5px;
   color: var(--accent-gold);
 }
 
@@ -649,7 +684,7 @@ html, body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(8, 10, 18, 0.75);
+  background: rgba(6, 8, 16, 0.8);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   z-index: 1000;
@@ -668,10 +703,10 @@ html, body {
   max-height: 88vh;
   display: flex;
   flex-direction: column;
-  animation: modalPop 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: modalArrivalPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-@keyframes modalPop {
-  0% { transform: translate(-50%, -46%) scale(0.94); opacity: 0; }
+@keyframes modalArrivalPop {
+  0% { transform: translate(-50%, -46%) scale(0.92); opacity: 0; }
   100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
@@ -708,7 +743,7 @@ html, body {
 }
 
 .modal-title {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--accent-gold);
   letter-spacing: 1px;
 }
@@ -729,7 +764,7 @@ html, body {
   padding-right: 8px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .modal-footer {
@@ -740,7 +775,7 @@ html, body {
   justify-content: flex-end;
 }
 
-/* About Modal Elements */
+/* About Elements */
 .about-hero-card {
   display: flex;
   align-items: center;
@@ -758,7 +793,7 @@ html, body {
   flex-shrink: 0;
 }
 .about-name {
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--accent-gold);
   margin-bottom: 4px;
 }
@@ -778,13 +813,13 @@ html, body {
   gap: 8px;
 }
 .section-label {
-  font-size: 9px;
+  font-size: 8.5px;
   color: var(--accent-mint);
   border-left: 3px solid var(--accent-mint);
   padding-left: 6px;
 }
 .dialogue-p {
-  font-size: 9.5px;
+  font-size: 9px;
   line-height: 1.8;
   color: var(--text-main);
 }
@@ -794,7 +829,7 @@ html, body {
   padding: 10px 12px;
 }
 
-/* Skills Modal Elements */
+/* Skills Elements */
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -806,22 +841,22 @@ html, body {
 .skill-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 6px;
 }
 .skill-num {
-  font-size: 10px;
+  font-size: 9.5px;
   color: var(--accent-gold);
   background: var(--bg-dark);
   padding: 3px 6px;
   border: 1px solid var(--border-dim);
 }
 .skill-title {
-  font-size: 10px;
+  font-size: 9.5px;
   color: #fff;
 }
 .skill-desc {
-  font-size: 8.5px;
+  font-size: 8px;
   line-height: 1.6;
   color: var(--text-dim);
 }
@@ -871,7 +906,7 @@ html, body {
   color: var(--accent-gold);
 }
 .proj-headline {
-  font-size: 13px;
+  font-size: 12px;
   color: #fff;
   line-height: 1.4;
 }
@@ -882,7 +917,7 @@ html, body {
   margin-top: 6px;
   padding-top: 8px;
   border-top: 1px dashed var(--border-dim);
-  font-size: 8px;
+  font-size: 7.5px;
 }
 .proj-meta-item strong {
   color: var(--accent-gold);
@@ -918,11 +953,11 @@ html, body {
   gap: 6px;
 }
 .proj-section-block h4 {
-  font-size: 9px;
+  font-size: 8.5px;
   color: var(--accent-mint);
 }
 .proj-section-block p {
-  font-size: 8.5px;
+  font-size: 8px;
   line-height: 1.7;
   color: var(--text-main);
 }
@@ -937,58 +972,8 @@ html, body {
   gap: 10px;
 }
 .proj-counter {
-  font-size: 9px;
+  font-size: 8.5px;
   color: var(--accent-gold);
-}
-
-/* Projects Stack List in Modal */
-.project-cards-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 8px;
-}
-.proj-summary-card {
-  display: flex;
-  gap: 14px;
-  padding: 12px;
-  align-items: center;
-}
-.proj-card-thumb {
-  width: 110px;
-  height: 90px;
-  background: var(--bg-dark);
-  border: 1px solid var(--border-main);
-  flex-shrink: 0;
-  overflow: hidden;
-}
-.proj-card-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.proj-card-info {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  flex-grow: 1;
-}
-.proj-meta-pill {
-  font-size: 7px;
-  color: var(--accent-gold);
-}
-.proj-card-title {
-  font-size: 10px;
-  color: #fff;
-}
-.proj-card-cat {
-  font-size: 7.5px;
-  color: var(--accent-mint);
-}
-.proj-card-brief {
-  font-size: 8px;
-  line-height: 1.5;
-  color: var(--text-dim);
 }
 
 /* Contact Modal */
@@ -996,7 +981,7 @@ html, body {
   padding: 16px;
 }
 .contact-headline {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--accent-gold);
   margin-bottom: 6px;
 }
@@ -1036,7 +1021,7 @@ html, body {
   color: var(--accent-mint);
 }
 .contact-val {
-  font-size: 9px;
+  font-size: 8.5px;
   color: #fff;
 }
 .contact-arrow {
@@ -1046,7 +1031,7 @@ html, body {
 
 /* CRT Map Modal */
 .crt-map-frame {
-  background: #090d18;
+  background: #080b16;
 }
 .map-modal-body {
   align-items: center;
@@ -1078,11 +1063,11 @@ html, body {
   width: 100%;
   max-width: 640px;
   height: 340px;
-  background: #060810;
+  background: #04060c;
   border: 3px solid var(--border-bright);
   position: relative;
   overflow: hidden;
-  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.95);
 }
 #big-map-canvas {
   width: 100%;
@@ -1105,6 +1090,7 @@ html, body {
   font-size: 7px;
   color: var(--accent-gold);
   letter-spacing: 0.5px;
+  margin-top: 4px;
 }
 
 /* --------------------------------------------------------------------------
@@ -1145,7 +1131,7 @@ html, body {
   font-weight: bold;
 }
 .brand-title {
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--accent-gold);
 }
 
@@ -1191,7 +1177,7 @@ html, body {
   max-width: 500px;
 }
 .doc-quote {
-  font-size: 8.5px;
+  font-size: 8px;
   color: var(--text-dim);
 }
 
@@ -1206,7 +1192,7 @@ html, body {
   font-size: 16px;
 }
 .doc-sec-title {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--accent-gold);
 }
 
@@ -1214,7 +1200,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  font-size: 9px;
+  font-size: 8.5px;
   line-height: 1.8;
 }
 .doc-highlight-card {
@@ -1235,7 +1221,7 @@ html, body {
   padding: 12px;
 }
 .doc-num {
-  font-size: 10px;
+  font-size: 9.5px;
   color: var(--accent-gold);
   background: var(--bg-dark);
   padding: 4px 6px;
@@ -1243,17 +1229,17 @@ html, body {
   flex-shrink: 0;
 }
 .doc-skill-card h3 {
-  font-size: 9.5px;
+  font-size: 9px;
   color: #fff;
   margin-bottom: 4px;
 }
 .doc-skill-card p {
-  font-size: 8px;
+  font-size: 7.5px;
   line-height: 1.6;
   color: var(--text-dim);
 }
 .doc-tools-subtitle {
-  font-size: 8.5px;
+  font-size: 8px;
   color: var(--accent-mint);
   margin-bottom: 6px;
 }
@@ -1271,7 +1257,7 @@ html, body {
 }
 
 .doc-footer {
-  font-size: 8px;
+  font-size: 7.5px;
   color: var(--text-muted);
   padding-top: 20px;
   border-top: 1px dashed var(--border-dim);
@@ -1306,16 +1292,16 @@ html, body {
     display: none;
   }
   .hud-nav .hud-btn {
-    padding: 6px 8px;
+    padding: 6px 7px;
     font-size: 8px;
   }
   .hud-nav .hud-btn-icon {
     margin: 0;
   }
-  .main-title {
-    font-size: 20px;
+  .cinematic-title {
+    font-size: 22px;
   }
-  .sub-role {
+  .cinematic-role {
     font-size: 7.5px;
   }
   .modal-window {
@@ -1325,20 +1311,12 @@ html, body {
   .modal-frame {
     padding: 12px;
   }
-  .proj-summary-card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .proj-card-thumb {
-    width: 100%;
-    height: 120px;
-  }
   .proj-meta-grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* Reduced Motion Support */
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

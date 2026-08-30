@@ -6,14 +6,14 @@
   <meta name="description" content="Portofolio Interaktif Pixel Art Muhammad Ad Dairabiy (Abiy) - Siswa, Desainer, dan Editor Video. Menjelajahi dunia digital, desain grafis, video editing, dan proyek kreatif.">
   <meta name="keywords" content="Muhammad Ad Dairabiy, Abiy, Portofolio Pixel Art, Siswa SMAN 70, Video Editor, Desain Grafis, UI UX, Web Development">
   <meta name="author" content="Muhammad Ad Dairabiy">
-  <meta name="theme-color" content="#0c0e17">
+  <meta name="theme-color" content="#0a0c14">
 
-  <title>Muhammad Ad Dairabiy | Digital Realm Portfolio</title>
+  <title>Muhammad Ad Dairabiy | Immersive Pixel Realm</title>
 
   <!-- Favicon Pixel -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><rect width=%2216%22 height=%2216%22 fill=%22%230c0e17%22/><rect x=%223%22 y=%223%22 width=%2210%22 height=%2210%22 fill=%22%234ecca3%22/><rect x=%225%22 y=%225%22 width=%226%22 height=%226%22 fill=%22%230c0e17%22/><rect x=%227%22 y=%227%22 width=%222%22 height=%222%22 fill=%22%23ffd166%22/></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><rect width=%2216%22 height=%2216%22 fill=%22%230a0c14%22/><rect x=%223%22 y=%223%22 width=%2210%22 height=%2210%22 fill=%22%234ecca3%22/><rect x=%225%22 y=%225%22 width=%226%22 height=%226%22 fill=%22%230a0c14%22/><rect x=%227%22 y=%227%22 width=%222%22 height=%222%22 fill=%22%2354a0ff%22/></svg>">
 
-  <!-- Google Font: Press Start 2P (Primary Dominant Pixel Font) -->
+  <!-- Google Font: Press Start 2P -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -23,55 +23,55 @@
 </head>
 <body class="pixel-theme">
 
-  <!-- CRT Scanlines & Vignette Overlay (Toggleable) -->
+  <!-- CRT Scanlines Overlay -->
   <div class="crt-overlay" id="crt-overlay" aria-hidden="true"></div>
 
-  <!-- 1. PRELOADER & TITLE SCREEN (PETER ORAVEC INSPIRED PLAY GATE) -->
-  <div class="preloader-gate" id="preloader-gate">
-    <div class="title-panel pixel-box">
-      <div class="pixel-badge status-pulse">REALM v2.6 // 2026</div>
-      
-      <div class="title-avatar-wrap">
-        <canvas id="preloader-avatar-canvas" width="64" height="64"></canvas>
+  <!-- 1. OPENING CINEMATIC & TITLE SCREEN -->
+  <div class="cinematic-layer" id="cinematic-layer">
+    <div class="cinematic-card pixel-box" id="cinematic-card">
+      <div class="cinematic-badge status-pulse">ABIY DIGITAL WORLD // 2026</div>
+
+      <div class="cinematic-avatar-wrap">
+        <canvas id="cinematic-avatar-canvas" width="64" height="64"></canvas>
       </div>
 
-      <h1 class="main-title">ABIY</h1>
-      <p class="sub-role">SISWA · DESAINER · EDITOR VIDEO</p>
+      <h1 class="cinematic-title">Abiy</h1>
+      <p class="cinematic-role">Siswa · Desainer · Editor Video</p>
       
-      <div class="tagline-box">
+      <div class="cinematic-tagline">
         <span class="type-quote">“</span>Menciptakan pengalaman digital dan konten visual.<span class="type-quote">”</span>
       </div>
 
-      <!-- Loading Bar -->
-      <div class="loading-container" id="loading-container">
+      <!-- Loading / Progress bar during initial boot -->
+      <div class="cinematic-loader" id="cinematic-loader">
         <div class="pixel-progress-bar">
           <div class="progress-fill" id="progress-fill"></div>
         </div>
         <div class="loading-status" id="loading-text">LOADING REALM... 0%</div>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="gate-actions hidden" id="gate-actions">
-        <button type="button" class="pixel-btn btn-primary btn-large pulse-glow" id="btn-start-game">
-          <span class="btn-icon">▶</span> START GAME
+      <!-- Action Buttons Once Ready -->
+      <div class="cinematic-actions hidden" id="cinematic-actions">
+        <button type="button" class="pixel-btn btn-primary btn-large pulse-glow" id="btn-enter-world">
+          <span class="btn-icon">▶</span> ENTER WORLD
         </button>
         <button type="button" class="pixel-btn btn-secondary" id="btn-gate-quickview">
           <span class="btn-icon">⚡</span> QUICK VIEW (DOCS)
         </button>
       </div>
 
-      <!-- Quick Escape / Direct Contact Note -->
-      <div class="gate-escape">
-        <span class="escape-hint">Tidak ada waktu untuk eksplorasi game?</span>
+      <!-- Direct Contact Escape Note -->
+      <div class="cinematic-escape">
+        <span class="escape-hint">Ingin kontak langsung tanpa jelajah game?</span>
         <div class="escape-links">
-          <a href="mailto:dairabih2@gmail.com" class="escape-link">[ EMAIL SAYA ]</a>
+          <a href="mailto:dairabih2@gmail.com" class="escape-link">[ EMAIL ]</a>
           <a href="https://instagram.com/abiyxd" target="_blank" rel="noopener noreferrer" class="escape-link">[ INSTAGRAM ]</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 2. GAME CONTAINER (INTERACTIVE 2D CANVAS REALM) -->
+  <!-- 2. GAME CONTAINER (INTERACTIVE 2D CANVAS WORLD) -->
   <div class="game-viewport" id="game-viewport">
     <!-- The HTML5 2D Canvas -->
     <canvas id="realm-canvas"></canvas>
@@ -80,32 +80,41 @@
     <header class="hud-top" id="hud-top">
       <!-- Player Status Block -->
       <div class="hud-box hud-player pixel-box-sm">
-        <div class="hud-avatar-mini" id="hud-avatar-mini"></div>
+        <div class="hud-avatar-mini" id="hud-avatar-mini">👾</div>
         <div class="hud-info">
           <span class="hud-name">ABIY</span>
-          <span class="hud-zone" id="hud-zone-name">SPAWN PLAZA</span>
+          <span class="hud-zone" id="hud-zone-name">HOME VALLEY</span>
         </div>
       </div>
 
-      <!-- Coordinates & Controls Hint -->
+      <!-- Coordinates & Status Ticker -->
       <div class="hud-box hud-coords pixel-box-sm hide-on-mobile">
         <span class="coord-label">POS:</span>
         <span id="hud-coords-val">X: 00 | Y: 00</span>
       </div>
 
-      <!-- Quick Action Navigation Toolbar -->
-      <nav class="hud-nav" aria-label="HUD Quick Menu">
-        <button type="button" class="hud-btn pixel-btn-sm" id="hud-btn-about" title="Tentang Abiy">
-          <span class="hud-btn-text">ABOUT</span>
+      <!-- Quick Destination Travel Menu (Triggers Real Character Journey!) -->
+      <nav class="hud-nav" aria-label="HUD Travel Navigation">
+        <button type="button" class="hud-btn pixel-btn-sm" data-dest="home" title="Kembali ke Rumah">
+          <span class="hud-btn-icon">🏠</span><span class="hud-btn-text">HOME</span>
         </button>
-        <button type="button" class="hud-btn pixel-btn-sm" id="hud-btn-skills" title="Keahlian & Alat">
-          <span class="hud-btn-text">SKILLS</span>
+        <button type="button" class="hud-btn pixel-btn-sm" data-dest="about" title="Jelajah ke Tentang Abiy">
+          <span class="hud-btn-icon">📜</span><span class="hud-btn-text">ABOUT</span>
         </button>
-        <button type="button" class="hud-btn pixel-btn-sm" id="hud-btn-projects" title="Daftar 3 Proyek">
-          <span class="hud-btn-text">PROJECTS</span>
+        <button type="button" class="hud-btn pixel-btn-sm" data-dest="skills" title="Jelajah ke Keahlian & Alat">
+          <span class="hud-btn-icon">⚡</span><span class="hud-btn-text">SKILLS</span>
         </button>
-        <button type="button" class="hud-btn pixel-btn-sm" id="hud-btn-contact" title="Kontak Abiy">
-          <span class="hud-btn-text">CONTACT</span>
+        <button type="button" class="hud-btn pixel-btn-sm" data-dest="monas" title="Jelajah ke Proyek 01: Monas">
+          <span class="hud-btn-icon">🗼</span><span class="hud-btn-text">MONAS</span>
+        </button>
+        <button type="button" class="hud-btn pixel-btn-sm" data-dest="durkheim" title="Jelajah ke Proyek 02: Durkheim">
+          <span class="hud-btn-icon">📚</span><span class="hud-btn-text">DURKHEIM</span>
+        </button>
+        <button type="button" class="hud-btn pixel-btn-sm" data-dest="pollution" title="Jelajah ke Proyek 03: Lingkungan">
+          <span class="hud-btn-icon">🌿</span><span class="hud-btn-text">ECO</span>
+        </button>
+        <button type="button" class="hud-btn pixel-btn-sm" data-dest="contact" title="Jelajah ke Kontak">
+          <span class="hud-btn-icon">📡</span><span class="hud-btn-text">CONTACT</span>
         </button>
         <button type="button" class="hud-btn pixel-btn-sm btn-highlight" id="hud-btn-map" title="Buka Peta Besar (M)">
           <span class="hud-btn-icon">🗺️</span><span class="hud-btn-text">MAP</span>
@@ -119,6 +128,14 @@
       </nav>
     </header>
 
+    <!-- Travel Status Ticker Bar (Shows when Traveling / Transforming) -->
+    <div class="travel-status-bar hidden" id="travel-status-bar">
+      <div class="travel-status-inner pixel-box-sm">
+        <span class="travel-icon" id="travel-status-icon">🚀</span>
+        <span class="travel-text" id="travel-status-text">TRAVELING TO DESTINATION...</span>
+      </div>
+    </div>
+
     <!-- Floating Interaction Prompt (Desktop & Mobile) -->
     <div class="interact-prompt hidden" id="interact-prompt">
       <div class="prompt-card pixel-box-sm">
@@ -128,30 +145,26 @@
       </div>
     </div>
 
-    <!-- Bottom HUD: Minimap Radar & Controls Hint -->
+    <!-- Bottom HUD: Controls Hint & Minimap Radar -->
     <footer class="hud-bottom" id="hud-bottom">
-      <!-- Desktop Movement Hint -->
       <div class="hud-hint pixel-box-sm hide-on-mobile">
-        <span class="hint-key">WASD / ARROW</span> MOVE · <span class="hint-key">CLICK</span> TO WALK · <span class="hint-key">E</span> INTERACT · <span class="hint-key">M</span> MAP
+        <span class="hint-key">WASD / PANAH</span> JALAN · <span class="hint-key">KLIK LANTAI</span> JALAN KE TITIK · <span class="hint-key">KLIK NAV/OBJEK</span> PERJALANAN SINEMATIK · <span class="hint-key">M</span> PETA
       </div>
 
-      <!-- Minimap Radar Widget -->
-      <div class="minimap-container pixel-box-sm" id="minimap-container" title="Klik untuk memperbesar peta">
+      <div class="minimap-container pixel-box-sm" id="minimap-container" title="Klik untuk memperbesar peta (M)">
         <canvas id="minimap-canvas" width="100" height="100"></canvas>
         <span class="minimap-tag">RADAR</span>
       </div>
     </footer>
 
-    <!-- Mobile Touch Controls (Virtual Joystick & Action Button) -->
+    <!-- Mobile Touch Controls -->
     <div class="mobile-controls-overlay" id="mobile-controls-overlay">
-      <!-- Virtual Joystick Zone -->
       <div class="joystick-zone" id="joystick-zone">
         <div class="joystick-base" id="joystick-base">
           <div class="joystick-thumb" id="joystick-thumb"></div>
         </div>
       </div>
 
-      <!-- Action Interact Button -->
       <div class="touch-action-zone">
         <button type="button" class="touch-action-btn pixel-box" id="btn-touch-interact" aria-label="Interaksi Titik">
           <span class="touch-btn-label">ACTION</span>
@@ -213,7 +226,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="pixel-btn btn-primary modal-close-action">OK (TUTUP)</button>
+        <button type="button" class="pixel-btn btn-primary modal-close-action">KEMBALI KE DUNIA</button>
       </div>
     </div>
   </div>
@@ -309,12 +322,12 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="pixel-btn btn-primary modal-close-action">OK (TUTUP)</button>
+        <button type="button" class="pixel-btn btn-primary modal-close-action">KEMBALI KE DUNIA</button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL: PROJECT DETAIL (DYNAMIC & DIRECT FOR THE 3 PROJECTS) -->
+  <!-- MODAL: PROJECT DETAIL (INDIVIDUAL DESTINATION) -->
   <div class="modal-window hidden" id="modal-project" role="dialog" aria-labelledby="proj-title" aria-modal="true">
     <div class="modal-frame pixel-box modal-frame-wide">
       <div class="modal-header">
@@ -326,7 +339,7 @@
       </div>
 
       <div class="modal-body custom-scroll" id="project-detail-content">
-        <!-- Injected via JavaScript based on selected project (1, 2, or 3) -->
+        <!-- Injected via JavaScript -->
       </div>
 
       <div class="modal-footer project-nav-footer">
@@ -335,74 +348,7 @@
           <span class="proj-counter" id="proj-counter">1 / 3</span>
           <button type="button" class="pixel-btn-sm" id="btn-proj-next">NEXT ▶</button>
         </div>
-        <button type="button" class="pixel-btn btn-primary modal-close-action">TUTUP</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: ALL PROJECTS DIRECTORY -->
-  <div class="modal-window hidden" id="modal-all-projects" role="dialog" aria-labelledby="all-proj-title" aria-modal="true">
-    <div class="modal-frame pixel-box modal-frame-wide">
-      <div class="modal-header">
-        <div class="modal-title-wrap">
-          <span class="modal-icon">⭐</span>
-          <h2 class="modal-title" id="all-proj-title">3 PROYEK TERPILIH</h2>
-        </div>
-        <button type="button" class="modal-close-btn pixel-btn-sm" aria-label="Tutup modal">×</button>
-      </div>
-
-      <div class="modal-body custom-scroll">
-        <p class="dialogue-p text-muted">
-          Pilih salah satu dari tiga proyek otentik di bawah ini untuk melihat dokumentasi, alur proses, tantangan, dan pembelajarannya:
-        </p>
-
-        <div class="project-cards-stack">
-          <!-- Card 1 -->
-          <div class="proj-summary-card pixel-box-inset" data-project-id="1">
-            <div class="proj-card-thumb">
-              <img src="assets/projects/monas/monas-video-preview.jpg" alt="Preview Proyek Monumen Nasional" loading="lazy">
-            </div>
-            <div class="proj-card-info">
-              <div class="proj-meta-pill">PROYEK 01 // 2026</div>
-              <h3 class="proj-card-title">Mengeksplorasi Monumen Nasional</h3>
-              <p class="proj-card-cat">Proyek Sekolah · Sejarah · Presentasi Visual</p>
-              <p class="proj-card-brief">Mengeksplorasi Monumen Nasional sebagai ikon penting sejarah dan mengemasnya dalam video & presentasi visual kelompok.</p>
-              <button type="button" class="pixel-btn-sm btn-primary open-proj-trigger" data-target="1">BUKA DETAIL ▶</button>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="proj-summary-card pixel-box-inset" data-project-id="2">
-            <div class="proj-card-thumb">
-              <img src="assets/projects/durkheim/durkheim-biography.jpg" alt="Preview Proyek Biografi Émile Durkheim" loading="lazy">
-            </div>
-            <div class="proj-card-info">
-              <div class="proj-meta-pill">PROYEK 02 // 2026</div>
-              <h3 class="proj-card-title">Biografi Émile Durkheim</h3>
-              <p class="proj-card-cat">Proyek Sekolah · Sosiologi · Desain Visual</p>
-              <p class="proj-card-brief">Merangkum pemikiran & kontribusi tokoh sosiologi ke dalam struktur mind map visual pada media karton A3.</p>
-              <button type="button" class="pixel-btn-sm btn-primary open-proj-trigger" data-target="2">BUKA DETAIL ▶</button>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="proj-summary-card pixel-box-inset" data-project-id="3">
-            <div class="proj-card-thumb">
-              <img src="assets/projects/pollution/pollution-infographic.jpg" alt="Preview Proyek Infografis Pencemaran Lingkungan" loading="lazy">
-            </div>
-            <div class="proj-card-info">
-              <div class="proj-meta-pill">PROYEK 03 // 2026</div>
-              <h3 class="proj-card-title">Infografis Pencemaran Lingkungan</h3>
-              <p class="proj-card-cat">Proyek Sekolah · Infografis · Kesadaran Lingkungan</p>
-              <p class="proj-card-brief">Menyajikan permasalahan dan solusi pencemaran lingkungan (3R & pemilahan sampah) secara ringkas, visual, dan komunikatif.</p>
-              <button type="button" class="pixel-btn-sm btn-primary open-proj-trigger" data-target="3">BUKA DETAIL ▶</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="pixel-btn btn-primary modal-close-action">TUTUP</button>
+        <button type="button" class="pixel-btn btn-primary modal-close-action">KEMBALI KE DUNIA</button>
       </div>
     </div>
   </div>
@@ -446,12 +392,12 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="pixel-btn btn-primary modal-close-action">TUTUP</button>
+        <button type="button" class="pixel-btn btn-primary modal-close-action">KEMBALI KE DUNIA</button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL: BIG MAP CRT MONITOR (PETER ORAVEC CRT MAP INSPIRED) -->
+  <!-- MODAL: BIG MAP CRT MONITOR -->
   <div class="modal-window hidden" id="modal-map" role="dialog" aria-labelledby="map-title" aria-modal="true">
     <div class="modal-frame pixel-box modal-frame-wide crt-map-frame">
       <div class="modal-header">
@@ -466,26 +412,26 @@
         <div class="map-legend">
           <span class="legend-item"><span class="legend-dot dot-player"></span> PEMAIN</span>
           <span class="legend-item"><span class="legend-dot dot-visited"></span> DIKUNJUNGI</span>
-          <span class="legend-item"><span class="legend-dot dot-unvisited"></span> BELUM DIKUNJUNGI</span>
+          <span class="legend-item"><span class="legend-dot dot-unvisited"></span> DESTINASI</span>
         </div>
 
         <div class="crt-map-container" id="crt-map-container">
-          <canvas id="big-map-canvas" width="600" height="400"></canvas>
+          <canvas id="big-map-canvas" width="640" height="380"></canvas>
           <div class="map-scanline"></div>
         </div>
 
         <p class="map-instruction text-center">
-          [ KLIK LOKASI MANA PUN PADA PETA UNTUK TELEPORTASI LANGSUNG ]
+          [ KLIK DESTINASI MANA PUN UNTUK MELAKUKAN PERJALANAN BLUE FIREBALL ]
         </p>
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="pixel-btn btn-primary modal-close-action">KEMBALI KE REALM</button>
+        <button type="button" class="pixel-btn btn-primary modal-close-action">KEMBALI KE DUNIA</button>
       </div>
     </div>
   </div>
 
-  <!-- 4. QUICK VIEW / DOCUMENT GRID MODE (FULL PORTFOLIO IN ACCESSIBLE RETRO FORMAT) -->
+  <!-- 4. QUICK VIEW / DOCUMENT GRID MODE (ACCESSIBILITY & DIRECT READING) -->
   <div class="quickview-overlay hidden" id="quickview-overlay">
     <div class="quickview-header">
       <div class="quickview-brand">
@@ -493,7 +439,7 @@
         <h2 class="brand-title">MUHAMMAD AD DAIRABIY</h2>
       </div>
       <button type="button" class="pixel-btn btn-primary" id="btn-exit-quickview">
-        <span>▶ KEMBALI KE GAME</span>
+        <span>▶ KEMBALI KE DUNIA GAME</span>
       </button>
     </div>
 
@@ -598,7 +544,7 @@
         </div>
 
         <div class="doc-projects-stack" id="doc-projects-stack">
-          <!-- Injected via JavaScript with full detail cards -->
+          <!-- Injected dynamically -->
         </div>
       </section>
 
@@ -627,7 +573,7 @@
     </main>
   </div>
 
-  <!-- Core Game & UI Logic -->
+  <!-- Core Game & Journey Engine -->
   <script src="script.js"></script>
 </body>
 </html>

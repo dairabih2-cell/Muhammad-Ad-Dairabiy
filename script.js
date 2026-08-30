@@ -1,32 +1,35 @@
 /**
- * Enhanced JavaScript Interactive Script
+ * JavaScript Interactive Script
  * Portfolio of Muhammad Ad Dairabiy (Siswa SMAN 70 Jakarta Kelas X-D)
- * FINAL STABLE REVISION
+ * Modern, Authentic, Responsive & Anti AI-Slop
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   // -------------------------------------------------------------------------
-  // 1. DATA STORE: Projects Information (Structured Academic Data & Authentic Outputs)
+  // 1. DATA STORE: Projects Information (100% Authentic Student Data)
   // -------------------------------------------------------------------------
   const studentProjects = {
     1: {
       id: 1,
       title: 'Proyek Video Edukatif Monas',
       category: 'School • Creative',
-      tags: ['Video Edukasi', 'Video Editing', 'Edukasi Sejarah', 'Multimedia'],
-      summary: 'Kolaborasi video edukasi dokumenter mengenai nilai sejarah perjuangan kemerdekaan, arsitektur cawan dan lidah api emas, serta nilai filosofis Monumen Nasional Jakarta.',
-      role: 'Penyusunan naskah video bersama tim, proses editing potongan klip video, pemilihan audio latar bebas royalti, dan penyelarasan transisi visual.',
+      tags: ['Video Edukasi', 'Sejarah', 'Kerja Sama Tim'],
+      summary: 'Proyek video dokumenter dan edukasi sejarah mengenai Monumen Nasional (Monas) Jakarta yang dikerjakan bersama teman sekelompok.',
+      about: 'Proyek ini bertujuan mengenalkan sejarah perjuangan bangsa, arsitektur cawan, dan simbol lidah api Monas melalui tayangan video yang informatif.',
+      role: 'Mencari informasi materi sejarah, menyusun poin naskah materi, dan membantu menentukan konsep alur video bersama kelompok.',
+      whatIDid: 'Mengumpulkan bahan riset sejarah Monas, berdiskusi mengenai urutan scene video, dan membantu rekan satu tim saat proses pengambilan dan penyusunan materi.',
+      tools: 'Materi riset sejarah, smartphone, dan aplikasi video editor dasar.',
       learnings: [
-        'Melatih manajemen kerja sama kelompok dan pembagian tanggung jawab yang jelas.',
-        'Menguasai dasar editing video: pemotongan klip (trimming), audio syncing, dan teks narasi.',
-        'Mengemas informasi sejarah menjadi tayangan audiovisual yang menarik dan mudah dicerna.'
+        'Belajar pentingnya kerja sama kelompok dan pembagian tugas yang adil.',
+        'Belajar menyederhanakan informasi sejarah agar mudah dipahami penonton.',
+        'Mengenal dasar-dasar alur pembuatan video edukasi.'
       ],
       image: 'assets/projects/monas/monas-video-preview.jpg',
       imageCaption: 'Dokumentasi Video Edukatif Monas',
       imageAlt: 'Dokumentasi Video Edukatif Monumen Nasional Jakarta',
       secondaryLink: {
         url: 'https://youtu.be/DpoM_Qq4wT0',
-        label: '▶ Tonton Video di YouTube'
+        label: 'Tonton Video di YouTube'
       },
       quizKey: 'monas'
     },
@@ -34,16 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 2,
       title: 'Infografis Pencemaran Lingkungan',
       category: 'School • Creative',
-      tags: ['Infografis Visual', 'Desain Grafis', 'Sains Lingkungan', 'Visual Data'],
-      summary: 'Visualisasi infografis tipe pencemaran lingkungan (udara, air, tanah), dampak bagi ekosistem dan kesehatan, serta aksi nyata preventif pelestarian alam melalui prinsip 3R.',
-      role: 'Pengumpulan data fakta polusi perkotaan, visualisasi hierarki informasi, dan pemilihan elemen grafis informatif di Canva.',
+      tags: ['Infografis', 'Canva', 'Sains Lingkungan', 'Prinsip 3R'],
+      summary: 'Desain infografis visual mengenai berbagai jenis pencemaran lingkungan (udara, air, tanah), dampaknya bagi kehidupan, dan solusi nyata 3R.',
+      about: 'Tugas mata pelajaran sains/lingkungan untuk menyampaikan bahaya polusi dan mengajak teman-teman memilah sampah melalui media visual yang menarik.',
+      role: 'Membantu proyek secara keseluruhan, terutama mengerjakan bagian solusi ramah lingkungan dan membantu membawakan presentasi di depan kelas.',
+      whatIDid: 'Mendesain bagian solusi dan pemilahan sampah di Canva, memilih ikon yang sesuai, dan menyusun poin presentasi bersama anggota kelompok.',
+      tools: 'Canva (aplikasi desain grafis).',
       learnings: [
-        'Mengubah informasi sains dan data statistik menjadi grafik visual yang mudah dipahami.',
-        'Memahami pentingnya edukasi prinsip 3R (Reduce, Reuse, Recycle) dalam kehidupan sehari-hari.',
-        'Meningkatkan efisiensi kerja desain grafis menggunakan perkakas digital Canva.'
+        'Melatih kemampuan presentasi dan berbicara di hadapan teman sekelas.',
+        'Memahami penerapan prinsip 3R (Reduce, Reuse, Recycle) untuk mengurangi sampah.',
+        'Belajar membuat tata letak visual infografis yang seimbang dan nyaman dibaca.'
       ],
       image: 'assets/projects/pollution/pollution-infographic.jpg',
-      imageCaption: 'Infografis Pencemaran Lingkungan',
+      imageCaption: 'Infografis Keanekaragaman Hayati & Pencemaran Lingkungan',
       imageAlt: 'Infografis Keanekaragaman Hayati dan Ancaman Pencemaran Lingkungan',
       quizKey: 'pollution'
     },
@@ -51,324 +57,285 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 3,
       title: 'Presentasi Teknologi Notion AI',
       category: 'School • Technology',
-      tags: ['Notion AI', 'Kecerdasan Buatan', 'Public Speaking', 'Digital Skills'],
-      summary: 'Penyusunan dan presentasi materi pemanfaatan kecerdasan buatan (Notion AI) untuk produktivitas mencatat materi, merangkum, dan efisiensi manajemen belajar siswa.',
-      role: 'Eksplorasi fitur Notion AI, penyusunan materi presentasi berbasis studi kasus pelajar, serta memimpin sesi pemaparan dan tanya jawab di kelas.',
+      tags: ['Notion AI', 'Kecerdasan Buatan', 'Slide Presentasi', 'Teknologi'],
+      summary: 'Presentasi mengenai pemanfaatan alat bantu Notion AI untuk meningkatkan produktivitas belajar siswa, seperti mencatat dan merangkum materi.',
+      about: 'Di proyek ini saya membuat presentasi tentang Notion AI dan belajar bagaimana AI bisa digunakan untuk membantu kegiatan belajar sehari-hari.',
+      role: 'Menyusun materi presentasi tentang fitur Notion AI, menyiapkan slide, dan mempresentasikan materi tersebut di hadapan kelas.',
+      whatIDid: 'Mengeksplorasi fitur-fitur Notion AI untuk mencatat dan merangkum, membuat materi penjelasan yang mudah dipahami, serta menjawab pertanyaan teman-teman saat sesi tanya jawab.',
+      tools: 'Notion AI dan aplikasi slide presentasi.',
       learnings: [
-        'Memahami kapabilitas teknologi AI generatif dan implementasi praktisnya untuk kebutuhan edukasi.',
-        'Meningkatkan kemampuan public speaking dalam menjelaskan konsep teknologi kompleks dengan bahasa sederhana.',
-        'Menumbuhkan kesadaran etika pemanfaatan kecerdasan buatan yang bertanggung jawab di kalangan siswa.'
+        'Belajar bagaimana teknologi AI dapat dimanfaatkan secara bijak untuk mendukung aktivitas belajar.',
+        'Menyadari bahwa informasi dari AI harus tetap diperiksa dan diverifikasi kebenarannya oleh manusia.',
+        'Meningkatkan rasa percaya diri saat menjelaskan topik teknologi di depan kelas.'
       ],
       image: 'assets/projects/notion-ai/notion-slide-preview.jpg',
-      imageCaption: 'Presentasi Teknologi Notion AI',
+      imageCaption: 'Slide Presentasi Edukasi Memahami Notion AI',
       imageAlt: 'Slide Presentasi Edukasi Memahami Notion AI',
       quizKey: 'notion_ai'
     },
     4: {
       id: 4,
-      title: 'Proyek Biografi Émile Durkheim',
+      title: 'Biografi Émile Durkheim',
       category: 'School • Creative',
-      tags: ['Media Biografi', 'Riset Sosiologi', 'Fakta Sosial', 'PowerPoint'],
-      summary: 'Penyusunan media biografi dan infografis mengenai riwayat hidup tokoh, metodologi ilmiah sosiologi, dan teori fakta sosial Émile Durkheim.',
-      role: 'Riset konten tokoh kepustakaan, perancangan tata letak visual infografis di Canva, dan penyusunan slide presentasi PowerPoint.',
+      tags: ['Sosiologi', 'Karton & Fisik', 'Tokoh Klasik', 'Kerja Sama'],
+      summary: 'Penyusunan media biografi tokoh sosiologi klasik Émile Durkheim dan teori fakta sosial yang ditulis dan dihias langsung di media karton fisik.',
+      about: 'Tugas sosiologi untuk mempelajari riwayat hidup, konsep fakta sosial, dan pengaruh pemikiran Émile Durkheim terhadap masyarakat modern.',
+      role: 'Mencari informasi materi, menyusun ringkasan, menuliskan bagian materi di atas karton, membuat dekorasi karton, dan melakukan presentasi kelompok.',
+      whatIDid: 'Membaca referensi biografi Durkheim, menulis materi dengan spidol di atas lembaran karton, menghias layout visual karton secara manual, dan mempresentasikan hasilnya bersama tim.',
+      tools: 'Karton, alat tulis (spidol, pena, penggaris), dan perlengkapan fisik pendukung tugas.',
       learnings: [
-        'Memahami metode riset kepustakaan dan sintesis gagasan sosiologi yang padat.',
-        'Meningkatkan keterampilan tata letak grafis dan pemilihan warna kontras pada infografis.',
-        'Mengasah teknik penyampaian materi secara runtut dan percaya diri di hadapan audiens.'
+        'Memahami konsep dasar sosiologi dan pemikiran tokoh Émile Durkheim.',
+        'Melatih kerja sama kelompok dalam mengerjakan media fisik bersama.',
+        'Mengasah kreativitas penyusunan layout manual di atas media kertas/karton.'
       ],
       image: 'assets/projects/durkheim/durkheim-biography.jpg',
-      imageCaption: 'Media Biografi Émile Durkheim',
+      imageCaption: 'Lembar Karton Biografi & Teori Émile Durkheim',
       imageAlt: 'Lembar Biografi dan Teori Sosiologi Émile Durkheim',
       quizKey: 'durkheim'
     },
     5: {
       id: 5,
-      title: 'Proyek Kerajinan Daur Ulang',
+      title: 'Kerajinan Daur Ulang',
       category: 'School • Creative',
-      tags: ['Kerajinan Daur Ulang', 'Eco Project', 'Pilah Sampah', 'Teamwork'],
-      summary: 'Karya produk bernilai guna dan estetis yang dibuat bersama kelompok dari pemanfaatan material bahan limbah bekas ramah lingkungan.',
-      role: 'Brainstorming ide produk, pemilihan material daur ulang yang aman, perakitan produk bersama kelompok, dan penyusunan laporan proyek.',
+      tags: ['Daur Ulang', 'Karton & Koran', 'Upcycling', 'Kreativitas'],
+      summary: 'Karya produk bernilai guna dan estetis dari barang bekas yang dirakit bersama kelompok untuk memanfaatkan kembali limbah kertas/karton.',
+      about: 'Proyek prakarya dan lingkungan hidup untuk mengubah barang bekas di sekitar menjadi produk yang bermanfaat serta mengedukasi pentingnya pemilahan sampah.',
+      role: 'Mencari ide desain produk kerajinan, membuat produk bersama, memotong dan merakit bahan, serta melakukan presentasi hasil kerajinan.',
+      whatIDid: 'Mengumpulkan bahan bekas yang bersih, memotong karton dan koran sesuai pola, merekatkan dengan lem, menyusun komponen hingga jadi produk utuh, dan memamerkannya di kelas.',
+      tools: 'Karton bekas, koran bekas, gunting, dan lem.',
       learnings: [
-        'Mengembangkan daya kreativitas dalam melihat potensi nilai guna dari barang bekas.',
-        'Mengasah kerja sama tim dalam mengatasi tantangan teknis saat proses perakitan.',
-        'Menyadari pentingnya aksi nyata pelestarian lingkungan melalui konsep upcycling.'
+        'Belajar cara memanfaatkan barang bekas di sekitar menjadi barang yang bernilai guna.',
+        'Mengasah kreativitas dan ketelitian dalam merakit bahan secara manual.',
+        'Melatih kekompakan kerja sama kelompok dalam menyelesaikan produk tepat waktu.'
       ],
       image: 'assets/projects/recycling/recycling-project.jpg',
-      imageCaption: 'Dokumentasi Proyek Kerajinan Daur Ulang',
+      imageCaption: 'Dokumentasi Proyek Kerajinan Daur Ulang & Pilah Sampah',
       imageAlt: 'Dokumentasi Edukasi dan Pemilahan Sampah Proyek Daur Ulang',
       quizKey: 'recycling'
     }
   };
 
   // -------------------------------------------------------------------------
-  // 2. DATA STORE: Learning Journey Steps
+  // 2. DATA STORE: Learning Journey (5 Authentic Steps)
   // -------------------------------------------------------------------------
   const journeyData = {
     1: {
-      badge: 'Tahapan: SMP',
-      title: 'Exploring Science & Technology',
-      desc: 'Memulai ketertarikan pada metode ilmiah dan observasi fenomena alam melalui kegiatan ekstrakurikuler Klub IPA di SMPN 68 Jakarta Selatan. Melatih rasa ingin tahu, cara berpikir kritis, dan eksplorasi awal penggunaan komputer.',
-      takeaway: 'Observasi Ilmiah • Klub IPA SMPN 68 Jaksel • Dasar Eksplorasi Komputer'
+      stepBadge: 'Tahap 1: SMP',
+      stepIndicator: 'Langkah 1 dari 5',
+      title: 'Awal Mula Tertarik pada Sains & Komputer di SMP',
+      desc: 'Di bangku SMPN 68 Jakarta Selatan, rasa penasaran saya mulai tumbuh melalui kegiatan ekstrakurikuler Klub IPA. Di sana saya belajar mengamati fenomena sekitar, melatih logika berpikir ilmiah, dan mulai sering menggunakan komputer untuk mengerjakan tugas sekolah.',
+      takeaway: 'Klub IPA SMPN 68 Jaksel • Melatih rasa ingin tahu • Awal mula memakai komputer'
     },
     2: {
-      badge: 'Tahapan: SMA (SMAN 70 Jakarta)',
-      title: 'Developing Digital Skills',
-      desc: 'Melanjutkan pendidikan di SMA Negeri 70 Jakarta Kelas X-D. Berfokus mengembangkan keterampilan software produktivitas (Microsoft Office, Canva), desain infografis, dan komunikasi efektif dalam mempresentasikan ide.',
-      takeaway: 'Kelas X-D SMAN 70 Jakarta • Microsoft Office & Canva • Komunikasi Akademik'
+      stepBadge: 'Tahap 2: Masuk SMAN 70 Jakarta',
+      stepIndicator: 'Langkah 2 dari 5',
+      title: 'Memasuki Jenjang SMA Negeri 70 Jakarta (Kelas X-D)',
+      desc: 'Memulai masa SMA di kelas X-D dengan lingkungan baru. Saya mulai aktif beradaptasi dengan tugas-tugas akademik, belajar bekerja sama dalam kelompok, serta mengeksplorasi penggunaan software seperti Canva dan presentasi untuk tugas kelas.',
+      takeaway: 'Kelas X-D SMAN 70 Jakarta • Adaptasi akademik • Kolaborasi tugas kelompok'
     },
     3: {
-      badge: 'Tahapan: Programming Exploration',
-      title: 'Exploring Logic & Fundamentals',
-      desc: 'Mulai mendalami cara kerja perangkat lunak dan logika pemrograman komputer. Mempelajari alur algoritma dasar, struktur data sederhana, dan pemikiran komputasional untuk memecahkan masalah.',
-      takeaway: 'Logika Algoritma • Computational Thinking • Eksplorasi Dasar Kode'
+      stepBadge: 'Tahap 3: Eksplorasi Teknologi',
+      stepIndicator: 'Langkah 3 dari 5',
+      title: 'Mulai Tertarik pada AI & Perkakas Digital',
+      desc: 'Perkembangan AI yang pesat membuat saya sangat penasaran. Saya mulai mencoba berbagai alat bantu seperti Notion AI untuk membantu mengorganisir catatan belajar, merangkum materi pelajaran, dan mencari ide untuk tugas kreatif.',
+      takeaway: 'Eksplorasi Notion AI • Pemanfaatan AI untuk belajar • Meningkatkan efisiensi'
     },
     4: {
-      badge: 'Tahapan: Collaborative Works',
-      title: 'Building Projects & Presentations',
-      desc: 'Mengimplementasikan keterampilan yang dipelajari ke dalam proyek nyata sekolah: pembuatan infografis biografi tokoh, video edukasi Monas, infografis lingkungan, kerajinan daur ulang, dan pemaparan teknologi Notion AI.',
-      takeaway: '5 Proyek Sekolah Tuntas • Multimedia & AI • Kerja Sama Tim Teruji'
+      stepBadge: 'Tahap 4: Proyek Sekolah Nyata',
+      stepIndicator: 'Langkah 4 dari 5',
+      title: 'Mengerjakan Berbagai Proyek Tugas Sekolah',
+      desc: 'Mempraktikkan apa yang dipelajari ke dalam karya nyata: mulai dari video edukasi Monas, infografis pencemaran lingkungan, presentasi Notion AI, biografi karton sosiologi, hingga kerajinan daur ulang dari barang bekas.',
+      takeaway: '5 Proyek Sekolah Tuntas • Melatih presentasi & desain • Pengalaman kerja kelompok'
     },
     5: {
-      badge: 'Tahapan: Future Vision',
-      title: 'Future Growth in Technology',
-      desc: 'Berkomitmen untuk terus belajar, memperluas wawasan seputar ilmu komputer dan teknologi informasi, serta mempersiapkan diri guna berkarier dan berkontribusi di industri digital masa depan.',
-      takeaway: 'Growth Mindset • Aspirasi Karier IT & Pemrograman • Pembelajar Berkelanjutan'
+      stepBadge: 'Tahap 5: Belajar Coding & Masa Depan',
+      stepIndicator: 'Langkah 5 dari 5',
+      title: 'Mulai Belajar Dasar Coding & Mengeksplorasi Minat',
+      desc: 'Terpacu oleh tugas ekstrakurikuler Klub Robotik, saya mulai belajar dasar-dasar coding dan pembuatan website. Saya ingin terus mengeksplorasi bidang teknologi untuk mempersiapkan diri sebelum melanjutkan ke bangku kuliah nanti.',
+      takeaway: 'Tugas Klub Robotik • Mulai belajar dasar coding • Eksplorasi bidang teknologi masa depan'
     }
   };
 
   // -------------------------------------------------------------------------
-  // 3. DATA STORE: Dedicated Project Quizzes (5 Questions Each)
+  // 3. DATA STORE: Dedicated Project Quizzes (Tepat 3 Soal Tiap Proyek)
   // -------------------------------------------------------------------------
   const projectQuizzes = {
     monas: {
-      title: 'Quick Quiz — Monas',
-      subtitle: 'Kuis seputar pengetahuan umum Monumen Nasional (Monas)',
+      title: 'Kuis Singkat — Proyek Video Monas',
+      subtitle: '3 pertanyaan berdasarkan isi materi dan proyek video edukatif Monas',
       questions: [
         {
-          q: 'Berapa tinggi Monas?',
+          q: 'Berapa tinggi Monumen Nasional (Monas) Jakarta?',
           options: ['77 meter', '100 meter', '132 meter', '150 meter'],
-          correct: 2, // C
+          correct: 2,
           feedback: 'Tepat! Monumen Nasional (Monas) memiliki tinggi 132 meter.'
         },
         {
-          q: 'Monas berada di kota mana?',
-          options: ['Bandung', 'Jakarta', 'Surabaya', 'Yogyakarta'],
-          correct: 1, // B
-          feedback: 'Benar! Monas terletak di pusat kota Jakarta, Indonesia.'
-        },
-        {
-          q: 'Apa nama bagian Monas yang berada di paling atas?',
-          options: ['Cawan', 'Lidah Api', 'Museum', 'Pelataran'],
-          correct: 1, // B
-          feedback: 'Tepat! Bagian paling atas Monas adalah Lidah Api.'
-        },
-        {
-          q: 'Monas dibangun untuk mengenang...',
+          q: 'Monas dibangun untuk mengenang peristiwa apa?',
           options: [
             'Perjuangan kemerdekaan Indonesia',
-            'Pembangunan Jakarta',
-            'Berdirinya ASEAN',
-            'Sumpah Pemuda'
+            'Pembangunan kota Jakarta',
+            'Deklarasi ASEAN',
+            'Hari Sumpah Pemuda'
           ],
-          correct: 0, // A
-          feedback: 'Benar! Monas dibangun untuk mengenang perjuangan kemerdekaan Indonesia.'
+          correct: 0,
+          feedback: 'Benar! Monas dibangun untuk mengenang perjuangan kemerdekaan bangsa Indonesia.'
         },
         {
-          q: 'Apa yang melapisi bagian lidah api Monas?',
-          options: ['Emas', 'Perak', 'Tembaga', 'Aluminium'],
-          correct: 0, // A
-          feedback: 'Tepat! Bagian lidah api Monas dilapisi oleh emas murni.'
+          q: 'Bagian lidah api pada puncak Monas dilapisi oleh material apa?',
+          options: ['Emas murni', 'Perak', 'Tembaga', 'Aluminium'],
+          correct: 0,
+          feedback: 'Tepat! Bagian lidah api kemerdekaan di puncak Monas dilapisi oleh emas murni.'
         }
       ]
     },
     pollution: {
-      title: 'Quick Quiz — Pencemaran Lingkungan',
-      subtitle: 'Kuis seputar isu pencemaran lingkungan & prinsip 3R',
+      title: 'Kuis Singkat — Pencemaran Lingkungan',
+      subtitle: '3 pertanyaan berdasarkan materi infografis lingkungan & solusi 3R',
       questions: [
         {
-          q: 'Apa yang dimaksud dengan pencemaran lingkungan?',
-          options: [
-            'Perubahan lingkungan menjadi lebih bersih',
-            'Masuknya zat atau bahan yang mengganggu lingkungan',
-            'Penanaman pohon',
-            'Penghematan energi'
-          ],
-          correct: 1, // B
-          feedback: 'Benar! Pencemaran lingkungan adalah masuknya zat atau bahan yang mengganggu lingkungan.'
-        },
-        {
-          q: 'Contoh pencemaran udara adalah...',
-          options: ['Asap kendaraan', 'Menanam pohon', 'Mendaur ulang sampah', 'Membersihkan sungai'],
-          correct: 0, // A
-          feedback: 'Tepat! Asap kendaraan bermotor merupakan contoh nyata pencemaran udara.'
-        },
-        {
-          q: 'Sampah plastik yang dibuang sembarangan dapat mencemari...',
-          options: ['Udara saja', 'Air dan tanah', 'Cahaya', 'Suara'],
-          correct: 1, // B
-          feedback: 'Benar! Sampah plastik anorganik mencemari air dan tanah karena sulit terurai.'
-        },
-        {
-          q: 'Salah satu cara mengurangi sampah adalah...',
-          options: ['3R', '3S', '5W', '4P'],
-          correct: 0, // A
-          feedback: 'Tepat! Prinsip 3R merupakan salah satu cara utama dalam mengurangi timbulan sampah.'
-        },
-        {
-          q: '3R adalah...',
+          q: 'Apa kepanjangan dari prinsip 3R dalam pengelolaan sampah?',
           options: [
             'Reduce, Reuse, Recycle',
             'Remove, Repair, Return',
-            'Reduce, Repair, Return',
+            'Reduce, Repair, Replace',
             'Reuse, Remove, Recycle'
           ],
-          correct: 0, // A
-          feedback: 'Benar! 3R adalah Reduce, Reuse, dan Recycle.'
+          correct: 0,
+          feedback: 'Benar! 3R adalah singkatan dari Reduce, Reuse, dan Recycle.'
+        },
+        {
+          q: 'Asap dari kendaraan bermotor dan pabrik merupakan contoh dari pencemaran...',
+          options: ['Udara', 'Air', 'Tanah', 'Suara'],
+          correct: 0,
+          feedback: 'Tepat! Asap knalpot kendaraan dan cerobong pabrik merupakan pencemaran udara.'
+        },
+        {
+          q: 'Mengapa sampah anorganik seperti plastik berbahaya jika dibuang sembarangan?',
+          options: [
+            'Karena cepat hilang dengan sendirinya',
+            'Karena sangat sulit terurai secara alami dan mencemari tanah serta air',
+            'Karena membuat tanah menjadi terlalu subur',
+            'Karena menghasilkan oksigen berlebihan'
+          ],
+          correct: 1,
+          feedback: 'Benar! Sampah plastik membutuhkan puluhan hingga ratusan tahun untuk terurai.'
         }
       ]
     },
     notion_ai: {
-      title: 'Quick Quiz — Notion AI',
-      subtitle: 'Kuis seputar teknologi kecerdasan buatan & Notion AI',
+      title: 'Kuis Singkat — Presentasi Notion AI',
+      subtitle: '3 pertanyaan seputar presentasi kecerdasan buatan & Notion AI',
       questions: [
         {
-          q: 'Notion AI merupakan...',
-          options: ['Alat bantu berbasis AI', 'Mesin pencari', 'Game', 'Sistem operasi'],
-          correct: 0, // A
-          feedback: 'Tepat! Notion AI merupakan alat bantu produktivitas berbasis kecerdasan buatan.'
+          q: 'Notion AI merupakan alat bantu produktivitas yang berbasis pada teknologi apa?',
+          options: ['Artificial Intelligence (AI)', 'Mesin pencari web', 'Game edukasi', 'Sistem operasi komputer'],
+          correct: 0,
+          feedback: 'Tepat! Notion AI adalah fitur produktivitas berbasis Artificial Intelligence (Kecerdasan Buatan).'
         },
         {
-          q: 'Salah satu manfaat Notion AI adalah membantu...',
-          options: ['Mencatat dan mengembangkan ide', 'Memperbaiki kendaraan', 'Memasak', 'Mengukur suhu'],
-          correct: 0, // A
-          feedback: 'Benar! Salah satu manfaat Notion AI adalah membantu mencatat dan mengembangkan ide belajar.'
-        },
-        {
-          q: 'AI merupakan singkatan dari...',
-          options: ['Automatic Internet', 'Artificial Intelligence', 'Advanced Information', 'Automated Interface'],
-          correct: 1, // B
-          feedback: 'Tepat! AI merupakan singkatan dari Artificial Intelligence.'
-        },
-        {
-          q: 'Mengapa hasil dari AI sebaiknya diperiksa kembali?',
+          q: 'Salah satu manfaat utama Notion AI bagi kegiatan belajar siswa adalah...',
           options: [
-            'Karena AI selalu salah',
-            'Karena informasi dari AI tetap perlu diverifikasi',
-            'Karena AI tidak bisa menulis',
-            'Karena AI tidak bisa digunakan untuk belajar'
+            'Membantu mencatat, merangkum, dan mengorganisir ide',
+            'Menggantikan seluruh kehadiran siswa di kelas',
+            'Memperbaiki perangkat keras komputer yang rusak',
+            'Mengirimkan surat fisik secara otomatis'
           ],
-          correct: 1, // B
-          feedback: 'Benar! Informasi dari AI tetap perlu diverifikasi kebenarannya oleh manusia.'
+          correct: 0,
+          feedback: 'Benar! Notion AI sangat berguna untuk membantu mencatat, merangkum materi, dan mengelola tugas.'
         },
         {
-          q: 'Notion AI dapat digunakan sebagai...',
-          options: ['Alat bantu produktivitas', 'Alat olahraga', 'Kamera', 'Alat musik'],
-          correct: 0, // A
-          feedback: 'Tepat! Notion AI dapat digunakan sebagai alat bantu produktivitas.'
+          q: 'Mengapa informasi atau teks yang dihasilkan oleh AI tetap perlu diperiksa kembali oleh manusia?',
+          options: [
+            'Karena AI selalu 100% salah',
+            'Karena informasi dari AI tetap perlu diverifikasi kebenarannya oleh manusia',
+            'Karena AI tidak bisa menulis dalam bahasa Indonesia',
+            'Karena AI hanya bisa digunakan oleh orang dewasa'
+          ],
+          correct: 1,
+          feedback: 'Tepat! AI adalah alat bantu, sehingga manusia tetap perlu memverifikasi dan memeriksa hasilnya.'
         }
       ]
     },
     durkheim: {
-      title: 'Quick Quiz — Émile Durkheim',
-      subtitle: 'Kuis seputar tokoh sosiologi Émile Durkheim & teorinya',
+      title: 'Kuis Singkat — Biografi Émile Durkheim',
+      subtitle: '3 pertanyaan seputar tokoh sosiologi Émile Durkheim & tugas fisik karton',
       questions: [
         {
-          q: 'Siapakah Émile Durkheim?',
-          options: ['Tokoh sosiologi', 'Tokoh olahraga', 'Seniman', 'Astronaut'],
-          correct: 0, // A
-          feedback: 'Tepat! Émile Durkheim adalah salah satu tokoh pendiri utama sosiologi.'
+          q: 'Émile Durkheim dikenal sebagai salah satu tokoh penting dalam perkembangan ilmu apa?',
+          options: ['Sosiologi', 'Biologi Molekuler', 'Astronomi', 'Teknik Mesin'],
+          correct: 0,
+          feedback: 'Tepat! Émile Durkheim adalah salah satu tokoh pendiri utama ilmu sosiologi.'
         },
         {
-          q: 'Émile Durkheim berasal dari...',
-          options: ['Prancis', 'Inggris', 'Jerman', 'Italia'],
-          correct: 0, // A
-          feedback: 'Benar! Émile Durkheim merupakan tokoh yang berasal dari Prancis.'
+          q: 'Salah satu konsep teori sosiologi yang sangat terkenal dari Émile Durkheim adalah...',
+          options: ['Fakta Sosial (Social Facts)', 'Hukum Gravitasi', 'Teori Relativitas', 'Hukum Termodinamika'],
+          correct: 0,
+          feedback: 'Benar! Konsep fakta sosial (social facts) merupakan sumbangsih pemikiran besar Durkheim.'
         },
         {
-          q: 'Durkheim dikenal sebagai tokoh penting dalam perkembangan...',
-          options: ['Biologi', 'Sosiologi', 'Astronomi', 'Geografi'],
-          correct: 1, // B
-          feedback: 'Tepat! Durkheim dikenal sebagai tokoh penting dalam perkembangan ilmu sosiologi.'
-        },
-        {
-          q: 'Salah satu konsep terkenal Durkheim adalah...',
-          options: ['Fakta sosial', 'Relativitas', 'Seleksi alam', 'Evolusi'],
-          correct: 0, // A
-          feedback: 'Benar! Konsep fakta sosial (social facts) merupakan salah satu teori terkenal dari Durkheim.'
-        },
-        {
-          q: 'Salah satu karya terkenal Durkheim adalah...',
+          q: 'Media apa yang digunakan untuk membuat tugas biografi Émile Durkheim ini?',
           options: [
-            'The Division of Labour in Society',
-            'The Wealth of Nations',
-            'Das Kapital',
-            'The Republic'
+            'Karton, alat tulis, dan perlengkapan fisik',
+            'Aplikasi 3D Modeling Virtual Reality',
+            'Aplikasi Pemrograman Database',
+            'Kamera Drone Profesional'
           ],
-          correct: 0, // A
-          feedback: 'Tepat! The Division of Labour in Society adalah salah satu karya paling terkenal dari Durkheim.'
+          correct: 0,
+          feedback: 'Tepat! Proyek ini dibuat secara manual menggunakan karton, spidol/alat tulis, dan dekorasi fisik.'
         }
       ]
     },
     recycling: {
-      title: 'Quick Quiz — Daur Ulang',
-      subtitle: 'Kuis seputar daur ulang & pemanfaatan material ramah lingkungan',
+      title: 'Kuis Singkat — Kerajinan Daur Ulang',
+      subtitle: '3 pertanyaan seputar kerajinan dari barang bekas & pemanfaatan limbah',
       questions: [
         {
-          q: 'Apa tujuan utama daur ulang?',
-          options: ['Mengurangi limbah', 'Menambah sampah', 'Membakar semua sampah', 'Membuang sampah ke sungai'],
-          correct: 0, // A
-          feedback: 'Tepat! Tujuan utama daur ulang adalah mengurangi limbah lingkungan.'
-        },
-        {
-          q: 'Apa yang dimaksud dengan Recycle?',
+          q: 'Bahan utama apa yang digunakan dalam proyek kerajinan daur ulang ini?',
           options: [
-            'Menggunakan kembali barang tanpa perubahan',
-            'Mengolah kembali barang menjadi sesuatu yang dapat digunakan',
-            'Membuang barang',
-            'Membakar barang'
+            'Karton bekas dan koran bekas',
+            'Besi baja dan semen',
+            'Kaca kristal impor',
+            'Kayu gelondongan utuh'
           ],
-          correct: 1, // B
-          feedback: 'Benar! Recycle adalah mengolah kembali barang menjadi sesuatu yang dapat digunakan kembali.'
+          correct: 0,
+          feedback: 'Benar! Proyek ini memanfaatkan bahan bekas ramah lingkungan yaitu karton dan koran bekas.'
         },
         {
-          q: 'Salah satu contoh bahan yang dapat didaur ulang adalah...',
-          options: ['Botol plastik', 'Asap', 'Cahaya', 'Suara'],
-          correct: 0, // A
-          feedback: 'Tepat! Botol plastik merupakan contoh bahan anorganik yang dapat didaur ulang.'
-        },
-        {
-          q: 'Salah satu manfaat daur ulang adalah...',
+          q: 'Apa tujuan utama dari kegiatan daur ulang (recycling)?',
           options: [
-            'Mengurangi jumlah sampah',
-            'Menambah pencemaran',
-            'Menghabiskan sumber daya',
-            'Menambah limbah'
+            'Mengurangi jumlah sampah dan memanfaatkan kembali barang bekas',
+            'Menambah timbunan limbah di tempat pembuangan',
+            'Membakar semua sampah di ruang terbuka',
+            'Membuang limbah ke sungai'
           ],
-          correct: 0, // A
-          feedback: 'Benar! Manfaat utama daur ulang adalah mengurangi jumlah sampah yang menumpuk.'
+          correct: 0,
+          feedback: 'Tepat! Daur ulang bertujuan mengurangi limbah dan memberi nilai guna baru pada barang bekas.'
         },
         {
-          q: 'Prinsip 3R terdiri dari...',
+          q: 'Apa hal utama yang dipelajari selama proses perakitan kerajinan bersama teman sekelompok?',
           options: [
-            'Reduce, Reuse, Recycle',
-            'Read, Run, Rest',
-            'Repair, Remove, Return',
-            'Reduce, Replace, Return'
+            'Kreativitas dan kerja sama tim dalam menyelesaikan produk',
+            'Cara merakit roket luar angkasa',
+            'Cara membeli barang baru yang mahal',
+            'Cara menghindari kerja kelompok'
           ],
-          correct: 0, // A
-          feedback: 'Tepat! Prinsip 3R terdiri dari Reduce, Reuse, dan Recycle.'
+          correct: 0,
+          feedback: 'Benar! Proyek ini melatih kreativitas pemanfaatan barang bekas dan kerja sama tim.'
         }
       ]
     }
   };
 
-  // General Portfolio Quiz (Triggered via Header Navigation)
+  // -------------------------------------------------------------------------
+  // 4. DATA STORE: General Quiz Tentang Saya (Tepat 5 Soal Nyata)
+  // -------------------------------------------------------------------------
   const generalQuizData = {
-    title: 'Portfolio Knowledge Quiz',
-    subtitle: 'Uji pemahaman Anda mengenai profil dan karya Muhammad Ad Dairabiy.',
+    title: 'Kuis Tentang Saya (5 Soal)',
+    subtitle: 'Uji seberapa kenal Anda dengan profil dan cerita Muhammad Ad Dairabiy!',
     questions: [
       {
-        q: 'Di sekolah manakah Muhammad Ad Dairabiy bersekolah saat ini?',
+        q: 'Di manakah Muhammad Ad Dairabiy bersekolah saat ini?',
         options: [
           'SMA Negeri 70 Jakarta (Kelas X-D)',
           'SMA Negeri 8 Jakarta',
@@ -376,57 +343,57 @@ document.addEventListener('DOMContentLoaded', () => {
           'SMA Negeri 28 Jakarta'
         ],
         correct: 0,
-        feedback: 'Tepat! Muhammad adalah siswa aktif di SMA Negeri 70 Jakarta Kelas X-D.'
+        feedback: 'Tepat! Dairabiy adalah siswa kelas X-D di SMA Negeri 70 Jakarta.'
       },
       {
-        q: 'Apa minat utama dan aspirasi masa depan yang ditekuni oleh Muhammad?',
+        q: 'Apa alasan awal dibuatnya website portfolio ini?',
         options: [
-          'Seni Musik Tradisional',
-          'Teknologi, Komputer & Pemrograman',
-          'Kedokteran Hewan',
-          'Desain Busana'
-        ],
-        correct: 1,
-        feedback: 'Benar! Muhammad memiliki antusiasme tinggi di bidang komputer dan pemrograman.'
-      },
-      {
-        q: 'Proyek sekolah manakah yang mengulas arsitektur dan sejarah kemerdekaan?',
-        options: [
-          'Proyek Video Edukatif Monas',
-          'Infografis Pencemaran Lingkungan',
-          'Proyek Biografi Émile Durkheim',
-          'Presentasi Teknologi Notion AI'
+          'Tugas dari ekstrakurikuler Klub Robotik SMAN 70',
+          'Tugas akhir kelulusan sekolah',
+          'Mengikuti turnamen esports',
+          'Melamar pekerjaan profesional'
         ],
         correct: 0,
-        feedback: 'Tepat! Proyek Video Monas mengulas sejarah kemerdekaan dan arsitektur Monas.'
+        feedback: 'Benar! Awalnya tugas ekskul Klub Robotik, lalu dikembangkan untuk persiapan kuliah dan masa depan.'
       },
       {
-        q: 'Ekstrakurikuler apa yang pernah diikuti Muhammad saat di bangku SMP?',
+        q: 'Apa fokus minat teknologi terbesar yang paling menarik perhatian Dairabiy?',
         options: [
-          'Klub IPA (SMPN 68 Jakarta Selatan)',
-          'Klub Robotik Nasional',
-          'Klub Basket Pelajar',
-          'PMR Unit Madya'
+          'Kecerdasan Buatan (AI) dan Teknologi',
+          'Perbaikan Mesin Truk Berat',
+          'Pertanian Tradisional',
+          'Manajemen Saham Perbankan'
         ],
         correct: 0,
-        feedback: 'Tepat! Muhammad aktif di Klub IPA SMPN 68 Jakarta Selatan.'
+        feedback: 'Tepat! Dairabiy sangat tertarik pada perkembangan AI dan dunia teknologi digital.'
       },
       {
-        q: 'Alat bantu kecerdasan buatan (AI) apa yang pernah dipresentasikan oleh Muhammad di kelas?',
+        q: 'Manakah di antara aktivitas berikut yang menjadi salah satu hobi santai Dairabiy?',
         options: [
-          'Autonomous Flight AI',
-          'Notion AI',
-          'Self-Driving Vehicle System',
-          'Voice Synthesizer Studio'
+          'Mendengarkan musik, desain, dan video editing',
+          'Balap mobil sirkuit internasional',
+          'Menyelam gua bawah tanah',
+          'Terjun payung ekstrem'
         ],
-        correct: 1,
-        feedback: 'Benar! Presentasi Notion AI membahas efisiensi belajar dan produktivitas siswa.'
+        correct: 0,
+        feedback: 'Benar! Selain suka desain dan video editing, Dairabiy suka mendengarkan musik saat santai.'
+      },
+      {
+        q: 'Bagaimana status atau tingkat kemampuan coding Dairabiy saat ini?',
+        options: [
+          'Masih pemula dan sedang belajar dasar-dasar coding',
+          'Senior Software Architect 10 tahun pengalaman',
+          'Expert AI Specialist internasional',
+          'Master Developer Silicon Valley'
+        ],
+        correct: 0,
+        feedback: 'Tepat! Dairabiy adalah siswa yang masih pemula dalam coding dan terus belajar hal-hal baru.'
       }
     ]
   };
 
   // -------------------------------------------------------------------------
-  // 4. SCROLL PROGRESS INDICATOR
+  // 5. SCROLL PROGRESS INDICATOR
   // -------------------------------------------------------------------------
   const progressBar = document.getElementById('scroll-progress-bar');
   window.addEventListener('scroll', () => {
@@ -439,26 +406,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // -------------------------------------------------------------------------
-  // 5. HERO DYNAMIC TYPING EFFECT
+  // 6. HERO DYNAMIC TYPING EFFECT
   // -------------------------------------------------------------------------
   const typingRole = document.getElementById('typing-role');
-  const studentInterests = [
-    'Teknologi & Komputer',
-    'Eksplorasi Pemrograman',
-    'Pengembangan Konten Digital',
-    'Siswa Kelas X-D SMAN 70 Jakarta'
+  const studentPhases = [
+    'Siswa Kelas X-D SMAN 70 Jakarta',
+    'Masih belajar coding & pemrograman',
+    'Tertarik eksplorasi AI & teknologi',
+    'Suka desain grafis & video editing'
   ];
 
-  let currentInterestIdx = 0;
+  let currentPhaseIdx = 0;
   let charIdx = 0;
   let isBackspacing = false;
-  const typeSpeed = 80;
-  const backSpeed = 45;
-  const holdTime = 2000;
+  const typeSpeed = 75;
+  const backSpeed = 40;
+  const holdTime = 2200;
 
   function handleTyping() {
     if (!typingRole) return;
-    const text = studentInterests[currentInterestIdx];
+    const text = studentPhases[currentPhaseIdx];
 
     if (isBackspacing) {
       typingRole.textContent = text.substring(0, charIdx - 1);
@@ -475,8 +442,8 @@ document.addEventListener('DOMContentLoaded', () => {
       isBackspacing = true;
     } else if (isBackspacing && charIdx === 0) {
       isBackspacing = false;
-      currentInterestIdx = (currentInterestIdx + 1) % studentInterests.length;
-      delay = 350;
+      currentPhaseIdx = (currentPhaseIdx + 1) % studentPhases.length;
+      delay = 300;
     }
 
     setTimeout(handleTyping, delay);
@@ -485,43 +452,15 @@ document.addEventListener('DOMContentLoaded', () => {
   handleTyping();
 
   // -------------------------------------------------------------------------
-  // 6. INTERACTIVE "ABOUT ME" TABS
+  // 7. LEARNING JOURNEY STEPPER INTERACTION
   // -------------------------------------------------------------------------
-  const aboutTabBtns = document.querySelectorAll('.about-tab-btn');
-  const aboutPanes = document.querySelectorAll('.about-tab-pane');
-
-  aboutTabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetTab = btn.getAttribute('data-tab');
-
-      // Update button states
-      aboutTabBtns.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-
-      // Switch active pane smoothly
-      aboutPanes.forEach(pane => {
-        if (pane.id === `pane-${targetTab}`) {
-          pane.classList.add('active');
-        } else {
-          pane.classList.remove('active');
-        }
-      });
-    });
-  });
-
-  // -------------------------------------------------------------------------
-  // 7. "MY LEARNING JOURNEY" STEPPER
-  // -------------------------------------------------------------------------
-  const journeyNodes = document.querySelectorAll('.journey-node');
-  const jBadge = document.getElementById('journey-badge');
-  const jTitle = document.getElementById('journey-title');
-  const jDesc = document.getElementById('journey-desc');
-  const jTakeaway = document.getElementById('journey-takeaway');
-  const jCard = document.getElementById('journey-detail-card');
+  const journeyNodes = document.querySelectorAll('.j-node');
+  const jBadgeStep = document.getElementById('j-badge-step');
+  const jStepIndicator = document.getElementById('j-step-indicator');
+  const jDisplayTitle = document.getElementById('j-display-title');
+  const jDisplayText = document.getElementById('j-display-text');
+  const jTakeawayVal = document.getElementById('j-takeaway-val');
+  const jDisplayCard = document.getElementById('journey-display-card');
 
   journeyNodes.forEach(node => {
     node.addEventListener('click', () => {
@@ -529,56 +468,61 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = journeyData[step];
       if (!data) return;
 
-      journeyNodes.forEach(n => n.classList.remove('active'));
+      journeyNodes.forEach(n => {
+        n.classList.remove('active');
+        n.setAttribute('aria-selected', 'false');
+      });
       node.classList.add('active');
+      node.setAttribute('aria-selected', 'true');
 
-      if (jCard) {
-        // Trigger subtle refresh animation
-        jCard.style.animation = 'none';
-        void jCard.offsetWidth; // trigger reflow
-        jCard.style.animation = 'journey-fade 0.3s ease';
+      if (jDisplayCard) {
+        jDisplayCard.style.animation = 'none';
+        void jDisplayCard.offsetWidth; // trigger reflow
+        jDisplayCard.style.animation = 'journey-fade 0.35s ease-out';
       }
 
-      if (jBadge) jBadge.textContent = data.badge;
-      if (jTitle) jTitle.textContent = data.title;
-      if (jDesc) jDesc.textContent = data.desc;
-      if (jTakeaway) jTakeaway.textContent = data.takeaway;
+      if (jBadgeStep) jBadgeStep.textContent = data.stepBadge;
+      if (jStepIndicator) jStepIndicator.textContent = data.stepIndicator;
+      if (jDisplayTitle) jDisplayTitle.textContent = data.title;
+      if (jDisplayText) jDisplayText.textContent = data.desc;
+      if (jTakeawayVal) jTakeawayVal.textContent = data.takeaway;
     });
   });
 
   // -------------------------------------------------------------------------
   // 8. SKILLS INTERACTION & TOOLTIP CALLOUT
   // -------------------------------------------------------------------------
-  const skillCards = document.querySelectorAll('.skill-card-item');
-  const skillDetailText = document.getElementById('skill-detail-text');
+  const skillBadges = document.querySelectorAll('.skill-badge-item');
+  const calloutTitle = document.getElementById('callout-title');
+  const calloutDesc = document.getElementById('callout-desc');
 
-  skillCards.forEach(card => {
-    const desc = card.getAttribute('data-desc');
+  skillBadges.forEach(badge => {
+    const desc = badge.getAttribute('data-desc');
+    const name = badge.querySelector('.skill-name')?.textContent || 'Kemampuan';
 
-    const updateSkillDetail = () => {
-      skillCards.forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-      if (skillDetailText && desc) {
-        skillDetailText.textContent = desc;
-      }
+    const updateSkillCallout = () => {
+      skillBadges.forEach(b => b.classList.remove('selected'));
+      badge.classList.add('selected');
+      if (calloutTitle) calloutTitle.textContent = name;
+      if (calloutDesc && desc) calloutDesc.textContent = desc;
     };
 
-    card.addEventListener('mouseenter', updateSkillDetail);
-    card.addEventListener('click', updateSkillDetail);
+    badge.addEventListener('mouseenter', updateSkillCallout);
+    badge.addEventListener('click', updateSkillCallout);
   });
 
   // -------------------------------------------------------------------------
-  // 9. PROJECT FILTER & STRUCTURED MODAL SHOWCASE
+  // 9. PROJECT FILTER SYSTEM
   // -------------------------------------------------------------------------
-  const filterPills = document.querySelectorAll('.filter-pill');
-  const projectCards = document.querySelectorAll('.project-token-card');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
 
-  filterPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      filterPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-      const filterVal = pill.getAttribute('data-filter').toLowerCase();
+      const filterVal = btn.getAttribute('data-filter').toLowerCase();
 
       projectCards.forEach(card => {
         const cat = card.getAttribute('data-category').toLowerCase();
@@ -591,14 +535,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Project Modal Elements
-  // Project Modal Elements
+  // -------------------------------------------------------------------------
+  // 10. PROJECT MODAL & LIGHTBOX SYSTEM
+  // -------------------------------------------------------------------------
   const projectModal = document.getElementById('project-modal');
   const projectModalInner = document.getElementById('modal-inner');
   const projectModalClose = document.getElementById('modal-close-btn');
   const projectModalBackdrop = document.getElementById('modal-backdrop');
 
-  // Lightbox / Image Viewer Elements
   const lightboxModal = document.getElementById('image-lightbox-modal');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxCaption = document.getElementById('lightbox-caption');
@@ -608,9 +552,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function openLightbox(src, caption, alt) {
     if (!lightboxModal || !lightboxImg) return;
     lightboxImg.src = src;
-    lightboxImg.alt = alt || caption || 'Pratinjau Karya';
+    lightboxImg.alt = alt || caption || 'Pratinjau Hasil Karya Asli';
     if (lightboxCaption) {
-      lightboxCaption.innerHTML = `<i class="fa-solid fa-image"></i> ${caption || ''}`;
+      lightboxCaption.innerHTML = `<i class="fa-solid fa-image text-cyan"></i> ${caption || ''}`;
     }
     lightboxModal.classList.add('active');
     lightboxModal.setAttribute('aria-hidden', 'false');
@@ -632,9 +576,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let secondaryActionHTML = '';
     if (proj.secondaryLink) {
       secondaryActionHTML = `
-        <div class="project-secondary-action">
+        <div class="p-external-link-btn">
           <a href="${proj.secondaryLink.url}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block" title="Buka video dokumentasi Monas di YouTube">
-            <i class="fa-brands fa-youtube text-red" style="color: #ef4444;"></i>
+            <i class="fa-brands fa-youtube" style="color: #ef4444;"></i>
             <span>${proj.secondaryLink.label}</span>
             <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 11px; opacity: 0.7;"></i>
           </a>
@@ -646,69 +590,75 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="project-modal-header">
         <span class="project-modal-tag">${proj.category}</span>
         <h3 class="project-modal-title">${proj.title}</h3>
-        <div class="project-tag-chips">
-          ${proj.tags.map(t => `<span class="chip">${t}</span>`).join('')}
+        <div class="project-modal-chips">
+          ${proj.tags.map(t => `<span class="tool-tag">${t}</span>`).join('')}
         </div>
       </div>
 
       <p class="p-summary-desc">${proj.summary}</p>
 
-      <div class="project-meta-grid">
-        <div class="p-meta-box">
-          <span class="p-meta-title"><i class="fa-solid fa-user-gear text-blue"></i> My Role</span>
-          <span class="p-meta-value">${proj.role}</span>
+      <div class="project-details-grid">
+        <div class="p-detail-card">
+          <span class="p-detail-title"><i class="fa-solid fa-circle-info"></i> Tentang Proyek</span>
+          <p class="p-detail-val">${proj.about}</p>
+        </div>
+        <div class="p-detail-card">
+          <span class="p-detail-title"><i class="fa-solid fa-user-check"></i> Peran Saya</span>
+          <p class="p-detail-val">${proj.role}</p>
+        </div>
+        <div class="p-detail-card">
+          <span class="p-detail-title"><i class="fa-solid fa-list-check"></i> Yang Saya Kerjakan</span>
+          <p class="p-detail-val">${proj.whatIDid}</p>
+        </div>
+        <div class="p-detail-card">
+          <span class="p-detail-title"><i class="fa-solid fa-wrench"></i> Alat / Bahan</span>
+          <p class="p-detail-val">${proj.tools}</p>
         </div>
       </div>
 
-      <h4 class="p-section-heading"><i class="fa-solid fa-graduation-cap text-blue"></i> What I Learned</h4>
-      <ul class="p-takeaways-list">
-        ${proj.learnings.map(item => `<li>${item}</li>`).join('')}
+      <h4 class="p-section-heading"><i class="fa-solid fa-graduation-cap text-cyan"></i> Yang Saya Pelajari</h4>
+      <ul class="p-learnings-list">
+        ${proj.learnings.map(item => `<li><i class="fa-solid fa-check"></i> <span>${item}</span></li>`).join('')}
       </ul>
 
-      <div class="p-section-divider"></div>
-
-      <!-- HASIL KARYA SECTION (Direct Visual Output & Lightbox Viewer) -->
-      <h4 class="p-section-heading p-out-heading"><i class="fa-solid fa-folder-open text-blue"></i> 📁 Hasil Karya</h4>
-      
-      <div class="project-visual-output">
-        <div class="project-output-preview-card">
-          <div class="project-output-img-wrap" id="project-preview-trigger" title="Klik untuk melihat dalam ukuran penuh">
-            <img src="${proj.image}" alt="${proj.imageAlt}" class="project-output-img" loading="lazy">
-            <div class="zoom-hint-badge">
-              <i class="fa-solid fa-magnifying-glass-plus"></i>
-              <span>Klik untuk perbesar</span>
-            </div>
-          </div>
-          <div class="project-output-caption">
-            <i class="fa-solid fa-image"></i>
-            <span>${proj.imageCaption}</span>
+      <!-- HASIL KARYA ASLI SECTION -->
+      <h4 class="p-section-heading"><i class="fa-solid fa-image text-cyan"></i> Hasil Karya Asli</h4>
+      <div class="p-output-box">
+        <div class="p-preview-trigger" id="modal-img-trigger" title="Klik untuk memperbesar gambar">
+          <img src="${proj.image}" alt="${proj.imageAlt}" class="p-modal-img" loading="lazy">
+          <div class="p-zoom-hint">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+            <span>Klik untuk perbesar</span>
           </div>
         </div>
-        ${secondaryActionHTML}
+        <div class="p-output-caption-bar">
+          <span><i class="fa-solid fa-camera"></i> ${proj.imageCaption}</span>
+          <small style="color: var(--accent-cyan); font-weight: 600;">100% Foto Karya Asli</small>
+        </div>
       </div>
+      ${secondaryActionHTML}
 
-      <div class="p-section-divider"></div>
-
-      <!-- QUICK QUIZ SECTION -->
-      <div class="project-quiz-trigger-card">
-        <div class="quiz-trigger-info">
-          <h4 class="quiz-trigger-title"><i class="fa-solid fa-brain text-blue"></i> 🧠 Quick Quiz</h4>
-          <p class="quiz-trigger-desc">Uji pemahaman Anda seputar materi <strong>${proj.title}</strong> melalui 5 pertanyaan interaktif.</p>
+      <!-- QUICK QUIZ TRIGGER BUTTON -->
+      <div class="modal-quiz-callout">
+        <div class="m-quiz-info">
+          <h4><i class="fa-solid fa-brain text-cyan"></i> Kuis Singkat Proyek</h4>
+          <p>Uji pemahaman Anda seputar materi <strong>${proj.title}</strong> (3 soal interaktif).</p>
         </div>
-        <button class="btn btn-secondary btn-block start-project-quiz-btn" data-quiz="${proj.quizKey}" data-id="${proj.id}" title="Mulai kuis interaktif 5 soal">
-          <i class="fa-solid fa-brain text-blue"></i>
-          <span>🧠 Take Quick Quiz</span>
+        <button class="btn btn-primary start-project-quiz-btn" data-quiz="${proj.quizKey}" data-id="${proj.id}" title="Mulai kuis interaktif 3 soal">
+          <i class="fa-solid fa-play"></i>
+          <span>Mulai Kuis (3 Soal)</span>
         </button>
       </div>
     `;
 
     projectModal.classList.add('active');
+    projectModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
 
-    // Hook image click to open lightbox
-    const previewTrigger = projectModalInner.querySelector('#project-preview-trigger');
-    if (previewTrigger) {
-      previewTrigger.addEventListener('click', () => {
+    // Hook image preview click to Lightbox
+    const imgTrigger = projectModalInner.querySelector('#modal-img-trigger');
+    if (imgTrigger) {
+      imgTrigger.addEventListener('click', () => {
         openLightbox(proj.image, proj.imageCaption, proj.imageAlt);
       });
     }
@@ -727,9 +677,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeProjectDetail() {
     if (projectModal) {
       projectModal.classList.remove('active');
-      if (projectModalInner) {
-        projectModalInner.innerHTML = '';
-      }
+      projectModal.setAttribute('aria-hidden', 'true');
+      if (projectModalInner) projectModalInner.innerHTML = '';
     }
     document.body.style.overflow = '';
   }
@@ -747,12 +696,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (projectModalBackdrop) projectModalBackdrop.addEventListener('click', closeProjectDetail);
 
   // -------------------------------------------------------------------------
-  // 10. INTERACTIVE QUIZ SYSTEM (Dedicated & General Knowledge)
+  // 11. QUICK QUIZ SYSTEM (ABOUT ME 5 SOAL & PROYEK 3 SOAL)
   // -------------------------------------------------------------------------
   const quizModal = document.getElementById('quiz-modal');
   const quizModalClose = document.getElementById('quiz-modal-close');
   const quizModalBackdrop = document.getElementById('quiz-modal-backdrop');
   const quizNavBtn = document.getElementById('quiz-nav-btn');
+  const footerQuizLink = document.getElementById('footer-quiz-link');
   const quizContainer = document.getElementById('quiz-container');
 
   let activeQuizData = null;
@@ -770,16 +720,17 @@ document.addEventListener('DOMContentLoaded', () => {
     currentQuizIdx = 0;
     quizScore = 0;
 
-    // Close project modal smoothly without removing body lock
+    // Smoothly close project modal
     if (projectModal) {
       projectModal.classList.remove('active');
-      if (projectModalInner) projectModalInner.innerHTML = '';
+      projectModal.setAttribute('aria-hidden', 'true');
     }
 
     renderQuizQuestion();
 
     if (quizModal) {
       quizModal.classList.add('active');
+      quizModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
   }
@@ -794,6 +745,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (quizModal) {
       quizModal.classList.add('active');
+      quizModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
   }
@@ -808,8 +760,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     quizContainer.innerHTML = `
       <div class="quiz-header-top">
-        <span class="quiz-header-badge">🧠 Quick Quiz</span>
-        <span class="quiz-step-tag">Question ${currentQuizIdx + 1}/${totalQ}</span>
+        <span class="quiz-header-badge"><i class="fa-solid fa-brain"></i> Quick Quiz</span>
+        <span class="quiz-step-tag">Soal ${currentQuizIdx + 1} dari ${totalQ}</span>
       </div>
       <h3 class="quiz-title">${activeQuizData.title}</h3>
       <p class="quiz-sub">${activeQuizData.subtitle}</p>
@@ -819,27 +771,27 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <div class="quiz-card">
-        <h4 class="quiz-q-text">${currentQuizIdx + 1}. ${qData.q.replace(/^\d+\.\s*/, '')}</h4>
+        <h4 class="quiz-q-text">${currentQuizIdx + 1}. ${qData.q}</h4>
 
         <div class="quiz-opts-group">
           ${qData.options.map((opt, i) => `
             <button class="quiz-opt-btn" data-opt="${i}">
-              <span class="node-number">${String.fromCharCode(65 + i)}</span>
-              <span class="quiz-opt-text">${opt}</span>
+              <span class="opt-letter">${String.fromCharCode(65 + i)}</span>
+              <span class="opt-text">${opt}</span>
             </button>
           `).join('')}
         </div>
 
         <div class="quiz-feedback-strip" id="quiz-feedback-strip"></div>
 
-        <button class="btn btn-primary btn-block" id="quiz-next-btn" style="display: none; margin-top: 12px;">
-          <span>${currentQuizIdx + 1 === totalQ ? 'Lihat Hasil Quiz' : 'Next'}</span>
+        <button class="btn btn-primary btn-block" id="quiz-next-btn" style="display: none; margin-top: 16px;">
+          <span>${currentQuizIdx + 1 === totalQ ? 'Lihat Hasil Akhir' : 'Lanjut ke Soal Berikutnya'}</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
     `;
 
-    // Hook answer choices
+    // Hook options click
     const optButtons = quizContainer.querySelectorAll('.quiz-opt-btn');
     const feedbackBox = document.getElementById('quiz-feedback-strip');
     const nextBtn = document.getElementById('quiz-next-btn');
@@ -856,12 +808,14 @@ document.addEventListener('DOMContentLoaded', () => {
           btn.classList.add('correct');
           quizScore++;
           feedbackBox.className = 'quiz-feedback-strip show correct';
-          feedbackBox.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${qData.feedback}`;
+          feedbackBox.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${qData.feedback}</span>`;
         } else {
           btn.classList.add('wrong');
-          optButtons[qData.correct].classList.add('correct');
+          if (optButtons[qData.correct]) {
+            optButtons[qData.correct].classList.add('correct');
+          }
           feedbackBox.className = 'quiz-feedback-strip show wrong';
-          feedbackBox.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> ${qData.feedback}`;
+          feedbackBox.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> <span>${qData.feedback}</span>`;
         }
 
         if (nextBtn) {
@@ -888,36 +842,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalQ = activeQuizData.questions.length;
     let scoreFeedback = '';
 
-    // Exact score feedback messages matching user specification
-    if (quizScore === 5) {
-      scoreFeedback = 'Excellent! You really know this topic! 🏆';
-    } else if (quizScore === 4) {
-      scoreFeedback = 'Great job! 🚀';
-    } else if (quizScore === 3) {
-      scoreFeedback = 'Nice! You got the basics! 👍';
+    // Dynamic authentic feedback messages with light humor
+    if (activeProjectId === null) {
+      // General Quiz Tentang Saya (5 Soal)
+      if (quizScore === 5) {
+        scoreFeedback = 'Kenal saya banget 😎 Mantap!';
+      } else if (quizScore >= 3) {
+        scoreFeedback = 'Sudah lumayan kenal! 👍';
+      } else {
+        scoreFeedback = 'Kayaknya harus keliling portfolio dulu 😭';
+      }
     } else {
-      scoreFeedback = 'Good start! Explore the project again! 🔎';
+      // Project Quiz (3 Soal)
+      if (quizScore === 3) {
+        scoreFeedback = 'Luar biasa! Kamu paham betul detail proyek ini 🎯';
+      } else if (quizScore === 2) {
+        scoreFeedback = 'Bagus! Sudah memahami sebagian besar isi proyek 👍';
+      } else {
+        scoreFeedback = 'Masih ada yang keliru, yuk baca lagi detail proyeknya! 📖';
+      }
     }
 
     quizContainer.innerHTML = `
       <div class="quiz-result-box">
         <div class="quiz-trophy-icon">
-          <i class="fa-solid ${quizScore >= 4 ? 'fa-award' : quizScore === 3 ? 'fa-circle-check' : 'fa-lightbulb'}"></i>
+          <i class="fa-solid ${quizScore >= totalQ - 1 ? 'fa-trophy text-cyan' : quizScore >= 1 ? 'fa-circle-check text-emerald' : 'fa-lightbulb text-amber'}"></i>
         </div>
-        <span class="quiz-header-badge">Quiz Complete!</span>
-        <h3 class="quiz-title" style="margin-top: 5px;">Hasil Kuis Anda</h3>
-        <div class="quiz-score-badge">Your Score: ${quizScore}/5</div>
+        <span class="quiz-header-badge">Kuis Selesai!</span>
+        <h3 class="quiz-title" style="margin-top: 6px;">Hasil Kuis Anda</h3>
+        <div class="quiz-score-badge">Skor: ${quizScore} / ${totalQ}</div>
         <p class="quiz-result-msg">${scoreFeedback}</p>
         
         <div class="quiz-result-actions">
           <button class="btn btn-secondary" id="quiz-retake-btn">
             <i class="fa-solid fa-rotate-left"></i>
-            <span>Try Again</span>
+            <span>Coba Lagi</span>
           </button>
           ${activeProjectId ? `
             <button class="btn btn-primary" id="quiz-back-project-btn">
               <i class="fa-solid fa-arrow-left"></i>
-              <span>Back to Project</span>
+              <span>Kembali ke Proyek</span>
             </button>
           ` : `
             <button class="btn btn-primary" id="quiz-finish-btn">
@@ -957,37 +921,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function closeQuizModal() {
-    if (quizModal) quizModal.classList.remove('active');
+    if (quizModal) {
+      quizModal.classList.remove('active');
+      quizModal.setAttribute('aria-hidden', 'true');
+    }
     document.body.style.overflow = '';
   }
 
   if (quizNavBtn) quizNavBtn.addEventListener('click', openGeneralQuiz);
+  if (footerQuizLink) footerQuizLink.addEventListener('click', openGeneralQuiz);
   if (quizModalClose) quizModalClose.addEventListener('click', closeQuizModal);
   if (quizModalBackdrop) quizModalBackdrop.addEventListener('click', closeQuizModal);
-
-  // -------------------------------------------------------------------------
-  // 11. ELEGANT EASTER EGG (Click Logo 5 Times)
-  // -------------------------------------------------------------------------
-  const brandLogo = document.getElementById('brand-easter-logo');
-  let logoClickCount = 0;
-  let logoClickTimer = null;
-
-  if (brandLogo) {
-    brandLogo.addEventListener('click', (e) => {
-      logoClickCount++;
-      clearTimeout(logoClickTimer);
-
-      if (logoClickCount === 5) {
-        e.preventDefault();
-        displayToast('Curiosity unlocked 👀 — You found something hidden. Keep exploring!', 'easter-egg');
-        logoClickCount = 0;
-      } else {
-        logoClickTimer = setTimeout(() => {
-          logoClickCount = 0;
-        }, 1200);
-      }
-    });
-  }
 
   // -------------------------------------------------------------------------
   // 12. SECTION REVEAL (INTERSECTION OBSERVER)
@@ -1001,14 +945,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -30px 0px'
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
   });
 
   revealSections.forEach(sec => sectionObserver.observe(sec));
 
   // -------------------------------------------------------------------------
-  // 13. ACTIVE NAVIGATION LINK ON SCROLL & MOBILE MENU
+  // 13. ACTIVE NAVIGATION LINK ON SCROLL & MOBILE MENU DRAWER
   // -------------------------------------------------------------------------
   const navMenu = document.getElementById('nav-menu');
   const navToggle = document.getElementById('nav-toggle');
@@ -1027,7 +971,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('scroll', () => {
-    const scrollPos = window.pageYOffset + 120;
+    const scrollPos = window.pageYOffset + 140;
 
     allSections.forEach(sec => {
       const top = sec.offsetTop;
@@ -1037,16 +981,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (targetNav) {
         if (scrollPos >= top && scrollPos < top + height) {
+          navLinks.forEach(l => l.classList.remove('active'));
           targetNav.classList.add('active');
-        } else {
-          targetNav.classList.remove('active');
         }
       }
     });
   });
 
   // -------------------------------------------------------------------------
-  // 14. CONTACT FORM & TOAST NOTIFICATION
+  // 14. CONTACT FORM VALIDATION & TOAST NOTIFICATION
   // -------------------------------------------------------------------------
   const contactForm = document.getElementById('contact-form');
   const submitBtn = document.getElementById('submit-btn');
@@ -1079,8 +1022,8 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = false;
         submitBtn.innerHTML = origText;
         contactForm.reset();
-        displayToast(`Terima kasih, ${name}! Pesan berhasil dikirim ke dairabih2@gmail.com.`, 'success');
-      }, 900);
+        displayToast(`Terima kasih, ${name}! Pesan Anda telah dicatat (dairabih2@gmail.com).`, 'success');
+      }, 850);
     });
   }
 
@@ -1091,9 +1034,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const toast = document.createElement('div');
     toast.className = `toast-item ${type === 'easter-egg' ? 'easter-egg' : ''}`;
 
-    let icon = 'fa-circle-check';
-    if (type === 'error') icon = 'fa-circle-exclamation';
-    if (type === 'easter-egg') icon = 'fa-sparkles';
+    let icon = 'fa-circle-check text-cyan';
+    if (type === 'error') icon = 'fa-circle-exclamation text-coral';
+    if (type === 'easter-egg') icon = 'fa-sparkles text-purple';
 
     toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${msg}</span>`;
     wrapper.appendChild(toast);
@@ -1122,15 +1065,40 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       if (lightboxModal && lightboxModal.classList.contains('active')) {
         closeLightbox();
-      } else {
-        closeProjectDetail();
+      } else if (quizModal && quizModal.classList.contains('active')) {
         closeQuizModal();
+      } else if (projectModal && projectModal.classList.contains('active')) {
+        closeProjectDetail();
       }
     }
   });
 
   // -------------------------------------------------------------------------
-  // 16. CURRENT YEAR DYNAMIC UPDATE
+  // 16. EASTER EGG (Click Logo 5 Times)
+  // -------------------------------------------------------------------------
+  const brandLogo = document.getElementById('brand-easter-logo');
+  let logoClickCount = 0;
+  let logoClickTimer = null;
+
+  if (brandLogo) {
+    brandLogo.addEventListener('click', (e) => {
+      logoClickCount++;
+      clearTimeout(logoClickTimer);
+
+      if (logoClickCount === 5) {
+        e.preventDefault();
+        displayToast('🎉 Keren! Kamu menemukan rahasia tersembunyi. Semangat belajar!', 'easter-egg');
+        logoClickCount = 0;
+      } else {
+        logoClickTimer = setTimeout(() => {
+          logoClickCount = 0;
+        }, 1200);
+      }
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // 17. CURRENT YEAR DYNAMIC UPDATE
   // -------------------------------------------------------------------------
   const yearEl = document.getElementById('current-year');
   if (yearEl) {

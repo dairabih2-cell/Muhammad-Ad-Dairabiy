@@ -1,223 +1,412 @@
 /**
  * ==========================================================================
- * MUHAMMAD AD DAIRABIY // VIBRANT DAYTIME IMMERSIVE PIXEL REALM
- * World Fidelity Pass: Believable Urban Planning, Multi-Zone Ecosystem,
- * Y-Sorting Depth Rendering, Living NPCs, Train Sequence, Kraken Encounter,
- * Blue Fireball Fast Travel & Journey-to-Content Navigation.
- * Dominant Typography: 'Press Start 2P', monospace
+ * MUHAMMAD AD DAIRABIY // PIXEL CITY — MY LEARNING WORLD
+ * Comprehensive Interactive JavaScript Engine
+ * Features: Authentic 5 Projects, 20-Question Quiz Arena, Lightbox Gallery,
+ * Interactive Buildings, 8-Bit Web Audio Synthesizer, Living NPCs,
+ * Day/Night Sky Switcher, Contact Form & Mobile Navigation
  * ==========================================================================
  */
 
-(function () {
+document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   // --------------------------------------------------------------------------
-  // 1. DATA STORE (100% Authentic Student Profile & 3 Selected Projects)
+  // 1. DATA STORE: 5 AUTHENTIC SCHOOL PROJECTS
   // --------------------------------------------------------------------------
-  const REALM_DATA = {
-    profile: {
-      name: 'Muhammad Ad Dairabiy',
-      nickname: 'Abiy',
-      role: 'Siswa · Desainer · Editor Video',
-      school: 'SMAN 70 Jakarta (Kelas X-D)',
-      tagline: 'Menciptakan pengalaman digital dan konten visual.',
-      aboutP1: 'Saya adalah seorang siswa yang tertarik pada teknologi, desain, dan kreativitas digital.',
-      aboutP2: 'Saya senang mengeksplorasi berbagai hal baru, mulai dari membuat situs web dan mengembangkan desain visual hingga mengedit video serta bereksperimen dengan teknologi baru dan alat AI.',
-      aboutP3: 'Saya suka membuat desain, mengedit video, mengeksplorasi situs web, bereksperimen dengan teknologi baru, mendengarkan musik, dan mengembangkan proyek digital.',
-      futureGoal: 'Saya ingin terus meningkatkan kemampuan di bidang teknologi, desain, dan pengembangan digital sambil membangun proyek yang melampaui tugas sekolah dan menjadi bagian dari portofolio pribadi saya.',
-      email: 'dairabih2@gmail.com',
-      instagram: '@abiyxd',
-      instagramUrl: 'https://instagram.com/abiyxd'
+  const PROJECTS_DATA = {
+    1: {
+      id: 1,
+      title: 'Proyek Video Edukatif Monas',
+      category: 'media',
+      categoryLabel: 'Desain & Video',
+      tags: ['Video Edukasi', 'Sejarah Monas 132m', 'Kerja Sama Tim', 'CapCut'],
+      summary: 'Proyek video dokumenter dan edukasi sejarah mengenai Monumen Nasional (Monas) Jakarta yang dikerjakan bersama teman sekelompok.',
+      overview: 'Proyek kelompok yang membahas dan mengeksplorasi Monumen Nasional (Monas) sebagai salah satu ikon penting Jakarta dan Indonesia. Informasi mengenai sejarah kemerdekaan, tinggi 132 meter, fungsi cawan, serta lidah api emas dikumpulkan dan dikemas menjadi materi visual dan video yang mudah dipahami.',
+      role: 'Mencari informasi materi sejarah, menyusun poin naskah materi, dan membantu menentukan konsep alur video bersama kelompok.',
+      tools: 'Materi riset sejarah, smartphone, dan aplikasi video editor (CapCut).',
+      whatIDid: 'Mengumpulkan bahan riset sejarah Monas, berdiskusi mengenai urutan scene video, dan membantu rekan satu tim saat proses pengambilan dan penyusunan materi.',
+      learnings: [
+        'Belajar pentingnya kerja sama kelompok dan pembagian tugas yang adil.',
+        'Belajar menyederhanakan informasi sejarah agar mudah dipahami penonton.',
+        'Mengenal dasar-dasar alur pembuatan video edukasi.'
+      ],
+      image: 'assets/projects/monas/monas-video-preview.jpg',
+      imageCaption: 'Dokumentasi Video Edukatif Monas',
+      videoUrl: 'https://youtu.be/DpoM_Qq4wT0',
+      externalLinks: {
+        googleDrive: '' // Diisi jika link drive view-only tersedia
+      },
+      gallery: [
+        {
+          src: 'assets/projects/monas/monas-video-preview.jpg',
+          caption: 'Dokumentasi Visual Video Edukatif Monas (132 Meter & Sejarah)'
+        }
+      ],
+      quizKey: 'monas'
     },
-
-    skills: [
-      {
-        num: '01',
-        title: 'EDITING VIDEO',
-        desc: 'Membuat dan mengedit konten video dengan memperhatikan alur cerita, visual, transisi, dan penyampaian informasi.'
+    2: {
+      id: 2,
+      title: 'Infografis Pencemaran Lingkungan',
+      category: 'media',
+      categoryLabel: 'Desain & Media',
+      tags: ['Infografis', 'Canva', 'Sains Lingkungan', 'Prinsip 3R'],
+      summary: 'Desain infografis visual mengenai berbagai jenis pencemaran lingkungan (udara, air, tanah), dampaknya bagi kehidupan, dan solusi nyata 3R.',
+      overview: 'Proyek infografis yang membahas permasalahan pencemaran lingkungan dan berbagai solusi yang dapat dilakukan untuk menguranginya. Proyek ini dibuat untuk menyampaikan informasi sains secara singkat, visual, dan menarik perhatian teman sekelas.',
+      role: 'Membantu proyek secara keseluruhan, terutama mengerjakan bagian solusi ramah lingkungan dan membantu membawakan presentasi di depan kelas.',
+      tools: 'Canva (aplikasi desain grafis).',
+      whatIDid: 'Mendesain bagian solusi dan pemilahan sampah di Canva, memilih ikon yang sesuai, dan menyusun poin presentasi bersama anggota kelompok.',
+      learnings: [
+        'Melatih kemampuan presentasi dan berbicara di hadapan teman sekelas.',
+        'Memahami penerapan prinsip 3R (Reduce, Reuse, Recycle) untuk mengurangi sampah.',
+        'Belajar membuat tata letak visual infografis yang seimbang dan nyaman dibaca.'
+      ],
+      image: 'assets/projects/pollution/pollution-infographic.jpg',
+      imageCaption: 'Infografis Keanekaragaman Hayati & Pencemaran Lingkungan',
+      videoUrl: '',
+      externalLinks: {
+        googleDrive: ''
       },
-      {
-        num: '02',
-        title: 'DESAIN GRAFIS',
-        desc: 'Membuat poster, infografis, presentasi, dan konten visual digital.'
-      },
-      {
-        num: '03',
-        title: 'DESAIN UI/UX',
-        desc: 'Mengeksplorasi desain antarmuka dan pengalaman pengguna dengan fokus pada pengalaman digital yang modern, menarik, dan mudah digunakan.'
-      },
-      {
-        num: '04',
-        title: 'PENGEMBANGAN WEB',
-        desc: 'Mengeksplorasi pengembangan situs web dan mempelajari bagaimana desain dapat menjadi pengalaman digital yang interaktif.'
-      },
-      {
-        num: '05',
-        title: 'AI & ALAT DIGITAL',
-        desc: 'Mengeksplorasi alat AI dan teknologi digital untuk mendukung pembelajaran, kreativitas, desain, dan pengembangan proyek.'
-      }
-    ],
-
-    toolsPrimary: ['Canva', 'CapCut', 'Visual Studio Code', 'GitHub', 'Alat AI'],
-    toolsSecondary: ['Figma', 'Adobe Photoshop', 'Notion', 'Notion AI'],
-
-    projects: {
-      1: {
-        id: 1,
-        title: 'Mengeksplorasi Monumen Nasional',
-        year: '2026',
-        category: 'Proyek Sekolah · Sejarah · Presentasi Visual',
-        role: 'Riset · Konten · Presentasi',
-        tools: 'Canva · CapCut · Alat AI',
-        image: 'assets/projects/monas/monas-video-preview.jpg',
-        caption: 'Dokumentasi Visual Riset & Video Monumen Nasional',
-        overview: 'Proyek kelompok yang membahas dan mengeksplorasi Monumen Nasional (Monas) sebagai salah satu ikon penting Jakarta dan Indonesia. Informasi mengenai sejarah, fungsi, serta hal-hal menarik tentang Monas dikumpulkan dan dikemas menjadi materi visual dan video yang mudah dipahami.',
-        process: 'Proses dimulai dengan mencari dan mengumpulkan informasi mengenai Monas, menentukan informasi yang paling relevan, kemudian menyusun materi agar memiliki alur yang jelas. Setelah itu, informasi dikembangkan menjadi materi visual dan video untuk kebutuhan presentasi kelompok.',
-        challenge: 'Tantangan utamanya adalah memilih informasi yang benar-benar penting dari berbagai sumber dan menyampaikannya secara singkat tanpa membuat materi terlalu padat atau membosankan.',
-        solution: 'Informasi dipilih berdasarkan relevansinya dengan topik, kemudian disusun secara terstruktur dan dikombinasikan dengan elemen visual agar materi lebih mudah dipahami dan menarik untuk dilihat.',
-        result: 'Menghasilkan materi presentasi dan video mengenai Monumen Nasional yang dapat digunakan untuk menyampaikan informasi sejarah dan fakta mengenai Monas dengan cara yang lebih visual dan menarik.',
-        learnings: 'Belajar bagaimana melakukan riset informasi, menyusun materi secara terstruktur, bekerja dalam kelompok, serta mengubah informasi menjadi konten visual yang lebih mudah dipahami.'
-      },
-      2: {
-        id: 2,
-        title: 'Biografi Émile Durkheim',
-        year: '2026',
-        category: 'Proyek Sekolah · Sosiologi · Desain Visual',
-        role: 'Riset · Pengorganisasian Konten · Desain Visual',
-        tools: 'Canva · Alat AI',
-        image: 'assets/projects/durkheim/durkheim-biography.jpg',
-        caption: 'Mind Map Visual Biografi & Pemikiran Émile Durkheim (Media Karton A3)',
-        overview: 'Proyek kelompok yang membahas biografi dan pemikiran Émile Durkheim, salah satu tokoh penting dalam perkembangan ilmu sosiologi. Informasi mengenai kehidupan, pemikiran, dan kontribusinya disusun dalam bentuk visual agar lebih mudah dipahami.',
-        process: 'Proses dimulai dengan mencari informasi mengenai Émile Durkheim, kemudian memilih informasi penting seperti latar belakang, kehidupan, pemikiran, dan kontribusinya terhadap sosiologi. Informasi tersebut kemudian diringkas dan disusun menggunakan konsep mind map pada media karton A3.',
-        challenge: 'Tantangannya adalah mengubah informasi yang cukup banyak mengenai seorang tokoh menjadi materi yang singkat, jelas, dan tetap mudah dibaca pada media yang terbatas.',
-        solution: 'Informasi dikelompokkan berdasarkan topik utama dan disusun menggunakan struktur mind map. Elemen visual juga digunakan untuk membedakan setiap bagian sehingga pembaca dapat memahami hubungan antar-informasi dengan lebih mudah.',
-        result: 'Menghasilkan media visual berbentuk mind map mengenai Émile Durkheim yang merangkum informasi penting tentang kehidupan, pemikiran, dan kontribusinya dalam sosiologi.',
-        learnings: 'Belajar merangkum informasi yang kompleks, mengatur informasi berdasarkan prioritas, membuat struktur visual, serta bekerja sama dalam mengembangkan sebuah proyek kelompok.'
-      },
-      3: {
-        id: 3,
-        title: 'Infografis Pencemaran Lingkungan',
-        year: '2026',
-        category: 'Proyek Sekolah · Infografis · Kesadaran Lingkungan',
-        role: 'Riset · Konten · Desain Grafis',
-        tools: 'Canva · Alat AI',
-        image: 'assets/projects/pollution/pollution-infographic.jpg',
-        caption: 'Desain Infografis Keanekaragaman Hayati & Solusi 3R',
-        overview: 'Proyek infografis yang membahas permasalahan pencemaran lingkungan dan berbagai solusi yang dapat dilakukan untuk menguranginya. Proyek ini dibuat untuk menyampaikan informasi mengenai pencemaran lingkungan dengan cara yang singkat, visual, dan mudah dipahami.',
-        process: 'Proses dimulai dengan mengidentifikasi informasi mengenai pencemaran lingkungan, kemudian menentukan poin-poin utama yang perlu dimasukkan ke dalam infografis. Setelah materi tersusun, informasi dikombinasikan dengan elemen desain seperti tipografi, ilustrasi, ikon, dan tata letak agar lebih mudah dibaca.',
-        challenge: 'Tantangan utamanya adalah menyampaikan informasi yang cukup luas dalam ruang yang terbatas tanpa membuat infografis terlalu penuh dengan tulisan.',
-        solution: 'Informasi disederhanakan menjadi poin-poin penting dan dikelompokkan berdasarkan topik. Bagian solusi difokuskan pada tindakan yang dapat dilakukan, seperti memilah sampah, menerapkan prinsip 3R, dan meningkatkan kesadaran terhadap lingkungan.',
-        result: 'Menghasilkan infografis mengenai pencemaran lingkungan yang menyajikan permasalahan dan solusi secara ringkas serta visual sehingga informasi dapat dipahami dengan lebih cepat.',
-        learnings: 'Belajar bagaimana menyederhanakan informasi menjadi konten visual, mengatur hierarki dalam desain, memilih informasi yang paling penting, dan membuat infografis yang komunikatif.'
-      }
+      gallery: [
+        {
+          src: 'assets/projects/pollution/pollution-infographic.jpg',
+          caption: 'Infografis Keanekaragaman Hayati & Solusi 3R'
+        }
+      ],
+      quizKey: 'pollution'
     },
-
-    // Destination Registry for Spatial Navigation
-    destinations: {
-      home: {
-        id: 'home',
-        name: 'HOME VALLEY',
-        subtitle: 'Rumah & Kebun Abiy',
-        icon: '🏠',
-        x: -560,
-        y: -180,
-        radius: 70,
-        color: '#48b872',
-        actionText: 'RUMAH ABIY',
-        targetModal: 'modal-about',
-        visited: true
+    3: {
+      id: 3,
+      title: 'Presentasi Teknologi Notion AI',
+      category: 'tech',
+      categoryLabel: 'AI & Teknologi',
+      tags: ['Notion AI', 'Kecerdasan Buatan', 'Slide Presentasi', 'Teknologi'],
+      summary: 'Presentasi mengenai pemanfaatan alat bantu Notion AI untuk meningkatkan produktivitas belajar siswa, seperti mencatat dan merangkum materi.',
+      overview: 'Di proyek ini saya membuat presentasi tentang Notion AI dan belajar bagaimana kecerdasan buatan dapat digunakan secara bijak untuk membantu kegiatan belajar siswa sehari-hari.',
+      role: 'Menyusun materi presentasi tentang fitur Notion AI, menyiapkan slide, dan mempresentasikan materi tersebut di hadapan kelas.',
+      tools: 'Notion AI dan aplikasi slide presentasi.',
+      whatIDid: 'Mengeksplorasi fitur-fitur Notion AI untuk mencatat dan merangkum, membuat materi penjelasan yang mudah dipahami, serta menjawab pertanyaan teman-teman saat sesi tanya jawab.',
+      learnings: [
+        'Belajar bagaimana teknologi AI dapat dimanfaatkan secara bijak untuk mendukung aktivitas belajar.',
+        'Menyadari bahwa informasi dari AI harus tetap diperiksa dan diverifikasi kebenarannya oleh manusia.',
+        'Meningkatkan rasa percaya diri saat menjelaskan topik teknologi di depan kelas.'
+      ],
+      image: 'assets/projects/notion-ai/notion-slide-preview.jpg',
+      imageCaption: 'Slide Presentasi Edukasi Memahami Notion AI',
+      videoUrl: '',
+      externalLinks: {
+        googleDrive: ''
       },
-      about: {
-        id: 'about',
-        name: 'ABOUT SANCTUM',
-        subtitle: 'Profil Siswa & Minat',
-        icon: '📜',
-        x: -280,
-        y: -180,
-        radius: 75,
-        color: '#f1c40f',
-        actionText: 'TENTANG ABIY',
-        targetModal: 'modal-about',
-        visited: false
+      gallery: [
+        {
+          src: 'assets/projects/notion-ai/notion-slide-preview.jpg',
+          caption: 'Slide Presentasi Edukasi Memahami Notion AI'
+        }
+      ],
+      quizKey: 'notion_ai'
+    },
+    4: {
+      id: 4,
+      title: 'Biografi Émile Durkheim',
+      category: 'physical',
+      categoryLabel: 'Fisik & Prakarya',
+      tags: ['Sosiologi', 'Karton & Fisik', 'Tokoh Klasik', 'Kerja Sama'],
+      summary: 'Penyusunan media biografi tokoh sosiologi klasik Émile Durkheim dan teori fakta sosial yang ditulis dan dihias langsung di media karton fisik.',
+      overview: 'Tugas sosiologi untuk mempelajari riwayat hidup, konsep fakta sosial, dan pengaruh pemikiran Émile Durkheim terhadap masyarakat modern melalui lembar karton A3 manual.',
+      role: 'Mencari informasi materi, menyusun ringkasan, menuliskan bagian materi di atas karton, membuat dekorasi karton, dan melakukan presentasi kelompok.',
+      tools: 'Karton, alat tulis (spidol, pena, penggaris), dan perlengkapan fisik pendukung tugas.',
+      whatIDid: 'Membaca referensi biografi Durkheim, menulis materi dengan spidol di atas lembaran karton, menghias layout visual karton secara manual, dan mempresentasikan hasilnya bersama tim.',
+      learnings: [
+        'Memahami konsep dasar sosiologi dan pemikiran tokoh Émile Durkheim.',
+        'Melatih kerja sama kelompok dalam mengerjakan media fisik bersama.',
+        'Mengasah kreativitas penyusunan layout manual di atas media kertas/karton.'
+      ],
+      image: 'assets/projects/durkheim/durkheim-biography.jpg',
+      imageCaption: 'Lembar Karton Biografi & Teori Émile Durkheim',
+      videoUrl: '',
+      externalLinks: {
+        googleDrive: ''
       },
-      skills: {
-        id: 'skills',
-        name: 'TECH FORGE',
-        subtitle: 'Workshop & Alat Digital',
-        icon: '⚡',
-        x: 320,
-        y: -180,
-        radius: 75,
-        color: '#3498db',
-        actionText: 'KEAHLIAN & ALAT',
-        targetModal: 'modal-skills',
-        visited: false
+      gallery: [
+        {
+          src: 'assets/projects/durkheim/durkheim-biography.jpg',
+          caption: 'Mind Map Visual Biografi Émile Durkheim (Media Karton A3)'
+        }
+      ],
+      quizKey: 'durkheim'
+    },
+    5: {
+      id: 5,
+      title: 'Kerajinan Daur Ulang',
+      category: 'physical',
+      categoryLabel: 'Fisik & Prakarya',
+      tags: ['Daur Ulang', 'Karton & Koran', 'Upcycling', 'Kreativitas'],
+      summary: 'Karya produk bernilai guna dan estetis dari barang bekas yang dirakit bersama kelompok untuk memanfaatkan kembali limbah kertas/karton.',
+      overview: 'Proyek prakarya dan lingkungan hidup untuk mengubah barang bekas di sekitar menjadi produk yang bermanfaat serta mengedukasi pentingnya pemilahan sampah.',
+      role: 'Mencari ide desain produk kerajinan, membuat produk bersama, memotong dan merakit bahan, serta melakukan presentasi hasil kerajinan.',
+      tools: 'Karton bekas, koran bekas, gunting, dan lem.',
+      whatIDid: 'Mengumpulkan bahan bekas yang bersih, memotong karton dan koran sesuai pola, merekatkan dengan lem, menyusun komponen hingga jadi produk utuh, dan memamerkannya di kelas.',
+      learnings: [
+        'Belajar cara memanfaatkan barang bekas di sekitar menjadi barang yang bernilai guna.',
+        'Mengasah kreativitas dan ketelitian dalam merakit bahan secara manual.',
+        'Melatih kekompakan kerja sama kelompok dalam menyelesaikan produk tepat waktu.'
+      ],
+      image: 'assets/projects/recycling/recycling-project.jpg',
+      imageCaption: 'Dokumentasi Proyek Kerajinan Daur Ulang & Pilah Sampah',
+      videoUrl: '',
+      externalLinks: {
+        googleDrive: ''
       },
-      monas: {
-        id: 'monas',
-        name: 'MONAS PLAZA',
-        subtitle: 'Proyek 01: Monumen Nasional',
-        icon: '🗼',
-        x: -340,
-        y: 420,
-        radius: 80,
-        color: '#f1c40f',
-        actionText: 'PROYEK 01: MONAS',
-        targetModal: 'modal-project',
-        projectId: 1,
-        visited: false
-      },
-      durkheim: {
-        id: 'durkheim',
-        name: 'DURKHEIM ARCHIVE',
-        subtitle: 'Proyek 02: Biografi Durkheim',
-        icon: '📚',
-        x: 160,
-        y: 440,
-        radius: 80,
-        color: '#9b59b6',
-        actionText: 'PROYEK 02: DURKHEIM',
-        targetModal: 'modal-project',
-        projectId: 2,
-        visited: false
-      },
-      pollution: {
-        id: 'pollution',
-        name: 'ECO SANCTUM',
-        subtitle: 'Proyek 03: Infografis Lingkungan',
-        icon: '🌿',
-        x: 720,
-        y: 460,
-        radius: 80,
-        color: '#2ecc71',
-        actionText: 'PROYEK 03: LINGKUNGAN',
-        targetModal: 'modal-project',
-        projectId: 3,
-        visited: false
-      },
-      contact: {
-        id: 'contact',
-        name: 'COMM BEACON',
-        subtitle: 'Menara Sinyal & Kontak',
-        icon: '📡',
-        x: 1040,
-        y: 180,
-        radius: 75,
-        color: '#e74c3c',
-        actionText: 'HUBUNGI ABIY',
-        targetModal: 'modal-contact',
-        visited: false
-      }
+      gallery: [
+        {
+          src: 'assets/projects/recycling/recycling-project.jpg',
+          caption: 'Dokumentasi Edukasi dan Pemilahan Sampah Proyek Daur Ulang'
+        }
+      ],
+      quizKey: 'recycling'
     }
   };
 
   // --------------------------------------------------------------------------
-  // 2. RETRO 8-BIT AUDIO SYNTHESIZER
+  // 2. DATA STORE: 20 QUIZ QUESTIONS (5 ABOUT ME + 15 PROJECT QUESTIONS)
   // --------------------------------------------------------------------------
-  class SoundSynth {
+  const QUIZZES_DATA = {
+    about_me: {
+      title: 'Kuis Tentang Saya (5 Soal)',
+      subtitle: 'Uji seberapa kenal kamu dengan profil Muhammad Ad Dairabiy!',
+      questions: [
+        {
+          q: 'Di manakah Muhammad Ad Dairabiy bersekolah saat ini?',
+          options: [
+            'SMA Negeri 70 Jakarta (Kelas X-D)',
+            'SMA Negeri 8 Jakarta',
+            'SMP Negeri 68 Jakarta Selatan',
+            'SMA Negeri 28 Jakarta'
+          ],
+          correct: 0,
+          feedback: 'Tepat! Dairabiy adalah siswa kelas X-D di SMA Negeri 70 Jakarta.'
+        },
+        {
+          q: 'Apa alasan awal dibuatnya website portfolio ini?',
+          options: [
+            'Tugas dari ekstrakurikuler Klub Robotik SMAN 70',
+            'Tugas akhir kelulusan sekolah',
+            'Mengikuti turnamen esports',
+            'Melamar pekerjaan profesional'
+          ],
+          correct: 0,
+          feedback: 'Benar! Awalnya tugas ekskul Klub Robotik, lalu dikembangkan untuk persiapan kuliah dan masa depan.'
+        },
+        {
+          q: 'Apa fokus minat teknologi terbesar yang paling menarik perhatian Dairabiy?',
+          options: [
+            'Kecerdasan Buatan (AI) dan Teknologi',
+            'Perbaikan Mesin Truk Berat',
+            'Pertanian Tradisional',
+            'Manajemen Saham Perbankan'
+          ],
+          correct: 0,
+          feedback: 'Tepat! Dairabiy sangat tertarik pada perkembangan AI dan dunia teknologi digital.'
+        },
+        {
+          q: 'Manakah di antara aktivitas berikut yang menjadi salah satu hobi santai Dairabiy?',
+          options: [
+            'Mendengarkan musik, desain, dan video editing',
+            'Balap mobil sirkuit internasional',
+            'Menyelam gua bawah tanah',
+            'Terjun payung ekstrem'
+          ],
+          correct: 0,
+          feedback: 'Benar! Selain suka desain dan video editing, Dairabiy suka mendengarkan musik saat santai.'
+        },
+        {
+          q: 'Bagaimana status atau tingkat kemampuan coding Dairabiy saat ini?',
+          options: [
+            'Masih pemula dan sedang belajar dasar-dasar coding',
+            'Senior Software Architect 10 tahun pengalaman',
+            'Expert AI Specialist internasional',
+            'Master Developer Silicon Valley'
+          ],
+          correct: 0,
+          feedback: 'Tepat! Dairabiy adalah siswa yang masih pemula dalam coding dan terus belajar hal-hal baru.'
+        }
+      ]
+    },
+    monas: {
+      title: 'Kuis Proyek Monas (3 Soal)',
+      subtitle: '3 pertanyaan berdasarkan isi materi proyek video edukasi Monas',
+      questions: [
+        {
+          q: 'Berapa tinggi Monumen Nasional (Monas) Jakarta?',
+          options: ['77 meter', '100 meter', '132 meter', '150 meter'],
+          correct: 2,
+          feedback: 'Tepat! Monumen Nasional (Monas) memiliki tinggi 132 meter.'
+        },
+        {
+          q: 'Monas dibangun untuk mengenang peristiwa apa?',
+          options: [
+            'Perjuangan kemerdekaan Indonesia',
+            'Pembangunan kota Jakarta',
+            'Deklarasi ASEAN',
+            'Hari Sumpah Pemuda'
+          ],
+          correct: 0,
+          feedback: 'Benar! Monas dibangun untuk mengenang perjuangan kemerdekaan bangsa Indonesia.'
+        },
+        {
+          q: 'Bagian lidah api pada puncak Monas dilapisi oleh material apa?',
+          options: ['Emas murni', 'Perak', 'Tembaga', 'Aluminium'],
+          correct: 0,
+          feedback: 'Tepat! Bagian lidah api kemerdekaan di puncak Monas dilapisi oleh emas murni.'
+        }
+      ]
+    },
+    pollution: {
+      title: 'Kuis Pencemaran Lingkungan (3 Soal)',
+      subtitle: '3 pertanyaan berdasarkan materi infografis lingkungan & solusi 3R',
+      questions: [
+        {
+          q: 'Apa kepanjangan dari prinsip 3R dalam pengelolaan sampah?',
+          options: [
+            'Reduce, Reuse, Recycle',
+            'Remove, Repair, Return',
+            'Reduce, Repair, Replace',
+            'Reuse, Remove, Recycle'
+          ],
+          correct: 0,
+          feedback: 'Benar! 3R adalah singkatan dari Reduce, Reuse, dan Recycle.'
+        },
+        {
+          q: 'Asap dari kendaraan bermotor dan pabrik merupakan contoh dari pencemaran...',
+          options: ['Udara', 'Air', 'Tanah', 'Suara'],
+          correct: 0,
+          feedback: 'Tepat! Asap knalpot kendaraan dan cerobong pabrik merupakan pencemaran udara.'
+        },
+        {
+          q: 'Mengapa sampah anorganik seperti plastik berbahaya jika dibuang sembarangan?',
+          options: [
+            'Karena cepat hilang dengan sendirinya',
+            'Karena sangat sulit terurai secara alami dan mencemari tanah serta air',
+            'Karena membuat tanah menjadi terlalu subur',
+            'Karena menghasilkan oksigen berlebihan'
+          ],
+          correct: 1,
+          feedback: 'Benar! Sampah plastik membutuhkan puluhan hingga ratusan tahun untuk terurai.'
+        }
+      ]
+    },
+    notion_ai: {
+      title: 'Kuis Presentasi Notion AI (3 Soal)',
+      subtitle: '3 pertanyaan seputar presentasi kecerdasan buatan & Notion AI',
+      questions: [
+        {
+          q: 'Notion AI merupakan alat bantu produktivitas yang berbasis pada teknologi apa?',
+          options: ['Artificial Intelligence (AI)', 'Mesin pencari web', 'Game edukasi', 'Sistem operasi komputer'],
+          correct: 0,
+          feedback: 'Tepat! Notion AI adalah fitur produktivitas berbasis Artificial Intelligence (Kecerdasan Buatan).'
+        },
+        {
+          q: 'Salah satu manfaat utama Notion AI bagi kegiatan belajar siswa adalah...',
+          options: [
+            'Membantu mencatat, merangkum, dan mengorganisir ide',
+            'Menggantikan seluruh kehadiran siswa di kelas',
+            'Memperbaiki perangkat keras komputer yang rusak',
+            'Mengirimkan surat fisik secara otomatis'
+          ],
+          correct: 0,
+          feedback: 'Benar! Notion AI sangat berguna untuk membantu mencatat, merangkum materi, dan mengelola tugas.'
+        },
+        {
+          q: 'Mengapa informasi atau teks yang dihasilkan oleh AI tetap perlu diperiksa kembali oleh manusia?',
+          options: [
+            'Karena AI selalu 100% salah',
+            'Karena informasi dari AI tetap perlu diverifikasi kebenarannya oleh manusia',
+            'Karena AI tidak bisa menulis dalam bahasa Indonesia',
+            'Karena AI hanya bisa digunakan oleh orang dewasa'
+          ],
+          correct: 1,
+          feedback: 'Tepat! AI adalah alat bantu, sehingga manusia tetap perlu memverifikasi dan memeriksa hasilnya.'
+        }
+      ]
+    },
+    durkheim: {
+      title: 'Kuis Biografi Émile Durkheim (3 Soal)',
+      subtitle: '3 pertanyaan seputar tokoh sosiologi Émile Durkheim & tugas fisik karton',
+      questions: [
+        {
+          q: 'Émile Durkheim dikenal sebagai salah satu tokoh penting dalam perkembangan ilmu apa?',
+          options: ['Sosiologi', 'Biologi Molekuler', 'Astronomi', 'Teknik Mesin'],
+          correct: 0,
+          feedback: 'Tepat! Émile Durkheim adalah salah satu tokoh pendiri utama ilmu sosiologi.'
+        },
+        {
+          q: 'Salah satu konsep teori sosiologi yang sangat terkenal dari Émile Durkheim adalah...',
+          options: ['Fakta Sosial (Social Facts)', 'Hukum Gravitasi', 'Teori Relativitas', 'Hukum Termodinamika'],
+          correct: 0,
+          feedback: 'Benar! Konsep fakta sosial (social facts) merupakan sumbangsih pemikiran besar Durkheim.'
+        },
+        {
+          q: 'Media apa yang digunakan untuk membuat tugas biografi Émile Durkheim ini?',
+          options: [
+            'Karton, alat tulis, dan perlengkapan fisik',
+            'Aplikasi 3D Modeling Virtual Reality',
+            'Aplikasi Pemrograman Database',
+            'Kamera Drone Profesional'
+          ],
+          correct: 0,
+          feedback: 'Tepat! Proyek ini dibuat secara manual menggunakan karton, spidol/alat tulis, dan dekorasi fisik.'
+        }
+      ]
+    },
+    recycling: {
+      title: 'Kuis Kerajinan Daur Ulang (3 Soal)',
+      subtitle: '3 pertanyaan seputar kerajinan dari barang bekas & pemanfaatan limbah',
+      questions: [
+        {
+          q: 'Bahan utama apa yang digunakan dalam proyek kerajinan daur ulang ini?',
+          options: [
+            'Karton bekas dan koran bekas',
+            'Besi baja dan semen',
+            'Kaca kristal impor',
+            'Kayu gelondongan utuh'
+          ],
+          correct: 0,
+          feedback: 'Benar! Proyek ini memanfaatkan bahan bekas ramah lingkungan yaitu karton dan koran bekas.'
+        },
+        {
+          q: 'Apa tujuan utama dari kegiatan daur ulang (recycling)?',
+          options: [
+            'Mengurangi jumlah sampah dan memanfaatkan kembali barang bekas',
+            'Menambah timbunan limbah di tempat pembuangan',
+            'Membakar semua sampah di ruang terbuka',
+            'Membuang limbah ke sungai'
+          ],
+          correct: 0,
+          feedback: 'Tepat! Daur ulang bertujuan mengurangi limbah dan memberi nilai guna baru pada barang bekas.'
+        },
+        {
+          q: 'Apa hal utama yang dipelajari selama proses perakitan kerajinan bersama teman sekelompok?',
+          options: [
+            'Kreativitas dan kerja sama tim dalam menyelesaikan produk',
+            'Cara merakit roket luar angkasa',
+            'Cara membeli barang baru yang mahal',
+            'Cara menghindari kerja kelompok'
+          ],
+          correct: 0,
+          feedback: 'Benar! Proyek ini melatih kreativitas pemanfaatan barang bekas dan kerja sama tim.'
+        }
+      ]
+    }
+  };
+
+  // --------------------------------------------------------------------------
+  // 3. RETRO 8-BIT AUDIO SYNTHESIZER (WEB AUDIO API)
+  // --------------------------------------------------------------------------
+  class RetroSoundSynth {
     constructor() {
       this.ctx = null;
-      this.muted = localStorage.getItem('abiy_sfx_muted') === 'true';
+      this.isMuted = localStorage.getItem('abiy_pixel_sfx_muted') === 'true';
+      this.updateButtonUI();
     }
 
     init() {
@@ -231,13 +420,33 @@
     }
 
     toggleMute() {
-      this.muted = !this.muted;
-      localStorage.setItem('abiy_sfx_muted', this.muted);
-      return !this.muted;
+      this.isMuted = !this.isMuted;
+      localStorage.setItem('abiy_pixel_sfx_muted', this.isMuted);
+      this.updateButtonUI();
+      if (!this.isMuted) {
+        this.playClick();
+      }
+      return !this.isMuted;
     }
 
-    playTone(freq, type = 'square', duration = 0.08, gainVal = 0.04) {
-      if (this.muted) return;
+    updateButtonUI() {
+      const soundBtn = document.getElementById('btn-sound-toggle');
+      const soundIcon = document.getElementById('sound-icon');
+      if (soundBtn && soundIcon) {
+        if (this.isMuted) {
+          soundBtn.classList.add('muted');
+          soundIcon.className = 'fa-solid fa-volume-xmark';
+          soundBtn.title = 'Efek Suara Dimatikan (Klik untuk menyalakan)';
+        } else {
+          soundBtn.classList.remove('muted');
+          soundIcon.className = 'fa-solid fa-volume-high';
+          soundBtn.title = 'Efek Suara Menyala (Klik untuk mematikan)';
+        }
+      }
+    }
+
+    playTone(freq, type = 'square', duration = 0.08, gainVal = 0.05) {
+      if (this.isMuted) return;
       this.init();
       if (!this.ctx) return;
 
@@ -248,1868 +457,967 @@
         osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
         gain.gain.setValueAtTime(gainVal, this.ctx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
-
         osc.connect(gain);
         gain.connect(this.ctx.destination);
         osc.start();
         osc.stop(this.ctx.currentTime + duration);
-      } catch (e) {}
-    }
-
-    step() {
-      this.playTone(175, 'triangle', 0.04, 0.02);
-    }
-
-    click() {
-      this.playTone(540, 'square', 0.03, 0.03);
-    }
-
-    fireballTransform() {
-      this.init();
-      if (this.muted || !this.ctx) return;
-      for (let i = 0; i < 8; i++) {
-        setTimeout(() => this.playTone(300 + i * 85, 'sawtooth', 0.06, 0.025), i * 30);
+      } catch (e) {
+        // Ignore audio errors gracefully
       }
     }
 
-    arrivalFanfare() {
-      this.init();
-      if (this.muted || !this.ctx) return;
-      const notes = [392, 523, 659, 784, 1046];
-      notes.forEach((freq, idx) => {
-        setTimeout(() => this.playTone(freq, 'square', 0.1, 0.035), idx * 60);
-      });
+    playClick() {
+      this.playTone(580, 'triangle', 0.06, 0.04);
     }
 
-    modalClose() {
+    playBuildingSelect() {
+      if (this.isMuted) return;
       this.init();
-      if (this.muted || !this.ctx) return;
-      const notes = [660, 440, 220];
-      notes.forEach((freq, idx) => {
-        setTimeout(() => this.playTone(freq, 'triangle', 0.06, 0.03), idx * 40);
+      this.playTone(440, 'square', 0.06, 0.04);
+      setTimeout(() => this.playTone(660, 'square', 0.08, 0.04), 60);
+    }
+
+    playCorrect() {
+      if (this.isMuted) return;
+      this.init();
+      this.playTone(523.25, 'triangle', 0.08, 0.06); // C5
+      setTimeout(() => this.playTone(659.25, 'triangle', 0.08, 0.06), 80); // E5
+      setTimeout(() => this.playTone(783.99, 'triangle', 0.14, 0.06), 160); // G5
+    }
+
+    playWrong() {
+      if (this.isMuted) return;
+      this.init();
+      this.playTone(280, 'sawtooth', 0.1, 0.06);
+      setTimeout(() => this.playTone(190, 'sawtooth', 0.2, 0.06), 90);
+    }
+
+    playTrophy() {
+      if (this.isMuted) return;
+      this.init();
+      const notes = [440, 554, 659, 880];
+      notes.forEach((note, idx) => {
+        setTimeout(() => this.playTone(note, 'square', 0.1, 0.06), idx * 100);
       });
     }
   }
 
-  const sfx = new SoundSynth();
+  const sfx = new RetroSoundSynth();
 
-  // --------------------------------------------------------------------------
-  // 3. PIXEL ART DRAWING HELPERS
-  // --------------------------------------------------------------------------
-  function drawPixelAvatar(ctx, size = 64) {
-    const scale = size / 16;
-    ctx.imageSmoothingEnabled = false;
-
-    const skin = '#ffd3a5';
-    const hair = '#2c1e19';
-    const shirt = '#3498db';
-    const jacket = '#1a365d';
-    const pants = '#1f2937';
-    const eyes = '#111827';
-    const shoes = '#f8fafc';
-
-    ctx.clearRect(0, 0, size, size);
-
-    // Hair Top
-    ctx.fillStyle = hair;
-    ctx.fillRect(4 * scale, 1 * scale, 8 * scale, 3 * scale);
-    ctx.fillRect(3 * scale, 2 * scale, 10 * scale, 3 * scale);
-
-    // Face / Skin
-    ctx.fillStyle = skin;
-    ctx.fillRect(4 * scale, 4 * scale, 8 * scale, 5 * scale);
-
-    // Eyes
-    ctx.fillStyle = eyes;
-    ctx.fillRect(5 * scale, 6 * scale, 2 * scale, 2 * scale);
-    ctx.fillRect(9 * scale, 6 * scale, 2 * scale, 2 * scale);
-
-    // Glasses
-    ctx.fillStyle = '#2ecc71';
-    ctx.fillRect(4 * scale, 5 * scale, 3 * scale, 1 * scale);
-    ctx.fillRect(9 * scale, 5 * scale, 3 * scale, 1 * scale);
-    ctx.fillRect(7 * scale, 6 * scale, 2 * scale, 1 * scale);
-
-    // Jacket & Shirt
-    ctx.fillStyle = jacket;
-    ctx.fillRect(3 * scale, 9 * scale, 10 * scale, 4 * scale);
-    ctx.fillStyle = shirt;
-    ctx.fillRect(6 * scale, 9 * scale, 4 * scale, 4 * scale);
-
-    // Pants & Shoes
-    ctx.fillStyle = pants;
-    ctx.fillRect(4 * scale, 13 * scale, 3 * scale, 2 * scale);
-    ctx.fillRect(9 * scale, 13 * scale, 3 * scale, 2 * scale);
-
-    ctx.fillStyle = shoes;
-    ctx.fillRect(3 * scale, 15 * scale, 4 * scale, 1 * scale);
-    ctx.fillRect(9 * scale, 15 * scale, 4 * scale, 1 * scale);
+  const soundToggleBtn = document.getElementById('btn-sound-toggle');
+  if (soundToggleBtn) {
+    soundToggleBtn.addEventListener('click', () => {
+      const active = sfx.toggleMute();
+      displayToast(active ? '🔊 Efek suara 8-bit diaktifkan.' : '🔇 Efek suara dinonaktifkan.', 'info');
+    });
   }
 
   // --------------------------------------------------------------------------
-  // 4. WORLD FIDELITY ENGINE (CANVAS 2D 60FPS WITH Y-SORTING DEPTH)
+  // 4. DAY / NEON NIGHT THEME SWITCHER
   // --------------------------------------------------------------------------
-  class VibrantWorldEngine {
-    constructor() {
-      this.canvas = document.getElementById('realm-canvas');
-      this.ctx = this.canvas.getContext('2d');
+  const themeToggleBtn = document.getElementById('btn-theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  let currentTheme = localStorage.getItem('abiy_pixel_theme') || 'night';
 
-      this.minimapCanvas = document.getElementById('minimap-canvas');
-      this.minimapCtx = this.minimapCanvas.getContext('2d');
-
-      this.bigMapCanvas = document.getElementById('big-map-canvas');
-      this.bigMapCtx = this.bigMapCanvas.getContext('2d');
-
-      this.width = window.innerWidth;
-      this.height = window.innerHeight;
-
-      // Player State Machine
-      this.player = {
-        x: -560,
-        y: -180,
-        state: 'IDLE', // 'IDLE' | 'WALKING' | 'TRANSFORMING_IN' | 'BLUE_FIREBALL' | 'TRANSFORMING_OUT' | 'ARRIVED'
-        targetX: null,
-        targetY: null,
-        destTarget: null,
-        speed: 3.6,
-        fireballSpeed: 15,
-        facing: 'down',
-        walkCycle: 0,
-        stepTimer: 0,
-        animTimer: 0,
-        fireballTrail: []
-      };
-
-      // Camera System with Cinematic Lerp & Dynamic Zoom
-      this.camera = {
-        x: -560,
-        y: -180,
-        zoom: 1.0,
-        targetZoom: 1.0,
-        lerp: 0.08
-      };
-
-      // Input State
-      this.keys = {
-        w: false, a: false, s: false, d: false,
-        up: false, left: false, down: false, right: false
-      };
-      this.joystickVector = { x: 0, y: 0 };
-      this.isTouchActive = false;
-
-      // Environmental World Elements
-      this.clouds = [];
-      this.seaWaves = [];
-      this.fountainParticles = [];
-      this.train = {
-        x: -500,
-        y: 160,
-        speed: 3.2,
-        state: 'CRUISING', // 'APPROACHING' | 'STOPPED' | 'CRUISING'
-        dwellTimer: 0,
-        smokeTimer: 0,
-        smokePuffs: []
-      };
-      this.kraken = {
-        x: 880,
-        y: -320,
-        tentacleProgress: 0,
-        active: false
-      };
-
-      // Living NPCs with Behavior States
-      this.npcs = [
-        { id: 1, x: 440, y: 220, type: 'shopper', role: 'Citizen', dir: 1, range: 60, currentX: 440, pauseTimer: 0, color: '#e67e22' },
-        { id: 2, x: 560, y: 240, type: 'business', role: 'Worker', dir: -1, range: 80, currentX: 560, pauseTimer: 0, color: '#2c3e50' },
-        { id: 3, x: -380, y: 440, type: 'tourist', role: 'Photographer', x: -380, y: 440, photoFlashTimer: 0, color: '#e74c3c' },
-        { id: 4, x: 190, y: 470, type: 'student', role: 'Reader', x: 190, y: 470, readBob: 0, color: '#8e44ad' },
-        { id: 5, x: -60, y: -360, type: 'sailor', role: 'Fisherman', x: -60, y: -360, rodBob: 0, color: '#2980b9' },
-        { id: 6, x: 480, y: 140, type: 'passenger', role: 'Commuter', x: 480, y: 140, watchCheck: 0, color: '#27ae60' },
-        // Seagulls over ocean
-        { id: 7, type: 'seagull', startX: -100, startY: -280, angle: 0, speed: 0.02, radiusX: 90, radiusY: 45 },
-        { id: 8, type: 'seagull', startX: 420, startY: -340, angle: Math.PI, speed: 0.018, radiusX: 110, radiusY: 55 }
-      ];
-
-      this.destinations = REALM_DATA.destinations;
-      this.nearestLandmark = null;
-      this.currentZoneName = 'HOME VALLEY';
-      this.activeModal = null;
-      this.isGameActive = false;
-
-      this.initEnvironment();
-      this.bindEvents();
+  function applyTheme(theme) {
+    currentTheme = theme;
+    localStorage.setItem('abiy_pixel_theme', theme);
+    if (theme === 'day') {
+      document.body.classList.remove('theme-night');
+      document.body.classList.add('theme-day');
+      if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
+      if (themeToggleBtn) themeToggleBtn.title = 'Ganti ke Malam Neon';
+    } else {
+      document.body.classList.remove('theme-day');
+      document.body.classList.add('theme-night');
+      if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
+      if (themeToggleBtn) themeToggleBtn.title = 'Ganti ke Siang Cerah';
     }
-
-    initEnvironment() {
-      // Drifting Daytime Clouds
-      this.clouds = [];
-      for (let i = 0; i < 14; i++) {
-        this.clouds.push({
-          x: (Math.random() - 0.5) * 3200,
-          y: -600 + Math.random() * 1200,
-          speed: 0.2 + Math.random() * 0.3,
-          width: 80 + Math.random() * 120,
-          height: 35 + Math.random() * 30,
-          alpha: 0.45 + Math.random() * 0.35
-        });
-      }
-
-      // Beach & Ocean Animated Wave Crests
-      this.seaWaves = [];
-      for (let i = 0; i < 35; i++) {
-        this.seaWaves.push({
-          x: 40 + Math.random() * 1100,
-          y: -520 + Math.random() * 400,
-          size: 14 + Math.random() * 22,
-          speed: 0.003 + Math.random() * 0.004,
-          phase: Math.random() * Math.PI * 2
-        });
-      }
-    }
-
-    start() {
-      this.isGameActive = true;
-      this.resize();
-      this.loop = this.loop.bind(this);
-      requestAnimationFrame(this.loop);
-    }
-
-    resize() {
-      this.width = window.innerWidth;
-      this.height = window.innerHeight;
-      this.canvas.width = this.width;
-      this.canvas.height = this.height;
-      this.ctx.imageSmoothingEnabled = false;
-    }
-
-    bindEvents() {
-      window.addEventListener('resize', () => this.resize());
-
-      // Keyboard Controls
-      window.addEventListener('keydown', (e) => {
-        if (this.activeModal) {
-          if (e.key === 'Escape') closeAllModals();
-          return;
-        }
-
-        switch (e.code) {
-          case 'KeyW': this.keys.w = true; break;
-          case 'KeyA': this.keys.a = true; break;
-          case 'KeyS': this.keys.s = true; break;
-          case 'KeyD': this.keys.d = true; break;
-          case 'ArrowUp': this.keys.up = true; break;
-          case 'ArrowLeft': this.keys.left = true; break;
-          case 'ArrowDown': this.keys.down = true; break;
-          case 'ArrowRight': this.keys.right = true; break;
-          case 'KeyE':
-          case 'Space':
-          case 'Enter':
-            e.preventDefault();
-            this.triggerInteraction();
-            break;
-          case 'KeyM':
-            e.preventDefault();
-            openModal('modal-map');
-            break;
-          case 'KeyQ':
-            e.preventDefault();
-            toggleQuickView(true);
-            break;
-        }
-      });
-
-      window.addEventListener('keyup', (e) => {
-        switch (e.code) {
-          case 'KeyW': this.keys.w = false; break;
-          case 'KeyA': this.keys.a = false; break;
-          case 'KeyS': this.keys.s = false; break;
-          case 'KeyD': this.keys.d = false; break;
-          case 'ArrowUp': this.keys.up = false; break;
-          case 'ArrowLeft': this.keys.left = false; break;
-          case 'ArrowDown': this.keys.down = false; break;
-          case 'ArrowRight': this.keys.right = false; break;
-        }
-      });
-
-      // Pointer Click-to-Move
-      this.canvas.addEventListener('pointerdown', (e) => {
-        if (this.activeModal) return;
-        if (e.target !== this.canvas) return;
-
-        const screenX = e.clientX;
-        const screenY = e.clientY;
-        const worldX = (screenX - this.width / 2) / this.camera.zoom + this.camera.x;
-        const worldY = (screenY - this.height / 2) / this.camera.zoom + this.camera.y;
-
-        // Check if destination was directly clicked
-        let clickedDest = null;
-        Object.values(this.destinations).forEach(dest => {
-          if (Math.hypot(dest.x - worldX, dest.y - worldY) < dest.radius + 35) {
-            clickedDest = dest;
-          }
-        });
-
-        if (clickedDest) {
-          this.initiateJourney(clickedDest.id);
-        } else {
-          if (this.player.state === 'BLUE_FIREBALL') return;
-          this.player.targetX = worldX;
-          this.player.targetY = worldY;
-          this.player.destTarget = null;
-          sfx.click();
-        }
-      });
-
-      // Big Map Canvas Teleport/Travel
-      this.bigMapCanvas.addEventListener('click', (e) => {
-        const rect = this.bigMapCanvas.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const clickY = e.clientY - rect.top;
-
-        const mapWidth = this.bigMapCanvas.width;
-        const mapHeight = this.bigMapCanvas.height;
-
-        const worldX = ((clickX / mapWidth) - 0.5) * 2200;
-        const worldY = ((clickY / mapHeight) - 0.5) * 1600;
-
-        let closest = null;
-        let minDist = 130;
-        Object.values(this.destinations).forEach(dest => {
-          const dist = Math.hypot(dest.x - worldX, dest.y - worldY);
-          if (dist < minDist) {
-            minDist = dist;
-            closest = dest;
-          }
-        });
-
-        closeAllModals();
-        if (closest) {
-          this.initiateJourney(closest.id);
-        } else {
-          this.initiateJourneyToCoords(worldX, worldY, 'EXPLORATION POINT');
-        }
-      });
-
-      this.setupTouchControls();
-    }
-
-    setupTouchControls() {
-      const base = document.getElementById('joystick-base');
-      const thumb = document.getElementById('joystick-thumb');
-      const btnAction = document.getElementById('btn-touch-interact');
-
-      if (!base || !thumb) return;
-
-      let touchId = null;
-      const maxDist = 38;
-
-      const onTouchStart = (e) => {
-        for (let i = 0; i < e.changedTouches.length; i++) {
-          const t = e.changedTouches[i];
-          const rect = base.getBoundingClientRect();
-          const cx = rect.left + rect.width / 2;
-          const cy = rect.top + rect.height / 2;
-          if (Math.hypot(t.clientX - cx, t.clientY - cy) < 75 && touchId === null) {
-            touchId = t.identifier;
-            this.isTouchActive = true;
-            this.handleJoystick(t.clientX, t.clientY, cx, cy, maxDist, thumb);
-            break;
-          }
-        }
-      };
-
-      const onTouchMove = (e) => {
-        if (!this.isTouchActive) return;
-        for (let i = 0; i < e.changedTouches.length; i++) {
-          const t = e.changedTouches[i];
-          if (t.identifier === touchId) {
-            const rect = base.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2;
-            const cy = rect.top + rect.height / 2;
-            this.handleJoystick(t.clientX, t.clientY, cx, cy, maxDist, thumb);
-            break;
-          }
-        }
-      };
-
-      const onTouchEnd = (e) => {
-        for (let i = 0; i < e.changedTouches.length; i++) {
-          if (e.changedTouches[i].identifier === touchId) {
-            touchId = null;
-            this.isTouchActive = false;
-            this.joystickVector = { x: 0, y: 0 };
-            thumb.style.transform = 'translate(0px, 0px)';
-            break;
-          }
-        }
-      };
-
-      base.addEventListener('touchstart', onTouchStart, { passive: false });
-      window.addEventListener('touchmove', onTouchMove, { passive: false });
-      window.addEventListener('touchend', onTouchEnd, { passive: false });
-      window.addEventListener('touchcancel', onTouchEnd, { passive: false });
-
-      if (btnAction) {
-        btnAction.addEventListener('click', (e) => {
-          e.preventDefault();
-          this.triggerInteraction();
-        });
-      }
-    }
-
-    handleJoystick(tx, ty, cx, cy, maxDist, thumbEl) {
-      const dx = tx - cx;
-      const dy = ty - cy;
-      const dist = Math.hypot(dx, dy);
-      const angle = Math.atan2(dy, dx);
-
-      const clamped = Math.min(dist, maxDist);
-      const fx = Math.cos(angle) * clamped;
-      const fy = Math.sin(angle) * clamped;
-
-      thumbEl.style.transform = `translate(${fx}px, ${fy}px)`;
-      this.joystickVector = {
-        x: fx / maxDist,
-        y: fy / maxDist
-      };
-      this.player.targetX = null;
-      this.player.targetY = null;
-    }
-
-    // ------------------------------------------------------------------------
-    // JOURNEY CONTROLLER
-    // ------------------------------------------------------------------------
-    initiateJourney(destinationId) {
-      const dest = this.destinations[destinationId];
-      if (!dest) return;
-
-      closeAllModals();
-      const dist = Math.hypot(dest.x - this.player.x, dest.y - this.player.y);
-
-      const ticker = document.getElementById('travel-status-bar');
-      const tickerText = document.getElementById('travel-status-text');
-      if (ticker && tickerText) {
-        ticker.classList.remove('hidden');
-        tickerText.textContent = `TRAVELING TO: ${dest.name}...`;
-      }
-
-      this.player.destTarget = dest;
-      this.player.targetX = dest.x;
-      this.player.targetY = dest.y;
-
-      if (dist > 220) {
-        sfx.fireballTransform();
-        this.player.state = 'TRANSFORMING_IN';
-        this.player.animTimer = 0;
-        this.camera.targetZoom = 0.84;
-      } else {
-        this.player.state = 'WALKING';
-        this.camera.targetZoom = 1.0;
-      }
-    }
-
-    initiateJourneyToCoords(x, y, label) {
-      const ticker = document.getElementById('travel-status-bar');
-      const tickerText = document.getElementById('travel-status-text');
-      if (ticker && tickerText) {
-        ticker.classList.remove('hidden');
-        tickerText.textContent = `TRAVELING TO: ${label}...`;
-      }
-
-      this.player.destTarget = null;
-      this.player.targetX = x;
-      this.player.targetY = y;
-      sfx.fireballTransform();
-      this.player.state = 'TRANSFORMING_IN';
-      this.player.animTimer = 0;
-      this.camera.targetZoom = 0.84;
-    }
-
-    onArrivalAtDestination(dest) {
-      this.player.state = 'ARRIVED';
-      this.camera.targetZoom = 1.12;
-      sfx.arrivalFanfare();
-
-      const ticker = document.getElementById('travel-status-bar');
-      if (ticker) ticker.classList.add('hidden');
-
-      if (dest) {
-        dest.visited = true;
-        this.currentZoneName = dest.name;
-
-        setTimeout(() => {
-          if (dest.projectId) {
-            openProjectModal(dest.projectId);
-          } else if (dest.targetModal) {
-            openModal(dest.targetModal);
-          }
-          this.player.state = 'IDLE';
-        }, 500);
-      } else {
-        setTimeout(() => {
-          this.player.state = 'IDLE';
-        }, 400);
-      }
-    }
-
-    triggerInteraction() {
-      if (this.nearestLandmark) {
-        this.onArrivalAtDestination(this.nearestLandmark);
-      }
-    }
-
-    // ------------------------------------------------------------------------
-    // UPDATE ENGINE LOOP
-    // ------------------------------------------------------------------------
-    update() {
-      if (this.activeModal) return;
-
-      // 1. Player State Machine (Walking, Blue Fireball Flight, Arrival)
-      if (this.player.state === 'TRANSFORMING_IN') {
-        this.player.animTimer += 1;
-        if (this.player.animTimer > 18) {
-          this.player.state = 'BLUE_FIREBALL';
-        }
-      } else if (this.player.state === 'TRANSFORMING_OUT') {
-        this.player.animTimer += 1;
-        if (this.player.animTimer > 18) {
-          this.onArrivalAtDestination(this.player.destTarget);
-        }
-      } else if (this.player.state === 'BLUE_FIREBALL') {
-        if (this.player.targetX !== null && this.player.targetY !== null) {
-          const dx = this.player.targetX - this.player.x;
-          const dy = this.player.targetY - this.player.y;
-          const dist = Math.hypot(dx, dy);
-
-          if (dist > 16) {
-            this.player.x += (dx / dist) * this.player.fireballSpeed;
-            this.player.y += (dy / dist) * this.player.fireballSpeed;
-
-            this.player.fireballTrail.push({
-              x: this.player.x,
-              y: this.player.y,
-              alpha: 1.0,
-              size: 14 + Math.random() * 8
-            });
-          } else {
-            this.player.x = this.player.targetX;
-            this.player.y = this.player.targetY;
-            this.player.targetX = null;
-            this.player.targetY = null;
-            this.player.state = 'TRANSFORMING_OUT';
-            this.player.animTimer = 0;
-            this.camera.targetZoom = 1.0;
-          }
-        }
-      } else if (this.player.state === 'IDLE' || this.player.state === 'WALKING') {
-        let mx = 0;
-        let my = 0;
-
-        if (this.keys.w || this.keys.up) my -= 1;
-        if (this.keys.s || this.keys.down) my += 1;
-        if (this.keys.a || this.keys.left) mx -= 1;
-        if (this.keys.d || this.keys.right) mx += 1;
-
-        if (this.isTouchActive && (Math.abs(this.joystickVector.x) > 0.1 || Math.abs(this.joystickVector.y) > 0.1)) {
-          mx = this.joystickVector.x;
-          my = this.joystickVector.y;
-        }
-
-        if (this.player.targetX !== null && this.player.targetY !== null) {
-          const dx = this.player.targetX - this.player.x;
-          const dy = this.player.targetY - this.player.y;
-          const dist = Math.hypot(dx, dy);
-
-          if (dist > 6) {
-            mx = dx / dist;
-            my = dy / dist;
-          } else {
-            this.player.targetX = null;
-            this.player.targetY = null;
-            if (this.player.destTarget) {
-              this.onArrivalAtDestination(this.player.destTarget);
-            }
-          }
-        }
-
-        const len = Math.hypot(mx, my);
-        if (len > 0) {
-          this.player.state = 'WALKING';
-          const nx = (mx / len) * Math.min(len, 1);
-          const ny = (my / len) * Math.min(len, 1);
-
-          this.player.x += nx * this.player.speed;
-          this.player.y += ny * this.player.speed;
-
-          if (Math.abs(nx) > Math.abs(ny)) {
-            this.player.facing = nx > 0 ? 'right' : 'left';
-          } else {
-            this.player.facing = ny > 0 ? 'down' : 'up';
-          }
-
-          this.player.walkCycle += 0.22;
-          this.player.stepTimer += 1;
-          if (this.player.stepTimer % 18 === 0) sfx.step();
-        } else {
-          this.player.state = 'IDLE';
-        }
-      }
-
-      // Update Fireball Trail
-      for (let i = this.player.fireballTrail.length - 1; i >= 0; i--) {
-        const pt = this.player.fireballTrail[i];
-        pt.alpha -= 0.08;
-        pt.size *= 0.92;
-        if (pt.alpha <= 0) this.player.fireballTrail.splice(i, 1);
-      }
-
-      // World Boundary Clamping
-      this.player.x = Math.max(-1100, Math.min(1300, this.player.x));
-      this.player.y = Math.max(-700, Math.min(800, this.player.y));
-
-      // Camera Smooth Follow & Dynamic Zoom
-      this.camera.x += (this.player.x - this.camera.x) * this.camera.lerp;
-      this.camera.y += (this.player.y - this.camera.y) * this.camera.lerp;
-      this.camera.zoom += (this.camera.targetZoom - this.camera.zoom) * 0.05;
-
-      // Update Daytime Drifting Clouds
-      this.clouds.forEach(c => {
-        c.x += c.speed;
-        if (c.x > 1400) c.x = -1400;
-      });
-
-      // Update Animated Train Sequence
-      const cityStationX = 520;
-      const homeStationX = -460;
-
-      if (this.train.state === 'CRUISING') {
-        this.train.x += this.train.speed;
-        // Check for station stops
-        if (Math.abs(this.train.x - cityStationX) < 10 || Math.abs(this.train.x - homeStationX) < 10) {
-          this.train.state = 'STOPPED';
-          this.train.dwellTimer = 120; // dwell for ~2 seconds
-        }
-        if (this.train.x > 850) this.train.x = -750;
-      } else if (this.train.state === 'STOPPED') {
-        this.train.dwellTimer -= 1;
-        if (this.train.dwellTimer <= 0) {
-          this.train.state = 'CRUISING';
-          this.train.x += this.train.speed;
-        }
-      }
-
-      this.train.smokeTimer++;
-      if (this.train.smokeTimer % 12 === 0) {
-        this.train.smokePuffs.push({ x: this.train.x + 35, y: this.train.y - 20, size: 6, alpha: 0.75 });
-      }
-      for (let i = this.train.smokePuffs.length - 1; i >= 0; i--) {
-        const p = this.train.smokePuffs[i];
-        p.y -= 0.5;
-        p.size += 0.35;
-        p.alpha -= 0.02;
-        if (p.alpha <= 0) this.train.smokePuffs.splice(i, 1);
-      }
-
-      // Update Kraken Encounter in Deep Ocean (x: 880, y: -320)
-      const distToKraken = Math.hypot(this.player.x - this.kraken.x, this.player.y - this.kraken.y);
-      if (distToKraken < 420) {
-        this.kraken.active = true;
-        this.kraken.tentacleProgress = Math.min(1, this.kraken.tentacleProgress + 0.015);
-      } else {
-        this.kraken.tentacleProgress = Math.max(0, this.kraken.tentacleProgress - 0.02);
-        if (this.kraken.tentacleProgress <= 0) this.kraken.active = false;
-      }
-
-      // Update Living NPCs with Waypoints & Activities
-      this.npcs.forEach(npc => {
-        if (npc.type === 'shopper' || npc.type === 'business') {
-          if (npc.pauseTimer > 0) {
-            npc.pauseTimer -= 1;
-          } else {
-            npc.currentX += npc.dir * 0.7;
-            if (Math.abs(npc.currentX - npc.x) > npc.range) {
-              npc.dir *= -1;
-              npc.pauseTimer = 60; // pause to look at shop
-            }
-          }
-        } else if (npc.type === 'tourist') {
-          npc.photoFlashTimer = (npc.photoFlashTimer + 1) % 180;
-        } else if (npc.type === 'seagull') {
-          npc.angle += npc.speed;
-        }
-      });
-
-      // Update Plaza Fountain Water Jets
-      if (Math.random() < 0.6) {
-        this.fountainParticles.push({
-          x: 480 + (Math.random() - 0.5) * 12,
-          y: 400 - 16,
-          vx: (Math.random() - 0.5) * 1.5,
-          vy: -2.5 - Math.random() * 2,
-          alpha: 1.0,
-          size: 2.5
-        });
-      }
-      for (let i = this.fountainParticles.length - 1; i >= 0; i--) {
-        const fp = this.fountainParticles[i];
-        fp.x += fp.vx;
-        fp.y += fp.vy;
-        fp.vy += 0.18; // gravity
-        fp.alpha -= 0.035;
-        if (fp.alpha <= 0) this.fountainParticles.splice(i, 1);
-      }
-
-      // Proximity to Landmarks
-      this.nearestLandmark = null;
-      let minDistance = Infinity;
-      let zoneName = 'VIBRANT REALM';
-
-      Object.values(this.destinations).forEach(dest => {
-        const dist = Math.hypot(dest.x - this.player.x, dest.y - this.player.y);
-        if (dist < dest.radius + 40 && dist < minDistance) {
-          minDistance = dist;
-          this.nearestLandmark = dest;
-          zoneName = dest.name;
-        }
-      });
-
-      this.currentZoneName = zoneName;
-
-      // Update HUD
-      const coordsEl = document.getElementById('hud-coords-val');
-      if (coordsEl) {
-        coordsEl.textContent = `X: ${Math.round(this.player.x)} | Y: ${Math.round(this.player.y)}`;
-      }
-      const zoneEl = document.getElementById('hud-zone-name');
-      if (zoneEl) {
-        zoneEl.textContent = this.currentZoneName;
-      }
-
-      const promptEl = document.getElementById('interact-prompt');
-      const promptTextEl = document.getElementById('prompt-action-text');
-      if (this.nearestLandmark && this.player.state !== 'BLUE_FIREBALL') {
-        promptEl.classList.remove('hidden');
-        promptTextEl.textContent = this.nearestLandmark.actionText;
-      } else {
-        promptEl.classList.add('hidden');
-      }
-    }
-
-    // ------------------------------------------------------------------------
-    // RENDER WITH Y-SORTING DEPTH MANAGEMENT
-    // ------------------------------------------------------------------------
-    render() {
-      const ctx = this.ctx;
-      ctx.clearRect(0, 0, this.width, this.height);
-
-      ctx.save();
-      ctx.translate(this.width / 2, this.height / 2);
-      ctx.scale(this.camera.zoom, this.camera.zoom);
-      ctx.translate(-this.camera.x, -this.camera.y);
-
-      // 1. LAYER 1: Sky, Terrain, Roads & Water
-      this.drawDaytimeTerrain(ctx);
-
-      // 2. LAYER 2: Railway Tracks & Ocean Shoreline Waves
-      this.drawRailwayAndOcean(ctx);
-
-      // 3. LAYER 3: Y-Sorted Physical Entities (Buildings, Trees, Props, NPCs, Player, Train)
-      this.drawYSortedEntities(ctx);
-
-      // 4. LAYER 4: Drifting Daytime Clouds & Seagulls
-      this.drawCloudsAndSeagulls(ctx);
-
-      ctx.restore();
-
-      // 5. LAYER 5: Radar Minimap & Big Map Modal
-      this.renderMinimap();
-      if (this.activeModal === 'modal-map') {
-        this.renderBigMap();
-      }
-    }
-
-    // ------------------------------------------------------------------------
-    // DAYTIME TERRAIN & URBAN ROADS
-    // ------------------------------------------------------------------------
-    drawDaytimeTerrain(ctx) {
-      // Sky/Water base
-      ctx.fillStyle = '#64b5f6';
-      ctx.fillRect(-1400, -900, 3000, 2000);
-
-      // Vibrant Green Meadow Grass
-      ctx.fillStyle = '#48b872';
-      ctx.fillRect(-950, -500, 1900, 1150);
-
-      // Sunny Warm Beach Shoreline (x: -220 to 180, y: -450 to -80)
-      ctx.fillStyle = '#f4d06f';
-      ctx.fillRect(-220, -460, 280, 320);
-
-      // Tropical Blue Ocean (x: 60 to 1300, y: -550 to 0)
-      ctx.fillStyle = '#0077b6';
-      ctx.fillRect(60, -550, 1240, 480);
-
-      // City Paved District Foundation (x: 240 to 860, y: 0 to 600)
-      ctx.fillStyle = '#475569';
-      ctx.fillRect(240, 40, 640, 460);
-
-      // City Sidewalk Tiles (Paving blocks)
-      ctx.fillStyle = '#94a3b8';
-      ctx.fillRect(250, 50, 620, 440);
-
-      // Main City Roads (Asphalt with Markings)
-      // Horizontal Main Ave (y: 200)
-      ctx.fillStyle = '#334155';
-      ctx.fillRect(250, 180, 620, 44);
-      // Vertical Broadway (x: 520)
-      ctx.fillRect(500, 50, 44, 440);
-
-      // White Dashed Road Markings
-      ctx.strokeStyle = '#f8fafc';
-      ctx.lineWidth = 2;
-      ctx.setLineDash([12, 10]);
-      ctx.beginPath();
-      // Horizontal center line
-      ctx.moveTo(250, 202); ctx.lineTo(870, 202);
-      // Vertical center line
-      ctx.moveTo(522, 50); ctx.lineTo(522, 490);
-      ctx.stroke();
-      ctx.setLineDash([]);
-
-      // Zebra Crossings at Intersections
-      ctx.fillStyle = '#ffffff';
-      for (let z = 0; z < 6; z++) {
-        ctx.fillRect(490 + z * 12, 168, 6, 12);
-        ctx.fillRect(490 + z * 12, 224, 6, 12);
-      }
-
-      // Cobblestone Pathways Linking Shrines across Grass
-      ctx.strokeStyle = '#334155';
-      ctx.lineWidth = 24;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.beginPath();
-      ctx.moveTo(-560, -180); // Home
-      ctx.lineTo(-280, -180); // About
-      ctx.lineTo(320, -180);  // Skills
-      ctx.lineTo(-340, 420);  // Monas
-      ctx.lineTo(160, 440);   // Durkheim
-      ctx.lineTo(720, 460);   // Eco
-      ctx.lineTo(1040, 180);  // Comm
-      ctx.stroke();
-
-      // Cobble Stone Inset Path
-      ctx.strokeStyle = '#cbd5e1';
-      ctx.lineWidth = 10;
-      ctx.stroke();
-    }
-
-    drawRailwayAndOcean(ctx) {
-      const ry = 160;
-      // Train Ties
-      ctx.strokeStyle = '#475569';
-      ctx.lineWidth = 14;
-      ctx.beginPath();
-      ctx.moveTo(-750, ry);
-      ctx.lineTo(900, ry);
-      ctx.stroke();
-
-      // Steel Rails
-      ctx.strokeStyle = '#e2e8f0';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(-750, ry - 4); ctx.lineTo(900, ry - 4);
-      ctx.moveTo(-750, ry + 4); ctx.lineTo(900, ry + 4);
-      ctx.stroke();
-
-      // Ocean Waves Animations
-      const time = performance.now();
-      this.seaWaves.forEach(w => {
-        const waveX = w.x + Math.sin(time * w.speed + w.phase) * 10;
-        const waveY = w.y;
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.arc(waveX, waveY, w.size * 0.4, Math.PI, 0);
-        ctx.stroke();
-      });
-
-      // Wooden Beach Pier & Dock
-      ctx.fillStyle = '#854d0e';
-      ctx.fillRect(-65, -390, 28, 140);
-      ctx.strokeStyle = '#3d2612';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(-65, -390, 28, 140);
-      // Pier Dock Pilings
-      ctx.fillStyle = '#451a03';
-      ctx.fillRect(-68, -260, 6, 12);
-      ctx.fillRect(-40, -260, 6, 12);
-    }
-
-    // ------------------------------------------------------------------------
-    // Y-SORTED ENTITY PIPELINE (BUILDINGS, TREES, NPCS, PLAYER, MONUMENTS)
-    // ------------------------------------------------------------------------
-    drawYSortedEntities(ctx) {
-      const entities = [];
-
-      // 1. Add Player
-      entities.push({
-        y: this.player.y,
-        draw: () => this.drawPlayerSprite(ctx)
-      });
-
-      // 2. Add Destinations / Landmarks
-      Object.values(this.destinations).forEach(dest => {
-        entities.push({
-          y: dest.y,
-          draw: () => this.drawLandmarkEntity(ctx, dest)
-        });
-      });
-
-      // 3. Add Buildings & Shops in City
-      const buildings = [
-        // Residential Cottages near Home
-        { x: -620, y: -200, w: 48, h: 36, roofColor: '#b91c1c', wallColor: '#fef3c7', type: 'cottage', roofStyle: 'gable' },
-        { x: -500, y: -260, w: 52, h: 38, roofColor: '#1d4ed8', wallColor: '#e0e7ff', type: 'cottage', roofStyle: 'hip' },
-        // Commercial Downtown Storefronts
-        { x: 300, y: 130, w: 64, h: 52, roofColor: '#047857', wallColor: '#d1fae5', type: 'shop', awning: '#ef4444', label: 'CAFE' },
-        { x: 380, y: 130, w: 68, h: 54, roofColor: '#7c3aed', wallColor: '#ede9fe', type: 'shop', awning: '#3b82f6', label: 'STUDIO' },
-        { x: 620, y: 130, w: 72, h: 56, roofColor: '#c2410c', wallColor: '#ffedd5', type: 'shop', awning: '#f59e0b', label: 'STORE' },
-        { x: 710, y: 130, w: 65, h: 52, roofColor: '#0369a1', wallColor: '#e0f2fe', type: 'shop', awning: '#10b981', label: 'BOOK' },
-        // Mid-rise Skyscraper Offices
-        { x: 320, y: 290, w: 70, h: 74, roofColor: '#334155', wallColor: '#64748b', type: 'office', floors: 3 },
-        { x: 660, y: 290, w: 80, h: 84, roofColor: '#1e293b', wallColor: '#475569', type: 'office', floors: 4 }
-      ];
-
-      buildings.forEach(b => {
-        entities.push({
-          y: b.y,
-          draw: () => this.drawBuilding(ctx, b)
-        });
-      });
-
-      // 4. Add Civic Plaza Central Fountain
-      entities.push({
-        y: 400,
-        draw: () => this.drawFountain(ctx, 480, 400)
-      });
-
-      // 5. Add Train Stations (Home & City)
-      entities.push({
-        y: 160,
-        draw: () => this.drawTrainStation(ctx, -460, 160, 'HOME STN')
-      });
-      entities.push({
-        y: 160,
-        draw: () => this.drawTrainStation(ctx, 520, 160, 'CITY CENTRAL')
-      });
-
-      // 6. Add Animated Train
-      entities.push({
-        y: this.train.y,
-        draw: () => this.drawTrainCars(ctx)
-      });
-
-      // 7. Add Kraken (if active)
-      if (this.kraken.tentacleProgress > 0) {
-        entities.push({
-          y: this.kraken.y,
-          draw: () => this.drawKrakenEntity(ctx)
-        });
-      }
-
-      // 8. Add Handcrafted Trees & Street Lamps
-      const sceneryProps = [
-        // Home Valley Trees
-        { x: -680, y: -160, type: 'oak' },
-        { x: -440, y: -150, type: 'oak' },
-        { x: -580, y: -280, type: 'pine' },
-        // Beach Palm Trees
-        { x: -140, y: -380, type: 'palm' },
-        { x: -80, y: -410, type: 'palm' },
-        { x: 0, y: -360, type: 'palm' },
-        // Park & City Trees
-        { x: 430, y: 360, type: 'oak' },
-        { x: 530, y: 360, type: 'oak' },
-        { x: 430, y: 440, type: 'pine' },
-        { x: 530, y: 440, type: 'pine' },
-        // Eco-Sanctum Forest
-        { x: 670, y: 390, type: 'pine' },
-        { x: 770, y: 410, type: 'pine' },
-        { x: 720, y: 520, type: 'oak' },
-        // Street Lamps with Warm Daytime Glow
-        { x: 270, y: 176, type: 'lamp' },
-        { x: 470, y: 176, type: 'lamp' },
-        { x: 570, y: 176, type: 'lamp' },
-        { x: 790, y: 176, type: 'lamp' },
-        // Park Benches
-        { x: 450, y: 380, type: 'bench' },
-        { x: 510, y: 380, type: 'bench' },
-        // Parked Bicycles & Hydrants
-        { x: 370, y: 176, type: 'bike' },
-        { x: 610, y: 176, type: 'hydrant' }
-      ];
-
-      sceneryProps.forEach(sp => {
-        entities.push({
-          y: sp.y,
-          draw: () => this.drawProp(ctx, sp)
-        });
-      });
-
-      // 9. Add NPCs
-      this.npcs.forEach(npc => {
-        entities.push({
-          y: npc.y || 220,
-          draw: () => this.drawNPCEntity(ctx, npc)
-        });
-      });
-
-      // Sort all entities by Y position (top-to-bottom depth ordering)
-      entities.sort((a, b) => a.y - b.y);
-
-      // Execute Draw for each in correct depth order
-      entities.forEach(ent => ent.draw());
-    }
-
-    // ------------------------------------------------------------------------
-    // SPRITE DRAWING HELPERS (BUILDINGS, PROPS, FOUNTAIN, TRAIN, KRAKEN)
-    // ------------------------------------------------------------------------
-    drawBuilding(ctx, b) {
-      // Soft Ground Shadow
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.25)';
-      ctx.fillRect(b.x - b.w / 2 + 6, b.y - 4, b.w, 14);
-
-      // Main Facade Wall
-      ctx.fillStyle = b.wallColor;
-      ctx.fillRect(b.x - b.w / 2, b.y - b.h, b.w, b.h);
-      ctx.strokeStyle = '#334155';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(b.x - b.w / 2, b.y - b.h, b.w, b.h);
-
-      // Roof
-      ctx.fillStyle = b.roofColor;
-      if (b.type === 'cottage') {
-        ctx.beginPath();
-        ctx.moveTo(b.x - b.w / 2 - 4, b.y - b.h);
-        ctx.lineTo(b.x, b.y - b.h - 16);
-        ctx.lineTo(b.x + b.w / 2 + 4, b.y - b.h);
-        ctx.fill();
-        ctx.stroke();
-      } else {
-        // Flat roof with parapet trim
-        ctx.fillRect(b.x - b.w / 2 - 2, b.y - b.h - 6, b.w + 4, 8);
-        ctx.strokeRect(b.x - b.w / 2 - 2, b.y - b.h - 6, b.w + 4, 8);
-      }
-
-      // Windows & Storefront Details
-      if (b.type === 'shop') {
-        // Striped Awning
-        ctx.fillStyle = b.awning || '#ef4444';
-        ctx.fillRect(b.x - b.w / 2 + 4, b.y - b.h + 18, b.w - 8, 10);
-        // Glass Display Window
-        ctx.fillStyle = '#bae6fd';
-        ctx.fillRect(b.x - b.w / 2 + 8, b.y - b.h + 30, b.w / 2 - 6, 16);
-        // Door
-        ctx.fillStyle = '#78350f';
-        ctx.fillRect(b.x + 6, b.y - 20, 16, 20);
-        // Label
-        ctx.fillStyle = '#1e293b';
-        ctx.font = '5px "Press Start 2P", monospace';
-        ctx.fillText(b.label, b.x - 12, b.y - b.h + 12);
-      } else if (b.type === 'office') {
-        // Window Grid
-        for (let r = 0; r < b.floors; r++) {
-          for (let c = 0; c < 3; c++) {
-            ctx.fillStyle = '#e0f2fe';
-            ctx.fillRect(b.x - b.w / 2 + 8 + c * 18, b.y - b.h + 10 + r * 18, 12, 12);
-            ctx.strokeStyle = '#64748b';
-            ctx.strokeRect(b.x - b.w / 2 + 8 + c * 18, b.y - b.h + 10 + r * 18, 12, 12);
-          }
-        }
-      }
-    }
-
-    drawFountain(ctx, x, y) {
-      // Base Basin Shadow & Stone
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.22)';
-      ctx.beginPath(); ctx.ellipse(x + 4, y + 2, 34, 16, 0, 0, Math.PI * 2); ctx.fill();
-
-      ctx.fillStyle = '#64748b';
-      ctx.beginPath(); ctx.ellipse(x, y - 4, 32, 16, 0, 0, Math.PI * 2); ctx.fill();
-
-      // Water Pool
-      ctx.fillStyle = '#38bdf8';
-      ctx.beginPath(); ctx.ellipse(x, y - 6, 26, 12, 0, 0, Math.PI * 2); ctx.fill();
-
-      // Center Pillar
-      ctx.fillStyle = '#cbd5e1';
-      ctx.fillRect(x - 6, y - 22, 12, 16);
-      ctx.fillRect(x - 10, y - 26, 20, 5);
-
-      // Water Jet Particles
-      this.fountainParticles.forEach(fp => {
-        ctx.fillStyle = `rgba(240, 249, 255, ${fp.alpha})`;
-        ctx.beginPath(); ctx.arc(fp.x, fp.y, fp.size, 0, Math.PI * 2); ctx.fill();
-      });
-    }
-
-    drawTrainStation(ctx, x, y, name) {
-      // Platform Shadow & Raised Stone
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.25)';
-      ctx.fillRect(x - 46, y - 4, 96, 12);
-
-      ctx.fillStyle = '#334155';
-      ctx.fillRect(x - 48, y - 28, 96, 24);
-      ctx.fillStyle = '#cbd5e1';
-      ctx.fillRect(x - 46, y - 26, 92, 4); // White tactile safety line
-
-      // Roof Canopy
-      ctx.fillStyle = '#1e293b';
-      ctx.fillRect(x - 44, y - 48, 88, 6);
-      // Support Posts
-      ctx.fillStyle = '#94a3b8';
-      ctx.fillRect(x - 40, y - 42, 4, 16);
-      ctx.fillRect(x + 36, y - 42, 4, 16);
-
-      // Station Sign
-      ctx.fillStyle = '#f1c40f';
-      ctx.font = '5.5px "Press Start 2P", monospace';
-      ctx.fillText(name, x - 32, y - 36);
-    }
-
-    drawTrainCars(ctx) {
-      const tx = this.train.x;
-      const ty = this.train.y;
-
-      // Train Puffy Smoke
-      this.train.smokePuffs.forEach(p => {
-        ctx.fillStyle = `rgba(248, 250, 252, ${p.alpha})`;
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
-      });
-
-      // Locomotive Shadow & Body
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.28)';
-      ctx.fillRect(tx - 6, ty - 2, 60, 8);
-
-      ctx.fillStyle = '#0f766e';
-      ctx.fillRect(tx, ty - 22, 52, 22);
-      // Locomotive Cabin & Headlight
-      ctx.fillStyle = '#14b8a6';
-      ctx.fillRect(tx + 36, ty - 26, 14, 22);
-      ctx.fillStyle = '#fef08a';
-      ctx.fillRect(tx + 48, ty - 12, 6, 6); // Headlight
-
-      // Passenger Car 1
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.28)';
-      ctx.fillRect(tx - 68, ty - 2, 60, 8);
-
-      ctx.fillStyle = '#0284c7';
-      ctx.fillRect(tx - 62, ty - 22, 56, 22);
-      // Lit Windows with Passenger Silhouettes
-      ctx.fillStyle = '#fef08a';
-      ctx.fillRect(tx - 56, ty - 18, 12, 10);
-      ctx.fillRect(tx - 38, ty - 18, 12, 10);
-      ctx.fillRect(tx - 20, ty - 18, 12, 10);
-      ctx.fillStyle = '#0f172a';
-      ctx.fillRect(tx - 52, ty - 14, 4, 6);
-      ctx.fillRect(tx - 34, ty - 14, 4, 6);
-    }
-
-    drawKrakenEntity(ctx) {
-      const kx = this.kraken.x;
-      const ky = this.kraken.y;
-      const prog = this.kraken.tentacleProgress;
-      const time = performance.now() * 0.003;
-      const sway = Math.sin(time * 2) * 12;
-
-      // Swirling Water Foam
-      ctx.strokeStyle = `rgba(186, 230, 253, ${prog * 0.8})`;
-      ctx.lineWidth = 3;
-      ctx.beginPath(); ctx.arc(kx, ky, 55 * prog, 0, Math.PI * 2); ctx.stroke();
-
-      // 3 Giant Purple Kraken Tentacles
-      const offsets = [-35, 0, 35];
-      offsets.forEach((ox, idx) => {
-        const h = 60 * prog;
-        ctx.fillStyle = '#6b21a8';
-        ctx.beginPath();
-        ctx.moveTo(kx + ox - 10, ky);
-        ctx.quadraticCurveTo(kx + ox + sway, ky - h * 0.6, kx + ox + sway * 1.3, ky - h);
-        ctx.quadraticCurveTo(kx + ox + 10 + sway, ky - h * 0.6, kx + ox + 10, ky);
-        ctx.fill();
-
-        // Suction Cups
-        ctx.fillStyle = '#f472b6';
-        for (let s = 0; s < 4; s++) {
-          ctx.fillRect(kx + ox + (sway * s * 0.25) - 1, ky - s * (h / 4) - 6, 3, 3);
-        }
-      });
-    }
-
-    drawProp(ctx, p) {
-      const time = performance.now() * 0.002;
-      const sway = Math.sin(time + p.x) * 2;
-
-      // Shadow
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.2)';
-      ctx.beginPath(); ctx.ellipse(p.x + 3, p.y + 2, 10, 5, 0, 0, Math.PI * 2); ctx.fill();
-
-      if (p.type === 'oak') {
-        // Trunk
-        ctx.fillStyle = '#78350f';
-        ctx.fillRect(p.x - 3, p.y - 14, 6, 14);
-        // Foliage with wind sway
-        ctx.fillStyle = '#15803d';
-        ctx.beginPath(); ctx.arc(p.x + sway, p.y - 28, 18, 0, Math.PI * 2); ctx.fill();
-        ctx.fillStyle = '#22c55e';
-        ctx.beginPath(); ctx.arc(p.x - 3 + sway, p.y - 32, 12, 0, Math.PI * 2); ctx.fill();
-      } else if (p.type === 'pine') {
-        ctx.fillStyle = '#78350f';
-        ctx.fillRect(p.x - 3, p.y - 12, 6, 12);
-        ctx.fillStyle = '#065f46';
-        ctx.beginPath();
-        ctx.moveTo(p.x - 14 + sway, p.y - 12);
-        ctx.lineTo(p.x + sway, p.y - 38);
-        ctx.lineTo(p.x + 14 + sway, p.y - 12);
-        ctx.fill();
-      } else if (p.type === 'palm') {
-        ctx.fillStyle = '#92400e';
-        ctx.fillRect(p.x - 3, p.y - 24, 6, 24);
-        ctx.fillStyle = '#16a34a';
-        ctx.fillRect(p.x - 20 + sway, p.y - 32, 40, 8);
-        ctx.fillRect(p.x - 12 + sway, p.y - 38, 24, 8);
-      } else if (p.type === 'lamp') {
-        ctx.fillStyle = '#334155';
-        ctx.fillRect(p.x - 2, p.y - 24, 4, 24);
-        ctx.fillStyle = '#fef08a';
-        ctx.fillRect(p.x - 5, p.y - 28, 10, 6);
-      } else if (p.type === 'bench') {
-        ctx.fillStyle = '#78350f';
-        ctx.fillRect(p.x - 10, p.y - 8, 20, 8);
-        ctx.fillStyle = '#334155';
-        ctx.fillRect(p.x - 8, p.y - 4, 3, 4);
-        ctx.fillRect(p.x + 5, p.y - 4, 3, 4);
-      } else if (p.type === 'bike') {
-        ctx.fillStyle = '#3b82f6';
-        ctx.fillRect(p.x - 6, p.y - 8, 12, 6);
-        ctx.fillStyle = '#1e293b';
-        ctx.fillRect(p.x - 8, p.y - 4, 4, 4);
-        ctx.fillRect(p.x + 4, p.y - 4, 4, 4);
-      } else if (p.type === 'hydrant') {
-        ctx.fillStyle = '#ef4444';
-        ctx.fillRect(p.x - 4, p.y - 10, 8, 10);
-      }
-    }
-
-    drawNPCEntity(ctx, npc) {
-      if (npc.type === 'seagull') return; // rendered in sky layer
-
-      const nx = npc.currentX || npc.x;
-      const ny = npc.y || 220;
-
-      // Shadow
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.22)';
-      ctx.beginPath(); ctx.ellipse(nx, ny + 2, 7, 3, 0, 0, Math.PI * 2); ctx.fill();
-
-      // Body & Head
-      ctx.fillStyle = npc.color || '#3b82f6';
-      ctx.fillRect(nx - 4, ny - 14, 8, 10);
-      ctx.fillStyle = '#ffd3a5';
-      ctx.fillRect(nx - 3, ny - 20, 6, 6);
-      ctx.fillStyle = '#0f172a';
-      ctx.fillRect(nx - 3, ny - 4, 2, 4);
-      ctx.fillRect(nx + 1, ny - 4, 2, 4);
-
-      // Tourist Camera Flash
-      if (npc.type === 'tourist' && npc.photoFlashTimer < 6) {
-        ctx.fillStyle = '#ffffff';
-        ctx.beginPath(); ctx.arc(nx - 6, ny - 14, 8, 0, Math.PI * 2); ctx.fill();
-      }
-    }
-
-    drawLandmarkEntity(ctx, dest) {
-      const time = performance.now() * 0.003;
-      const isNearby = this.nearestLandmark && this.nearestLandmark.id === dest.id;
-
-      // Ground Base Platform
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.2)';
-      ctx.beginPath(); ctx.ellipse(dest.x + 4, dest.y + 4, dest.radius * 0.65, dest.radius * 0.35, 0, 0, Math.PI * 2); ctx.fill();
-
-      ctx.fillStyle = isNearby ? '#e2e8f0' : '#cbd5e1';
-      ctx.beginPath(); ctx.ellipse(dest.x, dest.y, dest.radius * 0.6, dest.radius * 0.3, 0, 0, Math.PI * 2); ctx.fill();
-      ctx.strokeStyle = isNearby ? '#f1c40f' : (dest.visited ? '#2ecc71' : '#64748b');
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // Monument Structure
-      this.drawMonumentGraphic(ctx, dest.id, dest.x, dest.y, time);
-
-      // Title Badge
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
-      ctx.fillRect(dest.x - 70, dest.y + 36, 140, 24);
-      ctx.strokeStyle = isNearby ? '#f1c40f' : '#334155';
-      ctx.lineWidth = 1;
-      ctx.strokeRect(dest.x - 70, dest.y + 36, 140, 24);
-
-      ctx.fillStyle = isNearby ? '#f1c40f' : '#ffffff';
-      ctx.font = '6.5px "Press Start 2P", monospace';
-      ctx.textAlign = 'center';
-      ctx.fillText(dest.name, dest.x, dest.y + 47);
-
-      ctx.fillStyle = dest.color;
-      ctx.font = '5.5px "Press Start 2P", monospace';
-      ctx.fillText(dest.subtitle, dest.x, dest.y + 56);
-    }
-
-    drawMonumentGraphic(ctx, id, x, y, time) {
-      switch (id) {
-        case 'home':
-          // Abiy's Residence
-          ctx.fillStyle = '#b45309';
-          ctx.fillRect(x - 18, y - 26, 36, 24);
-          ctx.fillStyle = '#dc2626'; // Terracotta roof
-          ctx.beginPath();
-          ctx.moveTo(x - 22, y - 26); ctx.lineTo(x, y - 44); ctx.lineTo(x + 22, y - 26);
-          ctx.fill();
-          ctx.fillStyle = '#fef08a'; // Lit window
-          ctx.fillRect(x - 10, y - 20, 8, 8);
-          ctx.fillStyle = '#451a03'; // Door
-          ctx.fillRect(x + 2, y - 16, 8, 14);
-          break;
-
-        case 'about':
-          // Codex Shrine
-          ctx.fillStyle = '#334155';
-          ctx.fillRect(x - 18, y - 26, 36, 26);
-          ctx.fillStyle = '#f1c40f';
-          ctx.fillRect(x - 12, y - 20, 24, 14);
-          ctx.fillStyle = '#0f172a';
-          ctx.fillRect(x - 6, y - 14, 12, 3);
-          break;
-
-        case 'skills':
-          // Tech Workshop Forge
-          ctx.fillStyle = '#1e293b';
-          ctx.fillRect(x - 20, y - 24, 40, 24);
-          ctx.fillStyle = '#38bdf8';
-          ctx.fillRect(x - 14, y - 18, 28, 12);
-          ctx.fillStyle = '#22c55e';
-          ctx.fillRect(x - 6, y - 12, 12, 4);
-          break;
-
-        case 'monas':
-          // Monas National Obelisk
-          ctx.fillStyle = '#f8fafc';
-          ctx.fillRect(x - 18, y - 10, 36, 12); // Base cawan
-          ctx.fillRect(x - 6, y - 46, 12, 38);  // Shaft
-          ctx.fillStyle = '#f1c40f';            // Golden flame
-          ctx.fillRect(x - 5, y - 56, 10, 10);
-          break;
-
-        case 'durkheim':
-          // Classical Library & Academic Study
-          ctx.fillStyle = '#6b21a8';
-          ctx.fillRect(x - 20, y - 26, 40, 26);
-          ctx.fillStyle = '#e9d5ff';
-          ctx.fillRect(x - 14, y - 20, 28, 14);
-          ctx.fillStyle = '#0f172a';
-          ctx.fillRect(x - 6, y - 14, 4, 4);
-          ctx.fillRect(x + 2, y - 10, 4, 4);
-          break;
-
-        case 'pollution':
-          // Eco Sanctum Nature Installation
-          ctx.fillStyle = '#78350f';
-          ctx.fillRect(x - 4, y - 14, 8, 16);
-          ctx.fillStyle = '#16a34a';
-          ctx.beginPath(); ctx.arc(x, y - 26, 20, 0, Math.PI * 2); ctx.fill();
-          break;
-
-        case 'contact':
-          // High Satellite Comm Beacon
-          ctx.fillStyle = '#64748b';
-          ctx.fillRect(x - 4, y - 40, 8, 42);
-          ctx.fillStyle = '#ef4444';
-          ctx.beginPath(); ctx.arc(x, y - 42, 12, 0, Math.PI); ctx.fill();
-          break;
-      }
-    }
-
-    drawPlayerSprite(ctx) {
-      const px = this.player.x;
-      const py = this.player.y;
-      const time = performance.now() * 0.006;
-
-      // 1. Blue Fireball State
-      if (this.player.state === 'BLUE_FIREBALL' || this.player.state === 'TRANSFORMING_IN' || this.player.state === 'TRANSFORMING_OUT') {
-        this.player.fireballTrail.forEach(pt => {
-          ctx.fillStyle = `rgba(52, 152, 219, ${pt.alpha * 0.6})`;
-          ctx.beginPath(); ctx.arc(pt.x, pt.y, pt.size, 0, Math.PI * 2); ctx.fill();
-        });
-
-        const pulse = 16 + 4 * Math.sin(time * 3);
-        ctx.fillStyle = 'rgba(0, 206, 201, 0.45)';
-        ctx.beginPath(); ctx.arc(px, py, pulse + 8, 0, Math.PI * 2); ctx.fill();
-
-        ctx.fillStyle = '#3498db';
-        ctx.beginPath(); ctx.arc(px, py, pulse, 0, Math.PI * 2); ctx.fill();
-
-        ctx.fillStyle = '#cffff0';
-        ctx.beginPath(); ctx.arc(px, py, pulse * 0.55, 0, Math.PI * 2); ctx.fill();
-
-        for (let s = 0; s < 4; s++) {
-          const spAngle = time * 4 + s * (Math.PI / 2);
-          const spDist = pulse + 6;
-          ctx.fillStyle = '#fff';
-          ctx.fillRect(px + Math.cos(spAngle) * spDist - 2, py + Math.sin(spAngle) * spDist - 2, 4, 4);
-        }
+  }
+
+  applyTheme(currentTheme);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      sfx.playClick();
+      const nextTheme = currentTheme === 'night' ? 'day' : 'night';
+      applyTheme(nextTheme);
+      displayToast(nextTheme === 'day' ? '☀️ Suasana kota: Siang Cerah' : '🌙 Suasana kota: Malam Neon', 'info');
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 5. HERO SECTION DYNAMIC TYPING EFFECT
+  // --------------------------------------------------------------------------
+  const typingRoleEl = document.getElementById('typing-role');
+  const studentPhases = [
+    'Siswa Kelas X-D SMAN 70 Jakarta',
+    'Masih belajar coding & web dasar',
+    'Tertarik pada AI & teknologi digital',
+    'Suka desain grafis & video editing'
+  ];
+
+  let currentPhaseIdx = 0;
+  let charIdx = 0;
+  let isBackspacing = false;
+  const typeSpeed = 75;
+  const backSpeed = 35;
+  const holdTime = 2000;
+
+  function handleTyping() {
+    if (!typingRoleEl) return;
+    const text = studentPhases[currentPhaseIdx];
+
+    if (isBackspacing) {
+      charIdx--;
+      typingRoleEl.textContent = text.substring(0, charIdx);
+      if (charIdx <= 0) {
+        isBackspacing = false;
+        currentPhaseIdx = (currentPhaseIdx + 1) % studentPhases.length;
+        setTimeout(handleTyping, 400);
         return;
       }
-
-      // 2. Normal Walking / Idle Human Avatar
-      const scale = 2.5;
-      const isWalk = this.player.state === 'WALKING';
-      const walkBob = isWalk ? Math.sin(this.player.walkCycle) * 2 : Math.sin(time) * 0.8;
-
-      ctx.save();
-      ctx.translate(px, py - 16 + walkBob);
-
-      // Character Ground Shadow
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.25)';
-      ctx.beginPath(); ctx.ellipse(0, 16 - walkBob, 10, 5, 0, 0, Math.PI * 2); ctx.fill();
-
-      const skin = '#ffd3a5';
-      const hair = '#2c1e19';
-      const jacket = '#1a365d';
-      const shirt = '#3498db';
-      const pants = '#1f2937';
-      const shoes = '#f8fafc';
-
-      // Head & Hair
-      ctx.fillStyle = hair;
-      ctx.fillRect(-6 * scale / 2, -12 * scale / 2, 6 * scale, 3 * scale);
-      ctx.fillStyle = skin;
-      ctx.fillRect(-5 * scale / 2, -9 * scale / 2, 5 * scale, 4 * scale);
-
-      // Eyes
-      ctx.fillStyle = '#111827';
-      if (this.player.facing === 'down') {
-        ctx.fillRect(-3 * scale / 2, -7 * scale / 2, 1.5 * scale, 1.5 * scale);
-        ctx.fillRect(1 * scale / 2, -7 * scale / 2, 1.5 * scale, 1.5 * scale);
-      } else if (this.player.facing === 'left') {
-        ctx.fillRect(-4 * scale / 2, -7 * scale / 2, 1.5 * scale, 1.5 * scale);
-      } else if (this.player.facing === 'right') {
-        ctx.fillRect(1.5 * scale / 2, -7 * scale / 2, 1.5 * scale, 1.5 * scale);
-      }
-
-      // Torso
-      ctx.fillStyle = jacket;
-      ctx.fillRect(-6 * scale / 2, -5 * scale / 2, 6 * scale, 5 * scale);
-      ctx.fillStyle = shirt;
-      ctx.fillRect(-2 * scale / 2, -5 * scale / 2, 2 * scale, 5 * scale);
-
-      // Legs
-      ctx.fillStyle = pants;
-      const legOffset = isWalk ? Math.sin(this.player.walkCycle) * 3 : 0;
-      ctx.fillRect(-5 * scale / 2, 0, 2 * scale, 3 * scale + legOffset);
-      ctx.fillRect(1 * scale / 2, 0, 2 * scale, 3 * scale - legOffset);
-
-      ctx.fillStyle = shoes;
-      ctx.fillRect(-5 * scale / 2, 3 * scale + legOffset, 2 * scale, 1.5 * scale);
-      ctx.fillRect(1 * scale / 2, 3 * scale - legOffset, 2 * scale, 1.5 * scale);
-
-      ctx.restore();
-    }
-
-    drawCloudsAndSeagulls(ctx) {
-      // Drifting Daytime Clouds
-      this.clouds.forEach(c => {
-        ctx.fillStyle = `rgba(255, 255, 255, ${c.alpha})`;
-        ctx.beginPath();
-        ctx.arc(c.x, c.y, c.height * 0.6, 0, Math.PI * 2);
-        ctx.arc(c.x + c.width * 0.3, c.y - 6, c.height * 0.7, 0, Math.PI * 2);
-        ctx.arc(c.x + c.width * 0.6, c.y, c.height * 0.5, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
-      // Gliding Seagulls
-      this.npcs.forEach(npc => {
-        if (npc.type === 'seagull') {
-          const gx = npc.startX + Math.cos(npc.angle) * npc.radiusX;
-          const gy = npc.startY + Math.sin(npc.angle) * npc.radiusY;
-          ctx.fillStyle = '#ffffff';
-          ctx.fillRect(gx - 4, gy, 8, 2);
-          ctx.fillRect(gx - 2, gy - 2, 4, 2);
-        }
-      });
-    }
-
-    // ------------------------------------------------------------------------
-    // MINIMAP & BIG MAP CRT
-    // ------------------------------------------------------------------------
-    renderMinimap() {
-      const mCtx = this.minimapCtx;
-      const w = this.minimapCanvas.width;
-      const h = this.minimapCanvas.height;
-
-      mCtx.fillStyle = '#0f172a';
-      mCtx.fillRect(0, 0, w, h);
-
-      mCtx.strokeStyle = '#334155';
-      mCtx.lineWidth = 1;
-      mCtx.strokeRect(2, 2, w - 4, h - 4);
-
-      const scale = (w / 2) / 1100;
-      Object.values(this.destinations).forEach(dest => {
-        const bx = w / 2 + dest.x * scale;
-        const by = h / 2 + dest.y * scale;
-        mCtx.fillStyle = dest.visited ? '#2ecc71' : '#f1c40f';
-        mCtx.fillRect(bx - 2, by - 2, 4, 4);
-      });
-
-      const px = w / 2 + this.player.x * scale;
-      const py = h / 2 + this.player.y * scale;
-      mCtx.fillStyle = this.player.state === 'BLUE_FIREBALL' ? '#00cec9' : '#3498db';
-      mCtx.fillRect(px - 2.5, py - 2.5, 5, 5);
-    }
-
-    renderBigMap() {
-      const bCtx = this.bigMapCtx;
-      const w = this.bigMapCanvas.width;
-      const h = this.bigMapCanvas.height;
-
-      bCtx.fillStyle = '#060a14';
-      bCtx.fillRect(0, 0, w, h);
-
-      bCtx.strokeStyle = '#1e293b';
-      bCtx.lineWidth = 1;
-      for (let x = 0; x < w; x += 30) {
-        bCtx.beginPath(); bCtx.moveTo(x, 0); bCtx.lineTo(x, h); bCtx.stroke();
-      }
-      for (let y = 0; y < h; y += 30) {
-        bCtx.beginPath(); bCtx.moveTo(0, y); bCtx.lineTo(w, y); bCtx.stroke();
-      }
-
-      bCtx.strokeStyle = '#334155';
-      bCtx.beginPath();
-      bCtx.moveTo(w / 2, 0); bCtx.lineTo(w / 2, h);
-      bCtx.moveTo(0, h / 2); bCtx.lineTo(w, h / 2);
-      bCtx.stroke();
-
-      const scale = (w / 2) / 1200;
-      Object.values(this.destinations).forEach(dest => {
-        const nx = w / 2 + dest.x * scale;
-        const ny = h / 2 + dest.y * scale;
-
-        bCtx.strokeStyle = '#334155';
-        bCtx.beginPath();
-        bCtx.moveTo(w / 2, h / 2);
-        bCtx.lineTo(nx, ny);
-        bCtx.stroke();
-
-        bCtx.fillStyle = dest.visited ? '#2ecc71' : '#f1c40f';
-        bCtx.beginPath(); bCtx.arc(nx, ny, 6, 0, Math.PI * 2); bCtx.fill();
-
-        bCtx.fillStyle = '#f8fafc';
-        bCtx.font = '6.5px "Press Start 2P", monospace';
-        bCtx.textAlign = 'center';
-        bCtx.fillText(dest.name, nx, ny + 14);
-      });
-
-      const pnx = w / 2 + this.player.x * scale;
-      const pny = h / 2 + this.player.y * scale;
-      const time = performance.now() * 0.005;
-
-      bCtx.strokeStyle = '#3498db';
-      bCtx.lineWidth = 2;
-      bCtx.beginPath(); bCtx.arc(pnx, pny, 8 + 2 * Math.sin(time), 0, Math.PI * 2); bCtx.stroke();
-      bCtx.fillStyle = '#fff';
-      bCtx.fillRect(pnx - 2, pny - 2, 4, 4);
-    }
-
-    loop() {
-      this.update();
-      this.render();
-      requestAnimationFrame(this.loop);
-    }
-  }
-
-  // --------------------------------------------------------------------------
-  // 5. MODAL & QUICK VIEW CONTROLLER
-  // --------------------------------------------------------------------------
-  let currentProjectIndex = 1;
-  const game = new VibrantWorldEngine();
-
-  function openModal(modalId) {
-    const backdrop = document.getElementById('modal-backdrop');
-    const modal = document.getElementById(modalId);
-
-    if (!modal) return;
-
-    document.querySelectorAll('.modal-window').forEach(m => m.classList.add('hidden'));
-    backdrop.classList.remove('hidden');
-    modal.classList.remove('hidden');
-    game.activeModal = modalId;
-    sfx.click();
-  }
-
-  function closeAllModals() {
-    const backdrop = document.getElementById('modal-backdrop');
-    document.querySelectorAll('.modal-window').forEach(m => m.classList.add('hidden'));
-    backdrop.classList.add('hidden');
-    game.activeModal = null;
-    sfx.modalClose();
-  }
-
-  function openProjectModal(projectId) {
-    currentProjectIndex = projectId;
-    renderProjectDetail(projectId);
-    openModal('modal-project');
-  }
-
-  function renderProjectDetail(id) {
-    const proj = REALM_DATA.projects[id];
-    if (!proj) return;
-
-    const container = document.getElementById('project-detail-content');
-    const counterEl = document.getElementById('proj-counter');
-
-    if (counterEl) counterEl.textContent = `${id} / 3`;
-
-    container.innerHTML = `
-      <div class="proj-detail-header-card pixel-box-inset">
-        <div class="proj-tag-row">
-          <span class="proj-cat-badge">${proj.category}</span>
-          <span class="proj-year-badge">TAHUN: ${proj.year}</span>
-        </div>
-        <h3 class="proj-headline">${proj.title}</h3>
-        
-        <div class="proj-meta-grid">
-          <div class="proj-meta-item">
-            <strong>PERAN SAYA:</strong>
-            <span>${proj.role}</span>
-          </div>
-          <div class="proj-meta-item">
-            <strong>ALAT YANG DIGUNAKAN:</strong>
-            <span>${proj.tools}</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="proj-media-container">
-        <img src="${proj.image}" alt="${proj.caption}">
-        <p class="proj-media-caption">📷 ${proj.caption}</p>
-      </div>
-
-      <div class="proj-section-block pixel-box-inset">
-        <h4>GAMBARAN UMUM</h4>
-        <p>${proj.overview}</p>
-      </div>
-
-      <div class="proj-section-block pixel-box-inset">
-        <h4>PROSES KERJA</h4>
-        <p>${proj.process}</p>
-      </div>
-
-      <div class="proj-section-block pixel-box-inset">
-        <h4>TANTANGAN</h4>
-        <p>${proj.challenge}</p>
-      </div>
-
-      <div class="proj-section-block pixel-box-inset">
-        <h4>SOLUSI</h4>
-        <p>${proj.solution}</p>
-      </div>
-
-      <div class="proj-section-block pixel-box-inset">
-        <h4>HASIL PROYEK</h4>
-        <p>${proj.result}</p>
-      </div>
-
-      <div class="proj-section-block pixel-box-inset highlight-box">
-        <h4 style="color: var(--accent-gold);">PEMBELAJARAN & NILAI</h4>
-        <p>${proj.learnings}</p>
-      </div>
-    `;
-  }
-
-  function toggleQuickView(show) {
-    const overlay = document.getElementById('quickview-overlay');
-    if (!overlay) return;
-    if (show) {
-      overlay.classList.remove('hidden');
-      sfx.click();
+      setTimeout(handleTyping, backSpeed);
     } else {
-      overlay.classList.add('hidden');
-      sfx.click();
-    }
-  }
-
-  function renderQuickViewProjects() {
-    const stack = document.getElementById('doc-projects-stack');
-    if (!stack) return;
-
-    stack.innerHTML = Object.values(REALM_DATA.projects).map(proj => `
-      <div class="doc-project-full-card pixel-box-inset">
-        <div class="proj-tag-row">
-          <span class="proj-cat-badge">${proj.category}</span>
-          <span class="proj-year-badge">TAHUN: ${proj.year}</span>
-        </div>
-        <h3 class="proj-headline">${proj.title}</h3>
-        
-        <div class="proj-media-container" style="margin: 8px 0;">
-          <img src="${proj.image}" alt="${proj.caption}">
-          <p class="proj-media-caption">${proj.caption}</p>
-        </div>
-
-        <div class="proj-meta-grid" style="margin-bottom: 8px;">
-          <div class="proj-meta-item">
-            <strong>PERAN:</strong> <span>${proj.role}</span>
-          </div>
-          <div class="proj-meta-item">
-            <strong>ALAT:</strong> <span>${proj.tools}</span>
-          </div>
-        </div>
-
-        <div class="content-section">
-          <h4 class="section-label">GAMBARAN UMUM</h4>
-          <p class="dialogue-p">${proj.overview}</p>
-        </div>
-
-        <div class="content-section">
-          <h4 class="section-label">PROSES</h4>
-          <p class="dialogue-p">${proj.process}</p>
-        </div>
-
-        <div class="content-section">
-          <h4 class="section-label">TANTANGAN & SOLUSI</h4>
-          <p class="dialogue-p"><strong>Tantangan:</strong> ${proj.challenge}</p>
-          <p class="dialogue-p"><strong>Solusi:</strong> ${proj.solution}</p>
-        </div>
-
-        <div class="content-section">
-          <h4 class="section-label">HASIL & PEMBELAJARAN</h4>
-          <p class="dialogue-p"><strong>Hasil:</strong> ${proj.result}</p>
-          <p class="dialogue-p"><strong>Pembelajaran:</strong> ${proj.learnings}</p>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  // --------------------------------------------------------------------------
-  // 6. INITIALIZATION
-  // --------------------------------------------------------------------------
-  document.addEventListener('DOMContentLoaded', () => {
-    const cinAvatar = document.getElementById('cinematic-avatar-canvas');
-    if (cinAvatar) drawPixelAvatar(cinAvatar.getContext('2d'), 64);
-
-    const aboutAvatar = document.getElementById('about-avatar-canvas');
-    if (aboutAvatar) drawPixelAvatar(aboutAvatar.getContext('2d'), 80);
-
-    renderQuickViewProjects();
-
-    const fillEl = document.getElementById('progress-fill');
-    const textEl = document.getElementById('loading-text');
-    const actionsEl = document.getElementById('cinematic-actions');
-    const loaderEl = document.getElementById('cinematic-loader');
-
-    let progress = 0;
-    const loadInt = setInterval(() => {
-      progress += Math.floor(Math.random() * 25) + 15;
-      if (progress >= 100) {
-        progress = 100;
-        clearInterval(loadInt);
-        fillEl.style.width = '100%';
-        textEl.textContent = 'REALM READY // 100%';
-
-        setTimeout(() => {
-          loaderEl.classList.add('hidden');
-          actionsEl.classList.remove('hidden');
-        }, 200);
-      } else {
-        fillEl.style.width = `${progress}%`;
-        textEl.textContent = `LOADING REALM... ${progress}%`;
+      charIdx++;
+      typingRoleEl.textContent = text.substring(0, charIdx);
+      if (charIdx >= text.length) {
+        isBackspacing = true;
+        setTimeout(handleTyping, holdTime);
+        return;
       }
-    }, 100);
+      setTimeout(handleTyping, typeSpeed);
+    }
+  }
 
-    const btnEnter = document.getElementById('btn-enter-world');
-    const cinematicLayer = document.getElementById('cinematic-layer');
-    if (btnEnter) {
-      btnEnter.addEventListener('click', () => {
-        sfx.init();
-        sfx.arrivalFanfare();
-        cinematicLayer.style.opacity = '0';
+  setTimeout(handleTyping, 600);
+
+  // --------------------------------------------------------------------------
+  // 6. INTERACTIVE PIXEL CITY BUILDINGS & LIVING NPCS
+  // --------------------------------------------------------------------------
+  const pixelBuildings = document.querySelectorAll('.pixel-building');
+  pixelBuildings.forEach(b => {
+    b.addEventListener('mouseenter', () => {
+      sfx.playTone(700, 'sine', 0.03, 0.015);
+    });
+
+    b.addEventListener('click', () => {
+      sfx.playBuildingSelect();
+      const target = b.getAttribute('data-target');
+      const buildingType = b.getAttribute('data-building');
+
+      if (target) {
+        const targetEl = document.querySelector(target);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+
+      if (buildingType === 'quiz') {
+        setTimeout(() => startQuiz('about_me'), 400);
+      }
+    });
+
+    b.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        b.click();
+      }
+    });
+  });
+
+  // City quick jump buttons
+  const cityJumpBtns = document.querySelectorAll('[data-jump]');
+  cityJumpBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      sfx.playClick();
+      const dest = btn.getAttribute('data-jump');
+      const destEl = document.querySelector(dest);
+      if (destEl) {
+        destEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Living NPCs interactive click dialogues
+  const npcDialogs = {
+    'npc-walker': [
+      'Halo! Aku lagi jalan ke SMAN 70 nih! 👋',
+      'Sudah coba kuis 20 soal di Quiz Center?',
+      'Jangan lupa tonton video Monas di Project Hub!',
+      'Semangat belajar terus setiap hari!'
+    ],
+    'npc-waver': [
+      'Hai! Aku teman sekelas Abiy di X-D! ✨',
+      'Tugas sosiologi Durkheim waktu itu seru banget!',
+      'Prakarya daur ulang dari karton juga seru lho!',
+      'Selamat menjelajahi Pixel City!'
+    ],
+    'npc-coder': [
+      'Lagi ngetik syntax dasar HTML & CSS nih 💻',
+      'Coding itu menyenangkan kalau dinikmati!',
+      'Awalnya bikin web karena tugas Robotik lho.',
+      'Yuk eksplorasi teknologi bersama!'
+    ],
+    'npc-cat': [
+      'Meow~ Selamat datang di kota belajar! 🐱',
+      'Purrrr... Jangan lupa cek 5 proyek Abiy ya!',
+      'Nyan! Kucing pixel siap menyemangati belajarmu!',
+      'Meow meow~ 🐾'
+    ]
+  };
+
+  Object.keys(npcDialogs).forEach(npcId => {
+    const npcEl = document.getElementById(npcId);
+    const bubbleEl = npcEl ? npcEl.querySelector('.npc-bubble') : null;
+    let dialogIdx = 0;
+
+    if (npcEl && bubbleEl) {
+      npcEl.addEventListener('click', (e) => {
+        e.stopPropagation();
+        sfx.playTone(850, 'triangle', 0.08, 0.05);
+        const list = npcDialogs[npcId];
+        dialogIdx = (dialogIdx + 1) % list.length;
+        bubbleEl.textContent = list[dialogIdx];
+        bubbleEl.style.opacity = '1';
+        bubbleEl.style.transform = 'translateX(-50%) translateY(-4px)';
         setTimeout(() => {
-          cinematicLayer.classList.add('hidden');
-          game.start();
-        }, 500);
-      });
-    }
-
-    const btnGateQuick = document.getElementById('btn-gate-quickview');
-    if (btnGateQuick) {
-      btnGateQuick.addEventListener('click', () => {
-        sfx.init();
-        cinematicLayer.classList.add('hidden');
-        game.start();
-        toggleQuickView(true);
-      });
-    }
-
-    document.querySelectorAll('.hud-nav button[data-dest]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const destId = e.currentTarget.getAttribute('data-dest');
-        if (destId) game.initiateJourney(destId);
-      });
-    });
-
-    const mapBtn = document.getElementById('hud-btn-map');
-    if (mapBtn) mapBtn.addEventListener('click', () => openModal('modal-map'));
-
-    const minimapBox = document.getElementById('minimap-container');
-    if (minimapBox) minimapBox.addEventListener('click', () => openModal('modal-map'));
-
-    const sfxBtn = document.getElementById('hud-btn-sfx');
-    const sfxIcon = document.getElementById('sfx-icon');
-    if (sfxBtn && sfxIcon) {
-      sfxIcon.textContent = sfx.muted ? '🔇' : '🔊';
-      sfxBtn.addEventListener('click', () => {
-        const unmuted = sfx.toggleMute();
-        sfxIcon.textContent = unmuted ? '🔊' : '🔇';
-      });
-    }
-
-    const viewBtn = document.getElementById('hud-btn-viewmode');
-    if (viewBtn) viewBtn.addEventListener('click', () => toggleQuickView(true));
-
-    const exitDocsBtn = document.getElementById('btn-exit-quickview');
-    if (exitDocsBtn) exitDocsBtn.addEventListener('click', () => toggleQuickView(false));
-
-    document.querySelectorAll('.modal-close-btn, .modal-close-action').forEach(btn => {
-      btn.addEventListener('click', () => closeAllModals());
-    });
-
-    const backdrop = document.getElementById('modal-backdrop');
-    if (backdrop) backdrop.addEventListener('click', () => closeAllModals());
-
-    const btnPrev = document.getElementById('btn-proj-prev');
-    const btnNext = document.getElementById('btn-proj-next');
-
-    if (btnPrev) {
-      btnPrev.addEventListener('click', () => {
-        currentProjectIndex = currentProjectIndex > 1 ? currentProjectIndex - 1 : 3;
-        renderProjectDetail(currentProjectIndex);
-        sfx.click();
-      });
-    }
-
-    if (btnNext) {
-      btnNext.addEventListener('click', () => {
-        currentProjectIndex = currentProjectIndex < 3 ? currentProjectIndex + 1 : 1;
-        renderProjectDetail(currentProjectIndex);
-        sfx.click();
+          bubbleEl.style.transform = 'translateX(-50%) translateY(0)';
+        }, 200);
       });
     }
   });
 
-})();
+  // --------------------------------------------------------------------------
+  // 7. RENDER 5 PROJECTS IN PROJECT HUB
+  // --------------------------------------------------------------------------
+  const projectsGrid = document.getElementById('projects-grid');
+  let currentFilter = 'all';
+
+  function renderProjects(filter = 'all') {
+    if (!projectsGrid) return;
+    projectsGrid.innerHTML = '';
+
+    const projectList = Object.values(PROJECTS_DATA).filter(p => {
+      if (filter === 'all') return true;
+      return p.category === filter;
+    });
+
+    projectList.forEach(p => {
+      const card = document.createElement('article');
+      card.className = 'project-card pixel-box';
+      card.setAttribute('data-id', p.id);
+
+      const tagsHtml = p.tags.map(t => '<span class="project-tag">' + t + '</span>').join('');
+
+      card.innerHTML = 
+        '<div class="project-thumb-box" data-action="open-modal" data-id="' + p.id + '" tabindex="0" role="button" aria-label="Buka detail ' + p.title + '">' +
+          '<span class="project-badge-category">' + p.categoryLabel + '</span>' +
+          '<img src="' + p.image + '" alt="' + p.title + '" class="project-thumb-img" loading="lazy">' +
+          '<span class="project-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Detail</span>' +
+        '</div>' +
+        '<div class="project-card-body">' +
+          '<h3 class="project-card-title">' + p.title + '</h3>' +
+          '<div class="project-tags-list">' + tagsHtml + '</div>' +
+          '<p class="project-card-summary">' + p.summary + '</p>' +
+          '<div class="project-card-role-box">' +
+            '<strong>Peran Saya:</strong> ' + p.role +
+          '</div>' +
+          '<div class="project-card-actions">' +
+            '<button type="button" class="pixel-btn-sm btn-primary btn-open-detail" data-id="' + p.id + '">' +
+              '<i class="fa-solid fa-eye"></i> <span>Detail</span>' +
+            '</button>' +
+            '<button type="button" class="pixel-btn-sm btn-secondary btn-card-quiz" data-quiz-key="' + p.quizKey + '">' +
+              '<i class="fa-solid fa-gamepad"></i> <span>Kuis</span>' +
+            '</button>' +
+          '</div>' +
+        '</div>';
+
+      projectsGrid.appendChild(card);
+    });
+
+    // Attach click listeners to cards
+    document.querySelectorAll('.btn-open-detail, .project-thumb-box').forEach(el => {
+      el.addEventListener('click', () => {
+        sfx.playClick();
+        const id = parseInt(el.getAttribute('data-id'), 10);
+        openProjectModal(id);
+      });
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const id = parseInt(el.getAttribute('data-id'), 10);
+          openProjectModal(id);
+        }
+      });
+    });
+
+    document.querySelectorAll('.btn-card-quiz').forEach(btn => {
+      btn.addEventListener('click', () => {
+        sfx.playClick();
+        const key = btn.getAttribute('data-quiz-key');
+        const quizSection = document.getElementById('quiz');
+        if (quizSection) {
+          quizSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        setTimeout(() => startQuiz(key), 400);
+      });
+    });
+  }
+
+  // Initial render
+  renderProjects('all');
+
+  // Filter Buttons
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      sfx.playClick();
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.getAttribute('data-filter');
+      renderProjects(currentFilter);
+    });
+  });
+
+  // --------------------------------------------------------------------------
+  // 8. PROJECT DETAIL MODAL SYSTEM
+  // --------------------------------------------------------------------------
+  const projectModal = document.getElementById('project-modal');
+  const projectModalContent = document.getElementById('project-modal-content');
+  const modalBackdrop = document.getElementById('modal-backdrop');
+  const btnCloseProjModal = document.getElementById('btn-close-project-modal');
+  const btnModalCloseAction = document.getElementById('btn-modal-close-action');
+  const btnProjModalPrev = document.getElementById('btn-proj-modal-prev');
+  const btnProjModalNext = document.getElementById('btn-proj-modal-next');
+  const projModalCounter = document.getElementById('proj-modal-counter');
+
+  let activeModalProjectId = 1;
+  const projectKeys = Object.keys(PROJECTS_DATA).map(k => parseInt(k, 10));
+
+  function openProjectModal(id) {
+    const project = PROJECTS_DATA[id];
+    if (!project || !projectModal || !projectModalContent) return;
+
+    activeModalProjectId = id;
+    const currentIdx = projectKeys.indexOf(id) + 1;
+    if (projModalCounter) {
+      projModalCounter.textContent = currentIdx + ' / ' + projectKeys.length;
+    }
+
+    // Video button rendering (Only if URL exists)
+    const hasVideo = Boolean(project.videoUrl && project.videoUrl.trim() !== '');
+    const videoBtnHtml = hasVideo ? 
+      '<a href="' + project.videoUrl + '" target="_blank" rel="noopener noreferrer" class="pixel-btn btn-danger">' +
+        '<i class="fa-solid fa-play"></i> <span>Tonton Video Monas</span>' +
+      '</a>' : '';
+
+    // Google Drive button rendering (Only if URL exists)
+    const hasDrive = Boolean(project.externalLinks && project.externalLinks.googleDrive && project.externalLinks.googleDrive.trim() !== '');
+    const driveBtnHtml = hasDrive ? 
+      '<a href="' + project.externalLinks.googleDrive + '" target="_blank" rel="noopener noreferrer" class="pixel-btn btn-secondary">' +
+        '<i class="fa-solid fa-folder-open"></i> <span>Lihat Dokumentasi Lengkap</span>' +
+      '</a>' : '';
+
+    const learningsHtml = project.learnings.map(item => '<li><i class="fa-solid fa-check"></i> <span>' + item + '</span></li>').join('');
+
+    projectModalContent.innerHTML = 
+      '<div class="detail-hero-box" id="modal-img-trigger" title="Klik untuk membuka galeri foto layar penuh">' +
+        '<img src="' + project.image + '" alt="' + project.title + '" class="detail-hero-img">' +
+        '<div class="detail-hero-caption">' +
+          '<i class="fa-solid fa-camera"></i> ' + project.imageCaption + ' (Klik untuk zoom)' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="detail-section">' +
+        '<h3 class="detail-label"><i class="fa-solid fa-circle-info"></i> RINGKASAN PROYEK</h3>' +
+        '<p class="detail-text">' + project.overview + '</p>' +
+      '</div>' +
+
+      '<div class="detail-section">' +
+        '<h3 class="detail-label"><i class="fa-solid fa-user-gear"></i> PERAN SAYA</h3>' +
+        '<p class="detail-text">' + project.role + '</p>' +
+      '</div>' +
+
+      '<div class="detail-section">' +
+        '<h3 class="detail-label"><i class="fa-solid fa-wrench"></i> ALAT & BAHAN</h3>' +
+        '<p class="detail-text">' + project.tools + '</p>' +
+      '</div>' +
+
+      '<div class="detail-section">' +
+        '<h3 class="detail-label"><i class="fa-solid fa-list-check"></i> YANG SAYA KERJAKAN</h3>' +
+        '<p class="detail-text">' + project.whatIDid + '</p>' +
+      '</div>' +
+
+      '<div class="detail-section">' +
+        '<h3 class="detail-label"><i class="fa-solid fa-graduation-cap"></i> YANG SAYA PELAJARI</h3>' +
+        '<ul class="detail-learnings-list">' + learningsHtml + '</ul>' +
+      '</div>' +
+
+      '<div class="detail-actions-row">' +
+        videoBtnHtml +
+        driveBtnHtml +
+        '<button type="button" class="pixel-btn btn-primary" id="btn-modal-start-quiz" data-quiz-key="' + project.quizKey + '">' +
+          '<i class="fa-solid fa-gamepad"></i> <span>Kuis Proyek Ini (3 Soal)</span>' +
+        '</button>' +
+      '</div>';
+
+    // Lightbox trigger from modal image
+    const imgTrigger = document.getElementById('modal-img-trigger');
+    if (imgTrigger) {
+      imgTrigger.addEventListener('click', () => {
+        openLightbox(project.gallery, 0);
+      });
+    }
+
+    // Modal quiz trigger
+    const modalQuizBtn = document.getElementById('btn-modal-start-quiz');
+    if (modalQuizBtn) {
+      modalQuizBtn.addEventListener('click', () => {
+        const qKey = modalQuizBtn.getAttribute('data-quiz-key');
+        closeProjectModal();
+        const quizSection = document.getElementById('quiz');
+        if (quizSection) quizSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => startQuiz(qKey), 400);
+      });
+    }
+
+    projectModal.classList.remove('hidden');
+    if (modalBackdrop) modalBackdrop.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProjectModal() {
+    if (projectModal) projectModal.classList.add('hidden');
+    if (modalBackdrop) modalBackdrop.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  if (btnCloseProjModal) btnCloseProjModal.addEventListener('click', () => { sfx.playClick(); closeProjectModal(); });
+  if (btnModalCloseAction) btnModalCloseAction.addEventListener('click', () => { sfx.playClick(); closeProjectModal(); });
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeProjectModal);
+
+  if (btnProjModalPrev) {
+    btnProjModalPrev.addEventListener('click', () => {
+      sfx.playClick();
+      const currentIdx = projectKeys.indexOf(activeModalProjectId);
+      const prevIdx = (currentIdx - 1 + projectKeys.length) % projectKeys.length;
+      openProjectModal(projectKeys[prevIdx]);
+    });
+  }
+
+  if (btnProjModalNext) {
+    btnProjModalNext.addEventListener('click', () => {
+      sfx.playClick();
+      const currentIdx = projectKeys.indexOf(activeModalProjectId);
+      const nextIdx = (currentIdx + 1) % projectKeys.length;
+      openProjectModal(projectKeys[nextIdx]);
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 9. LIGHTBOX IMAGE GALLERY (FULLSCREEN PREVIEW)
+  // --------------------------------------------------------------------------
+  const lightboxModal = document.getElementById('lightbox-modal');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxCounter = document.getElementById('lightbox-counter');
+  const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+  const lightboxBackdrop = document.getElementById('lightbox-backdrop');
+  const lightboxPrevBtn = document.getElementById('lightbox-prev');
+  const lightboxNextBtn = document.getElementById('lightbox-next');
+
+  let activeGallery = [];
+  let activeGalleryIdx = 0;
+
+  function openLightbox(gallery, startIdx = 0) {
+    if (!gallery || gallery.length === 0 || !lightboxModal) return;
+    activeGallery = gallery;
+    activeGalleryIdx = startIdx;
+    updateLightboxUI();
+
+    lightboxModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    sfx.playClick();
+  }
+
+  function updateLightboxUI() {
+    const item = activeGallery[activeGalleryIdx];
+    if (!item) return;
+
+    if (lightboxImg) lightboxImg.src = item.src;
+    if (lightboxCaption) lightboxCaption.textContent = item.caption || '';
+    if (lightboxCounter) lightboxCounter.textContent = (activeGalleryIdx + 1) + ' / ' + activeGallery.length;
+  }
+
+  function closeLightbox() {
+    if (lightboxModal) lightboxModal.classList.add('hidden');
+    if (!projectModal || projectModal.classList.contains('hidden')) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', () => { sfx.playClick(); closeLightbox(); });
+  if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+
+  if (lightboxPrevBtn) {
+    lightboxPrevBtn.addEventListener('click', () => {
+      sfx.playClick();
+      activeGalleryIdx = (activeGalleryIdx - 1 + activeGallery.length) % activeGallery.length;
+      updateLightboxUI();
+    });
+  }
+
+  if (lightboxNextBtn) {
+    lightboxNextBtn.addEventListener('click', () => {
+      sfx.playClick();
+      activeGalleryIdx = (activeGalleryIdx + 1) % activeGallery.length;
+      updateLightboxUI();
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 10. QUICK QUIZ ARENA (20 INTERACTIVE QUESTIONS ENGINE)
+  // --------------------------------------------------------------------------
+  const quizSelectorGrid = document.getElementById('quiz-selector-grid');
+  const quizActiveArena = document.getElementById('quiz-active-arena');
+
+  let activeQuizKey = 'about_me';
+  let currentQIdx = 0;
+  let quizScore = 0;
+  let answered = false;
+
+  function startQuiz(quizKey) {
+    const quizData = QUIZZES_DATA[quizKey];
+    if (!quizData || !quizActiveArena || !quizSelectorGrid) return;
+
+    activeQuizKey = quizKey;
+    currentQIdx = 0;
+    quizScore = 0;
+    answered = false;
+
+    quizSelectorGrid.classList.add('hidden');
+    quizActiveArena.classList.remove('hidden');
+
+    renderQuizStep();
+    sfx.playClick();
+  }
+
+  function renderQuizStep() {
+    const quizData = QUIZZES_DATA[activeQuizKey];
+    if (!quizData || !quizActiveArena) return;
+
+    const q = quizData.questions[currentQIdx];
+    const totalQ = quizData.questions.length;
+    answered = false;
+
+    const optionsHtml = q.options.map((opt, idx) => 
+      '<button type="button" class="quiz-option-btn" data-index="' + idx + '">' +
+        '<span class="quiz-option-key">' + String.fromCharCode(65 + idx) + '</span>' +
+        '<span class="quiz-option-label">' + opt + '</span>' +
+      '</button>'
+    ).join('');
+
+    const nextBtnLabel = (currentQIdx + 1 === totalQ) ? 'Lihat Hasil 🏆' : 'Soal Berikutnya ▶';
+
+    quizActiveArena.innerHTML = 
+      '<div class="quiz-header-status">' +
+        '<span class="quiz-category-tag">' + quizData.title + '</span>' +
+        '<span class="quiz-counter-tag">SOAL ' + (currentQIdx + 1) + ' / ' + totalQ + '</span>' +
+      '</div>' +
+
+      '<div class="quiz-question-box">' +
+        '<h3 class="quiz-question-text">' + q.q + '</h3>' +
+      '</div>' +
+
+      '<div class="quiz-options-list" id="quiz-options-container">' +
+        optionsHtml +
+      '</div>' +
+
+      '<div class="quiz-feedback-box hidden" id="quiz-feedback-box">' +
+      '</div>' +
+
+      '<div class="quiz-footer-actions">' +
+        '<button type="button" class="pixel-btn-sm btn-secondary" id="btn-quiz-back-hub">' +
+          '<i class="fa-solid fa-arrow-left"></i> <span>Ganti Kuis</span>' +
+        '</button>' +
+        '<button type="button" class="pixel-btn-sm btn-primary hidden" id="btn-quiz-next">' +
+          '<span>' + nextBtnLabel + '</span>' +
+        '</button>' +
+      '</div>';
+
+    // Attach option click listeners
+    const optionBtns = quizActiveArena.querySelectorAll('.quiz-option-btn');
+    optionBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (answered) return;
+        const selectedIdx = parseInt(btn.getAttribute('data-index'), 10);
+        handleAnswer(selectedIdx);
+      });
+    });
+
+    const backHubBtn = document.getElementById('btn-quiz-back-hub');
+    if (backHubBtn) {
+      backHubBtn.addEventListener('click', () => {
+        sfx.playClick();
+        exitQuizToHub();
+      });
+    }
+
+    const nextBtn = document.getElementById('btn-quiz-next');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        sfx.playClick();
+        if (currentQIdx + 1 < totalQ) {
+          currentQIdx++;
+          renderQuizStep();
+        } else {
+          renderQuizResult();
+        }
+      });
+    }
+  }
+
+  function handleAnswer(selectedIndex) {
+    answered = true;
+    const quizData = QUIZZES_DATA[activeQuizKey];
+    const q = quizData.questions[currentQIdx];
+    const isCorrect = selectedIndex === q.correct;
+
+    if (isCorrect) {
+      quizScore++;
+      sfx.playCorrect();
+    } else {
+      sfx.playWrong();
+    }
+
+    const optionBtns = quizActiveArena.querySelectorAll('.quiz-option-btn');
+    optionBtns.forEach((btn, idx) => {
+      btn.disabled = true;
+      if (idx === q.correct) {
+        btn.classList.add('correct');
+      } else if (idx === selectedIndex && !isCorrect) {
+        btn.classList.add('wrong');
+      }
+    });
+
+    const feedbackBox = document.getElementById('quiz-feedback-box');
+    const nextBtn = document.getElementById('btn-quiz-next');
+
+    if (feedbackBox) {
+      feedbackBox.className = 'quiz-feedback-box ' + (isCorrect ? 'correct' : 'wrong');
+      feedbackBox.innerHTML = 
+        '<h4 class="quiz-feedback-title">' + (isCorrect ? '✅ JAWABAN BENAR!' : '❌ JAWABAN KURANG TEPAT!') + '</h4>' +
+        '<p class="quiz-feedback-desc">' + q.feedback + '</p>';
+      feedbackBox.classList.remove('hidden');
+    }
+
+    if (nextBtn) {
+      nextBtn.classList.remove('hidden');
+      nextBtn.focus();
+    }
+  }
+
+  function renderQuizResult() {
+    const quizData = QUIZZES_DATA[activeQuizKey];
+    const totalQ = quizData.questions.length;
+    sfx.playTrophy();
+
+    let studentFeedback = '';
+    if (activeQuizKey === 'about_me') {
+      if (quizScore === 5) {
+        studentFeedback = 'Kenal saya banget 😎 Siap jalan bareng keliling Pixel City!';
+      } else if (quizScore >= 3) {
+        studentFeedback = 'Sudah lumayan kenal dengan profil dan cerita belajar saya!';
+      } else {
+        studentFeedback = 'Kayaknya harus jalan-jalan keliling Pixel City dulu nih biar makin kenal 😭';
+      }
+    } else {
+      if (quizScore === 3) {
+        studentFeedback = 'Sempurna 3/3! Kamu membaca dan memahami proyek ini dengan sangat baik 🌟';
+      } else if (quizScore === 2) {
+        studentFeedback = 'Bagus 2/3! Pemahamanmu terhadap proyek ini sudah cukup baik.';
+      } else {
+        studentFeedback = 'Belum maksimal, yuk baca ulang rangkuman proyeknya di Project Hub!';
+      }
+    }
+
+    quizActiveArena.innerHTML = 
+      '<div class="quiz-result-card">' +
+        '<div class="result-trophy-icon">' +
+          '<i class="fa-solid fa-trophy"></i>' +
+        '</div>' +
+        '<div class="result-score-badge">SKOR AKHIR: ' + quizScore + ' / ' + totalQ + '</div>' +
+        '<h3 class="result-title">Hasil Kuis Selesai!</h3>' +
+        '<p class="result-msg">' + studentFeedback + '</p>' +
+
+        '<div class="result-buttons-row">' +
+          '<button type="button" class="pixel-btn btn-secondary" id="btn-quiz-retake">' +
+            '<i class="fa-solid fa-rotate-left"></i> <span>Ulangi Kuis Ini</span>' +
+          '</button>' +
+          '<button type="button" class="pixel-btn btn-primary" id="btn-quiz-hub-return">' +
+            '<i class="fa-solid fa-list"></i> <span>Pilih Kuis Lain</span>' +
+          '</button>' +
+        '</div>' +
+      '</div>';
+
+    const retakeBtn = document.getElementById('btn-quiz-retake');
+    const hubReturnBtn = document.getElementById('btn-quiz-hub-return');
+
+    if (retakeBtn) {
+      retakeBtn.addEventListener('click', () => {
+        startQuiz(activeQuizKey);
+      });
+    }
+
+    if (hubReturnBtn) {
+      hubReturnBtn.addEventListener('click', () => {
+        sfx.playClick();
+        exitQuizToHub();
+      });
+    }
+  }
+
+  function exitQuizToHub() {
+    if (quizSelectorGrid) quizSelectorGrid.classList.remove('hidden');
+    if (quizActiveArena) {
+      quizActiveArena.classList.add('hidden');
+      quizActiveArena.innerHTML = '';
+    }
+  }
+
+  // Quiz Selector Mode Buttons
+  const startQuizBtns = document.querySelectorAll('.btn-start-quiz');
+  startQuizBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.getAttribute('data-quiz-key');
+      startQuiz(key);
+    });
+  });
+
+  // Shortcut Buttons
+  const btnHeroQuiz = document.getElementById('btn-hero-quiz');
+  const btnNavQuickQuiz = document.getElementById('btn-nav-quick-quiz');
+  const btnDrawerQuiz = document.getElementById('btn-drawer-quiz');
+  const btnQuizAboutMe = document.getElementById('btn-quiz-about-me');
+  const btnJumpProjectQuiz = document.getElementById('btn-jump-project-quiz');
+
+  function jumpAndStartQuiz(key = 'about_me') {
+    const quizSec = document.getElementById('quiz');
+    if (quizSec) quizSec.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => startQuiz(key), 400);
+  }
+
+  if (btnHeroQuiz) btnHeroQuiz.addEventListener('click', () => jumpAndStartQuiz('about_me'));
+  if (btnNavQuickQuiz) btnNavQuickQuiz.addEventListener('click', () => jumpAndStartQuiz('about_me'));
+  if (btnDrawerQuiz) {
+    btnDrawerQuiz.addEventListener('click', () => {
+      closeDrawer();
+      jumpAndStartQuiz('about_me');
+    });
+  }
+  if (btnQuizAboutMe) btnQuizAboutMe.addEventListener('click', () => jumpAndStartQuiz('about_me'));
+  if (btnJumpProjectQuiz) btnJumpProjectQuiz.addEventListener('click', () => jumpAndStartQuiz('monas'));
+
+  // --------------------------------------------------------------------------
+  // 11. SCROLL PROGRESS & SPY ACTIVE NAVIGATION
+  // --------------------------------------------------------------------------
+  const scrollProgressBar = document.getElementById('scroll-progress-bar');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', () => {
+    // Progress bar
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+    if (scrollProgressBar) {
+      scrollProgressBar.style.width = scrolled + '%';
+    }
+
+    // Back to top button visibility
+    const backTopBtn = document.getElementById('back-top-btn');
+    if (backTopBtn) {
+      if (window.scrollY > 400) {
+        backTopBtn.classList.add('visible');
+      } else {
+        backTopBtn.classList.remove('visible');
+      }
+    }
+
+    // Active Section Spy
+    const scrollPos = window.scrollY + 160;
+    sections.forEach(sec => {
+      const top = sec.offsetTop;
+      const secHeight = sec.offsetHeight;
+      const id = sec.getAttribute('id');
+      const targetNav = document.querySelector('.nav-link[href="#' + id + '"]');
+
+      if (targetNav) {
+        if (scrollPos >= top && scrollPos < top + secHeight) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          targetNav.classList.add('active');
+        }
+      }
+    });
+  });
+
+  const backTopBtn = document.getElementById('back-top-btn');
+  if (backTopBtn) {
+    backTopBtn.addEventListener('click', () => {
+      sfx.playClick();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 12. MOBILE DRAWER NAVIGATION
+  // --------------------------------------------------------------------------
+  const navToggleBtn = document.getElementById('nav-toggle-btn');
+  const drawerCloseBtn = document.getElementById('drawer-close-btn');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const mobileDrawerBackdrop = document.getElementById('mobile-drawer-backdrop');
+  const drawerLinks = document.querySelectorAll('.drawer-link');
+
+  function openDrawer() {
+    sfx.playClick();
+    if (mobileDrawer) mobileDrawer.classList.add('active');
+    if (mobileDrawerBackdrop) mobileDrawerBackdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (navToggleBtn) navToggleBtn.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeDrawer() {
+    if (mobileDrawer) mobileDrawer.classList.remove('active');
+    if (mobileDrawerBackdrop) mobileDrawerBackdrop.classList.remove('active');
+    document.body.style.overflow = '';
+    if (navToggleBtn) navToggleBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  if (navToggleBtn) navToggleBtn.addEventListener('click', openDrawer);
+  if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
+  if (mobileDrawerBackdrop) mobileDrawerBackdrop.addEventListener('click', closeDrawer);
+
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeDrawer();
+    });
+  });
+
+  // --------------------------------------------------------------------------
+  // 13. CONTACT FORM VALIDATION & TOAST SYSTEM
+  // --------------------------------------------------------------------------
+  const contactForm = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('sender-name').value.trim();
+      const email = document.getElementById('sender-email').value.trim();
+      const subject = document.getElementById('sender-subject').value.trim();
+      const message = document.getElementById('sender-message').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        sfx.playWrong();
+        displayToast('Harap lengkapi semua kolom bertanda bintang (*).', 'error');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        sfx.playWrong();
+        displayToast('Format alamat email tidak valid.', 'error');
+        return;
+      }
+
+      const origBtnHtml = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Mengirimkan Pesan...</span>';
+
+      setTimeout(() => {
+        sfx.playCorrect();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = origBtnHtml;
+        contactForm.reset();
+        displayToast('Terima kasih, ' + name + '! Pesan Anda telah dicatat (dairabih2@gmail.com).', 'success');
+      }, 900);
+    });
+  }
+
+  function displayToast(msg, type = 'success') {
+    const wrapper = document.getElementById('toast-wrapper');
+    if (!wrapper) return;
+
+    const toast = document.createElement('div');
+    toast.className = 'toast-item ' + type;
+
+    let icon = 'fa-circle-check text-green';
+    if (type === 'error') icon = 'fa-circle-exclamation text-coral';
+    if (type === 'info') icon = 'fa-circle-info text-cyan';
+    if (type === 'easter-egg') icon = 'fa-wand-magic-sparkles text-purple';
+
+    toast.innerHTML = '<i class="fa-solid ' + icon + '"></i> <span>' + msg + '</span>';
+    wrapper.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateX(-20px)';
+      toast.style.transition = '0.3s ease';
+      setTimeout(() => toast.remove(), 300);
+    }, 3500);
+  }
+
+  // --------------------------------------------------------------------------
+  // 14. EASTER EGG & KEYBOARD CONTROLS
+  // --------------------------------------------------------------------------
+  const brandLogo = document.getElementById('brand-logo');
+  let logoClickCount = 0;
+  let logoTimer = null;
+
+  if (brandLogo) {
+    brandLogo.addEventListener('click', (e) => {
+      logoClickCount++;
+      clearTimeout(logoTimer);
+
+      if (logoClickCount === 5) {
+        e.preventDefault();
+        sfx.playTrophy();
+        displayToast('🎉 Secret Unlocked! Semangat belajar coding dan membangun masa depan!', 'easter-egg');
+        logoClickCount = 0;
+      } else {
+        logoTimer = setTimeout(() => {
+          logoClickCount = 0;
+        }, 1400);
+      }
+    });
+  }
+
+  // Escape & Arrow keys navigation
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (lightboxModal && !lightboxModal.classList.contains('hidden')) {
+        closeLightbox();
+      } else if (projectModal && !projectModal.classList.contains('hidden')) {
+        closeProjectModal();
+      } else if (mobileDrawer && mobileDrawer.classList.contains('active')) {
+        closeDrawer();
+      }
+    } else if (e.key === 'ArrowLeft') {
+      if (lightboxModal && !lightboxModal.classList.contains('hidden')) {
+        if (lightboxPrevBtn) lightboxPrevBtn.click();
+      }
+    } else if (e.key === 'ArrowRight') {
+      if (lightboxModal && !lightboxModal.classList.contains('hidden')) {
+        if (lightboxNextBtn) lightboxNextBtn.click();
+      }
+    }
+  });
+
+  // Dynamic Current Year
+  const yearEl = document.getElementById('current-year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+});
